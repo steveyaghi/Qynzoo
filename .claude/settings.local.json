@@ -1,0 +1,39 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:qynzoo.com)",
+      "Bash(mkdir:*)",
+      "Bash(start index.html)",
+      "Bash(claude mcp add:*)",
+      "Bash(claude list-mcp-servers)",
+      "Bash(copy:*)",
+      "WebSearch",
+      "Read(//c/Users/mosty/OneDrive/Desktop/Qynzoo/Qynzoo.com/screenshots/**)",
+      "mcp__playwright__browser_navigate",
+      "mcp__playwright__browser_take_screenshot",
+      "mcp__playwright__browser_click",
+      "mcp__playwright__browser_close",
+      "Bash(npx shadcn@latest add https://reactbits.dev/r/PixelBlast-JS-CSS)",
+      "WebFetch(domain:reactbits.dev)",
+      "Bash(cat:*)",
+      "Bash(python:*)",
+      "Bash(timeout:*)",
+      "Bash(npx -y serve -p 8000)",
+      "mcp__playwright__browser_console_messages",
+      "Bash(dir:*)",
+      "mcp__playwright__browser_wait_for",
+      "mcp__playwright__browser_evaluate",
+      "Read(//d/**)",
+      "Bash(for file in blog-ai-agent-practices.html blog-workflow-automation.html blog-ai-tools-2025.html blog-build-chatbot.html blogs.html)",
+      "Bash(do)",
+      "Bash(done)",
+      "Bash(cd:*)",
+      "mcp__playwright__browser_snapshot",
+      "Bash(git init:*)",
+      "Bash(git remote add:*)",
+      "Bash(git add:*)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}

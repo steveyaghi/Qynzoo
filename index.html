@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Qynzoo - AI Automation & Website Building Agency</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="logos/Qynzoo_solo_logo.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="logos/Qynzoo_solo_logo.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="logos/Qynzoo_solo_logo.png">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/card-nav.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <style>
+        .resource-link:hover {
+            background: rgba(68, 187, 164, 0.1) !important;
+            border-color: var(--primary-color) !important;
+            transform: translateY(-2px);
+        }
+        @media (max-width: 968px) {
+            .resources-card {
+                grid-column: span 1 !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Card Navigation -->
+    <div class="card-nav-container" id="cardNavContainer"></div>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="pixel-bg"></div>
+        <div class="container">
+            <div class="hero-content" data-aos="fade-up">
+                <div class="hero-text">
+                    <h1 class="hero-title">Transform Your Business with <span class="gradient-text">AI Automation</span></h1>
+                    <p class="hero-subtitle">We build intelligent workflows and stunning websites that drive growth and efficiency</p>
+                    <div class="hero-buttons">
+                        <a href="#contact" class="btn btn-primary">Get Started</a>
+                        <a href="#workflow" class="btn btn-secondary">Learn More</a>
+                    </div>
+                    <div class="founder-card" style="margin-top: 30px;" data-aos="fade-up">
+                        <div class="founder-image-wrapper">
+                            <img src="images/mostafa-yaghi.jpg" alt="Mostafa Yaghi" class="founder-image" onerror="this.src='images/placeholder-avatar.jpg'">
+                            <div class="founder-badge">
+                                <i class="fas fa-check-circle"></i>
+                            </div>
+                        </div>
+                        <div class="founder-info">
+                            <h3>Mostafa Yaghi</h3>
+                            <p class="founder-title">Founder & AI Automation Expert</p>
+                            <p class="founder-description">Helping businesses leverage AI to automate workflows and build powerful web solutions</p>
+                            <div class="social-links">
+                                <a href="coming-soon.html" class="social-link"><i class="fab fa-linkedin"></i></a>
+                                <a href="coming-soon.html" class="social-link"><i class="fab fa-twitter"></i></a>
+                                <a href="coming-soon.html" class="social-link"><i class="fab fa-github"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="hero-image" data-aos="fade-left">
+                    <div class="contact-form-wrapper hero-contact-form">
+                        <h3 style="color: var(--secondary-color); margin-bottom: 20px;">Get In Touch</h3>
+                        <form class="contact-form" id="heroContactForm">
+                            <div class="form-group">
+                                <input type="text" id="hero-name" name="name" required>
+                                <label for="hero-name">Your Name</label>
+                                <span class="form-error"></span>
+                            </div>
+                            <div class="form-group">
+                                <input type="email" id="hero-email" name="email" required>
+                                <label for="hero-email">Your Email</label>
+                                <span class="form-error"></span>
+                            </div>
+                            <div class="form-group">
+                                <input type="text" id="hero-subject" name="subject" required>
+                                <label for="hero-subject">Subject</label>
+                                <span class="form-error"></span>
+                            </div>
+                            <div class="form-group">
+                                <select id="hero-service" name="service" required>
+                                    <option value="">Select a Service</option>
+                                    <option value="automation">AI Automation</option>
+                                    <option value="website">Website Building</option>
+                                    <option value="integration">Integration Solutions</option>
+                                    <option value="local-ai">Local AI Solutions</option>
+                                    <option value="consultation">Free Consultation</option>
+                                </select>
+                                <label for="hero-service">Service Interest</label>
+                                <span class="form-error"></span>
+                            </div>
+                            <div class="form-group">
+                                <textarea id="hero-message" name="message" rows="4" required></textarea>
+                                <label for="hero-message">Your Message</label>
+                                <span class="form-error"></span>
+                            </div>
+                            <button type="submit" class="btn btn-primary btn-submit">
+                                <span class="btn-text">Send Message</span>
+                                <span class="btn-loading"><i class="fas fa-spinner fa-spin"></i></span>
+                            </button>
+                            <div class="form-message"></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <div class="mouse"></div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <div class="pixel-bg"></div>
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <h2 class="section-title">Our Services</h2>
+                <p class="section-subtitle">Comprehensive solutions to elevate your business</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card" data-aos="fade-up">
+                    <div class="service-icon">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <h3>AI Automation</h3>
+                    <p>Streamline your operations with intelligent automation workflows that save time and reduce errors</p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> Process Automation</li>
+                        <li><i class="fas fa-check"></i> Data Integration</li>
+                        <li><i class="fas fa-check"></i> Smart Chatbots</li>
+                        <li><i class="fas fa-check"></i> AI Analytics</li>
+                    </ul>
+                    <a href="#contact" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                </div>
+                <div class="service-card featured" data-aos="fade-up">
+                    <div class="featured-badge">Popular</div>
+                    <div class="service-icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <h3>Website Building</h3>
+                    <p>Create stunning, high-performance websites that convert visitors into customers</p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> Custom Design</li>
+                        <li><i class="fas fa-check"></i> Responsive Layout</li>
+                        <li><i class="fas fa-check"></i> SEO & GEO Optimized</li>
+                        <li><i class="fas fa-check"></i> Fast Loading</li>
+                    </ul>
+                    <a href="#contact" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                </div>
+                <div class="service-card" data-aos="fade-up">
+                    <div class="service-icon">
+                        <i class="fas fa-cogs"></i>
+                    </div>
+                    <h3>Integration Solutions</h3>
+                    <p>Connect your tools and systems for seamless data flow and enhanced productivity</p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> API Integration</li>
+                        <li><i class="fas fa-check"></i> CRM Automation</li>
+                        <li><i class="fas fa-check"></i> Cloud Solutions</li>
+                        <li><i class="fas fa-check"></i> Custom Workflows</li>
+                    </ul>
+                    <a href="#contact" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                </div>
+                <div class="service-card" data-aos="fade-up">
+                    <div class="service-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Local AI Solutions</h3>
+                    <p>Automate your workflows & solutions with a local AI for your sensitive data. Contact me to look for possibilities</p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> Data Privacy & Security</li>
+                        <li><i class="fas fa-check"></i> No Cloud Dependency</li>
+                        <li><i class="fas fa-check"></i> Custom AI Models</li>
+                        <li><i class="fas fa-check"></i> Full Data Control</li>
+                    </ul>
+                    <a href="#contact" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                </div>
+                <div class="service-card resources-card" data-aos="fade-up" style="grid-column: span 2;">
+                    <div class="service-icon">
+                        <i class="fas fa-book-open"></i>
+                    </div>
+                    <h3>Learn More About Our Services</h3>
+                    <p>Explore in-depth articles explaining our specialized services and how they can benefit your business</p>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px; margin-top: 20px;">
+                        <a href="blog-geo-vs-seo.html" class="resource-link" style="display: flex; align-items: center; gap: 12px; padding: 15px; background: rgba(255,255,255,0.05); border-radius: 8px; text-decoration: none; color: inherit; border: 1px solid rgba(255,255,255,0.1); transition: all 0.3s;">
+                            <i class="fas fa-search" style="color: var(--primary-color); font-size: 20px;"></i>
+                            <div>
+                                <h4 style="margin: 0 0 5px 0; font-size: 15px;">GEO vs SEO</h4>
+                                <p style="margin: 0; font-size: 13px; color: #94a3b8;">What is GEO optimization and how it differs from SEO</p>
+                            </div>
+                        </a>
+                        <a href="blog-local-ai.html" class="resource-link" style="display: flex; align-items: center; gap: 12px; padding: 15px; background: rgba(255,255,255,0.05); border-radius: 8px; text-decoration: none; color: inherit; border: 1px solid rgba(255,255,255,0.1); transition: all 0.3s;">
+                            <i class="fas fa-shield-alt" style="color: var(--primary-color); font-size: 20px;"></i>
+                            <div>
+                                <h4 style="margin: 0 0 5px 0; font-size: 15px;">Local AI Usage</h4>
+                                <p style="margin: 0; font-size: 13px; color: #94a3b8;">Why local AI is essential for sensitive data</p>
+                            </div>
+                        </a>
+                        <a href="blogs.html" class="resource-link" style="display: flex; align-items: center; gap: 12px; padding: 15px; background: rgba(255,255,255,0.05); border-radius: 8px; text-decoration: none; color: inherit; border: 1px solid rgba(255,255,255,0.1); transition: all 0.3s;">
+                            <i class="fas fa-blog" style="color: var(--primary-color); font-size: 20px;"></i>
+                            <div>
+                                <h4 style="margin: 0 0 5px 0; font-size: 15px;">Visit Our Blog</h4>
+                                <p style="margin: 0; font-size: 13px; color: #94a3b8;">Explore all articles on AI automation and workflows</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Workflow Section -->
+    <section class="workflow" id="workflow">
+        <div class="pixel-bg"></div>
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <h2 class="section-title">How Our Workflows Work</h2>
+                <p class="section-subtitle">A simple, proven process to transform your business</p>
+            </div>
+            <div class="workflow-timeline">
+                <div class="workflow-step" data-aos="fade-right">
+                    <div class="step-number">01</div>
+                    <div class="step-content">
+                        <div class="step-icon">
+                            <i class="fas fa-comments"></i>
+                        </div>
+                        <h3>Discovery & Consultation</h3>
+                        <p>We start by understanding your business needs, pain points, and goals. Through detailed consultation, we identify opportunities for automation and improvement.</p>
+                        <div class="step-details">
+                            <span><i class="fas fa-clock"></i> 1-2 Days</span>
+                            <span><i class="fas fa-check-circle"></i> Free Consultation</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="workflow-step" data-aos="fade-left">
+                    <div class="step-number">02</div>
+                    <div class="step-content">
+                        <div class="step-icon">
+                            <i class="fas fa-lightbulb"></i>
+                        </div>
+                        <h3>Strategy & Planning</h3>
+                        <p>We design a custom solution tailored to your requirements. This includes workflow mapping, technology selection, and creating a detailed implementation roadmap.</p>
+                        <div class="step-details">
+                            <span><i class="fas fa-clock"></i> 2-3 Days</span>
+                            <span><i class="fas fa-check-circle"></i> Custom Strategy</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="workflow-step" data-aos="fade-right">
+                    <div class="step-number">03</div>
+                    <div class="step-content">
+                        <div class="step-icon">
+                            <i class="fas fa-laptop-code"></i>
+                        </div>
+                        <h3>Development & Integration</h3>
+                        <p>Our team builds your solution using cutting-edge technology. We create automated workflows, design interfaces, and integrate with your existing systems.</p>
+                        <div class="step-details">
+                            <span><i class="fas fa-clock"></i> 1-3 Weeks</span>
+                            <span><i class="fas fa-check-circle"></i> Agile Development</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="workflow-step" data-aos="fade-left">
+                    <div class="step-number">04</div>
+                    <div class="step-content">
+                        <div class="step-icon">
+                            <i class="fas fa-vial"></i>
+                        </div>
+                        <h3>Testing & Refinement</h3>
+                        <p>Rigorous testing ensures everything works flawlessly. We gather feedback, make adjustments, and optimize for performance and user experience.</p>
+                        <div class="step-details">
+                            <span><i class="fas fa-clock"></i> 3-5 Days</span>
+                            <span><i class="fas fa-check-circle"></i> Quality Assurance</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="workflow-step" data-aos="fade-right">
+                    <div class="step-number">05</div>
+                    <div class="step-content">
+                        <div class="step-icon">
+                            <i class="fas fa-rocket"></i>
+                        </div>
+                        <h3>Launch & Support</h3>
+                        <p>We deploy your solution and provide comprehensive training. Our ongoing support ensures smooth operation and continuous improvement.</p>
+                        <div class="step-details">
+                            <span><i class="fas fa-clock"></i> Ongoing</span>
+                            <span><i class="fas fa-check-circle"></i> 24/7 Support</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="workflow-visualization" data-aos="zoom-in">
+                <div class="workflow-diagram">
+                    <div class="diagram-node" data-node="1">
+                        <i class="fas fa-user"></i>
+                        <span>Client</span>
+                    </div>
+                    <div class="diagram-arrow"></div>
+                    <div class="diagram-node" data-node="2">
+                        <i class="fas fa-brain"></i>
+                        <span>AI Analysis</span>
+                    </div>
+                    <div class="diagram-arrow"></div>
+                    <div class="diagram-node" data-node="3">
+                        <i class="fas fa-project-diagram"></i>
+                        <span>Workflow</span>
+                    </div>
+                    <div class="diagram-arrow"></div>
+                    <div class="diagram-node" data-node="4">
+                        <i class="fas fa-chart-line"></i>
+                        <span>Results</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="benefits" id="benefits">
+        <div class="pixel-bg"></div>
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <h2 class="section-title">What Clients Understand & Get</h2>
+                <p class="section-subtitle">Clear value, measurable results</p>
+            </div>
+            <div class="benefits-content">
+                <div class="benefits-tabs" data-aos="fade-right">
+                    <button class="tab-button active" data-tab="understanding">
+                        <i class="fas fa-brain"></i>
+                        <span>What You'll Understand</span>
+                    </button>
+                    <button class="tab-button" data-tab="deliverables">
+                        <i class="fas fa-box"></i>
+                        <span>What You'll Receive</span>
+                    </button>
+                    <button class="tab-button" data-tab="outcomes">
+                        <i class="fas fa-trophy"></i>
+                        <span>Expected Outcomes</span>
+                    </button>
+                    <button class="tab-button" data-tab="support">
+                        <i class="fas fa-headset"></i>
+                        <span>Ongoing Support</span>
+                    </button>
+                </div>
+                <div class="benefits-panels" data-aos="fade-left">
+                    <div class="tab-panel active" id="understanding">
+                        <h3>Crystal Clear Understanding</h3>
+                        <p class="panel-intro">We ensure you fully grasp how automation transforms your business:</p>
+                        <div class="benefit-items">
+                            <div class="benefit-item">
+                                <div class="benefit-icon"><i class="fas fa-chart-bar"></i></div>
+                                <div class="benefit-text">
+                                    <h4>Your Current Workflow</h4>
+                                    <p>Detailed analysis of your existing processes, identifying bottlenecks and inefficiencies</p>
+                                </div>
+                            </div>
+                            <div class="benefit-item">
+                                <div class="benefit-icon"><i class="fas fa-magic"></i></div>
+                                <div class="benefit-text">
+                                    <h4>How Automation Works</h4>
+                                    <p>Clear explanations of AI technology and automation without technical jargon</p>
+                                </div>
+                            </div>
+                            <div class="benefit-item">
+                                <div class="benefit-icon"><i class="fas fa-route"></i></div>
+                                <div class="benefit-text">
+                                    <h4>The Implementation Path</h4>
+                                    <p>Step-by-step roadmap showing exactly how we'll transform your operations</p>
+                                </div>
+                            </div>
+                            <div class="benefit-item">
+                                <div class="benefit-icon"><i class="fas fa-calculator"></i></div>
+                                <div class="benefit-text">
+                                    <h4>ROI & Time Savings</h4>
+                                    <p>Precise calculations showing cost savings and efficiency gains you'll achieve</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-panel" id="deliverables">
+                        <h3>Complete Solution Package</h3>
+                        <p class="panel-intro">Everything you need for success, delivered professionally:</p>
+                        <div class="benefit-items">
+                            <div class="benefit-item">
+                                <div class="benefit-icon"><i class="fas fa-file-code"></i></div>
+                                <div class="benefit-text">
+                                    <h4>Custom Built Solution</h4>
+                                    <p>Fully functional automated workflows or website tailored to your exact specifications</p>
+                                </div>
+                            </div>
+                            <div class="benefit-item">
+                                <div class="benefit-icon"><i class="fas fa-book"></i></div>
+                                <div class="benefit-text">
+                                    <h4>Documentation & Training</h4>
+                                    <p>Comprehensive guides and hands-on training for your team</p>
+                                </div>
+                            </div>
+                            <div class="benefit-item">
+                                <div class="benefit-icon"><i class="fas fa-plug"></i></div>
+                                <div class="benefit-text">
+                                    <h4>System Integration</h4>
+                                    <p>Seamless connection with your existing tools (CRM, databases, apps)</p>
+                                </div>
+                            </div>
+                            <div class="benefit-item">
+                                <div class="benefit-icon"><i class="fas fa-shield-alt"></i></div>
+                                <div class="benefit-text">
+                                    <h4>Security & Compliance</h4>
+                                    <p>Enterprise-grade security measures and compliance with industry standards</p>
+                                </div>
+                            </div>
+                            <div class="benefit-item">
+                                <div class="benefit-icon"><i class="fas fa-mobile-alt"></i></div>
+                                <div class="benefit-text">
+                                    <h4>Mobile Responsive Design</h4>
+                                    <p>Solutions that work perfectly on all devices - desktop, tablet, and mobile</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-panel" id="outcomes">
+                        <h3>Measurable Business Impact</h3>
+                        <p class="panel-intro">Real results you can track and celebrate:</p>
+                        <div class="benefit-items">
+                            <div class="benefit-item">
+                                <div class="benefit-icon"><i class="fas fa-hourglass-half"></i></div>
+                                <div class="benefit-text">
+                                    <h4>60-80% Time Savings</h4>
+                                    <p>Dramatic reduction in manual tasks, freeing your team for strategic work</p>
+                                </div>
+                            </div>
+                            <div class="benefit-item">
+                                <div class="benefit-icon"><i class="fas fa-dollar-sign"></i></div>
+                                <div class="benefit-text">
+                                    <h4>Cost Reduction</h4>
+                                    <p>Lower operational costs through efficient automation and reduced errors</p>
+                                </div>
+                            </div>
+                            <div class="benefit-item">
+                                <div class="benefit-icon"><i class="fas fa-tachometer-alt"></i></div>
+                                <div class="benefit-text">
+                                    <h4>Increased Productivity</h4>
+                                    <p>Handle more work with the same resources, scale without hiring</p>
+                                </div>
+                            </div>
+                            <div class="benefit-item">
+                                <div class="benefit-icon"><i class="fas fa-smile"></i></div>
+                                <div class="benefit-text">
+                                    <h4>Better Customer Experience</h4>
+                                    <p>Faster response times and more consistent service quality</p>
+                                </div>
+                            </div>
+                            <div class="benefit-item">
+                                <div class="benefit-icon"><i class="fas fa-chart-line"></i></div>
+                                <div class="benefit-text">
+                                    <h4>Data-Driven Insights</h4>
+                                    <p>Analytics and reporting that help you make smarter business decisions</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-panel" id="support">
+                        <h3>Always Here for You</h3>
+                        <p class="panel-intro">Continuous support to ensure your success:</p>
+                        <div class="benefit-items">
+                            <div class="benefit-item">
+                                <div class="benefit-icon"><i class="fas fa-clock"></i></div>
+                                <div class="benefit-text">
+                                    <h4>24/7 Technical Support</h4>
+                                    <p>Round-the-clock assistance via email, chat, or phone</p>
+                                </div>
+                            </div>
+                            <div class="benefit-item">
+                                <div class="benefit-icon"><i class="fas fa-sync"></i></div>
+                                <div class="benefit-text">
+                                    <h4>Regular Updates</h4>
+                                    <p>Continuous improvements and new features at no extra cost</p>
+                                </div>
+                            </div>
+                            <div class="benefit-item">
+                                <div class="benefit-icon"><i class="fas fa-wrench"></i></div>
+                                <div class="benefit-text">
+                                    <h4>Maintenance & Monitoring</h4>
+                                    <p>Proactive system monitoring and maintenance to prevent issues</p>
+                                </div>
+                            </div>
+                            <div class="benefit-item">
+                                <div class="benefit-icon"><i class="fas fa-graduation-cap"></i></div>
+                                <div class="benefit-text">
+                                    <h4>Ongoing Training</h4>
+                                    <p>Regular workshops and resources to maximize your solution's value</p>
+                                </div>
+                            </div>
+                            <div class="benefit-item">
+                                <div class="benefit-icon"><i class="fas fa-expand-arrows-alt"></i></div>
+                                <div class="benefit-text">
+                                    <h4>Scalability Support</h4>
+                                    <p>Help adapting and expanding your solution as your business grows</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="pixel-bg"></div>
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <h2 class="section-title">Let's Work Together</h2>
+                <p class="section-subtitle">Ready to transform your business? Get in touch today</p>
+            </div>
+            <div class="contact-content">
+                <div class="contact-info" data-aos="fade-right">
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h4>Email</h4>
+                            <p>contact@qynzoo.com</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h4>Phone</h4>
+                            <p>+1 (555) 123-4567</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h4>Location</h4>
+                            <p>Worldwide - Remote Services</p>
+                        </div>
+                    </div>
+                    <div class="contact-social">
+                        <h4>Follow Us</h4>
+                        <div class="social-icons">
+                            <a href="coming-soon.html" class="social-icon"><i class="fab fa-linkedin"></i></a>
+                            <a href="coming-soon.html" class="social-icon"><i class="fab fa-twitter"></i></a>
+                            <a href="coming-soon.html" class="social-icon"><i class="fab fa-facebook"></i></a>
+                            <a href="coming-soon.html" class="social-icon"><i class="fab fa-instagram"></i></a>
+                            <a href="coming-soon.html" class="social-icon"><i class="fab fa-github"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form-wrapper" data-aos="fade-left">
+                    <form class="contact-form" id="contactForm">
+                        <div class="form-group">
+                            <input type="text" id="name" name="name" required>
+                            <label for="name">Your Name</label>
+                            <span class="form-error"></span>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" id="email" name="email" required>
+                            <label for="email">Your Email</label>
+                            <span class="form-error"></span>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" id="subject" name="subject" required>
+                            <label for="subject">Subject</label>
+                            <span class="form-error"></span>
+                        </div>
+                        <div class="form-group">
+                            <select id="service" name="service" required>
+                                <option value="">Select a Service</option>
+                                <option value="automation">AI Automation</option>
+                                <option value="website">Website Building</option>
+                                <option value="integration">Integration Solutions</option>
+                                <option value="local-ai">Local AI Solutions</option>
+                                <option value="consultation">Free Consultation</option>
+                            </select>
+                            <label for="service">Service Interest</label>
+                            <span class="form-error"></span>
+                        </div>
+                        <div class="form-group">
+                            <textarea id="message" name="message" rows="5" required></textarea>
+                            <label for="message">Your Message</label>
+                            <span class="form-error"></span>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-submit">
+                            <span class="btn-text">Send Message</span>
+                            <span class="btn-loading"><i class="fas fa-spinner fa-spin"></i></span>
+                        </button>
+                        <div class="form-message"></div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tech Stack Logo Wheel -->
+    <section class="logo-wheel-section">
+        <div class="pixel-bg"></div>
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <h2 class="section-title">Powered By Industry Leaders</h2>
+                <p class="section-subtitle">We leverage the best tools to deliver exceptional results</p>
+            </div>
+            <div class="logo-wheel-container">
+                <div class="logo-wheel">
+                    <!-- First set of logos -->
+                    <div class="logo-item">
+                        <img src="logos/N8N logo.png" alt="N8N">
+                    </div>
+                    <div class="logo-item">
+                        <img src="logos/Make_idU77DJcxU_1.png" alt="Make">
+                    </div>
+                    <div class="logo-item">
+                        <img src="logos/OpenAI-Logo-2022.png" alt="OpenAI">
+                    </div>
+                    <div class="logo-item">
+                        <img src="logos/Anthropic_Logo_1.png" alt="Anthropic">
+                    </div>
+                    <div class="logo-item">
+                        <img src="logos/Supabase_id9q7Wa4Ba_1.png" alt="Supabase">
+                    </div>
+                    <!-- Duplicate for seamless loop -->
+                    <div class="logo-item">
+                        <img src="logos/N8N logo.png" alt="N8N">
+                    </div>
+                    <div class="logo-item">
+                        <img src="logos/Make_idU77DJcxU_1.png" alt="Make">
+                    </div>
+                    <div class="logo-item">
+                        <img src="logos/OpenAI-Logo-2022.png" alt="OpenAI">
+                    </div>
+                    <div class="logo-item">
+                        <img src="logos/Anthropic_Logo_1.png" alt="Anthropic">
+                    </div>
+                    <div class="logo-item">
+                        <img src="logos/Supabase_id9q7Wa4Ba_1.png" alt="Supabase">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="pixel-bg"></div>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <img src="images/logo.png" alt="Qynzoo Logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                        <span class="logo-text">Qynzoo</span>
+                    </div>
+                    <p class="footer-description">Transforming businesses through AI automation and innovative web solutions.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#workflow">How It Works</a></li>
+                        <li><a href="#portfolio">Portfolio</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Services</h4>
+                    <ul class="footer-links">
+                        <li><a href="#services">AI Automation</a></li>
+                        <li><a href="#services">Website Building</a></li>
+                        <li><a href="#services">Integration Solutions</a></li>
+                        <li><a href="#services">Local AI Solutions</a></li>
+                        <li><a href="#contact">Consultation</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Newsletter</h4>
+                    <p>Stay updated with our latest projects and insights</p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Your email">
+                        <button type="submit"><i class="fas fa-paper-plane"></i></button>
+                    </form>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Qynzoo. All rights reserved.</p>
+                <div class="footer-bottom-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script type="importmap">
+    {
+        "imports": {
+            "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js",
+            "postprocessing": "https://cdn.jsdelivr.net/npm/postprocessing@6.34.3/build/index.js"
+        }
+    }
+    </script>
+    <script type="module" src="js/pixel-blast.js"></script>
+    <script src="js/card-nav.js"></script>
+    <script src="js/script.js"></script>
+</body>
+</html>

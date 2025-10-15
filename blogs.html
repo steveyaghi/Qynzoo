@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog - Qynzoo | AI Automation Insights</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/card-nav.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Card Navigation -->
+    <div class="card-nav-container" id="cardNavContainer"></div>
+
+    <!-- Hero Section (Blog Header) -->
+    <section class="hero blog-hero">
+        <div class="pixel-bg"></div>
+        <div class="container">
+            <div class="hero-content" data-aos="fade-up">
+                <div class="hero-text blog-hero-text">
+                    <h1 class="hero-title">Qynzoo <span class="gradient-text">Insights</span></h1>
+                    <p class="hero-subtitle">Discover the latest in AI automation, workflow optimization, and digital transformation</p>
+                    <div class="hero-buttons">
+                        <a href="#featured" class="btn btn-primary">Featured Articles</a>
+                        <a href="#all-posts" class="btn btn-secondary">All Posts</a>
+                    </div>
+                    <div class="hero-stats">
+                        <div class="stat-item" data-aos="fade-up">
+                            <span class="stat-number" data-count="7">0</span>
+                            <span class="stat-label">Articles</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="hero-image blog-hero-image" data-aos="fade-left">
+                    <div class="blog-featured-card">
+                        <div class="featured-icon">
+                            <i class="fas fa-book-open"></i>
+                        </div>
+                        <h3>Knowledge Hub</h3>
+                        <p>Expert insights on AI automation, workflow optimization, and business transformation</p>
+                        <div class="blog-categories">
+                            <span class="category-tag">AI Automation</span>
+                            <span class="category-tag">Workflows</span>
+                            <span class="category-tag">Technology</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <div class="mouse"></div>
+        </div>
+    </section>
+
+    <!-- Featured Articles Section -->
+    <section class="services blog-featured" id="featured">
+        <div class="pixel-bg"></div>
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <h2 class="section-title">Featured Articles</h2>
+                <p class="section-subtitle">Our most impactful insights and guides</p>
+            </div>
+            <div class="services-grid">
+                <!-- Featured Article 1 -->
+                <div class="service-card featured" data-aos="fade-up">
+                    <div class="featured-badge">Most Popular</div>
+                    <div class="service-icon blog-icon">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <h3>Best Agentic AI Workflow Uses in 2025</h3>
+                    <div class="blog-meta">
+                        <span><i class="fas fa-calendar"></i> October 10, 2025</span>
+                        <span><i class="fas fa-clock"></i> 15 min read</span>
+                    </div>
+                    <p>Discover the top 8 use cases for agentic AI workflows that are transforming businesses. From customer service to cybersecurity, learn how autonomous AI agents are revolutionizing operations.</p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> Customer Service Automation</li>
+                        <li><i class="fas fa-check"></i> IT Infrastructure Management</li>
+                        <li><i class="fas fa-check"></i> Sales & Marketing AI</li>
+                        <li><i class="fas fa-check"></i> Supply Chain Optimization</li>
+                    </ul>
+                    <a href="blog.html" class="service-link">Read Full Article <i class="fas fa-arrow-right"></i></a>
+                </div>
+
+                <!-- Featured Article 2 -->
+                <div class="service-card" data-aos="fade-up">
+                    <div class="service-icon blog-icon gradient-icon-yellow">
+                        <i class="fas fa-tasks"></i>
+                    </div>
+                    <h3>Using Agentic AI in Project Management</h3>
+                    <div class="blog-meta">
+                        <span><i class="fas fa-calendar"></i> October 11, 2025</span>
+                        <span><i class="fas fa-clock"></i> 12 min read</span>
+                    </div>
+                    <p>Learn how agentic AI is transforming project management with intelligent task allocation, real-time resource optimization, and automated risk assessment capabilities.</p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> Task Automation</li>
+                        <li><i class="fas fa-check"></i> Resource Optimization</li>
+                        <li><i class="fas fa-check"></i> Risk Assessment</li>
+                    </ul>
+                    <a href="blog-ai-agent-practices.html" class="service-link">Read Full Article <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- All Blog Posts Section -->
+    <section class="workflow blog-posts" id="all-posts">
+        <div class="pixel-bg"></div>
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <h2 class="section-title">All Articles</h2>
+                <p class="section-subtitle">Browse our complete library of insights and tutorials</p>
+            </div>
+
+            <!-- Blog Categories Filter -->
+            <div class="portfolio-filters blog-filters" data-aos="fade-up">
+                <button class="filter-btn active" data-filter="all">All Articles</button>
+                <button class="filter-btn" data-filter="automation">AI Automation</button>
+                <button class="filter-btn" data-filter="workflow">Workflows</button>
+                <button class="filter-btn" data-filter="tools">Tools & Tech</button>
+                <button class="filter-btn" data-filter="tutorial">Tutorials</button>
+            </div>
+
+            <!-- Blog Posts Grid -->
+            <div class="portfolio-grid blog-grid">
+                <!-- Blog Post 1 -->
+                <div class="portfolio-item blog-post-item" data-category="workflow" data-aos="fade-up">
+                    <div class="portfolio-image">
+                        <div class="blog-post-icon">
+                            <i class="fas fa-cogs"></i>
+                        </div>
+                    </div>
+                    <div class="portfolio-content">
+                        <h3>Introduction to Workflow Automation</h3>
+                        <div class="blog-meta-small">
+                            <span><i class="fas fa-calendar"></i> Jan 12, 2025</span>
+                            <span><i class="fas fa-clock"></i> 8 min</span>
+                        </div>
+                        <p>Workflow automation is revolutionizing how businesses operate. Learn the fundamentals and how to get started.</p>
+                        <div class="portfolio-tags">
+                            <span class="tag">Workflow</span>
+                            <span class="tag">Automation</span>
+                            <span class="tag">Getting Started</span>
+                        </div>
+                        <a href="blog-workflow-automation.html" class="service-link">
+                            Read More <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Blog Post 2 -->
+                <div class="portfolio-item blog-post-item" data-category="tools" data-aos="fade-up">
+                    <div class="portfolio-image">
+                        <div class="blog-post-icon gradient-bg-yellow">
+                            <i class="fas fa-tools"></i>
+                        </div>
+                    </div>
+                    <div class="portfolio-content">
+                        <h3>Top AI Tools for Business in 2025</h3>
+                        <div class="blog-meta-small">
+                            <span><i class="fas fa-calendar"></i> Jan 15, 2025</span>
+                            <span><i class="fas fa-clock"></i> 10 min</span>
+                        </div>
+                        <p>Discover the most powerful AI tools transforming modern businesses. From content generation to workflow automation.</p>
+                        <div class="portfolio-tags">
+                            <span class="tag">AI Tools</span>
+                            <span class="tag">Business</span>
+                            <span class="tag">Technology</span>
+                        </div>
+                        <a href="blog-ai-tools-2025.html" class="service-link">
+                            Read More <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Blog Post 3 -->
+                <div class="portfolio-item blog-post-item" data-category="tutorial" data-aos="fade-up">
+                    <div class="portfolio-image">
+                        <div class="blog-post-icon gradient-bg-coral">
+                            <i class="fas fa-comments"></i>
+                        </div>
+                    </div>
+                    <div class="portfolio-content">
+                        <h3>Building Your First AI Chatbot</h3>
+                        <div class="blog-meta-small">
+                            <span><i class="fas fa-calendar"></i> Jan 18, 2025</span>
+                            <span><i class="fas fa-clock"></i> 15 min</span>
+                        </div>
+                        <p>Step-by-step guide to creating an intelligent chatbot for your business. Learn about planning, platforms, and deployment.</p>
+                        <div class="portfolio-tags">
+                            <span class="tag">Chatbot</span>
+                            <span class="tag">Tutorial</span>
+                            <span class="tag">AI</span>
+                        </div>
+                        <a href="blog-build-chatbot.html" class="service-link">
+                            Read More <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Blog Post 4 -->
+                <div class="portfolio-item blog-post-item" data-category="tools" data-aos="fade-up">
+                    <div class="portfolio-image">
+                        <div class="blog-post-icon">
+                            <i class="fas fa-search"></i>
+                        </div>
+                    </div>
+                    <div class="portfolio-content">
+                        <h3>GEO vs SEO: What's the Difference?</h3>
+                        <div class="blog-meta-small">
+                            <span><i class="fas fa-calendar"></i> Oct 15, 2025</span>
+                            <span><i class="fas fa-clock"></i> 5 min</span>
+                        </div>
+                        <p>Understand how to optimize for both traditional search engines and AI-powered discovery. Learn about Generative Engine Optimization.</p>
+                        <div class="portfolio-tags">
+                            <span class="tag">SEO</span>
+                            <span class="tag">GEO</span>
+                            <span class="tag">Optimization</span>
+                        </div>
+                        <a href="blog-geo-vs-seo.html" class="service-link">
+                            Read More <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Blog Post 5 -->
+                <div class="portfolio-item blog-post-item" data-category="tools" data-aos="fade-up">
+                    <div class="portfolio-image">
+                        <div class="blog-post-icon gradient-bg-coral">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                    </div>
+                    <div class="portfolio-content">
+                        <h3>Local AI Solutions for Sensitive Data</h3>
+                        <div class="blog-meta-small">
+                            <span><i class="fas fa-calendar"></i> Oct 15, 2025</span>
+                            <span><i class="fas fa-clock"></i> 6 min</span>
+                        </div>
+                        <p>Keep your data private and secure with local AI. Perfect for healthcare, finance, legal, and government sectors.</p>
+                        <div class="portfolio-tags">
+                            <span class="tag">Local AI</span>
+                            <span class="tag">Security</span>
+                            <span class="tag">Privacy</span>
+                        </div>
+                        <a href="blog-local-ai.html" class="service-link">
+                            Read More <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Blog Post 6 -->
+                <div class="portfolio-item blog-post-item" data-category="workflow" data-aos="fade-up">
+                    <div class="portfolio-image">
+                        <div class="blog-post-icon gradient-bg-yellow">
+                            <i class="fas fa-sync-alt"></i>
+                        </div>
+                    </div>
+                    <div class="portfolio-content">
+                        <h3>Process Mining with AI</h3>
+                        <div class="blog-meta-small">
+                            <span><i class="fas fa-calendar"></i> Jan 22, 2025</span>
+                            <span><i class="fas fa-clock"></i> 9 min</span>
+                        </div>
+                        <p>Discover how AI-driven process mining can uncover hidden inefficiencies and optimize your business workflows.</p>
+                        <div class="portfolio-tags">
+                            <span class="tag">Process Mining</span>
+                            <span class="tag">Optimization</span>
+                            <span class="tag">AI</span>
+                        </div>
+                        <a href="#" class="service-link">
+                            Coming Soon
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Blog Post 7 -->
+                <div class="portfolio-item blog-post-item" data-category="tools" data-aos="fade-up">
+                    <div class="portfolio-image">
+                        <div class="blog-post-icon">
+                            <i class="fas fa-chart-pie"></i>
+                        </div>
+                    </div>
+                    <div class="portfolio-content">
+                        <h3>AI Security Best Practices</h3>
+                        <div class="blog-meta-small">
+                            <span><i class="fas fa-calendar"></i> Jan 25, 2025</span>
+                            <span><i class="fas fa-clock"></i> 13 min</span>
+                        </div>
+                        <p>Essential security considerations when implementing AI systems and protecting your automated workflows.</p>
+                        <div class="portfolio-tags">
+                            <span class="tag">Security</span>
+                            <span class="tag">Best Practices</span>
+                            <span class="tag">AI</span>
+                        </div>
+                        <a href="#" class="service-link">
+                            Coming Soon
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section class="benefits newsletter-section">
+        <div class="pixel-bg"></div>
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <h2 class="section-title">Stay Updated</h2>
+                <p class="section-subtitle">Get the latest insights delivered to your inbox</p>
+            </div>
+            <div class="contact-form-wrapper newsletter-wrapper" data-aos="zoom-in">
+                <form class="contact-form newsletter-large">
+                    <div class="form-group">
+                        <input type="email" id="newsletter-email" name="email" required>
+                        <label for="newsletter-email">Your Email Address</label>
+                        <span class="form-error"></span>
+                    </div>
+                    <button type="submit" class="btn btn-primary">
+                        <span class="btn-text">Subscribe to Newsletter</span>
+                        <span class="btn-loading"><i class="fas fa-spinner fa-spin"></i></span>
+                    </button>
+                    <p class="newsletter-promise">
+                        <i class="fas fa-lock"></i> We respect your privacy. Unsubscribe at any time.
+                    </p>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="pixel-bg"></div>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <img src="images/logo.png" alt="Qynzoo Logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                        <span class="logo-text">Qynzoo</span>
+                    </div>
+                    <p class="footer-description">Transforming businesses through AI automation and innovative web solutions.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html#home">Home</a></li>
+                        <li><a href="index.html#services">Services</a></li>
+                        <li><a href="index.html#workflow">How It Works</a></li>
+                        <li><a href="blogs.html">Blog</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Blog Categories</h4>
+                    <ul class="footer-links">
+                        <li><a href="#automation">AI Automation</a></li>
+                        <li><a href="#workflow">Workflows</a></li>
+                        <li><a href="#tools">Tools & Tech</a></li>
+                        <li><a href="#tutorial">Tutorials</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Connect</h4>
+                    <ul class="footer-links">
+                        <li><i class="fas fa-envelope"></i> info@qynzoo.com</li>
+                        <li><i class="fas fa-phone"></i> +1 (555) 123-4567</li>
+                        <li><i class="fas fa-map-marker-alt"></i> Worldwide</li>
+                    </ul>
+                    <div class="social-icons footer-social">
+                        <a href="#" class="social-icon"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Qynzoo. All rights reserved.</p>
+                <div class="footer-bottom-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script type="importmap">
+    {
+        "imports": {
+            "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js",
+            "postprocessing": "https://cdn.jsdelivr.net/npm/postprocessing@6.34.2/build/index.js"
+        }
+    }
+    </script>
+    <script src="js/pixel-blast.js" type="module"></script>
+    <script src="js/card-nav.js"></script>
+    <script src="js/script.js"></script>
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 800,
+            easing: 'ease-in-out',
+            once: true,
+            offset: 100
+        });
+    </script>
+</body>
+</html>

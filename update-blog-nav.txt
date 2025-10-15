@@ -1,0 +1,2 @@
+# Pattern to replace old nav with card nav
+s|    <!-- Navigation -->.*</nav>|    <!-- Card Navigation -->\n    <div class="card-nav-container" id="cardNavContainer"></div>|

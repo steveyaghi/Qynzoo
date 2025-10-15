@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Top AI Tools for Business in 2025 | Qynzoo Blog</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/blog.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <style>
+        /* Compact Article Styles */
+        .compact-hero {
+            min-height: 50vh;
+            padding: 100px 0 50px;
+        }
+
+        .article-content-compact {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .two-column-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .three-column-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .compact-section {
+            margin-bottom: 40px;
+        }
+
+        .compact-section h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: var(--secondary-color);
+        }
+
+        .icon-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+
+        .icon-list-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .icon-list-item i {
+            color: var(--primary-color);
+            font-size: 1.5rem;
+            min-width: 30px;
+        }
+
+        .icon-list-item h4 {
+            margin: 0 0 5px 0;
+            color: var(--secondary-color);
+        }
+
+        .icon-list-item p {
+            margin: 0;
+            font-size: 0.9rem;
+        }
+
+        .tool-card-compact {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            padding: 20px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .tool-card-compact h4 {
+            color: var(--secondary-color);
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .tool-card-compact .tool-icon {
+            width: 35px;
+            height: 35px;
+            background: var(--primary-color);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+        }
+
+        .tool-meta {
+            display: flex;
+            gap: 15px;
+            margin-top: 10px;
+            flex-wrap: wrap;
+            font-size: 0.85rem;
+        }
+
+        .tool-meta span {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .tool-meta strong {
+            color: var(--primary-color);
+        }
+
+        .cta-compact {
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            padding: 40px;
+            border-radius: 20px;
+            text-align: center;
+            margin: 50px 0;
+        }
+
+        .cta-compact h3 {
+            color: white;
+            margin-bottom: 15px;
+        }
+
+        .cta-compact p {
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 25px;
+        }
+
+        .related-compact {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin: 40px 0;
+        }
+
+        .related-card {
+            padding: 25px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: transform 0.3s, border-color 0.3s;
+        }
+
+        .related-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary-color);
+        }
+
+        .related-card h4 {
+            color: var(--secondary-color);
+            margin-bottom: 10px;
+        }
+
+        .related-card p {
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+        }
+
+        .author-compact {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            padding: 30px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            margin: 40px 0;
+        }
+
+        .author-compact img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            border: 3px solid var(--primary-color);
+        }
+
+        .author-compact h4 {
+            color: var(--secondary-color);
+            margin: 0 0 5px 0;
+        }
+
+        @media (max-width: 768px) {
+            .author-compact {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="container">
+            <div class="nav-wrapper">
+                <a href="index.html" class="logo">
+                    <img src="images/logo.png" alt="Qynzoo Logo" onerror="this.style.display='none'">
+                    <span>Qynzoo</span>
+                </a>
+                <div class="nav-menu" id="navMenu">
+                    <a href="index.html#home" class="nav-link">Home</a>
+                    <a href="index.html#services" class="nav-link">Services</a>
+                    <a href="index.html#workflow" class="nav-link">Process</a>
+                    <a href="index.html#benefits" class="nav-link">Benefits</a>
+                    <a href="index.html#portfolio" class="nav-link">Portfolio</a>
+                    <a href="blogs.html" class="nav-link active">Blog</a>
+                    <a href="index.html#contact" class="nav-link">Contact</a>
+                </div>
+                <button class="nav-toggle" id="navToggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Compact Article Hero -->
+    <section class="hero compact-hero">
+        <div class="pixel-bg"></div>
+        <div class="container">
+            <div class="breadcrumb" data-aos="fade-right">
+                <a href="index.html"><i class="fas fa-home"></i> Home</a>
+                <span class="separator">/</span>
+                <a href="blogs.html">Blog</a>
+                <span class="separator">/</span>
+                <span class="current">AI Tools 2025</span>
+            </div>
+
+            <div data-aos="fade-up">
+                <div class="article-category">
+                    <span class="category-tag primary">AI Tools</span>
+                </div>
+                <h1 class="article-title">Top <span class="gradient-text">AI Tools</span> for Business in 2025</h1>
+
+                <div class="article-meta-info">
+                    <div class="author-section">
+                        <img src="images/mostafa-yaghi.jpg" alt="Mostafa Yaghi" class="author-avatar">
+                        <div class="author-text">
+                            <span class="author-name">Mostafa Yaghi</span>
+                            <span class="publish-date">January 13, 2025 • 5 min read</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Compact Article Content -->
+    <section class="section">
+        <div class="pixel-bg"></div>
+        <div class="article-content-compact">
+
+            <!-- Introduction -->
+            <div class="compact-section" data-aos="fade-up">
+                <p class="lead-paragraph">
+                    The AI landscape has exploded in 2025 with powerful tools emerging across every business function. This guide explores the most impactful AI tools transforming how modern businesses operate, compete, and grow.
+                </p>
+            </div>
+
+            <!-- Content Generation & Writing -->
+            <div class="compact-section" data-aos="fade-up">
+                <h2><i class="fas fa-pen-fancy"></i> Content Generation & Writing</h2>
+
+                <div class="three-column-grid">
+                    <div class="tool-card-compact">
+                        <h4>
+                            <span class="tool-icon"><i class="fas fa-comments"></i></span>
+                            ChatGPT
+                        </h4>
+                        <p>Revolutionary conversational AI for content creation, customer service, code generation, and strategic brainstorming.</p>
+                        <div class="tool-meta">
+                            <span><strong>Price:</strong> Free-$20/mo</span>
+                            <span><strong>Rating:</strong> 4.8/5</span>
+                        </div>
+                    </div>
+
+                    <div class="tool-card-compact">
+                        <h4>
+                            <span class="tool-icon"><i class="fas fa-brain"></i></span>
+                            Claude
+                        </h4>
+                        <p>Excels at complex analysis, document processing, and maintaining context in long conversations with ethical approach.</p>
+                        <div class="tool-meta">
+                            <span><strong>Price:</strong> Free-$20/mo</span>
+                            <span><strong>Rating:</strong> 4.9/5</span>
+                        </div>
+                    </div>
+
+                    <div class="tool-card-compact">
+                        <h4>
+                            <span class="tool-icon"><i class="fas fa-feather-alt"></i></span>
+                            Jasper AI
+                        </h4>
+                        <p>Specialized in marketing content: blog posts, ad copy, social media, and email campaigns at scale.</p>
+                        <div class="tool-meta">
+                            <span><strong>Price:</strong> From $49/mo</span>
+                            <span><strong>Rating:</strong> 4.5/5</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Workflow Automation -->
+            <div class="compact-section" data-aos="fade-up">
+                <h2><i class="fas fa-robot"></i> Workflow Automation & Integration</h2>
+
+                <div class="three-column-grid">
+                    <div class="tool-card-compact">
+                        <h4>
+                            <span class="tool-icon"><i class="fas fa-network-wired"></i></span>
+                            n8n
+                        </h4>
+                        <p>Open-source workflow automation with powerful AI capabilities and full control. Self-hosted or cloud.</p>
+                        <div class="tool-meta">
+                            <span><strong>Price:</strong> Free-$20/mo</span>
+                            <span><strong>Type:</strong> Open Source</span>
+                        </div>
+                    </div>
+
+                    <div class="tool-card-compact">
+                        <h4>
+                            <span class="tool-icon"><i class="fas fa-plug"></i></span>
+                            Make
+                        </h4>
+                        <p>Visual automation platform connecting apps with intuitive interface, perfect for complex multi-step workflows.</p>
+                        <div class="tool-meta">
+                            <span><strong>Price:</strong> Free-$9/mo</span>
+                            <span><strong>Type:</strong> Visual Builder</span>
+                        </div>
+                    </div>
+
+                    <div class="tool-card-compact">
+                        <h4>
+                            <span class="tool-icon"><i class="fas fa-bolt"></i></span>
+                            Zapier
+                        </h4>
+                        <p>Most user-friendly automation with 5000+ pre-built integrations. Ideal for non-technical users.</p>
+                        <div class="tool-meta">
+                            <span><strong>Price:</strong> Free-$20/mo</span>
+                            <span><strong>Integrations:</strong> 5000+</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Business Intelligence & Analytics -->
+            <div class="compact-section" data-aos="fade-up">
+                <h2><i class="fas fa-chart-bar"></i> Business Intelligence & Analytics</h2>
+
+                <div class="two-column-grid">
+                    <div class="tool-card-compact">
+                        <h4>
+                            <span class="tool-icon"><i class="fas fa-chart-line"></i></span>
+                            Tableau with Einstein AI
+                        </h4>
+                        <p>Advanced data visualization with AI-powered insights for discovering patterns and making data-driven decisions.</p>
+                        <div class="tool-meta">
+                            <span><strong>Price:</strong> From $70/user/mo</span>
+                            <span><strong>Best For:</strong> Enterprise analytics</span>
+                        </div>
+                    </div>
+
+                    <div class="tool-card-compact">
+                        <h4>
+                            <span class="tool-icon"><i class="fas fa-chart-pie"></i></span>
+                            Power BI with Copilot
+                        </h4>
+                        <p>Microsoft's business analytics with natural language queries and automated insight generation.</p>
+                        <div class="tool-meta">
+                            <span><strong>Price:</strong> From $10/user/mo</span>
+                            <span><strong>Best For:</strong> Microsoft ecosystem</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Customer Service & Support -->
+            <div class="compact-section" data-aos="fade-up">
+                <h2><i class="fas fa-headset"></i> Customer Service & Support</h2>
+
+                <div class="two-column-grid">
+                    <div class="tool-card-compact">
+                        <h4>
+                            <span class="tool-icon"><i class="fas fa-comment-dots"></i></span>
+                            Intercom with Fin AI
+                        </h4>
+                        <p>Intelligent support platform with AI chatbot resolving up to 50% of queries automatically.</p>
+                        <div class="tool-meta">
+                            <span><strong>Price:</strong> From $74/mo</span>
+                            <span><strong>Auto-Resolution:</strong> 50%</span>
+                        </div>
+                    </div>
+
+                    <div class="tool-card-compact">
+                        <h4>
+                            <span class="tool-icon"><i class="fas fa-life-ring"></i></span>
+                            Zendesk AI
+                        </h4>
+                        <p>Comprehensive customer service with AI for ticket routing, response suggestions, and sentiment analysis.</p>
+                        <div class="tool-meta">
+                            <span><strong>Price:</strong> From $55/agent/mo</span>
+                            <span><strong>Features:</strong> Sentiment analysis</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Design & Creative Tools -->
+            <div class="compact-section" data-aos="fade-up">
+                <h2><i class="fas fa-palette"></i> Design & Creative Tools</h2>
+
+                <div class="two-column-grid">
+                    <div class="tool-card-compact">
+                        <h4>
+                            <span class="tool-icon"><i class="fas fa-image"></i></span>
+                            Midjourney
+                        </h4>
+                        <p>Leading AI image generation creating stunning photorealistic visuals from text descriptions.</p>
+                        <div class="tool-meta">
+                            <span><strong>Price:</strong> From $10/mo</span>
+                            <span><strong>Quality:</strong> Photorealistic</span>
+                        </div>
+                    </div>
+
+                    <div class="tool-card-compact">
+                        <h4>
+                            <span class="tool-icon"><i class="fas fa-paint-brush"></i></span>
+                            Canva AI
+                        </h4>
+                        <p>User-friendly design platform with AI for automatic design generation and image editing. No design skills needed.</p>
+                        <div class="tool-meta">
+                            <span><strong>Price:</strong> Free-$13/mo</span>
+                            <span><strong>Difficulty:</strong> Beginner-friendly</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Development & Code -->
+            <div class="compact-section" data-aos="fade-up">
+                <h2><i class="fas fa-code"></i> Development & Code Assistance</h2>
+
+                <div class="two-column-grid">
+                    <div class="tool-card-compact">
+                        <h4>
+                            <span class="tool-icon"><i class="fab fa-github"></i></span>
+                            GitHub Copilot
+                        </h4>
+                        <p>AI pair programmer helping developers write code 40% faster with intelligent suggestions and completion.</p>
+                        <div class="tool-meta">
+                            <span><strong>Price:</strong> $10-19/mo</span>
+                            <span><strong>Speed:</strong> 40% faster</span>
+                        </div>
+                    </div>
+
+                    <div class="tool-card-compact">
+                        <h4>
+                            <span class="tool-icon"><i class="fas fa-terminal"></i></span>
+                            Cursor
+                        </h4>
+                        <p>AI-first code editor with contextual understanding of your codebase, providing smart assistance and debugging.</p>
+                        <div class="tool-meta">
+                            <span><strong>Price:</strong> Free-$20/mo</span>
+                            <span><strong>Type:</strong> Context-aware</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Selection Guide -->
+            <div class="compact-section" data-aos="fade-up">
+                <h2><i class="fas fa-compass"></i> Quick Selection Guide</h2>
+
+                <div class="icon-list">
+                    <div class="icon-list-item">
+                        <i class="fas fa-pen"></i>
+                        <div>
+                            <h4>Content Writing</h4>
+                            <p>ChatGPT or Claude ($0-20/mo)</p>
+                        </div>
+                    </div>
+                    <div class="icon-list-item">
+                        <i class="fas fa-robot"></i>
+                        <div>
+                            <h4>Workflow Automation</h4>
+                            <p>n8n (technical) or Zapier (non-tech)</p>
+                        </div>
+                    </div>
+                    <div class="icon-list-item">
+                        <i class="fas fa-headset"></i>
+                        <div>
+                            <h4>Customer Support</h4>
+                            <p>Intercom or Zendesk ($55-100/mo)</p>
+                        </div>
+                    </div>
+                    <div class="icon-list-item">
+                        <i class="fas fa-palette"></i>
+                        <div>
+                            <h4>Design & Creative</h4>
+                            <p>Midjourney or Canva AI ($10-30/mo)</p>
+                        </div>
+                    </div>
+                    <div class="icon-list-item">
+                        <i class="fas fa-code"></i>
+                        <div>
+                            <h4>Code Development</h4>
+                            <p>GitHub Copilot or Cursor ($10-20/mo)</p>
+                        </div>
+                    </div>
+                    <div class="icon-list-item">
+                        <i class="fas fa-chart-bar"></i>
+                        <div>
+                            <h4>Business Intelligence</h4>
+                            <p>Power BI or Tableau ($10-70/user/mo)</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Key Takeaways -->
+            <div class="compact-section" data-aos="fade-up">
+                <h2><i class="fas fa-lightbulb"></i> Key Takeaways</h2>
+
+                <div class="icon-list">
+                    <div class="icon-list-item">
+                        <i class="fas fa-check-circle"></i>
+                        <div>
+                            <h4>Start Small & Scale</h4>
+                            <p>Begin with one or two tools addressing biggest pain points</p>
+                        </div>
+                    </div>
+                    <div class="icon-list-item">
+                        <i class="fas fa-check-circle"></i>
+                        <div>
+                            <h4>Prioritize Integration</h4>
+                            <p>Choose tools that work seamlessly with existing systems</p>
+                        </div>
+                    </div>
+                    <div class="icon-list-item">
+                        <i class="fas fa-check-circle"></i>
+                        <div>
+                            <h4>Measure ROI</h4>
+                            <p>Track time savings against costs to ensure value</p>
+                        </div>
+                    </div>
+                    <div class="icon-list-item">
+                        <i class="fas fa-check-circle"></i>
+                        <div>
+                            <h4>Focus on Adoption</h4>
+                            <p>Best tools are useless without team buy-in</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CTA Section -->
+            <div class="cta-compact" data-aos="fade-up">
+                <h3>Need Help Selecting AI Tools?</h3>
+                <p>Qynzoo can help you evaluate, select, and implement the right AI tools for your business needs. We'll build a comprehensive AI strategy that delivers measurable results.</p>
+                <a href="index.html#contact" class="btn btn-primary">
+                    <span>Talk to an Expert</span>
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+
+            <!-- Author Bio -->
+            <div class="author-compact" data-aos="fade-up">
+                <img src="images/mostafa-yaghi.jpg" alt="Mostafa Yaghi">
+                <div>
+                    <h4>Mostafa Yaghi</h4>
+                    <p class="author-title">Founder & CEO, Qynzoo</p>
+                    <p>Mostafa specializes in AI automation and helps businesses navigate the rapidly evolving AI landscape to implement solutions that drive real results.</p>
+                </div>
+            </div>
+
+            <!-- Related Articles -->
+            <div class="compact-section" data-aos="fade-up">
+                <h2>Related Articles</h2>
+
+                <div class="related-compact">
+                    <div class="related-card">
+                        <h4>Introduction to Workflow Automation</h4>
+                        <p>Learn the fundamentals of workflow automation and how to get started.</p>
+                        <a href="blog-workflow-automation.html" class="service-link">Read More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                    <div class="related-card">
+                        <h4>Best AI Agent Practices</h4>
+                        <p>Discover how AI agents are transforming project management workflows.</p>
+                        <a href="blog-ai-agent-practices.html" class="service-link">Read More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                    <div class="related-card">
+                        <h4>Building Your First Chatbot</h4>
+                        <p>Step-by-step guide to creating an intelligent chatbot.</p>
+                        <a href="blog-build-chatbot.html" class="service-link">Read More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <img src="images/logo.png" alt="Qynzoo Logo" onerror="this.style.display='none'">
+                        <span>Qynzoo</span>
+                    </div>
+                    <p class="footer-description">Transforming businesses through AI automation and innovative web solutions.</p>
+                    <div class="footer-social">
+                        <a href="#" class="social-icon"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="index.html#services">Services</a></li>
+                        <li><a href="index.html#workflow">Process</a></li>
+                        <li><a href="index.html#portfolio">Portfolio</a></li>
+                        <li><a href="blogs.html">Blog</a></li>
+                        <li><a href="index.html#contact">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Services</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">AI Automation</a></li>
+                        <li><a href="#">Website Building</a></li>
+                        <li><a href="#">Integration Solutions</a></li>
+                        <li><a href="#">Consulting</a></li>
+                        <li><a href="#">Custom Development</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Resources</h4>
+                    <ul class="footer-links">
+                        <li><a href="blogs.html">Blog</a></li>
+                        <li><a href="#">Case Studies</a></li>
+                        <li><a href="#">Documentation</a></li>
+                        <li><a href="#">API Reference</a></li>
+                        <li><a href="#">Support</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2025 Qynzoo. All rights reserved.</p>
+                <div class="footer-bottom-links">
+                    <a href="#">Privacy Policy</a>
+                    <span class="separator">|</span>
+                    <a href="#">Terms of Service</a>
+                    <span class="separator">|</span>
+                    <a href="#">Cookie Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="backToTop">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="js/script.js"></script>
+    <script type="importmap">
+    {
+        "imports": {
+            "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js",
+            "postprocessing": "https://cdn.jsdelivr.net/npm/postprocessing@6.34.2/build/index.js"
+        }
+    }
+    </script>
+    <script src="js/pixel-blast.js" type="module"></script>
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 600,
+            once: true,
+            offset: 50
+        });
+    </script>
+</body>
+</html>
