@@ -44,7 +44,8 @@
       "Bash(del \"D:\\Claude\\Qynzoo.com\\css\\language-switcher.css\")",
       "mcp__playwright__browser_fill_form",
       "mcp__playwright__browser_type",
-      "Bash(tree:*)"
+      "Bash(tree:*)",
+      "Bash(git remote:*)"
     ],
     "deny": [],
     "ask": []
