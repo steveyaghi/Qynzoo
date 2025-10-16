@@ -23,3 +23,13 @@ npm-debug.log*
 # Temporary files
 *.tmp
 *.temp
+
+# Backup files
+backups/
+*.backup
+
+# Development files
+assets/images-unused/
+
+# Claude AI files
+.claude/

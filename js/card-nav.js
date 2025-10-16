@@ -230,7 +230,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Navigation configuration
   const navConfig = {
-    logo: 'logos/Qynzoo_solo_logo.png',
+    logo: 'logos/Qynzoo_solo_logo.svg',
     logoAlt: 'Qynzoo Logo',
     items: [
       {

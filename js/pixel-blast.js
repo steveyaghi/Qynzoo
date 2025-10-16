@@ -177,7 +177,8 @@ float Bayer2(vec2 a) {
 #define Bayer4(a) (Bayer2(.5*(a))*0.25 + Bayer2(a))
 #define Bayer8(a) (Bayer4(.5*(a))*0.25 + Bayer2(a))
 
-#define FBM_OCTAVES     5
+// Reduced octaves for better performance (was 5, now 3)
+#define FBM_OCTAVES     3
 #define FBM_LACUNARITY  1.25
 #define FBM_GAIN        1.0
 
@@ -342,10 +343,11 @@ class PixelBlastWebGL {
         `;
         this.container.appendChild(canvas);
 
-        // Create WebGL2 context
+        // Create WebGL2 context (antialiasing disabled for better performance)
         const gl = canvas.getContext('webgl2', {
-            antialias: true,
-            alpha: true
+            antialias: false,  // Disabled for better performance
+            alpha: true,
+            powerPreference: 'low-power'  // Prefer lower power consumption
         });
 
         if (!gl) {
@@ -353,14 +355,16 @@ class PixelBlastWebGL {
             return;
         }
 
-        // Create renderer
+        // Create renderer (optimized for performance)
         this.renderer = new THREE.WebGLRenderer({
             canvas,
             context: gl,
-            antialias: true,
-            alpha: true
+            antialias: false,  // Disabled for better performance
+            alpha: true,
+            powerPreference: 'low-power'  // Prefer lower power consumption
         });
-        this.renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
+        // Reduced pixel ratio for better performance (was 2, now 1)
+        this.renderer.setPixelRatio(1);
 
         // Setup uniforms
         this.uniforms = {
@@ -407,6 +411,12 @@ class PixelBlastWebGL {
         this.clock = new THREE.Clock();
         this.clickIx = 0;
 
+        // Performance optimizations
+        this.targetFPS = 30; // Cap at 30fps instead of 60fps
+        this.frameInterval = 1000 / this.targetFPS;
+        this.lastFrameTime = 0;
+        this.isVisible = true;
+
         // Setup liquid effect if enabled
         if (this.options.liquid) {
             this.touch = createTouchTexture();
@@ -431,6 +441,14 @@ class PixelBlastWebGL {
 
         // Setup mouse interaction
         this.setupMouseInteraction();
+
+        // Setup Page Visibility API to pause when tab is hidden
+        document.addEventListener('visibilitychange', () => {
+            this.isVisible = !document.hidden;
+            if (this.isVisible) {
+                this.clock.start();
+            }
+        });
 
         // Start animation
         this.animate();
@@ -476,7 +494,22 @@ class PixelBlastWebGL {
         }
     }
 
-    animate() {
+    animate(currentTime = 0) {
+        this.raf = requestAnimationFrame((time) => this.animate(time));
+
+        // Pause when tab is not visible
+        if (!this.isVisible) {
+            return;
+        }
+
+        // Frame rate limiting (30fps instead of 60fps)
+        const deltaTime = currentTime - this.lastFrameTime;
+        if (deltaTime < this.frameInterval) {
+            return;
+        }
+        this.lastFrameTime = currentTime - (deltaTime % this.frameInterval);
+
+        // Update uniforms and render
         this.uniforms.uTime.value = this.clock.getElapsedTime() * this.options.speed;
 
         if (this.liquidEffect) {
@@ -489,8 +522,6 @@ class PixelBlastWebGL {
         } else {
             this.renderer.render(this.scene, this.camera);
         }
-
-        this.raf = requestAnimationFrame(() => this.animate());
     }
 
     destroy() {
@@ -519,20 +550,20 @@ document.addEventListener('DOMContentLoaded', () => {
     pixelBgElements.forEach((element, index) => {
         const animation = new PixelBlastWebGL(element, {
             variant: 'circle',
-            pixelSize: 6,
+            pixelSize: 8,  // Increased from 6 for better performance
             color: '#44bba4',  // Qynzoo green
-            patternScale: 3,
-            patternDensity: 1.2,
-            pixelSizeJitter: 0.5,
-            enableRipples: true,
+            patternScale: 2.5,  // Reduced from 3 for better performance
+            patternDensity: 1.15,  // Slightly reduced for better performance
+            pixelSizeJitter: 0.4,  // Reduced from 0.5
+            enableRipples: false,  // Disabled click ripple effect
             rippleSpeed: 0.4,
             rippleThickness: 0.12,
             rippleIntensityScale: 1.5,
-            liquid: true,
+            liquid: false,  // Disabled for better performance - saves post-processing
             liquidStrength: 0.12,
             liquidRadius: 1.2,
             liquidWobbleSpeed: 5,
-            speed: 0.6,
+            speed: 0.5,  // Reduced from 0.6 for smoother animation
             edgeFade: 0.25,
             transparent: true
         });

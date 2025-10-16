@@ -31,7 +31,20 @@
       "mcp__playwright__browser_snapshot",
       "Bash(git init:*)",
       "Bash(git remote add:*)",
-      "Bash(git add:*)"
+      "Bash(git add:*)",
+      "Bash(git commit -m \"$(cat <<''EOF''\nInitial commit: Qynzoo AI Automation & Website Building Agency\n\nFeatures:\n- Modern responsive design with brand colors (turquoise, yellow, coral)\n- Interactive hero section with founder card and contact form\n- AI Automation, Website Building, Integration, and Local AI services\n- 5-step workflow visualization\n- Benefits section with tabs\n- Blog system with 7 articles (GEO vs SEO, Local AI, workflow automation, etc.)\n- Coming soon page for social media links\n- Card navigation with GSAP animations\n- Mouse cursor following animation\n- Contact forms with validation\n- Tech stack logo wheel\n- Mobile responsive across all breakpoints\n\n🤖 Generated with [Claude Code](https://claude.com/claude-code)\n\nCo-Authored-By: Claude <noreply@anthropic.com>\nEOF\n)\")",
+      "Bash(git branch:*)",
+      "Bash(git push:*)",
+      "Bash(git commit:*)",
+      "Read(//c/Users/mosty/Downloads/**)",
+      "Bash(npx:*)",
+      "mcp__playwright__browser_resize",
+      "Bash(del update_navbars.py)",
+      "Bash(del \"D:\\Claude\\Qynzoo.com\\js\\translations.js\")",
+      "Bash(del \"D:\\Claude\\Qynzoo.com\\css\\language-switcher.css\")",
+      "mcp__playwright__browser_fill_form",
+      "mcp__playwright__browser_type",
+      "Bash(tree:*)"
     ],
     "deny": [],
     "ask": []
