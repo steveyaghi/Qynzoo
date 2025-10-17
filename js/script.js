@@ -29,19 +29,21 @@ function throttle(func, delay) {
 let lastScroll = 0;
 const navbar = document.getElementById('navbar');
 
-const handleNavbarScroll = throttle(() => {
-    const currentScroll = window.pageYOffset;
+if (navbar) {
+    const handleNavbarScroll = throttle(() => {
+        const currentScroll = window.pageYOffset;
 
-    if (currentScroll > 50) {
-        navbar.classList.add('scrolled');
-    } else {
-        navbar.classList.remove('scrolled');
-    }
+        if (currentScroll > 50) {
+            navbar.classList.add('scrolled');
+        } else {
+            navbar.classList.remove('scrolled');
+        }
 
-    lastScroll = currentScroll;
-}, 100); // Throttle to once every 100ms
+        lastScroll = currentScroll;
+    }, 100); // Throttle to once every 100ms
 
-window.addEventListener('scroll', handleNavbarScroll);
+    window.addEventListener('scroll', handleNavbarScroll);
+}
 
 // ===================================
 // Mobile Menu Toggle
@@ -329,9 +331,6 @@ contactForm.addEventListener('submit', async (e) => {
     // Add custom subject line
     formData.append('subject', `Qynzoo Contact Form: ${formData.get('subject')}`);
 
-    // Add your email as redirect target
-    formData.append('redirect', 'false');
-
     // Show loading state
     const submitBtn = contactForm.querySelector('.btn-submit');
     submitBtn.classList.add('loading');
@@ -438,9 +437,6 @@ if (heroContactForm) {
 
         // Add custom subject line
         formData.append('subject', `Qynzoo Hero Contact Form: ${formData.get('subject')}`);
-
-        // Add your email as redirect target
-        formData.append('redirect', 'false');
 
         // Show loading state
         const submitBtn = heroContactForm.querySelector('.btn-submit');

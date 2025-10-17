@@ -1,0 +1,1 @@
+- always add a decimal to the version number when deploying
