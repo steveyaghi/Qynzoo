@@ -338,10 +338,18 @@ contactForm.addEventListener('submit', async (e) => {
     submitBtn.disabled = true;
 
     try {
+        // Convert FormData to JSON
+        const object = Object.fromEntries(formData);
+        const json = JSON.stringify(object);
+
         // Send email via Web3Forms API
         const response = await fetch('https://api.web3forms.com/submit', {
             method: 'POST',
-            body: formData
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'
+            },
+            body: json
         });
 
         const result = await response.json();
@@ -440,10 +448,18 @@ if (heroContactForm) {
         submitBtn.disabled = true;
 
         try {
+            // Convert FormData to JSON
+            const object = Object.fromEntries(formData);
+            const json = JSON.stringify(object);
+
             // Send email via Web3Forms API
             const response = await fetch('https://api.web3forms.com/submit', {
                 method: 'POST',
-                body: formData
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                },
+                body: json
             });
 
             const result = await response.json();

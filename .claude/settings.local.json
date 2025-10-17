@@ -47,7 +47,8 @@
       "Bash(tree:*)",
       "Bash(git remote:*)",
       "WebFetch(domain:github.com)",
-      "Bash(del \"D:\\Claude\\Qynzoo.com\\js\\script.min.js\")"
+      "Bash(del \"D:\\Claude\\Qynzoo.com\\js\\script.min.js\")",
+      "WebFetch(domain:docs.web3forms.com)"
     ],
     "deny": [],
     "ask": []
