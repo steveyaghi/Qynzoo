@@ -1385,18 +1385,33 @@ section {
     text-align: center;
     font-weight: 500;
     display: none;
+    margin-top: 15px;
+    animation: slideIn 0.3s ease-out;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .form-message.success {
-    background: #d4edda;
-    color: #155724;
-    display: block;
+    background: linear-gradient(135deg, #4ade80, #22c55e);
+    color: white;
+    border: 2px solid #16a34a;
+    box-shadow: 0 4px 15px rgba(74, 222, 128, 0.4);
 }
 
 .form-message.error {
-    background: #f8d7da;
-    color: #721c24;
-    display: block;
+    background: linear-gradient(135deg, #ef4444, #dc2626);
+    color: white;
+    border: 2px solid #b91c1c;
+    box-shadow: 0 4px 15px rgba(239, 68, 68, 0.4);
 }
 
 /* ===================================

@@ -244,7 +244,7 @@ document.head.appendChild(style);
 // Contact Form Validation & Submission
 // ===================================
 const contactForm = document.getElementById('contactForm');
-const formMessage = document.querySelector('.form-message');
+const formMessage = contactForm.querySelector('.form-message');
 
 // Real-time validation
 const inputs = contactForm.querySelectorAll('input, textarea, select');
@@ -350,6 +350,7 @@ contactForm.addEventListener('submit', async (e) => {
             // Show success message
             formMessage.className = 'form-message success';
             formMessage.textContent = 'Thank you! Your message has been sent successfully. We\'ll get back to you soon.';
+            formMessage.style.display = 'block';
 
             // Reset form
             contactForm.reset();
@@ -357,6 +358,8 @@ contactForm.addEventListener('submit', async (e) => {
             // Hide success message after 5 seconds
             setTimeout(() => {
                 formMessage.style.display = 'none';
+                formMessage.className = 'form-message';
+                formMessage.textContent = '';
             }, 5000);
         } else {
             throw new Error(result.message || 'Failed to send message');
@@ -366,7 +369,15 @@ contactForm.addEventListener('submit', async (e) => {
         // Show error message
         formMessage.className = 'form-message error';
         formMessage.textContent = 'Oops! Something went wrong. Please try again later.';
+        formMessage.style.display = 'block';
         console.error('Form submission error:', error);
+
+        // Hide error message after 5 seconds
+        setTimeout(() => {
+            formMessage.style.display = 'none';
+            formMessage.className = 'form-message';
+            formMessage.textContent = '';
+        }, 5000);
     } finally {
         // Remove loading state
         submitBtn.classList.remove('loading');
@@ -441,6 +452,7 @@ if (heroContactForm) {
                 // Show success message
                 heroFormMessage.className = 'form-message success';
                 heroFormMessage.textContent = 'Thank you! Your message has been sent successfully. We\'ll get back to you soon.';
+                heroFormMessage.style.display = 'block';
 
                 // Reset form
                 heroContactForm.reset();
@@ -448,6 +460,8 @@ if (heroContactForm) {
                 // Hide success message after 5 seconds
                 setTimeout(() => {
                     heroFormMessage.style.display = 'none';
+                    heroFormMessage.className = 'form-message';
+                    heroFormMessage.textContent = '';
                 }, 5000);
             } else {
                 throw new Error(result.message || 'Failed to send message');
@@ -457,7 +471,15 @@ if (heroContactForm) {
             // Show error message
             heroFormMessage.className = 'form-message error';
             heroFormMessage.textContent = 'Oops! Something went wrong. Please try again later.';
+            heroFormMessage.style.display = 'block';
             console.error('Hero form submission error:', error);
+
+            // Hide error message after 5 seconds
+            setTimeout(() => {
+                heroFormMessage.style.display = 'none';
+                heroFormMessage.className = 'form-message';
+                heroFormMessage.textContent = '';
+            }, 5000);
         } finally {
             // Remove loading state
             submitBtn.classList.remove('loading');
