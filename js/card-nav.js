@@ -174,6 +174,7 @@ class CardNav {
       this.isExpanded = true;
       hamburger.classList.add('open');
       this.navRef.classList.add('open');
+      this.timeline.timeScale(1);
       this.timeline.play(0);
     } else {
       this.isHamburgerOpen = false;
@@ -182,6 +183,7 @@ class CardNav {
       this.timeline.eventCallback('onReverseComplete', () => {
         this.isExpanded = false;
       });
+      this.timeline.timeScale(10);
       this.timeline.reverse();
     }
   }
