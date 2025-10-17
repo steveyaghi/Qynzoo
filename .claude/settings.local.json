@@ -45,7 +45,9 @@
       "mcp__playwright__browser_fill_form",
       "mcp__playwright__browser_type",
       "Bash(tree:*)",
-      "Bash(git remote:*)"
+      "Bash(git remote:*)",
+      "WebFetch(domain:github.com)",
+      "Bash(del \"D:\\Claude\\Qynzoo.com\\js\\script.min.js\")"
     ],
     "deny": [],
     "ask": []

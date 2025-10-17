@@ -468,11 +468,12 @@ if (heroContactForm) {
             }
 
         } catch (error) {
-            // Show error message
+            // Show error message with details
             heroFormMessage.className = 'form-message error';
-            heroFormMessage.textContent = 'Oops! Something went wrong. Please try again later.';
+            heroFormMessage.textContent = `Error: ${error.message || 'Something went wrong. Please try again later.'}`;
             heroFormMessage.style.display = 'block';
             console.error('Hero form submission error:', error);
+            console.error('Error details:', error.message);
 
             // Hide error message after 5 seconds
             setTimeout(() => {
