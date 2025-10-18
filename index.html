@@ -38,7 +38,7 @@
     <meta name="brandfetch-client-id" content="1idRu0m00AThFgsB5ow">
 
     <!-- Critical CSS (inline) -->
-    <link rel="stylesheet" href="css/style.min.css?v=3.8">
+    <link rel="stylesheet" href="css/style.min.css?v=3.9">
 
     <!-- Defer non-critical CSS -->
     <link rel="stylesheet" href="css/card-nav.css" media="print" onload="this.media='all'">
@@ -59,6 +59,37 @@
                 grid-column: span 1 !important;
             }
         }
+
+        /* Hero Section Responsive Layout */
+        .hero-three-column {
+            display: grid;
+            grid-template-columns: 300px 1fr 300px;
+            gap: 40px;
+            align-items: start;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        @media (max-width: 1024px) {
+            .hero-three-column {
+                grid-template-columns: 1fr;
+                gap: 30px;
+                max-width: 600px;
+            }
+
+            /* Mobile order: Title, Buttons, Photos (Mostafa, Bader), Form */
+            .founder-left {
+                order: 1;
+            }
+
+            .founder-right {
+                order: 2;
+            }
+
+            .hero-form {
+                order: 3;
+            }
+        }
     </style>
 </head>
 <body>
@@ -69,36 +100,42 @@
     <section class="hero" id="home">
         <div class="pixel-bg"></div>
         <div class="container">
-            <div class="hero-content" data-aos="fade-up">
-                <div class="hero-text">
-                    <h1 class="hero-title">Transform Your Business with <span class="gradient-text">AI Automation</span></h1>
-                    <p class="hero-subtitle">We build intelligent workflows and stunning websites that drive growth and efficiency</p>
-                    <div class="hero-buttons">
-                        <a href="#contact" class="btn btn-primary">Get Started</a>
-                        <a href="#workflow" class="btn btn-secondary">Learn More</a>
-                    </div>
-                    <div class="founder-card" style="margin-top: 30px;" data-aos="fade-up">
-                        <div class="founder-image-wrapper">
-                            <img src="images/mostafa-yaghi.jpg" alt="Mostafa Yaghi" class="founder-image" width="200" height="200" loading="eager" onerror="this.src='images/placeholder-avatar.jpg'">
-                            <div class="founder-badge">
-                                <i class="fas fa-check-circle"></i>
-                            </div>
+            <!-- Centered Title and Buttons -->
+            <div style="text-align: center; margin-bottom: 50px;" data-aos="fade-up">
+                <h1 class="hero-title">Transform Your Business with <span class="gradient-text">AI Automation</span></h1>
+                <p class="hero-subtitle" style="max-width: 700px; margin: 20px auto 30px;">We build intelligent workflows and stunning websites that drive growth and efficiency</p>
+                <div class="hero-buttons" style="justify-content: center;">
+                    <a href="#contact" class="btn btn-primary">Get Started</a>
+                    <a href="#workflow" class="btn btn-secondary">Learn More</a>
+                </div>
+            </div>
+
+            <!-- Three Column Layout: Founder Card | Form | Founder Card -->
+            <div class="hero-three-column" data-aos="fade-up">
+                <!-- Left: Mostafa's Card -->
+                <div class="founder-card founder-left" data-aos="fade-right">
+                    <div class="founder-image-wrapper">
+                        <img src="images/mostafa-yaghi.jpg" alt="Mostafa Yaghi" class="founder-image" width="200" height="200" loading="eager" onerror="this.src='images/placeholder-avatar.jpg'">
+                        <div class="founder-badge">
+                            <i class="fas fa-check-circle"></i>
                         </div>
-                        <div class="founder-info">
-                            <h3>Mostafa Yaghi</h3>
-                            <p class="founder-title">Founder & AI Automation Expert</p>
-                            <p class="founder-description">Helping businesses leverage AI to automate workflows and build powerful web solutions</p>
-                            <div class="social-links">
-                                <a href="coming-soon.html" class="social-link" aria-label="Connect on LinkedIn"><i class="fab fa-linkedin"></i></a>
-                                <a href="coming-soon.html" class="social-link" aria-label="Follow on Twitter"><i class="fab fa-twitter"></i></a>
-                                <a href="coming-soon.html" class="social-link" aria-label="View GitHub profile"><i class="fab fa-github"></i></a>
-                            </div>
+                    </div>
+                    <div class="founder-info">
+                        <h3>Mostafa Yaghi</h3>
+                        <p class="founder-title">Founder & AI Automation Expert</p>
+                        <p class="founder-description">Helping businesses leverage AI to automate workflows and build powerful web solutions</p>
+                        <div class="social-links">
+                            <a href="coming-soon.html" class="social-link" aria-label="Connect on LinkedIn"><i class="fab fa-linkedin"></i></a>
+                            <a href="coming-soon.html" class="social-link" aria-label="Follow on Twitter"><i class="fab fa-twitter"></i></a>
+                            <a href="coming-soon.html" class="social-link" aria-label="View GitHub profile"><i class="fab fa-github"></i></a>
                         </div>
                     </div>
                 </div>
-                <div class="hero-image" data-aos="fade-left">
+
+                <!-- Center: Get In Touch Form -->
+                <div class="hero-image hero-form" data-aos="fade-up" data-aos-delay="100">
                     <div class="contact-form-wrapper hero-contact-form">
-                        <h3 style="color: var(--secondary-color); margin-bottom: 20px;">Get In Touch</h3>
+                        <h3 style="color: var(--secondary-color); margin-bottom: 20px; text-align: center;">Get In Touch</h3>
                         <form class="contact-form" id="heroContactForm">
                             <div class="form-group">
                                 <input type="text" id="hero-name" name="name" required>
@@ -138,6 +175,26 @@
                             </button>
                             <div class="form-message"></div>
                         </form>
+                    </div>
+                </div>
+
+                <!-- Right: Bader's Card -->
+                <div class="founder-card founder-right" data-aos="fade-left">
+                    <div class="founder-image-wrapper">
+                        <img src="images/Bader.jpg" alt="Bader Atem" class="founder-image" width="200" height="200" loading="eager" onerror="this.src='images/placeholder-avatar.jpg'">
+                        <div class="founder-badge">
+                            <i class="fas fa-check-circle"></i>
+                        </div>
+                    </div>
+                    <div class="founder-info">
+                        <h3>Bader Atem</h3>
+                        <p class="founder-title">Co-Founder & Business Strategist</p>
+                        <p class="founder-description">Driving business growth through innovative automation strategies and client success</p>
+                        <div class="social-links">
+                            <a href="coming-soon.html" class="social-link" aria-label="Connect on LinkedIn"><i class="fab fa-linkedin"></i></a>
+                            <a href="coming-soon.html" class="social-link" aria-label="Follow on Twitter"><i class="fab fa-twitter"></i></a>
+                            <a href="coming-soon.html" class="social-link" aria-label="View GitHub profile"><i class="fab fa-github"></i></a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -567,8 +624,26 @@
                             <i class="fas fa-phone"></i>
                         </div>
                         <div class="contact-text">
-                            <h4>Phone</h4>
+                            <h4>Phone - Mostafa</h4>
                             <p>0684550084</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h4>Phone - Bader</h4>
+                            <p>0625789142</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h4>Email - Bader</h4>
+                            <p>bader.atem@qynzoo.com</p>
                         </div>
                     </div>
                     <div class="contact-item">
@@ -785,7 +860,7 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2025 Qynzoo. All rights reserved. | V3.8</p>
+                <p>&copy; 2025 Qynzoo. All rights reserved. | V3.9</p>
                 <div class="footer-bottom-links">
                     <a href="#">Privacy Policy</a>
                     <a href="#">Terms of Service</a>
@@ -809,9 +884,9 @@
     </script>
     <script type="module" src="js/pixel-blast.js?v=3.5" defer></script>
 
-    <script src="js/card-nav.js?v=3.8" defer></script>
-    <script src="js/script.min.js?v=3.8" defer></script>
-    <script src="js/brandfetch-logos.js?v=3.8" defer></script>
-    <script src="js/logo-drag.js?v=3.8" defer></script>
+    <script src="js/card-nav.js?v=3.9" defer></script>
+    <script src="js/script.min.js?v=3.9" defer></script>
+    <script src="js/brandfetch-logos.js?v=3.9" defer></script>
+    <script src="js/logo-drag.js?v=3.9" defer></script>
 </body>
 </html>
