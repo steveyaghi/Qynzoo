@@ -11,7 +11,11 @@ class BrandfetchLogoManager {
       { selector: 'img[alt="Make"]', domain: 'make.com' },
       { selector: 'img[alt="OpenAI"]', domain: 'openai.com' },
       { selector: 'img[alt="Anthropic"]', domain: 'anthropic.com' },
-      { selector: 'img[alt="Supabase"]', domain: 'supabase.com' }
+      { selector: 'img[alt="Supabase"]', domain: 'supabase.com' },
+      { selector: 'img[alt="Perplexity"]', domain: 'perplexity.ai' },
+      { selector: 'img[alt="Figma"]', domain: 'figma.com' },
+      { selector: 'img[alt="Google"]', domain: 'gemini.google.com' },
+      { selector: 'img[alt="ElevenLabs"]', domain: 'elevenlabs.io' }
     ];
   }
 
