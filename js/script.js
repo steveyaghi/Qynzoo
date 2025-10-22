@@ -325,6 +325,12 @@ contactForm.addEventListener('submit', async (e) => {
     // Get form data
     const formData = new FormData(contactForm);
 
+    // SECURITY: Honeypot check - prevent bot submissions
+    if (formData.get('botcheck')) {
+        console.warn('Bot detected via honeypot field');
+        return; // Silently reject bot submission
+    }
+
     // Add Web3Forms access key - REPLACE WITH YOUR KEY FROM https://web3forms.com
     formData.append('access_key', 'da59c569-21e5-499c-bc44-4fc7a94454d1');
 
@@ -431,6 +437,12 @@ if (heroContactForm) {
 
         // Get form data
         const formData = new FormData(heroContactForm);
+
+        // SECURITY: Honeypot check - prevent bot submissions
+        if (formData.get('botcheck')) {
+            console.warn('Bot detected via honeypot field');
+            return; // Silently reject bot submission
+        }
 
         // Add Web3Forms access key - REPLACE WITH YOUR KEY FROM https://web3forms.com
         formData.append('access_key', 'da59c569-21e5-499c-bc44-4fc7a94454d1');
@@ -570,6 +582,9 @@ images.forEach(img => imageObserver.observe(img));
 // ===================================
 // Typing Effect for Hero Title
 // ===================================
+// SECURITY NOTE: innerHTML used with static content only
+// Never pass user input to innerHTML - XSS risk
+// CSP provides additional XSS protection
 const heroTitle = document.querySelector('.hero-title');
 if (heroTitle) {
     const text = heroTitle.innerHTML;

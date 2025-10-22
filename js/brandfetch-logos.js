@@ -7,7 +7,7 @@ class BrandfetchLogoManager {
   constructor(clientId) {
     this.clientId = clientId;
     this.logos = [
-      { selector: 'img[alt="N8N"]', domain: 'n8n.io' },
+      // N8N excluded - using local logo file instead
       { selector: 'img[alt="Make"]', domain: 'make.com' },
       { selector: 'img[alt="OpenAI"]', domain: 'openai.com' },
       { selector: 'img[alt="Anthropic"]', domain: 'anthropic.com' },
@@ -20,12 +20,13 @@ class BrandfetchLogoManager {
   }
 
   /**
-   * Generate Brandfetch CDN URL for a logo with light theme
+   * Generate Brandfetch CDN URL for a logo with light theme (white/light colored logos)
    * @param {string} domain - Company domain
    * @param {number} size - Logo size (default 256)
    * @returns {string} - Brandfetch CDN URL
    */
   generateLogoUrl(domain, size = 256) {
+    // Use light theme to get white/light colored logos for dark backgrounds
     return `https://cdn.brandfetch.io/${domain}/theme/light/w/${size}/h/${size}/logo?c=${this.clientId}`;
   }
 
@@ -49,16 +50,18 @@ class BrandfetchLogoManager {
 
       const data = await response.json();
 
-      // Find light-themed logo
+      // Find best logo (prefer light theme for white/light colored logos)
       const logos = data.logos || [];
-      const lightLogo = logos.find(logo =>
-        logo.theme === 'light' || logo.type === 'logo'
-      );
+      const lightLogo = logos.find(logo => logo.theme === 'light');
+      const darkLogo = logos.find(logo => logo.theme === 'dark');
+      const anyLogo = logos.find(logo => logo.type === 'logo');
 
-      if (lightLogo && lightLogo.formats && lightLogo.formats.length > 0) {
+      const selectedLogo = lightLogo || darkLogo || anyLogo;
+
+      if (selectedLogo && selectedLogo.formats && selectedLogo.formats.length > 0) {
         // Prefer SVG, then PNG
-        const svgFormat = lightLogo.formats.find(f => f.format === 'svg');
-        const pngFormat = lightLogo.formats.find(f => f.format === 'png');
+        const svgFormat = selectedLogo.formats.find(f => f.format === 'svg');
+        const pngFormat = selectedLogo.formats.find(f => f.format === 'png');
         return (svgFormat || pngFormat)?.src;
       }
 
@@ -84,6 +87,9 @@ class BrandfetchLogoManager {
     };
 
     img.src = logoUrl;
+
+    // Add CSS filter to make logos white/bright for dark backgrounds
+    img.style.filter = 'brightness(0) invert(1)';
   }
 
   /**

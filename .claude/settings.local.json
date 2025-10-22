@@ -50,7 +50,9 @@
       "Bash(del \"D:\\Claude\\Qynzoo.com\\js\\script.min.js\")",
       "WebFetch(domain:docs.web3forms.com)",
       "WebFetch(domain:docs.brandfetch.com)",
-      "WebFetch(domain:brandfetch.com)"
+      "WebFetch(domain:brandfetch.com)",
+      "Bash(test -d \"D:\\Claude\\Qynzoo.com\\security\")",
+      "Bash(findstr:*)"
     ],
     "deny": [],
     "ask": []
