@@ -9,10 +9,14 @@
     <title>Privacy Policy | Qynzoo - AI Automation & Website Building</title>
 
     <!-- Security Headers -->
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://unpkg.com https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com https://unpkg.com; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self' data: https:; connect-src 'self'; frame-ancestors 'none'; base-uri 'self'; form-action 'self';">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://unpkg.com https://cdn.jsdelivr.net https://www.googletagmanager.com https://www.google-analytics.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com https://unpkg.com; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self' data: https: https://www.google-analytics.com; connect-src 'self' https://www.google-analytics.com https://analytics.google.com https://region1.google-analytics.com; frame-ancestors 'none'; base-uri 'self'; form-action 'self';">
     <meta http-equiv="X-Frame-Options" content="DENY">
     <meta http-equiv="X-Content-Type-Options" content="nosniff">
     <meta name="referrer" content="strict-origin-when-cross-origin">
+
+    <!-- Google Analytics 4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-YF5C5BCJK4"></script>
+    <script src="js/analytics.js"></script>
 
     <link rel="icon" type="image/svg+xml" href="logos/Qynzoo_solo_logo.svg">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -382,18 +386,41 @@
 
         <h2>7. Cookies and Tracking</h2>
         <div>
-            <p><strong>Current Status:</strong> Our website does <strong>not</strong> currently use cookies for tracking or analytics purposes.</p>
+            <p><strong>Current Status:</strong> Our website uses cookies and tracking technologies to analyze website traffic and improve user experience.</p>
 
-            <p>If we implement cookies in the future, we will:</p>
+            <h3>Google Analytics</h3>
+            <p>We use Google Analytics 4 (GA4), a web analytics service provided by Google LLC ("Google"), to collect and analyze information about how visitors use our website. Google Analytics uses cookies and similar technologies to:</p>
             <ul>
-                <li>Obtain your explicit consent before placing non-essential cookies</li>
-                <li>Provide clear information about the cookies we use</li>
-                <li>Give you the ability to accept or reject cookies</li>
-                <li>Update this Privacy Policy accordingly</li>
+                <li>Track page views and user interactions</li>
+                <li>Analyze traffic patterns and user behavior</li>
+                <li>Monitor website performance and engagement</li>
+                <li>Generate statistical reports about website usage</li>
             </ul>
 
+            <p><strong>Information Collected by Google Analytics:</strong></p>
+            <ul>
+                <li>Pages visited and time spent on each page</li>
+                <li>Referral sources (how you arrived at our website)</li>
+                <li>Device information (browser type, operating system, screen resolution)</li>
+                <li>Geographic location (country, region, city - based on IP address)</li>
+                <li>User interactions (clicks, scrolls, form submissions, button clicks)</li>
+            </ul>
+
+            <p><strong>IP Anonymization:</strong> We have enabled IP anonymization in Google Analytics, which means your IP address is truncated before being stored, enhancing your privacy.</p>
+
+            <p><strong>Data Retention:</strong> Analytics data is retained for 14 months, after which it is automatically deleted.</p>
+
+            <p><strong>Opt-Out:</strong> You can opt out of Google Analytics tracking by:</p>
+            <ul>
+                <li>Installing the <a href="https://tools.google.com/dlpage/gaoptout" target="_blank" rel="noopener noreferrer">Google Analytics Opt-out Browser Add-on</a></li>
+                <li>Enabling "Do Not Track" in your browser settings</li>
+                <li>Using browser extensions that block tracking cookies</li>
+            </ul>
+
+            <p>For more information about how Google collects and processes data, please visit <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">Google's Privacy Policy</a> and <a href="https://support.google.com/analytics/answer/6004245" target="_blank" rel="noopener noreferrer">Google Analytics Privacy Information</a>.</p>
+
             <h3>Third-Party Cookies</h3>
-            <p>Some third-party services we use (such as Google Fonts and CDN providers) may set their own cookies. We do not control these cookies. Please refer to their respective privacy policies for more information.</p>
+            <p>Some third-party services we use (such as Google Fonts, Google Analytics, and CDN providers) may set their own cookies. We do not control these cookies. Please refer to their respective privacy policies for more information.</p>
         </div>
 
         <h2>8. International Data Transfers</h2>
@@ -402,6 +429,7 @@
 
             <ul>
                 <li><strong>United States:</strong> Web3Forms (contact form processing)</li>
+                <li><strong>United States:</strong> Google Analytics (website analytics and tracking)</li>
             </ul>
 
             <p>When we transfer personal data outside the EEA, we ensure appropriate safeguards are in place, such as:</p>
