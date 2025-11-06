@@ -1,0 +1,85 @@
+# Qynzoo.com Robots.txt - Optimized for SEO & GEO
+# Updated: 2025-01-06
+
+# Default crawl rules for all bots
+User-agent: *
+Allow: /
+Crawl-delay: 1
+
+# Google Bot
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 0
+
+# Google Image Bot
+User-agent: Googlebot-Image
+Allow: /images/
+Allow: /logos/
+
+# Bing Bot
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 0
+
+# OpenAI ChatGPT Search Bot (Critical for ChatGPT indexing)
+User-agent: OAI-SearchBot
+Allow: /
+Crawl-delay: 0
+
+# OpenAI GPT Bot (for training data)
+User-agent: GPTBot
+Allow: /
+Crawl-delay: 0
+
+# ChatGPT User (for direct ChatGPT access)
+User-agent: ChatGPT-User
+Allow: /
+Crawl-delay: 0
+
+# Anthropic Claude Bot
+User-agent: anthropic-ai
+Allow: /
+Crawl-delay: 0
+
+# Claude Web
+User-agent: Claude-Web
+Allow: /
+Crawl-delay: 0
+
+# Google Gemini
+User-agent: Google-Extended
+Allow: /
+Crawl-delay: 0
+
+# Perplexity AI
+User-agent: PerplexityBot
+Allow: /
+Crawl-delay: 0
+
+# Common Crawl (used by many AI models)
+User-agent: CCBot
+Allow: /
+Crawl-delay: 1
+
+# Meta AI
+User-agent: FacebookBot
+Allow: /
+Crawl-delay: 1
+
+# Disallow sensitive areas
+User-agent: *
+Disallow: /cgi-bin/
+Disallow: /admin/
+Disallow: /private/
+Disallow: /*.json$
+Disallow: /api/
+
+# Allow CSS and JS for proper rendering
+User-agent: *
+Allow: /css/
+Allow: /js/
+Allow: /logos/
+Allow: /images/
+
+# Sitemap location
+Sitemap: https://qynzoo.com/sitemap.xml
