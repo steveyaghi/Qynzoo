@@ -154,7 +154,7 @@ Qynzoo
 Email: mostafa.yaghi@qynzoo.com
 General Contact: mostafa.yaghi@qynzoo.com
 Phone (Mostafa): +31 6 84550084
-Phone (Bader): +31 6 25789142
+Phone (Bader): +31 6 25126914
 Website: https://qynzoo.com
 ```
 
@@ -635,7 +635,7 @@ Qynzoo
 Email: mostafa.yaghi@qynzoo.com
 General Contact: mostafa.yaghi@qynzoo.com
 Phone (Mostafa): +31 6 84550084
-Phone (Bader): +31 6 25789142
+Phone (Bader): +31 6 25126914
 Website: https://qynzoo.com
 Privacy Policy: https://qynzoo.com/privacy-policy.html
 ```
