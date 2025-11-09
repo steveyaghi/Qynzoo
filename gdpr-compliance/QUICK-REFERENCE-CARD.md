@@ -45,7 +45,7 @@
 
 ## 🔍 Where to Search for Data
 
-✅ mostyaghi@outlook.com (inbox, sent, archive)
+✅ mostafa.yaghi@qynzoo.com (inbox, sent, archive)
 ✅ bader.atem@qynzoo.com (inbox, sent, archive)
 ✅ Web3Forms submissions
 ✅ Contracts & invoices

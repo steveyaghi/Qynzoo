@@ -11,8 +11,8 @@
 - [x] Forms integrated with Web3Forms API
 
 ### ✅ Configuration
-- [x] Web3Forms API key configured (`da59c569-21e5-499c-bc44-4fc7a94454d1`)
-- [x] Contact email: mostyaghi@outlook.com
+- [x] Web3Forms API key configured (`f9c00394-0832-45ac-b316-96aff3f7d112`)
+- [x] Contact email: mostafa.yaghi@qynzoo.com
 - [x] Contact phone: 0684550084
 - [x] All links tested (internal navigation)
 - [x] Social media links point to coming-soon.html
@@ -97,7 +97,7 @@ See detailed guide in `docs/SSH_DEPLOYMENT_GUIDE.md`
    - [ ] Main contact form submits
    - [ ] Form validation works
    - [ ] Success messages display
-   - [ ] Emails received at mostyaghi@outlook.com
+   - [ ] Emails received at mostafa.yaghi@qynzoo.com
 
 3. **Blog**
    - [ ] Blog listing page loads
@@ -142,7 +142,7 @@ If using custom domain (e.g., qynzoo.com):
 
 ### 1. Test Contact Forms
 Send test submissions to verify:
-- Emails arrive at mostyaghi@outlook.com
+- Emails arrive at mostafa.yaghi@qynzoo.com
 - All form fields captured correctly
 - Success/error messages display properly
 

@@ -179,9 +179,9 @@ This folder contains all the documentation and tools you need to comply with GDP
 - Professional appearance
 
 **How to Set Up**:
-1. Create email alias or forwarding address: privacy@qynzoo.com
-2. Forward to both:
-   - mostyaghi@outlook.com
+1. Use primary contact email: mostafa.yaghi@qynzoo.com
+2. Monitor both:
+   - mostafa.yaghi@qynzoo.com
    - bader.atem@qynzoo.com
 3. Test by sending test email
 4. Add to email signatures
@@ -446,8 +446,7 @@ Every 3 months:
 ## ✉️ Contact
 
 **For GDPR-related inquiries**:
-- Email: privacy@qynzoo.com (set this up!)
-- Backup: mostyaghi@outlook.com
+- Email: mostafa.yaghi@qynzoo.com
 - Backup: bader.atem@qynzoo.com
 
 **For this documentation**:

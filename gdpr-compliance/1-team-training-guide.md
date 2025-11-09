@@ -139,7 +139,7 @@ Any information that can identify a person:
 
 ## Step-by-Step Procedures
 
-### When a Data Request Email Arrives at privacy@qynzoo.com:
+### When a Data Request Email Arrives at mostafa.yaghi@qynzoo.com:
 
 #### **STEP 1: Acknowledge Receipt (Within 24-48 hours)**
 
@@ -183,9 +183,8 @@ Send acknowledgment email using Template #0 (Acknowledgment)
 **Where to Look**:
 
 1. **Email Inboxes** (Primary locations):
-   - mostyaghi@outlook.com
+   - mostafa.yaghi@qynzoo.com
    - bader.atem@qynzoo.com
-   - privacy@qynzoo.com (when set up)
 
    **Search for**:
    - User's email address
@@ -269,9 +268,9 @@ Use appropriate email template (see section 2)
 When searching for a user's data, check ALL of these locations:
 
 **📧 Email Systems**:
-- [ ] mostyaghi@outlook.com inbox
-- [ ] mostyaghi@outlook.com sent folder
-- [ ] mostyaghi@outlook.com archive
+- [ ] mostafa.yaghi@qynzoo.com inbox
+- [ ] mostafa.yaghi@qynzoo.com sent folder
+- [ ] mostafa.yaghi@qynzoo.com archive
 - [ ] bader.atem@qynzoo.com inbox
 - [ ] bader.atem@qynzoo.com sent folder
 - [ ] bader.atem@qynzoo.com archive
@@ -335,7 +334,7 @@ When searching for a user's data, check ALL of these locations:
 
    YOUR RIGHTS:
    - You can request correction, deletion, or restriction
-   - Contact privacy@qynzoo.com to exercise rights
+   - Contact mostafa.yaghi@qynzoo.com to exercise rights
    ```
 5. Send using Template #1
 6. Close within 30 days
@@ -454,7 +453,7 @@ When searching for a user's data, check ALL of these locations:
 - **Marketing Objection**: Immediate
 
 ### Contact Email
-📧 **privacy@qynzoo.com** (set up this email!)
+📧 **mostafa.yaghi@qynzoo.com**
 
 ### Request Types (The Big 6)
 1. **Access** → Send their data
@@ -552,5 +551,5 @@ After reading this guide, you should be able to:
 
 **END OF TRAINING GUIDE**
 
-📧 Questions? Email privacy@qynzoo.com
+📧 Questions? Email mostafa.yaghi@qynzoo.com
 📁 Related Documents: Email Templates, Tracking Spreadsheet, Web3Forms Review Checklist

@@ -358,6 +358,11 @@ tail -f /var/log/nginx/access.log | grep -i "OAI-SearchBot"
 
 ## 📈 Version History
 
+- **V3.13** (2025-01-09): Email and Web3Forms updates
+  - Updated all email addresses to professional @qynzoo.com domain
+  - Updated Web3Forms access key for new email configuration
+  - Contact forms now send to mostafa.yaghi@qynzoo.com
+
 - **V3.12** (2025-01-06): Initial SEO & GEO implementation
   - Added robots.txt with AI bot permissions
   - Created comprehensive sitemap.xml

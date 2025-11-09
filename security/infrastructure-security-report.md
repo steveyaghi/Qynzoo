@@ -125,7 +125,7 @@ Missing headers that should be configured at hosting level:
 
 2. **Web3Forms Access Key** (js/script.js:329, 436)
    ```javascript
-   formData.append('access_key', 'da59c569-21e5-499c-bc44-4fc7a94454d1');
+   formData.append('access_key', 'f9c00394-0832-45ac-b316-96aff3f7d112');
    ```
    - **Severity**: HIGH
    - **Risk**: Publicly exposed access key can be used by anyone to send emails through your Web3Forms account

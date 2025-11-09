@@ -332,7 +332,7 @@ contactForm.addEventListener('submit', async (e) => {
     }
 
     // Add Web3Forms access key - REPLACE WITH YOUR KEY FROM https://web3forms.com
-    formData.append('access_key', 'da59c569-21e5-499c-bc44-4fc7a94454d1');
+    formData.append('access_key', 'f9c00394-0832-45ac-b316-96aff3f7d112');
 
     // Add custom subject line
     formData.append('subject', `Qynzoo Contact Form: ${formData.get('subject')}`);
@@ -445,7 +445,7 @@ if (heroContactForm) {
         }
 
         // Add Web3Forms access key - REPLACE WITH YOUR KEY FROM https://web3forms.com
-        formData.append('access_key', 'da59c569-21e5-499c-bc44-4fc7a94454d1');
+        formData.append('access_key', 'f9c00394-0832-45ac-b316-96aff3f7d112');
 
         // Add custom subject line
         formData.append('subject', `Qynzoo Hero Contact Form: ${formData.get('subject')}`);

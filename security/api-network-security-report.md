@@ -208,7 +208,7 @@ const response = await fetch('https://api.web3forms.com/submit', {
 #### ✅ ACCEPTABLE: Client-Side API Keys
 
 **Exposed Keys**:
-1. **Web3Forms Access Key**: `da59c569-21e5-499c-bc44-4fc7a94454d1`
+1. **Web3Forms Access Key**: `f9c00394-0832-45ac-b316-96aff3f7d112`
    - Location: `js/script.js:329, 436`
    - **Risk**: Low (designed for client-side use)
    - **Protection**: Domain whitelisting, rate limiting, spam filters

@@ -10,7 +10,7 @@
 1. **Copy the template** that matches the request type
 2. **Replace all [bracketed] placeholders** with actual information
 3. **Review for accuracy** before sending
-4. **Send from privacy@qynzoo.com** (or appropriate email)
+4. **Send from mostafa.yaghi@qynzoo.com** (or appropriate email)
 5. **Save a copy** for records
 6. **Log in tracking spreadsheet**
 
@@ -63,7 +63,7 @@ Qynzoo Privacy Team
 
 ---
 Qynzoo
-Email: privacy@qynzoo.com
+Email: mostafa.yaghi@qynzoo.com
 Website: https://qynzoo.com
 ```
 
@@ -140,7 +140,7 @@ You have the right to:
 ✅ Receive your data in portable format (Right to Portability)
 ✅ Object to processing (Right to Object)
 
-To exercise any of these rights, please email privacy@qynzoo.com.
+To exercise any of these rights, please email mostafa.yaghi@qynzoo.com.
 
 ---
 
@@ -151,8 +151,8 @@ Qynzoo Privacy Team
 
 ---
 Qynzoo
-Email: privacy@qynzoo.com
-General Contact: mostyaghi@outlook.com
+Email: mostafa.yaghi@qynzoo.com
+General Contact: mostafa.yaghi@qynzoo.com
 Phone (Mostafa): +31 6 84550084
 Phone (Bader): +31 6 25789142
 Website: https://qynzoo.com
@@ -190,7 +190,7 @@ Qynzoo Privacy Team
 
 ---
 Qynzoo
-Email: privacy@qynzoo.com
+Email: mostafa.yaghi@qynzoo.com
 Website: https://qynzoo.com
 ```
 
@@ -242,7 +242,7 @@ Qynzoo Privacy Team
 
 ---
 Qynzoo
-Email: privacy@qynzoo.com
+Email: mostafa.yaghi@qynzoo.com
 Website: https://qynzoo.com
 ```
 
@@ -288,7 +288,7 @@ Qynzoo Privacy Team
 
 ---
 Qynzoo
-Email: privacy@qynzoo.com
+Email: mostafa.yaghi@qynzoo.com
 Website: https://qynzoo.com
 ```
 
@@ -333,7 +333,7 @@ Qynzoo Privacy Team
 
 ---
 Qynzoo
-Email: privacy@qynzoo.com
+Email: mostafa.yaghi@qynzoo.com
 Website: https://qynzoo.com
 ```
 
@@ -381,7 +381,7 @@ Qynzoo Privacy Team
 
 ---
 Qynzoo
-Email: privacy@qynzoo.com
+Email: mostafa.yaghi@qynzoo.com
 Website: https://qynzoo.com
 
 Attachment: [Name]_Qynzoo_Data_Export_[Date].csv
@@ -432,7 +432,7 @@ Qynzoo Privacy Team
 
 ---
 Qynzoo
-Email: privacy@qynzoo.com
+Email: mostafa.yaghi@qynzoo.com
 Website: https://qynzoo.com
 ```
 
@@ -476,7 +476,7 @@ Qynzoo Privacy Team
 
 ---
 Qynzoo
-Email: privacy@qynzoo.com
+Email: mostafa.yaghi@qynzoo.com
 Website: https://qynzoo.com
 ```
 
@@ -519,7 +519,7 @@ Qynzoo Privacy Team
 
 ---
 Qynzoo
-Email: privacy@qynzoo.com
+Email: mostafa.yaghi@qynzoo.com
 Website: https://qynzoo.com
 ```
 
@@ -563,7 +563,7 @@ Qynzoo Privacy Team
 
 ---
 Qynzoo
-Email: privacy@qynzoo.com
+Email: mostafa.yaghi@qynzoo.com
 Website: https://qynzoo.com
 ```
 
@@ -616,7 +616,7 @@ Qynzoo Privacy Team
 
 ---
 Qynzoo
-Email: privacy@qynzoo.com
+Email: mostafa.yaghi@qynzoo.com
 Website: https://qynzoo.com
 ```
 
@@ -632,8 +632,8 @@ Qynzoo Privacy Team
 
 ---
 Qynzoo
-Email: privacy@qynzoo.com
-General Contact: mostyaghi@outlook.com
+Email: mostafa.yaghi@qynzoo.com
+General Contact: mostafa.yaghi@qynzoo.com
 Phone (Mostafa): +31 6 84550084
 Phone (Bader): +31 6 25789142
 Website: https://qynzoo.com

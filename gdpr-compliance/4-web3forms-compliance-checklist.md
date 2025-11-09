@@ -160,7 +160,7 @@ Thank you for your assistance.
 Best regards,
 [Your Name]
 Qynzoo
-Email: mostyaghi@outlook.com / bader.atem@qynzoo.com
+Email: mostafa.yaghi@qynzoo.com / bader.atem@qynzoo.com
 Website: https://qynzoo.com
 ```
 
@@ -315,7 +315,7 @@ For each form you have:
 |---------|---------------|-------------------|-----------------|
 | **Form Name/ID** | | Descriptive | [ ] Update if needed |
 | **Redirect URL** | | Custom thank-you page | [ ] Configure |
-| **Email Recipients** | | mostyaghi@outlook.com, bader.atem@qynzoo.com | [ ] Verify |
+| **Email Recipients** | | mostafa.yaghi@qynzoo.com, bader.atem@qynzoo.com | [ ] Verify |
 | **Auto-Response** | ☐ On ☐ Off | ✅ On (optional) | [ ] Configure if desired |
 | **Spam Filter Level** | | High | [ ] See Step 8 |
 

@@ -128,7 +128,7 @@ See detailed guides in:
 
 ## Contact Information
 
-- **Email**: mostyaghi@outlook.com
+- **Email**: mostafa.yaghi@qynzoo.com
 - **Phone**: 0684550084
 - **Location**: Worldwide - Remote Services
 
