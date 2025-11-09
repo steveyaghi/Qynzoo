@@ -264,7 +264,19 @@ inputs.forEach(input => {
 
 function validateField(field) {
     const formGroup = field.closest('.form-group');
+
+    // If no form-group found, skip validation UI updates but still validate
+    if (!formGroup) {
+        return true;
+    }
+
     const errorSpan = formGroup.querySelector('.form-error');
+
+    // If no error span found, skip validation UI updates but still validate
+    if (!errorSpan) {
+        return true;
+    }
+
     let isValid = true;
     let errorMessage = '';
 
