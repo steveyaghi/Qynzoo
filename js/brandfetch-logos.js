@@ -31,46 +31,13 @@ class BrandfetchLogoManager {
   }
 
   /**
-   * Fetch logo from Brandfetch API
+   * Get logo URL from Brandfetch CDN
+   * Uses CDN directly - the API endpoint requires a separate API key (not the embed client ID)
    * @param {string} domain - Company domain
-   * @returns {Promise<string>} - Logo URL
+   * @returns {string} - Logo CDN URL
    */
-  async fetchLogo(domain) {
-    try {
-      // Use the API endpoint to get brand data
-      const response = await fetch(`https://api.brandfetch.io/v2/brands/${domain}`, {
-        headers: {
-          'Authorization': `Bearer ${this.clientId}`
-        }
-      });
-
-      if (!response.ok) {
-        throw new Error(`Failed to fetch brand data for ${domain}`);
-      }
-
-      const data = await response.json();
-
-      // Find best logo (prefer light theme for white/light colored logos)
-      const logos = data.logos || [];
-      const lightLogo = logos.find(logo => logo.theme === 'light');
-      const darkLogo = logos.find(logo => logo.theme === 'dark');
-      const anyLogo = logos.find(logo => logo.type === 'logo');
-
-      const selectedLogo = lightLogo || darkLogo || anyLogo;
-
-      if (selectedLogo && selectedLogo.formats && selectedLogo.formats.length > 0) {
-        // Prefer SVG, then PNG
-        const svgFormat = selectedLogo.formats.find(f => f.format === 'svg');
-        const pngFormat = selectedLogo.formats.find(f => f.format === 'png');
-        return (svgFormat || pngFormat)?.src;
-      }
-
-      // Fallback to CDN URL
-      return this.generateLogoUrl(domain);
-    } catch (error) {
-      console.warn(`Using CDN fallback for ${domain}:`, error.message);
-      return this.generateLogoUrl(domain);
-    }
+  fetchLogo(domain) {
+    return this.generateLogoUrl(domain);
   }
 
   /**
@@ -95,9 +62,7 @@ class BrandfetchLogoManager {
   /**
    * Initialize and replace all logos
    */
-  async init() {
-    console.log('Initializing Brandfetch logo replacement...');
-
+  init() {
     for (const { selector, domain } of this.logos) {
       try {
         const elements = document.querySelectorAll(selector);
@@ -107,19 +72,16 @@ class BrandfetchLogoManager {
           continue;
         }
 
-        const logoUrl = await this.fetchLogo(domain);
+        const logoUrl = this.fetchLogo(domain);
 
         elements.forEach(img => {
           this.replaceLogo(img, logoUrl);
         });
 
-        console.log(`✓ Replaced ${elements.length} logo(s) for ${domain}`);
       } catch (error) {
         console.error(`Failed to replace logo for ${domain}:`, error);
       }
     }
-
-    console.log('Logo replacement complete!');
   }
 }
 

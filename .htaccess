@@ -27,8 +27,11 @@
     # Prevent MIME-type sniffing
     Header always set X-Content-Type-Options "nosniff"
 
-    # Clickjacking protection
+    # Clickjacking protection (must be HTTP header - meta tag is ignored by browsers)
     Header always set X-Frame-Options "DENY"
+
+    # Content Security Policy - frame-ancestors MUST be an HTTP header (ignored in <meta> tags)
+    Header always set Content-Security-Policy "frame-ancestors 'none'"
 
     # XSS Protection (legacy browsers)
     Header always set X-XSS-Protection "1; mode=block"

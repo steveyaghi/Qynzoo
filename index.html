@@ -10,8 +10,8 @@
     <title>Qynzoo - AI Automation & Website Building Agency</title>
 
     <!-- Security Headers -->
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://unpkg.com https://cdn.jsdelivr.net https://www.googletagmanager.com https://www.google-analytics.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com https://unpkg.com; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self' data: https: https://cdn.brandfetch.io https://www.google-analytics.com; connect-src 'self' https://api.web3forms.com https://api.brandfetch.io https://www.google-analytics.com https://analytics.google.com https://region1.google-analytics.com; frame-ancestors 'none'; base-uri 'self'; form-action 'self' https://api.web3forms.com;">
-    <meta http-equiv="X-Frame-Options" content="DENY">
+    <!-- Note: frame-ancestors and X-Frame-Options are set via HTTP headers in .htaccess (meta tags are ignored by browsers for these directives) -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://unpkg.com https://cdn.jsdelivr.net https://www.googletagmanager.com https://www.google-analytics.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com https://unpkg.com; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self' data: https: https://cdn.brandfetch.io https://www.google-analytics.com; connect-src 'self' https://api.web3forms.com https://api.brandfetch.io https://www.google-analytics.com https://analytics.google.com https://region1.google-analytics.com; base-uri 'self'; form-action 'self' https://api.web3forms.com;">
     <meta http-equiv="X-Content-Type-Options" content="nosniff">
     <meta name="referrer" content="strict-origin-when-cross-origin">
 
@@ -277,7 +277,7 @@
             <!-- Centered Title and Buttons -->
             <div style="text-align: center; margin-bottom: 50px;" data-aos="fade-up">
                 <h1 class="hero-title">Transform Your Business with <span class="gradient-text">AI Automation</span></h1>
-                <p class="hero-subtitle" style="max-width: 700px; margin: 20px auto 30px;">Stop losing hours to manual tasks. We build AI-powered workflows and high-converting websites that let you reclaim your time — and grow faster.</p>
+                <p class="hero-subtitle" style="max-width: 700px; margin: 20px auto 30px;">Stop losing hours to manual tasks. We build AI-powered workflows and high-converting websites that let you reclaim your time and grow faster.</p>
                 <div class="hero-buttons" style="justify-content: center;">
                     <a href="#contact" class="btn btn-primary">Get Started</a>
                     <a href="#workflow" class="btn btn-secondary">Learn More</a>
@@ -799,7 +799,7 @@
         <div class="container">
             <div class="section-header" data-aos="fade-up">
                 <h2 class="section-title">Collaboration <span class="gradient-text">Partners</span></h2>
-                <p class="section-subtitle">Some problems benefit from two teams bringing complementary strengths. We collaborate closely with a select group of partners — people we've vetted, trust, and build with on projects that benefit from more than one angle of attack.</p>
+                <p class="section-subtitle">Some projects benefit from expertise across multiple disciplines. To ensure the highest level of execution, we collaborate with a carefully selected network of trusted partners—teams we’ve vetted and worked with extensively. When the scope calls for it, we integrate them into the project so you work with one unified team instead of managing multiple vendors.</p>
             </div>
             <div data-aos="fade-up">
                 <div class="partner-cards-grid">
@@ -820,7 +820,8 @@
                                     <span class="partner-founder-role">Founder &amp; AI Systems Engineer</span>
                                 </div>
                             </div>
-                            <p class="partner-description">Ayman leads Elanova AI — a production-grade AI engineering company with deep expertise in building complete AI systems from the ground up. Where Qynzoo brings strength in automation orchestration (n8n, Make), CRM integration, and full web builds, Elanova focuses on the AI engineering core: data pipelines, model deployment, error handling, and the infrastructure that makes AI reliable in production. Together we take on projects that require both layers working as one.</p>
+                            <p class="partner-description">Ayman leads Elanova AI — a production-grade AI engineering company focused on building complete AI systems from the ground up. While Qynzoo specializes in automation orchestration (n8n, Make), CRM integrations, and full web platforms, Elanova provides the AI engineering foundation — from data pipelines and model deployment to the infrastructure required for reliable production systems.</p>
+                            <p class="partner-description">Together, we deliver projects where advanced AI and intelligent automation must operate as one.</p>
                         </div>
                         <div class="partner-card-footer">
                             <div class="partner-location"><i class="fas fa-map-marker-alt"></i> Netherlands</div>
@@ -1101,7 +1102,7 @@
         }
     }
     </script>
-    <script type="module" src="js/pixel-blast.js?v=3.5" defer></script>
+    <script type="module" src="js/pixel-blast.js?v=3.14" defer></script>
 
     <script src="js/card-nav.js?v=3.14" defer></script>
     <script src="js/script.min.js?v=3.14" defer></script>
