@@ -1,6 +1,6 @@
 # Content Improvements — Readability, Clarity & Marketing Audit
 **Date:** March 1, 2026  
-**Version:** 3.14 → 3.14.1  
+**Version:** 3.14 → 3.14.2  
 **Scope:** All public-facing HTML pages (11 files)
 
 ---
@@ -57,7 +57,23 @@ A full content audit was performed across all pages. The site had solid technica
 | Founder bio | *"Helping businesses leverage AI to automate workflows and build powerful web solutions"* | *"I help business owners reclaim hours every week by replacing manual, repetitive work with smart AI automation and high-performing websites"* |
 | Services resource section description | *"Explore in-depth articles explaining our specialized services and how they can benefit your business"* | *"Not sure which service is right for you? Read these guides to see exactly how each solution works — and what results you can expect"* |
 | Footer description | *"Transforming businesses through AI automation and innovative web solutions."* | *"We help businesses reclaim 60–80% of their time with AI automation and high-converting websites. Based in the Netherlands — serving clients worldwide."* |
-| Version number | `V3.14` | `V3.14.1` |
+| Version number | `V3.14.1` | `V3.14.2` |
+
+---
+
+### 1b. `index.html` — Strategic Partnership Section (v3.14.2 follow-up)
+
+*Six weaknesses identified after the v3.14.1 audit and resolved in this pass:*
+
+| Issue | Fix applied |
+|-------|-------------|
+| Section title "Strategic Partnership" — unchanged corporate jargon | → "**Elite AI Partnership**" |
+| Subtitle: "built to last" — vague, no outcome specificity | → "delivering complete, production-grade AI systems that scale with your business" |
+| Intro double "When...when" — repetitive, passive opener | → "Some projects need more than automation — they need a full AI system..." |
+| Missing trust hook — no clear reason to choose Qynzoo + Elanova *together* | Added: "you get one team that handles workflow design *and* production-grade AI engineering" |
+| Stat "6–10w" — unclear abbreviation | → "6–10wks" |
+| Partner description "4+ systems per year" undersells; "stays until it works" is vague | → "multiple production AI systems every year" + "runs without hand-holding" |
+| CTA paragraph — wordy, no closing hook | → "One partnership, one conversation, zero gaps." added as closing line |
 
 ---
 
