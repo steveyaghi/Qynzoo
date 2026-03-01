@@ -1,9 +1,17 @@
 # Qynzoo.com Robots.txt - Optimized for SEO & GEO
-# Updated: 2025-01-06
+# Updated: 2026-03-01
 
 # Default crawl rules for all bots
 User-agent: *
 Allow: /
+Allow: /css/
+Allow: /js/
+Allow: /logos/
+Allow: /images/
+Disallow: /cgi-bin/
+Disallow: /admin/
+Disallow: /private/
+Disallow: /api/
 Crawl-delay: 1
 
 # Google Bot
@@ -65,21 +73,6 @@ Crawl-delay: 1
 User-agent: FacebookBot
 Allow: /
 Crawl-delay: 1
-
-# Disallow sensitive areas
-User-agent: *
-Disallow: /cgi-bin/
-Disallow: /admin/
-Disallow: /private/
-Disallow: /*.json$
-Disallow: /api/
-
-# Allow CSS and JS for proper rendering
-User-agent: *
-Allow: /css/
-Allow: /js/
-Allow: /logos/
-Allow: /images/
 
 # Sitemap location
 Sitemap: https://qynzoo.com/sitemap.xml
