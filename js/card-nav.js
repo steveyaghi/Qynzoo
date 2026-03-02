@@ -252,7 +252,7 @@ document.addEventListener('DOMContentLoaded', () => {
         links: [
           { label: "How It Works", href: "index.html#workflow", ariaLabel: "How our workflow works" },
           { label: "Blog", href: "blogs.html", ariaLabel: "Read our blog" },
-          { label: "Portfolio", href: "index.html#portfolio", ariaLabel: "View our portfolio" }
+          { label: "Our Partners", href: "index.html#partners", ariaLabel: "View our strategic partners" }
         ]
       },
       {

@@ -543,7 +543,6 @@ newsletterForm.addEventListener('submit', async (e) => {
     // Simulate submission
     try {
         await new Promise(resolve => setTimeout(resolve, 1500));
-        console.log('Newsletter subscription:', email);
 
         // Success feedback
         button.innerHTML = '<i class="fas fa-check"></i>';
@@ -749,3 +748,4 @@ createBackToTop();
 // ===================================
 console.log('%c🚀 Welcome to Qynzoo!', 'color: #44bba4; font-size: 24px; font-weight: bold;');
 console.log('%cTransforming businesses with AI automation', 'color: #ffc107; font-size: 14px;');
+

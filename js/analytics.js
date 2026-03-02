@@ -154,5 +154,3 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 });
-
-console.log('Google Analytics 4 initialized with custom event tracking');
