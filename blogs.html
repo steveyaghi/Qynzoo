@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Automation Insights &amp; Best Practices | Qynzoo Blog</title>
-    <meta name="description" content="Explore expert insights on AI automation, workflow optimization, GEO vs SEO, local AI solutions, and best practices for building intelligent business systems.">
+    <title>AI Automation Insights & Practical Guides | Qynzoo Blog</title>
+    <meta name="description" content="In-depth guides on AI automation, productivity, Claude Code, Make vs n8n, prompt engineering, and the latest AI trends — written for business owners, not developers.">
     <link rel="canonical" href="https://qynzoo.com/blogs.html">
 
     <!-- Google Analytics 4 -->
@@ -17,39 +17,47 @@
       "@context": "https://schema.org",
       "@type": "Blog",
       "name": "Qynzoo AI Automation Blog",
-      "description": "Expert insights and best practices for AI automation, workflow optimization, and intelligent business systems",
+      "description": "Practical guides on AI automation, productivity, Claude Code, prompt engineering, and the latest AI trends for business owners",
       "url": "https://qynzoo.com/blogs.html",
       "publisher": {
         "@type": "Organization",
         "name": "Qynzoo",
-        "logo": {
-          "@type": "ImageObject",
-          "url": "https://qynzoo.com/logos/Qynzoo_solo_logo.svg"
-        }
-      }
+        "logo": { "@type": "ImageObject", "url": "https://qynzoo.com/logos/Qynzoo_solo_logo.svg" }
+      },
+      "blogPost": [
+        { "@type": "BlogPosting", "headline": "How to Automate Your Business Workflows with AI", "url": "https://qynzoo.com/blog-workflow-automation.html" },
+        { "@type": "BlogPosting", "headline": "Top AI Tools for Business in 2026", "url": "https://qynzoo.com/blog-ai-tools-2026.html" },
+        { "@type": "BlogPosting", "headline": "Best AI Agent Practices for Business", "url": "https://qynzoo.com/blog-ai-agent-practices.html" },
+        { "@type": "BlogPosting", "headline": "Claude Code: The Complete Guide for Non-Developers", "url": "https://qynzoo.com/blog-claude-code-guide.html" },
+        { "@type": "BlogPosting", "headline": "How to 10x Your Productivity with AI in 2026", "url": "https://qynzoo.com/blog-ai-productivity-2026.html" },
+        { "@type": "BlogPosting", "headline": "The 7 Biggest AI Trends Shaping Business in 2026", "url": "https://qynzoo.com/blog-ai-trends-2026.html" },
+        { "@type": "BlogPosting", "headline": "Make vs n8n: Which Automation Platform is Right for You?", "url": "https://qynzoo.com/blog-make-vs-n8n.html" },
+        { "@type": "BlogPosting", "headline": "How AI is Transforming Customer Service", "url": "https://qynzoo.com/blog-ai-customer-service.html" },
+        { "@type": "BlogPosting", "headline": "Prompt Engineering for Business: Get Better AI Results", "url": "https://qynzoo.com/blog-prompt-engineering.html" },
+        { "@type": "BlogPosting", "headline": "How AI Agents Are Replacing Expensive SaaS Tools", "url": "https://qynzoo.com/blog-ai-replaces-saas.html" }
+      ]
     }
     </script>
 
-    <!-- Open Graph / Facebook -->
+    <!-- Open Graph -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://qynzoo.com/blogs.html">
-    <meta property="og:title" content="AI Automation Insights &amp; Best Practices | Qynzoo Blog">
-    <meta property="og:description" content="Explore expert insights on AI automation, workflow optimization, GEO vs SEO, local AI solutions, and best practices for building intelligent business systems.">
+    <meta property="og:title" content="AI Automation Insights & Practical Guides | Qynzoo Blog">
+    <meta property="og:description" content="In-depth guides on AI automation, productivity, Claude Code, Make vs n8n, prompt engineering, and the latest AI trends — written for business owners, not developers.">
     <meta property="og:image" content="https://qynzoo.com/images/og/og-blogs.png">
     <meta property="og:site_name" content="Qynzoo">
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:url" content="https://qynzoo.com/blogs.html">
-    <meta name="twitter:title" content="AI Automation Insights &amp; Best Practices | Qynzoo Blog">
-    <meta name="twitter:description" content="Explore expert insights on AI automation, workflow optimization, GEO vs SEO, local AI solutions, and best practices for building intelligent business systems.">
+    <meta name="twitter:title" content="AI Automation Insights & Practical Guides | Qynzoo Blog">
+    <meta name="twitter:description" content="In-depth guides on AI automation, productivity, Claude Code, Make vs n8n, prompt engineering, and the latest AI trends.">
     <meta name="twitter:image" content="https://qynzoo.com/images/og/og-blogs.png">
     <meta name="twitter:site" content="@qynzoo">
 
     <link rel="icon" type="image/svg+xml" href="logos/Qynzoo_solo_logo.svg">
-
-    <link rel="stylesheet" href="css/style.min.css?v=3.13">
-    <link rel="stylesheet" href="css/card-nav.css">
+    <link rel="stylesheet" href="css/style.min.css?v=3.14">
+    <link rel="stylesheet" href="css/blog.css">
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -57,15 +65,377 @@
     <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
     <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700&display=swap"></noscript>
+
+    <style>
+        /* ── Magazine-style Blog Listing ── */
+        .blog-hero { min-height: 60vh; }
+
+        /* Filter bar */
+        .blog-filter-bar {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin: 0 0 60px;
+        }
+        .blog-filter-btn {
+            padding: 10px 24px;
+            border-radius: 30px;
+            border: 1px solid rgba(255,255,255,0.15);
+            background: rgba(255,255,255,0.04);
+            color: rgba(255,255,255,0.7);
+            cursor: pointer;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: all 0.3s;
+            font-family: inherit;
+        }
+        .blog-filter-btn:hover,
+        .blog-filter-btn.active {
+            background: var(--primary-color);
+            border-color: var(--primary-color);
+            color: white;
+        }
+
+        /* ── Featured Hero Post ── */
+        .featured-hero-post {
+            display: grid;
+            grid-template-columns: 1fr 420px;
+            gap: 50px;
+            align-items: center;
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 24px;
+            padding: 50px;
+            margin-bottom: 50px;
+            backdrop-filter: blur(10px);
+            transition: border-color 0.3s;
+        }
+        .featured-hero-post:hover { border-color: var(--primary-color); }
+        .featured-label {
+            display: inline-block;
+            background: var(--primary-color);
+            color: white;
+            padding: 5px 16px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 18px;
+        }
+        .featured-hero-post h2 {
+            font-size: 2.4rem;
+            color: var(--text-light);
+            line-height: 1.25;
+            margin-bottom: 20px;
+        }
+        .featured-hero-post h2 a {
+            color: inherit;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        .featured-hero-post h2 a:hover { color: var(--primary-color); }
+        .featured-excerpt {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: rgba(255,255,255,0.75);
+            margin-bottom: 28px;
+        }
+        .post-meta {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+            flex-wrap: wrap;
+            margin-bottom: 28px;
+        }
+        .post-meta span {
+            font-size: 0.85rem;
+            color: rgba(255,255,255,0.5);
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .post-meta .post-tag {
+            background: rgba(68,187,164,0.1);
+            border: 1px solid rgba(68,187,164,0.3);
+            color: var(--primary-color);
+            padding: 4px 14px;
+            border-radius: 20px;
+            font-weight: 600;
+        }
+        .featured-visual {
+            background: linear-gradient(135deg, rgba(68,187,164,0.15), rgba(255,193,7,0.08));
+            border: 1px solid rgba(68,187,164,0.2);
+            border-radius: 20px;
+            height: 280px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 16px;
+        }
+        .featured-visual i { font-size: 4rem; color: var(--primary-color); }
+        .featured-visual p { color: rgba(255,255,255,0.5); font-size: 0.9rem; text-align: center; padding: 0 20px; }
+
+        /* ── Two featured cards row ── */
+        .featured-cards-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-bottom: 70px;
+        }
+        .feat-card {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 20px;
+            padding: 35px;
+            transition: all 0.3s;
+            backdrop-filter: blur(10px);
+        }
+        .feat-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary-color);
+            box-shadow: 0 20px 40px rgba(68,187,164,0.12);
+        }
+        .feat-card-icon {
+            width: 56px;
+            height: 56px;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+        }
+        .feat-card-icon i { color: white; font-size: 1.5rem; }
+        .feat-card-icon.coral { background: linear-gradient(135deg, var(--accent-color), #ff6b47); }
+        .feat-card-icon.yellow { background: linear-gradient(135deg, var(--secondary-color), #ff9800); }
+        .feat-card h3 {
+            font-size: 1.3rem;
+            color: var(--text-light);
+            margin-bottom: 12px;
+            line-height: 1.35;
+        }
+        .feat-card h3 a { color: inherit; text-decoration: none; transition: color 0.3s; }
+        .feat-card h3 a:hover { color: var(--primary-color); }
+        .feat-card p { font-size: 0.95rem; color: rgba(255,255,255,0.65); line-height: 1.7; margin-bottom: 20px; }
+
+        /* ── Section divider label ── */
+        .section-label {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 40px;
+        }
+        .section-label h2 {
+            font-size: 1.6rem;
+            color: var(--text-light);
+            white-space: nowrap;
+        }
+        .section-label::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: rgba(255,255,255,0.1);
+        }
+
+        /* ── Editorial rows (text + card alternating) ── */
+        .editorial-row {
+            display: grid;
+            grid-template-columns: 1fr 340px;
+            gap: 50px;
+            align-items: start;
+            margin-bottom: 60px;
+            padding-bottom: 60px;
+            border-bottom: 1px solid rgba(255,255,255,0.07);
+        }
+        .editorial-row.reverse { grid-template-columns: 340px 1fr; }
+        .editorial-row.reverse .editorial-text { order: 1; }
+        .editorial-row.reverse .editorial-card { order: 0; }
+
+        .editorial-text h3 {
+            font-size: 1.7rem;
+            color: var(--text-light);
+            line-height: 1.3;
+            margin-bottom: 16px;
+        }
+        .editorial-text h3 a { color: inherit; text-decoration: none; transition: color 0.3s; }
+        .editorial-text h3 a:hover { color: var(--primary-color); }
+        .editorial-text .post-meta { margin-bottom: 16px; }
+        .editorial-body {
+            font-size: 1.05rem;
+            line-height: 1.85;
+            color: rgba(255,255,255,0.75);
+            margin-bottom: 24px;
+        }
+        .editorial-body strong { color: var(--secondary-color); }
+        .editorial-card {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 20px;
+            padding: 30px;
+            backdrop-filter: blur(10px);
+        }
+        .editorial-card-icon {
+            width: 52px;
+            height: 52px;
+            border-radius: 14px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 18px;
+        }
+        .editorial-card-icon i { color: white; font-size: 1.4rem; }
+        .editorial-card-icon.coral { background: linear-gradient(135deg, var(--accent-color), #ff6b47); }
+        .editorial-card-icon.yellow { background: linear-gradient(135deg, var(--secondary-color), #ff9800); }
+        .editorial-card h4 { color: var(--secondary-color); font-size: 1rem; margin-bottom: 12px; text-transform: uppercase; letter-spacing: 0.5px; }
+        .editorial-card ul { list-style: none; padding: 0; margin: 0; }
+        .editorial-card ul li {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.06);
+            font-size: 0.9rem;
+            color: rgba(255,255,255,0.7);
+            line-height: 1.5;
+        }
+        .editorial-card ul li:last-child { border-bottom: none; }
+        .editorial-card ul li i { color: var(--primary-color); margin-top: 3px; flex-shrink: 0; }
+
+        /* ── Compact cards grid (Quick Reads) ── */
+        .quick-reads-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 28px;
+            margin-bottom: 40px;
+        }
+        .quick-card {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 18px;
+            padding: 28px;
+            transition: all 0.3s;
+            backdrop-filter: blur(10px);
+            display: flex;
+            flex-direction: column;
+        }
+        .quick-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary-color);
+            box-shadow: 0 15px 35px rgba(68,187,164,0.12);
+        }
+        .quick-card-top {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            margin-bottom: 16px;
+        }
+        .quick-icon {
+            width: 44px;
+            height: 44px;
+            border-radius: 12px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+        .quick-icon i { color: white; font-size: 1.1rem; }
+        .quick-icon.coral { background: linear-gradient(135deg, var(--accent-color), #ff6b47); }
+        .quick-icon.yellow { background: linear-gradient(135deg, var(--secondary-color), #ff9800); }
+        .quick-card-tag {
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: var(--primary-color);
+        }
+        .quick-card h3 {
+            font-size: 1.1rem;
+            color: var(--text-light);
+            line-height: 1.4;
+            margin-bottom: 10px;
+        }
+        .quick-card h3 a { color: inherit; text-decoration: none; transition: color 0.3s; }
+        .quick-card h3 a:hover { color: var(--primary-color); }
+        .quick-card p { font-size: 0.9rem; color: rgba(255,255,255,0.6); line-height: 1.65; flex: 1; margin-bottom: 18px; }
+        .quick-read-link {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--primary-color);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            transition: gap 0.3s, color 0.3s;
+        }
+        .quick-read-link:hover { gap: 10px; color: var(--secondary-color); }
+
+        /* ── Blog listing section wrapper ── */
+        .blog-listing-section {
+            padding: 80px 0;
+            position: relative;
+        }
+
+        /* Newsletter strip */
+        .newsletter-strip {
+            background: linear-gradient(135deg, rgba(68,187,164,0.1), rgba(255,193,7,0.06));
+            border: 1px solid rgba(68,187,164,0.25);
+            border-radius: 20px;
+            padding: 50px;
+            display: flex;
+            gap: 40px;
+            align-items: center;
+            justify-content: space-between;
+            margin-top: 60px;
+        }
+        .newsletter-strip-text h3 { font-size: 1.6rem; color: var(--text-light); margin-bottom: 8px; }
+        .newsletter-strip-text p { color: rgba(255,255,255,0.65); font-size: 1rem; }
+        .newsletter-strip-form {
+            display: flex;
+            gap: 12px;
+            flex-shrink: 0;
+        }
+        .newsletter-strip-form input {
+            padding: 14px 22px;
+            border-radius: 50px;
+            border: 1px solid rgba(255,255,255,0.15);
+            background: rgba(255,255,255,0.05);
+            color: white;
+            font-size: 0.95rem;
+            font-family: inherit;
+            min-width: 260px;
+        }
+        .newsletter-strip-form input::placeholder { color: rgba(255,255,255,0.4); }
+
+        /* ── Responsive ── */
+        @media (max-width: 1100px) {
+            .featured-hero-post { grid-template-columns: 1fr; }
+            .featured-visual { height: 200px; }
+            .editorial-row, .editorial-row.reverse { grid-template-columns: 1fr; }
+            .editorial-row.reverse .editorial-text { order: 0; }
+            .editorial-row.reverse .editorial-card { order: 1; }
+        }
+        @media (max-width: 768px) {
+            .featured-cards-row { grid-template-columns: 1fr; }
+            .quick-reads-grid { grid-template-columns: 1fr; }
+            .newsletter-strip { flex-direction: column; text-align: center; }
+            .newsletter-strip-form { flex-direction: column; width: 100%; }
+            .newsletter-strip-form input { min-width: unset; width: 100%; }
+            .featured-hero-post { padding: 30px; }
+            .featured-hero-post h2 { font-size: 1.8rem; }
+        }
+    </style>
 </head>
 <body>
     <!-- Navigation -->
     <nav class="navbar" id="navbar">
         <div class="container nav-wrapper">
             <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
-                <span></span>
-                <span></span>
-                <span></span>
+                <span></span><span></span><span></span>
             </button>
             <a href="index.html#home" class="logo">
                 <img src="images/logo.png" alt="Qynzoo Logo" onerror="this.style.display='none'">
@@ -81,320 +451,280 @@
         </div>
     </nav>
 
-    <!-- Hero Section (Blog Header) -->
+    <!-- Hero -->
     <section class="hero blog-hero">
         <div class="pixel-bg"></div>
         <div class="container">
             <div class="hero-content" data-aos="fade-up">
                 <div class="hero-text blog-hero-text">
                     <h1 class="hero-title">Qynzoo <span class="gradient-text">Insights</span></h1>
-                    <p class="hero-subtitle">Practical guides to save time, cut costs, and grow faster with AI — written for business owners, not developers</p>
+                    <p class="hero-subtitle">Practical, in-depth guides on AI automation, productivity, and the tools reshaping business — written for owners and operators, not developers.</p>
                     <div class="hero-buttons">
                         <a href="#featured" class="btn btn-primary">Featured Articles</a>
-                        <a href="#all-posts" class="btn btn-secondary">All Posts</a>
+                        <a href="#all-posts" class="btn btn-secondary">All 10 Guides</a>
                     </div>
                     <div class="hero-stats">
                         <div class="stat-item" data-aos="fade-up">
-                            <span class="stat-number" data-count="7">0</span>
-                            <span class="stat-label">Articles</span>
+                            <span class="stat-number" data-count="10">0</span>
+                            <span class="stat-label">In-Depth Guides</span>
                         </div>
                     </div>
                 </div>
                 <div class="hero-image blog-hero-image" data-aos="fade-left">
                     <div class="blog-featured-card">
-                        <div class="featured-icon">
-                            <i class="fas fa-book-open"></i>
-                        </div>
+                        <div class="featured-icon"><i class="fas fa-book-open"></i></div>
                         <h3>Knowledge Hub</h3>
-                        <p>Actionable AI automation guides — real savings, real results</p>
+                        <p>Real answers to real questions — no fluff, no hype</p>
                         <div class="blog-categories">
                             <span class="category-tag">AI Automation</span>
-                            <span class="category-tag">Workflows</span>
-                            <span class="category-tag">Technology</span>
+                            <span class="category-tag">Productivity</span>
+                            <span class="category-tag">Claude Code</span>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="scroll-indicator">
-            <div class="mouse"></div>
-        </div>
+        <div class="scroll-indicator"><div class="mouse"></div></div>
     </section>
 
-    <!-- Featured Articles Section -->
-    <section class="services blog-featured" id="featured">
+    <!-- Blog Listing -->
+    <section class="blog-listing-section" id="featured">
         <div class="pixel-bg"></div>
         <div class="container">
-            <div class="section-header" data-aos="fade-up">
-                <h2 class="section-title">Featured Articles</h2>
-                <p class="section-subtitle">The most-read guides for cutting costs and saving time with AI</p>
-            </div>
-            <div class="services-grid">
-                <!-- Featured Article 1 -->
-                <div class="service-card featured" data-aos="fade-up">
-                    <div class="featured-badge">Most Popular</div>
-                    <div class="service-icon blog-icon">
-                        <i class="fas fa-robot"></i>
-                    </div>
-                    <h3>Best Agentic AI Workflow Uses in 2026</h3>
-                    <div class="blog-meta">
-                        <span><i class="fas fa-calendar"></i> October 10, 2025</span>
-                        <span><i class="fas fa-clock"></i> 15 min read</span>
-                    </div>
-                    <p>Discover the top 8 use cases for agentic AI workflows that are transforming businesses. From customer service to cybersecurity, learn how autonomous AI agents are revolutionizing operations.</p>
-                    <ul class="service-features">
-                        <li><i class="fas fa-check"></i> Customer Service Automation</li>
-                        <li><i class="fas fa-check"></i> IT Infrastructure Management</li>
-                        <li><i class="fas fa-check"></i> Sales & Marketing AI</li>
-                        <li><i class="fas fa-check"></i> Supply Chain Optimization</li>
-                    </ul>
-                    <a href="blog.html" class="service-link">Read Full Article <i class="fas fa-arrow-right"></i></a>
-                </div>
 
-                <!-- Featured Article 2 -->
-                <div class="service-card" data-aos="fade-up">
-                    <div class="service-icon blog-icon gradient-icon-yellow">
-                        <i class="fas fa-tasks"></i>
-                    </div>
-                    <h3>Using Agentic AI in Project Management</h3>
-                    <div class="blog-meta">
-                        <span><i class="fas fa-calendar"></i> October 11, 2025</span>
+            <!-- Filter Bar -->
+            <div class="blog-filter-bar" data-aos="fade-up">
+                <button class="blog-filter-btn active" data-filter="all">All Articles</button>
+                <button class="blog-filter-btn" data-filter="automation">Automation</button>
+                <button class="blog-filter-btn" data-filter="productivity">Productivity</button>
+                <button class="blog-filter-btn" data-filter="tools">Tools</button>
+                <button class="blog-filter-btn" data-filter="ai-trends">AI Trends</button>
+                <button class="blog-filter-btn" data-filter="tutorial">Tutorials</button>
+            </div>
+
+            <!-- ── FEATURED HERO POST ── -->
+            <div class="featured-hero-post" data-aos="fade-up" data-category="productivity">
+                <div class="featured-hero-text">
+                    <span class="featured-label"><i class="fas fa-star"></i> Editor's Pick</span>
+                    <h2><a href="blog-ai-productivity-2026.html">How to 10x Your Productivity with AI in 2026</a></h2>
+                    <div class="post-meta">
+                        <span class="post-tag">Productivity</span>
+                        <span><i class="fas fa-calendar"></i> March 2026</span>
                         <span><i class="fas fa-clock"></i> 12 min read</span>
+                        <span><i class="fas fa-user"></i> Mostafa Yaghi</span>
                     </div>
-                    <p>Learn how agentic AI is transforming project management with intelligent task allocation, real-time resource optimization, and automated risk assessment capabilities.</p>
-                    <ul class="service-features">
-                        <li><i class="fas fa-check"></i> Task Automation</li>
-                        <li><i class="fas fa-check"></i> Resource Optimization</li>
-                        <li><i class="fas fa-check"></i> Risk Assessment</li>
-                    </ul>
-                    <a href="blog-ai-agent-practices.html" class="service-link">Read Full Article <i class="fas fa-arrow-right"></i></a>
+                    <p class="featured-excerpt">Most people use AI like a search engine — they type a question and read the answer. The ones winning in 2026 treat AI as a co-worker: they delegate tasks, build automated pipelines, and reclaim hours every single day. This guide breaks down the exact system — from prompt habits to tool stacks — that lets business owners do in one day what used to take a week.</p>
+                    <a href="blog-ai-productivity-2026.html" class="btn btn-primary">Read the Full Guide <i class="fas fa-arrow-right"></i></a>
+                </div>
+                <div class="featured-visual">
+                    <i class="fas fa-rocket"></i>
+                    <p>Your complete 2026 AI productivity system — tools, habits, and workflows</p>
                 </div>
             </div>
-        </div>
-    </section>
 
-    <!-- All Blog Posts Section -->
-    <section class="workflow blog-posts" id="all-posts">
-        <div class="pixel-bg"></div>
-        <div class="container">
-            <div class="section-header" data-aos="fade-up">
-                <h2 class="section-title">All Articles</h2>
-                <p class="section-subtitle">Every guide is written to help you take action — not just learn</p>
+            <!-- ── TWO FEATURED CARDS ── -->
+            <div class="featured-cards-row" data-aos="fade-up">
+                <div class="feat-card" data-category="ai-trends">
+                    <div class="feat-card-icon"><i class="fas fa-chart-line"></i></div>
+                    <h3><a href="blog-ai-trends-2026.html">The 7 Biggest AI Trends Shaping Business in 2026</a></h3>
+                    <div class="post-meta">
+                        <span class="post-tag">AI Trends</span>
+                        <span><i class="fas fa-clock"></i> 10 min</span>
+                    </div>
+                    <p>From multimodal AI to autonomous agents replacing entire departments — here are the seven shifts you need to understand before your competitors do.</p>
+                    <a href="blog-ai-trends-2026.html" class="quick-read-link">Read Article <i class="fas fa-arrow-right"></i></a>
+                </div>
+                <div class="feat-card" data-category="tutorial">
+                    <div class="feat-card-icon coral"><i class="fas fa-terminal"></i></div>
+                    <h3><a href="blog-claude-code-guide.html">Claude Code: The Complete Guide for Non-Developers</a></h3>
+                    <div class="post-meta">
+                        <span class="post-tag">Tutorial</span>
+                        <span><i class="fas fa-clock"></i> 14 min</span>
+                    </div>
+                    <p>Claude Code lets you build software by describing what you want in plain language. This guide explains what it is, what it can do, and how business owners are using it to ship products without a development team.</p>
+                    <a href="blog-claude-code-guide.html" class="quick-read-link">Read Article <i class="fas fa-arrow-right"></i></a>
+                </div>
             </div>
 
-            <!-- Blog Categories Filter -->
-            <div class="portfolio-filters blog-filters" data-aos="fade-up">
-                <button class="filter-btn active" data-filter="all">All Articles</button>
-                <button class="filter-btn" data-filter="automation">AI Automation</button>
-                <button class="filter-btn" data-filter="workflow">Workflows</button>
-                <button class="filter-btn" data-filter="tools">Tools & Tech</button>
-                <button class="filter-btn" data-filter="tutorial">Tutorials</button>
-            </div>
+            <!-- ── DEEP READS (editorial rows) ── -->
+            <div id="all-posts">
+                <div class="section-label" data-aos="fade-up">
+                    <h2>In-Depth Guides</h2>
+                </div>
 
-            <!-- Blog Posts Grid -->
-            <div class="portfolio-grid blog-grid">
-                <!-- Blog Post 1 -->
-                <div class="portfolio-item blog-post-item" data-category="workflow" data-aos="fade-up">
-                    <div class="portfolio-image">
-                        <div class="blog-post-icon">
-                            <i class="fas fa-cogs"></i>
+                <!-- Editorial Row 1 -->
+                <div class="editorial-row" data-aos="fade-up" data-category="automation">
+                    <div class="editorial-text">
+                        <h3><a href="blog-workflow-automation.html">How to Automate Your Business Workflows with AI</a></h3>
+                        <div class="post-meta">
+                            <span class="post-tag">Automation</span>
+                            <span><i class="fas fa-calendar"></i> Jan 2026</span>
+                            <span><i class="fas fa-clock"></i> 11 min read</span>
                         </div>
+                        <p class="editorial-body">
+                            Every repetitive task your team does manually is a tax on your growth. Email triage, invoice processing, lead follow-ups, report generation — these are not jobs that require human judgment. They are patterns, and AI is extraordinarily good at patterns. This guide walks you through the exact methodology Qynzoo uses to audit a business's operations, identify the highest-ROI automation opportunities, and implement them using tools like <strong>Make, n8n, and Claude</strong>. You'll learn how to map a workflow before automating it, why most automation projects fail in the first month, and the five automation categories that deliver results in under two weeks.
+                        </p>
+                        <a href="blog-workflow-automation.html" class="btn btn-secondary">Read Full Guide <i class="fas fa-arrow-right"></i></a>
                     </div>
-                    <div class="portfolio-content">
-                        <h3>Introduction to Workflow Automation</h3>
-                        <div class="blog-meta-small">
-                            <span><i class="fas fa-calendar"></i> Jan 12, 2025</span>
-                            <span><i class="fas fa-clock"></i> 8 min</span>
-                        </div>
-                        <p>Workflow automation is revolutionizing how businesses operate. Learn the fundamentals and how to get started.</p>
-                        <div class="portfolio-tags">
-                            <span class="tag">Workflow</span>
-                            <span class="tag">Automation</span>
-                            <span class="tag">Getting Started</span>
-                        </div>
-                        <a href="blog-workflow-automation.html" class="service-link">
-                            Read More <i class="fas fa-arrow-right"></i>
-                        </a>
+                    <div class="editorial-card">
+                        <div class="editorial-card-icon"><i class="fas fa-cogs"></i></div>
+                        <h4>What You'll Learn</h4>
+                        <ul>
+                            <li><i class="fas fa-check"></i> How to audit your workflows for automation potential</li>
+                            <li><i class="fas fa-check"></i> The 5 automation categories with fastest ROI</li>
+                            <li><i class="fas fa-check"></i> Make vs n8n vs Zapier — which to pick</li>
+                            <li><i class="fas fa-check"></i> Common mistakes that kill automation projects</li>
+                            <li><i class="fas fa-check"></i> A step-by-step starter workflow you can copy today</li>
+                        </ul>
                     </div>
                 </div>
 
-                <!-- Blog Post 2 -->
-                <div class="portfolio-item blog-post-item" data-category="tools" data-aos="fade-up">
-                    <div class="portfolio-image">
-                        <div class="blog-post-icon gradient-bg-yellow">
-                            <i class="fas fa-tools"></i>
+                <!-- Editorial Row 2 (reversed) -->
+                <div class="editorial-row reverse" data-aos="fade-up" data-category="tools">
+                    <div class="editorial-text">
+                        <h3><a href="blog-make-vs-n8n.html">Make vs n8n: Which Automation Platform is Right for You?</a></h3>
+                        <div class="post-meta">
+                            <span class="post-tag">Tools</span>
+                            <span><i class="fas fa-calendar"></i> Feb 2026</span>
+                            <span><i class="fas fa-clock"></i> 10 min read</span>
                         </div>
+                        <p class="editorial-body">
+                            This is one of the most common questions Qynzoo gets: <strong>"Should I use Make or n8n?"</strong> The honest answer is — it depends, and this guide gives you the framework to decide. Make (formerly Integromat) is visual, beginner-friendly, and has over 1,800 app integrations. n8n is open-source, self-hostable, and gives you complete control over your data and costs. For a business processing 10,000+ operations per month, the pricing difference alone can be thousands of euros per year. We break down pricing models, use case fit, technical requirements, and which platform Qynzoo recommends for different business sizes.
+                        </p>
+                        <a href="blog-make-vs-n8n.html" class="btn btn-secondary">Read Full Guide <i class="fas fa-arrow-right"></i></a>
                     </div>
-                    <div class="portfolio-content">
-                        <h3>Top AI Tools for Business in 2026</h3>
-                        <div class="blog-meta-small">
-                            <span><i class="fas fa-calendar"></i> Jan 15, 2025</span>
-                            <span><i class="fas fa-clock"></i> 10 min</span>
-                        </div>
-                        <p>Discover the most powerful AI tools transforming modern businesses. From content generation to workflow automation.</p>
-                        <div class="portfolio-tags">
-                            <span class="tag">AI Tools</span>
-                            <span class="tag">Business</span>
-                            <span class="tag">Technology</span>
-                        </div>
-                        <a href="blog-ai-tools-2025.html" class="service-link">
-                            Read More <i class="fas fa-arrow-right"></i>
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Blog Post 3 -->
-                <div class="portfolio-item blog-post-item" data-category="tutorial" data-aos="fade-up">
-                    <div class="portfolio-image">
-                        <div class="blog-post-icon gradient-bg-coral">
-                            <i class="fas fa-comments"></i>
-                        </div>
-                    </div>
-                    <div class="portfolio-content">
-                        <h3>Building Your First AI Chatbot</h3>
-                        <div class="blog-meta-small">
-                            <span><i class="fas fa-calendar"></i> Jan 18, 2025</span>
-                            <span><i class="fas fa-clock"></i> 15 min</span>
-                        </div>
-                        <p>Step-by-step guide to creating an intelligent chatbot for your business. Learn about planning, platforms, and deployment.</p>
-                        <div class="portfolio-tags">
-                            <span class="tag">Chatbot</span>
-                            <span class="tag">Tutorial</span>
-                            <span class="tag">AI</span>
-                        </div>
-                        <a href="blog-build-chatbot.html" class="service-link">
-                            Read More <i class="fas fa-arrow-right"></i>
-                        </a>
+                    <div class="editorial-card">
+                        <div class="editorial-card-icon yellow"><i class="fas fa-balance-scale"></i></div>
+                        <h4>Quick Comparison</h4>
+                        <ul>
+                            <li><i class="fas fa-circle" style="color:var(--primary-color);font-size:0.5rem;margin-top:6px"></i> Make — best for non-technical teams</li>
+                            <li><i class="fas fa-circle" style="color:var(--secondary-color);font-size:0.5rem;margin-top:6px"></i> n8n — best for data-sensitive businesses</li>
+                            <li><i class="fas fa-circle" style="color:var(--accent-color);font-size:0.5rem;margin-top:6px"></i> Pricing models explained clearly</li>
+                            <li><i class="fas fa-circle" style="color:var(--primary-color);font-size:0.5rem;margin-top:6px"></i> Self-hosting n8n: worth it?</li>
+                            <li><i class="fas fa-circle" style="color:var(--secondary-color);font-size:0.5rem;margin-top:6px"></i> Migration path if you need to switch</li>
+                        </ul>
                     </div>
                 </div>
 
-                <!-- Blog Post 4 -->
-                <div class="portfolio-item blog-post-item" data-category="tools" data-aos="fade-up">
-                    <div class="portfolio-image">
-                        <div class="blog-post-icon">
-                            <i class="fas fa-search"></i>
+                <!-- Editorial Row 3 -->
+                <div class="editorial-row" data-aos="fade-up" data-category="automation">
+                    <div class="editorial-text">
+                        <h3><a href="blog-ai-customer-service.html">How AI is Transforming Customer Service (With Real Examples)</a></h3>
+                        <div class="post-meta">
+                            <span class="post-tag">Automation</span>
+                            <span><i class="fas fa-calendar"></i> Feb 2026</span>
+                            <span><i class="fas fa-clock"></i> 9 min read</span>
                         </div>
+                        <p class="editorial-body">
+                            A customer sends a message at 2am asking about their order. In the old world, they wait until 9am. In the new world, an AI agent reads their order history, checks the shipment status via API, and sends a personalised reply in 12 seconds — all without a human touching it. This isn't a vision of the future. Businesses of all sizes are doing this today. This article covers the <strong>five ways AI is actively replacing or augmenting customer service</strong>, the tools making it possible, real cost savings businesses are reporting, and the ethical line between helpful automation and impersonal service that drives customers away.
+                        </p>
+                        <a href="blog-ai-customer-service.html" class="btn btn-secondary">Read Full Guide <i class="fas fa-arrow-right"></i></a>
                     </div>
-                    <div class="portfolio-content">
-                        <h3>GEO vs SEO: What's the Difference?</h3>
-                        <div class="blog-meta-small">
-                            <span><i class="fas fa-calendar"></i> Oct 15, 2025</span>
-                            <span><i class="fas fa-clock"></i> 5 min</span>
-                        </div>
-                        <p>Understand how to optimize for both traditional search engines and AI-powered discovery. Learn about Generative Engine Optimization.</p>
-                        <div class="portfolio-tags">
-                            <span class="tag">SEO</span>
-                            <span class="tag">GEO</span>
-                            <span class="tag">Optimization</span>
-                        </div>
-                        <a href="blog-geo-vs-seo.html" class="service-link">
-                            Read More <i class="fas fa-arrow-right"></i>
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Blog Post 5 -->
-                <div class="portfolio-item blog-post-item" data-category="tools" data-aos="fade-up">
-                    <div class="portfolio-image">
-                        <div class="blog-post-icon gradient-bg-coral">
-                            <i class="fas fa-shield-alt"></i>
-                        </div>
-                    </div>
-                    <div class="portfolio-content">
-                        <h3>Local AI Solutions for Sensitive Data</h3>
-                        <div class="blog-meta-small">
-                            <span><i class="fas fa-calendar"></i> Oct 15, 2025</span>
-                            <span><i class="fas fa-clock"></i> 6 min</span>
-                        </div>
-                        <p>Keep your data private and secure with local AI. Perfect for healthcare, finance, legal, and government sectors.</p>
-                        <div class="portfolio-tags">
-                            <span class="tag">Local AI</span>
-                            <span class="tag">Security</span>
-                            <span class="tag">Privacy</span>
-                        </div>
-                        <a href="blog-local-ai.html" class="service-link">
-                            Read More <i class="fas fa-arrow-right"></i>
-                        </a>
+                    <div class="editorial-card">
+                        <div class="editorial-card-icon coral"><i class="fas fa-headset"></i></div>
+                        <h4>Key Topics</h4>
+                        <ul>
+                            <li><i class="fas fa-check"></i> AI chatbots vs AI agents — the difference</li>
+                            <li><i class="fas fa-check"></i> 24/7 support without 24/7 headcount</li>
+                            <li><i class="fas fa-check"></i> Real cost savings: numbers from real businesses</li>
+                            <li><i class="fas fa-check"></i> When to keep a human in the loop</li>
+                            <li><i class="fas fa-check"></i> Setup guide for your first AI support agent</li>
+                        </ul>
                     </div>
                 </div>
 
-                <!-- Blog Post 6 -->
-                <div class="portfolio-item blog-post-item" data-category="workflow" data-aos="fade-up">
-                    <div class="portfolio-image">
-                        <div class="blog-post-icon gradient-bg-yellow">
-                            <i class="fas fa-sync-alt"></i>
+                <!-- Editorial Row 4 (reversed) -->
+                <div class="editorial-row reverse" data-aos="fade-up" data-category="automation">
+                    <div class="editorial-text">
+                        <h3><a href="blog-ai-replaces-saas.html">How AI Agents Are Replacing Expensive SaaS Tools</a></h3>
+                        <div class="post-meta">
+                            <span class="post-tag">AI Trends</span>
+                            <span><i class="fas fa-calendar"></i> March 2026</span>
+                            <span><i class="fas fa-clock"></i> 10 min read</span>
                         </div>
+                        <p class="editorial-body">
+                            The average SME pays for 12–15 SaaS subscriptions. Many of those tools exist to solve one narrow problem: scheduling, reporting, lead scoring, invoice reminders, social scheduling. In 2026, a single AI agent with access to your data and a few APIs can replace three to five of those tools entirely. This isn't theoretical — we walk through <strong>real examples of SaaS categories being disrupted</strong>, show you the agent architectures replacing them, and give you a practical framework for auditing your own software stack to find €500–€2,000/month in savings.
+                        </p>
+                        <a href="blog-ai-replaces-saas.html" class="btn btn-secondary">Read Full Guide <i class="fas fa-arrow-right"></i></a>
                     </div>
-                    <div class="portfolio-content">
-                        <h3>Process Mining with AI</h3>
-                        <div class="blog-meta-small">
-                            <span><i class="fas fa-calendar"></i> Jan 22, 2025</span>
-                            <span><i class="fas fa-clock"></i> 9 min</span>
-                        </div>
-                        <p>Discover how AI-driven process mining can uncover hidden inefficiencies and optimize your business workflows.</p>
-                        <div class="portfolio-tags">
-                            <span class="tag">Process Mining</span>
-                            <span class="tag">Optimization</span>
-                            <span class="tag">AI</span>
-                        </div>
-                        <a href="#" class="service-link">
-                            Coming Soon
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Blog Post 7 -->
-                <div class="portfolio-item blog-post-item" data-category="tools" data-aos="fade-up">
-                    <div class="portfolio-image">
-                        <div class="blog-post-icon">
-                            <i class="fas fa-chart-pie"></i>
-                        </div>
-                    </div>
-                    <div class="portfolio-content">
-                        <h3>AI Security Best Practices</h3>
-                        <div class="blog-meta-small">
-                            <span><i class="fas fa-calendar"></i> Jan 25, 2025</span>
-                            <span><i class="fas fa-clock"></i> 13 min</span>
-                        </div>
-                        <p>Essential security considerations when implementing AI systems and protecting your automated workflows.</p>
-                        <div class="portfolio-tags">
-                            <span class="tag">Security</span>
-                            <span class="tag">Best Practices</span>
-                            <span class="tag">AI</span>
-                        </div>
-                        <a href="#" class="service-link">
-                            Coming Soon
-                        </a>
+                    <div class="editorial-card">
+                        <div class="editorial-card-icon"><i class="fas fa-trash-alt"></i></div>
+                        <h4>SaaS Being Replaced</h4>
+                        <ul>
+                            <li><i class="fas fa-times" style="color:var(--accent-color)"></i> Scheduling tools → AI calendar agents</li>
+                            <li><i class="fas fa-times" style="color:var(--accent-color)"></i> Reporting dashboards → AI analysts</li>
+                            <li><i class="fas fa-times" style="color:var(--accent-color)"></i> Lead scoring tools → AI CRM agents</li>
+                            <li><i class="fas fa-times" style="color:var(--accent-color)"></i> Social media schedulers → AI content agents</li>
+                            <li><i class="fas fa-times" style="color:var(--accent-color)"></i> Invoice reminder tools → AI finance agents</li>
+                        </ul>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
 
-    <!-- Newsletter Section -->
-    <section class="benefits newsletter-section">
-        <div class="pixel-bg"></div>
-        <div class="container">
-            <div class="section-header" data-aos="fade-up">
-                <h2 class="section-title">Get AI Automation Insights Direct to Your Inbox</h2>
-                <p class="section-subtitle">No fluff, no spam — only practical tips to save hours every week. Unsubscribe anytime.</p>
+            <!-- ── QUICK READS ── -->
+            <div class="section-label" data-aos="fade-up">
+                <h2>More Guides</h2>
             </div>
-            <div class="contact-form-wrapper newsletter-wrapper" data-aos="zoom-in">
-                <form class="contact-form newsletter-large">
-                    <div class="form-group">
-                        <input type="email" id="newsletter-email" name="email" required>
-                        <label for="newsletter-email">Your Email Address</label>
-                        <span class="form-error"></span>
+
+            <div class="quick-reads-grid" data-aos="fade-up">
+                <!-- Quick Card 1 -->
+                <div class="quick-card" data-category="tools">
+                    <div class="quick-card-top">
+                        <div class="quick-icon"><i class="fas fa-tools"></i></div>
+                        <span class="quick-card-tag">Tools</span>
                     </div>
-                    <button type="submit" class="btn btn-primary">
-                        <span class="btn-text">Subscribe to Newsletter</span>
-                        <span class="btn-loading"><i class="fas fa-spinner fa-spin"></i></span>
-                    </button>
-                    <p class="newsletter-promise">
-                        <i class="fas fa-lock"></i> We respect your privacy. Unsubscribe at any time.
-                    </p>
-                </form>
+                    <h3><a href="blog-ai-tools-2026.html">Top AI Tools for Business in 2026</a></h3>
+                    <p>The definitive guide to the AI tools that are actually worth your time and money — from content generation to data analysis, automation to customer service.</p>
+                    <div class="post-meta" style="margin-bottom:16px">
+                        <span><i class="fas fa-clock"></i> 11 min</span>
+                        <span><i class="fas fa-calendar"></i> Jan 2026</span>
+                    </div>
+                    <a href="blog-ai-tools-2026.html" class="quick-read-link">Read Guide <i class="fas fa-arrow-right"></i></a>
+                </div>
+
+                <!-- Quick Card 2 -->
+                <div class="quick-card" data-category="automation">
+                    <div class="quick-card-top">
+                        <div class="quick-icon coral"><i class="fas fa-robot"></i></div>
+                        <span class="quick-card-tag">AI Agents</span>
+                    </div>
+                    <h3><a href="blog-ai-agent-practices.html">Best AI Agent Practices for Business</a></h3>
+                    <p>AI agents are powerful but easy to get wrong. Learn the principles that separate reliable, production-ready agents from expensive experiments that break at 3am.</p>
+                    <div class="post-meta" style="margin-bottom:16px">
+                        <span><i class="fas fa-clock"></i> 12 min</span>
+                        <span><i class="fas fa-calendar"></i> Jan 2026</span>
+                    </div>
+                    <a href="blog-ai-agent-practices.html" class="quick-read-link">Read Guide <i class="fas fa-arrow-right"></i></a>
+                </div>
+
+                <!-- Quick Card 3 -->
+                <div class="quick-card" data-category="tutorial">
+                    <div class="quick-card-top">
+                        <div class="quick-icon yellow"><i class="fas fa-comment-dots"></i></div>
+                        <span class="quick-card-tag">Tutorial</span>
+                    </div>
+                    <h3><a href="blog-prompt-engineering.html">Prompt Engineering for Business: Get Better AI Results</a></h3>
+                    <p>The difference between a mediocre AI output and a brilliant one is almost always the prompt. Learn the techniques that professionals use every day.</p>
+                    <div class="post-meta" style="margin-bottom:16px">
+                        <span><i class="fas fa-clock"></i> 10 min</span>
+                        <span><i class="fas fa-calendar"></i> Feb 2026</span>
+                    </div>
+                    <a href="blog-prompt-engineering.html" class="quick-read-link">Read Guide <i class="fas fa-arrow-right"></i></a>
+                </div>
             </div>
+
+            <!-- Newsletter Strip -->
+            <div class="newsletter-strip" data-aos="fade-up">
+                <div class="newsletter-strip-text">
+                    <h3>Stay ahead of the AI curve</h3>
+                    <p>New guides every week. No spam. Unsubscribe anytime.</p>
+                </div>
+                <div class="newsletter-strip-form">
+                    <input type="email" placeholder="Your email address">
+                    <button class="btn btn-primary">Subscribe <i class="fas fa-paper-plane"></i></button>
+                </div>
+            </div>
+
         </div>
     </section>
 
@@ -405,7 +735,7 @@
             <div class="footer-content">
                 <div class="footer-section">
                     <div class="footer-logo">
-                        <img src="images/logo.png" alt="Qynzoo Logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                        <img src="images/logo.png" alt="Qynzoo Logo" onerror="this.style.display='none'">
                         <span class="logo-text">Qynzoo</span>
                     </div>
                     <p class="footer-description">We help businesses reclaim 60–80% of their time with AI automation and high-converting websites. Based in the Netherlands — serving clients worldwide.</p>
@@ -420,12 +750,13 @@
                     </ul>
                 </div>
                 <div class="footer-section">
-                    <h4>Blog Categories</h4>
+                    <h4>Blog Topics</h4>
                     <ul class="footer-links">
-                        <li><a href="#automation">AI Automation</a></li>
-                        <li><a href="#workflow">Workflows</a></li>
-                        <li><a href="#tools">Tools & Tech</a></li>
-                        <li><a href="#tutorial">Tutorials</a></li>
+                        <li><a href="blog-workflow-automation.html">Workflow Automation</a></li>
+                        <li><a href="blog-claude-code-guide.html">Claude Code</a></li>
+                        <li><a href="blog-ai-productivity-2026.html">AI Productivity</a></li>
+                        <li><a href="blog-make-vs-n8n.html">Make vs n8n</a></li>
+                        <li><a href="blog-prompt-engineering.html">Prompt Engineering</a></li>
                     </ul>
                 </div>
                 <div class="footer-section">
@@ -451,27 +782,30 @@
         </div>
     </footer>
 
-    <!-- Scripts -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-    <script type="importmap">
-    {
-        "imports": {
-            "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js",
-            "postprocessing": "https://cdn.jsdelivr.net/npm/postprocessing@6.34.2/build/index.js"
-        }
-    }
-    </script>
+    <script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js","postprocessing":"https://cdn.jsdelivr.net/npm/postprocessing@6.34.2/build/index.js"}}</script>
     <script src="js/pixel-blast.js" type="module"></script>
-    <script src="js/card-nav.js"></script>
     <script src="js/script.js"></script>
     <script>
-        // Initialize AOS
-        AOS.init({
-            duration: 800,
-            easing: 'ease-in-out',
-            once: true,
-            offset: 100
+        AOS.init({ duration: 800, easing: 'ease-in-out', once: true, offset: 80 });
+
+        // Filter functionality
+        const filterBtns = document.querySelectorAll('.blog-filter-btn');
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                filterBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                const filter = btn.dataset.filter;
+                const items = document.querySelectorAll('[data-category]');
+                items.forEach(item => {
+                    if (filter === 'all' || item.dataset.category === filter) {
+                        item.style.display = '';
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+            });
         });
     </script>
 </body>

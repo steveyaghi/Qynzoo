@@ -1,5 +1,84 @@
 # Qynzoo.com Redesign - Change Log
 
+## 2026-03-13 - v2.1 — Blog Overhaul, Partner Cards & File Cleanup
+
+### Partner Section
+- Added Aqlomate.com as second collaboration partner (Bader Atem, Rotterdam)
+- Partner cards now display horizontally side-by-side (2-column grid)
+- Reduced card padding/font sizes for compact layout
+- Updated style.min.css to match
+
+### File Organization
+- Deleted junk files: nul, test-preview.html, broken qynzoo-preview.png
+- Deleted assets/ and backups/ folders (git history preserved)
+- Deleted .playwright-mcp/ folder (67 MB)
+- Merged MD_Files/ → docs/
+- Moved gdpr-compliance/ → docs/compliance/
+- Moved security/ → docs/security/
+- Moved DEPLOY_URGENT.md → docs/
+- Updated .gitignore
+
+## 2026-03-13 - Complete Blog Overhaul (10 Articles)
+
+### ✅ Completed Tasks
+
+#### New Blog Listing Page (blogs.html)
+- Replaced all-cards layout with magazine-style editorial layout
+- Featured hero post (full-width, Editor's Pick)
+- Two featured cards row
+- Four editorial rows (alternating text + info card layout) with full prose excerpts
+- Three quick-read cards grid
+- Newsletter signup strip
+- Filter bar with category filtering
+
+#### 10 New Blog Articles (HTML + MD)
+All articles feature: lead paragraphs, prose sections, mixed content cards, pull quotes, CTAs, author bio, related articles
+
+| File | Title |
+|------|-------|
+| blog-workflow-automation.html | How to Automate Your Business Workflows with AI |
+| blog-ai-tools-2026.html | Top AI Tools for Business in 2026 |
+| blog-ai-agent-practices.html | Best AI Agent Practices for Business |
+| blog-claude-code-guide.html | Claude Code: The Complete Guide for Non-Developers |
+| blog-ai-productivity-2026.html | How to 10x Your Productivity with AI in 2026 |
+| blog-ai-trends-2026.html | The 7 Biggest AI Trends Shaping Business in 2026 |
+| blog-make-vs-n8n.html | Make vs n8n: Which Automation Platform is Right for You? |
+| blog-ai-customer-service.html | How AI is Transforming Customer Service |
+| blog-prompt-engineering.html | Prompt Engineering for Business |
+| blog-ai-replaces-saas.html | How AI Agents Are Replacing Expensive SaaS Tools |
+
+#### MD Files for LLM Indexing (/blogs/ folder)
+- All 10 articles published as clean Markdown in /blogs/
+- Added to sitemap.xml for LLM crawler discovery
+
+#### SEO/GEO Updates
+- sitemap.xml updated: 10 HTML blog URLs + 10 MD file URLs
+- Old dead blog URLs removed (blog.html, blog-build-chatbot, blog-geo-vs-seo, blog-local-ai, blog-ai-tools-2025)
+
+---
+
+## 2026-03-13 - Project File Organization
+
+### ✅ Completed Tasks
+
+#### File Cleanup
+- Deleted junk/temp files: `nul`, `test-preview.html`, broken `images/qynzoo-preview.png` (67 bytes)
+- Deleted `assets/` folder (contained unused images)
+- Deleted `backups/` folder (outdated Oct 2024 backups, git has history)
+- Deleted `.playwright-mcp/` folder (67 MB of screenshots)
+
+#### Documentation Consolidation
+- Merged `MD_Files/` contents into `docs/` (7 files moved)
+- Moved `gdpr-compliance/` into `docs/compliance/`
+- Moved `security/` reports into `docs/security/`
+- Moved `DEPLOY_URGENT.md` to `docs/` (WhatsApp preview fix instructions)
+- Kept `docs/ChangeLog.md` (96 KB, authoritative version)
+
+#### .gitignore Updates
+- Added `nul` to ignored files
+
+---
+
 ## 2024-10-10 - Complete Website Redesign
 
 ### ✅ Completed Tasks

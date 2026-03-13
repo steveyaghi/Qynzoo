@@ -23,6 +23,7 @@ npm-debug.log*
 # Temporary files
 *.tmp
 *.temp
+nul
 
 # Backup files
 backups/
