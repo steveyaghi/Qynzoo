@@ -208,8 +208,10 @@
 
 @media (max-width: 768px) {
   .card-nav-container {
-    width: 90%;
+    width: 92%;
     top: 1.2em;
+    left: 50%;
+    transform: translateX(-50%);
   }
 
   .card-nav-top {
@@ -231,13 +233,30 @@
     display: none;
   }
 
+  /* When open on mobile, allow height to grow to fit menu items */
+  .card-nav.open {
+    overflow: visible;
+  }
+
   .card-nav-content {
     flex-direction: column;
     align-items: stretch;
     gap: 8px;
     padding: 0.5rem;
-    bottom: 0;
+    bottom: auto;
     justify-content: flex-start;
+    /* Stack below the nav bar with a nice backdrop */
+    background: rgba(10, 14, 39, 0.97);
+    border: 0.5px solid rgba(255, 255, 255, 0.15);
+    border-radius: 0 0 0.75rem 0.75rem;
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 60px;
+    max-height: 85vh;
+    overflow-y: auto;
   }
 
   .nav-card {
@@ -253,5 +272,20 @@
 
   .nav-card-link {
     font-size: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .card-nav-container {
+    width: 96%;
+    top: 0.8em;
+  }
+
+  .logo-text {
+    font-size: 17px;
+  }
+
+  .logo {
+    height: 24px;
   }
 }
