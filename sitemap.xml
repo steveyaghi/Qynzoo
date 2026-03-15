@@ -7,7 +7,7 @@
     <!-- Homepage - Highest Priority -->
     <url>
         <loc>https://qynzoo.com/</loc>
-        <lastmod>2026-03-13</lastmod>
+        <lastmod>2026-03-15</lastmod>
         <changefreq>weekly</changefreq>
         <priority>1.0</priority>
     </url>
@@ -100,68 +100,6 @@
         <lastmod>2026-03-13</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
-    </url>
-
-    <!-- ── Markdown versions for LLM indexing ── -->
-    <url>
-        <loc>https://qynzoo.com/blogs/workflow-automation.md</loc>
-        <lastmod>2026-03-13</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.6</priority>
-    </url>
-    <url>
-        <loc>https://qynzoo.com/blogs/ai-tools-2026.md</loc>
-        <lastmod>2026-03-13</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.6</priority>
-    </url>
-    <url>
-        <loc>https://qynzoo.com/blogs/ai-agent-practices.md</loc>
-        <lastmod>2026-03-13</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.6</priority>
-    </url>
-    <url>
-        <loc>https://qynzoo.com/blogs/claude-code-guide.md</loc>
-        <lastmod>2026-03-13</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.6</priority>
-    </url>
-    <url>
-        <loc>https://qynzoo.com/blogs/ai-productivity-2026.md</loc>
-        <lastmod>2026-03-13</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.6</priority>
-    </url>
-    <url>
-        <loc>https://qynzoo.com/blogs/ai-trends-2026.md</loc>
-        <lastmod>2026-03-13</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.6</priority>
-    </url>
-    <url>
-        <loc>https://qynzoo.com/blogs/make-vs-n8n.md</loc>
-        <lastmod>2026-03-13</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.6</priority>
-    </url>
-    <url>
-        <loc>https://qynzoo.com/blogs/ai-customer-service.md</loc>
-        <lastmod>2026-03-13</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.6</priority>
-    </url>
-    <url>
-        <loc>https://qynzoo.com/blogs/prompt-engineering.md</loc>
-        <lastmod>2026-03-13</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.6</priority>
-    </url>
-    <url>
-        <loc>https://qynzoo.com/blogs/ai-replaces-saas.md</loc>
-        <lastmod>2026-03-13</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.6</priority>
     </url>
 
     <!-- ── Other Pages ── -->

@@ -261,8 +261,7 @@ document.addEventListener('DOMContentLoaded', () => {
         textColor: "#fff",
         links: [
           { label: "Contact Us", href: "index.html#contact", ariaLabel: "Contact us" },
-          { label: "LinkedIn", href: "#", ariaLabel: "LinkedIn" },
-          { label: "Twitter", href: "#", ariaLabel: "Twitter" }
+          { label: "LinkedIn", href: "#", ariaLabel: "LinkedIn" }
         ]
       }
     ],

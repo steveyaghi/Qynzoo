@@ -1,5 +1,27 @@
 # Qynzoo.com ChangeLog
 
+## 2026-03-15 — Blog SEO & Footer Cleanup (v2.5.2)
+
+### Changes Made
+- **CSS version bump** — Updated `style.min.css` cache-busting query from `v=3.14` to `v=3.16` across all 10 blog files
+- **Twitter social link removed** — Removed Twitter/X social icon from all 10 blog footers (LinkedIn only retained)
+- **twitter:site meta tag removed** — Removed `<meta name="twitter:site" content="@qynzoo">` from all 10 blog files
+- **Related Articles sections added** — Added a new `div.related-articles` inline-linked section at the bottom of each blog's article prose, with 3 customised internal links per blog
+
+### Files Modified
+- `blog-workflow-automation.html`
+- `blog-make-vs-n8n.html`
+- `blog-ai-productivity-2026.html`
+- `blog-ai-tools-2026.html`
+- `blog-ai-trends-2026.html`
+- `blog-ai-customer-service.html`
+- `blog-ai-replaces-saas.html`
+- `blog-ai-agent-practices.html`
+- `blog-claude-code-guide.html`
+- `blog-prompt-engineering.html`
+
+---
+
 ## 2026-03-15 — Form Simplification (v2.5.1)
 
 ### Changes Made
