@@ -1,5 +1,42 @@
 # Qynzoo.com ChangeLog
 
+## 2026-03-15 — Form Simplification (v2.5.1)
+
+### Changes Made
+- **Contact forms** — Removed "Service Interest" dropdown from both hero and contact section forms for lower friction
+
+---
+
+## 2026-03-14 — Marketing CRO Overhaul (v2.5)
+
+### Changes Made
+- **Hero subtitle** — Automation-focused message replacing generic copy
+- **Urgency banner** — Top sticky banner: April Special, 3 spots, 20% off before April 30
+- **CTA copy** — All buttons → "Book Free 30-Min Call" → cal.com/mostafa.yaghi
+- **Form simplification** — Removed "Subject" field from both forms
+- **Pricing section** — 3 tiers (€500–€5,000) with ROI framing added after Services
+- **Scenarios section** — "What Businesses Like Yours Typically Experience" with 3 use-case cards before Contact
+- **Partners moved** — Moved after Contact section (no longer blocks conversion)
+- **Cal.com booking** — Calendar booking button in Contact sidebar
+- **Sticky CTA** — Floating "Book Free Call" appears after 400px scroll
+
+### Files Modified
+- `index.html`, `js/card-nav.js`
+
+---
+
+## 2026-03-14 — Service Link Button Text Fix (v2.4)
+
+### Issues Fixed
+- **Service link buttons text clipping** — `white-space: nowrap` + `display: inline-flex` caused long button labels like "Read: How Workflow Automation Works →" to overflow and get clipped by card edges
+- Fixed by changing to `display: flex`, `white-space: normal`, `width: 100%`, `text-align: center`, and `line-height: 1.4` in `style.min.css`
+
+### Files Modified
+- `css/style.min.css` — Updated `.service-link` styles
+- `css/style.css` — Updated `.service-link` styles (source)
+
+---
+
 ## 2026-03-14 — Services Grid Layout Fix (v2.3)
 
 ### Issues Fixed

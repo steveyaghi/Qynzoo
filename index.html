@@ -216,7 +216,7 @@
     <meta name="brandfetch-client-id" content="1idRu0m00AThFgsB5ow">
 
     <!-- Critical CSS (inline) -->
-    <link rel="stylesheet" href="css/style.min.css?v=3.14">
+    <link rel="stylesheet" href="css/style.min.css?v=3.15">
 
     <!-- Defer non-critical CSS -->
     <link rel="stylesheet" href="css/card-nav.css" media="print" onload="this.media='all'">
@@ -268,9 +268,264 @@
                 order: 2;
             }
         }
+
+        /* Urgency Banner */
+        .urgency-banner {
+            background: linear-gradient(90deg, #1a1a2e, #16213e, #0f3460);
+            border-bottom: 2px solid var(--primary-color, #21b4a6);
+            padding: 10px 20px;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 9999;
+        }
+        .urgency-banner-inner {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            flex-wrap: wrap;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .urgency-icon { font-size: 18px; }
+        .urgency-text { color: rgba(255,255,255,0.9); font-size: 14px; }
+        .urgency-cta {
+            background: var(--primary-color, #21b4a6);
+            color: white;
+            padding: 5px 14px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 700;
+            text-decoration: none;
+            white-space: nowrap;
+            transition: opacity 0.2s;
+        }
+        .urgency-cta:hover { opacity: 0.85; }
+        .urgency-close {
+            background: none;
+            border: none;
+            color: rgba(255,255,255,0.5);
+            cursor: pointer;
+            font-size: 16px;
+            padding: 0 4px;
+            margin-left: 8px;
+        }
+        .urgency-close:hover { color: white; }
+
+        /* Sticky floating CTA */
+        .sticky-cta {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 9998;
+            display: none;
+        }
+        .sticky-cta.visible { display: block; }
+        .sticky-cta a {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: linear-gradient(135deg, #21b4a6, #36a08d);
+            color: white;
+            font-weight: 700;
+            font-size: 15px;
+            padding: 14px 22px;
+            border-radius: 50px;
+            text-decoration: none;
+            box-shadow: 0 6px 25px rgba(33,180,166,0.5);
+            transition: transform 0.2s, box-shadow 0.2s;
+            white-space: nowrap;
+        }
+        .sticky-cta a:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(33,180,166,0.6);
+        }
+        @media (max-width: 600px) {
+            .sticky-cta { bottom: 16px; right: 16px; }
+            .sticky-cta a { font-size: 13px; padding: 12px 16px; }
+            .urgency-text { font-size: 12px; }
+        }
+
+        /* Scenarios / Social Proof Section */
+        .scenarios-section { background: var(--navy-bg, #0d1b2a); padding: 100px 0; }
+        .scenarios-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+        .scenario-card {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(33,180,166,0.2);
+            border-radius: 20px;
+            padding: 35px 30px;
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .scenario-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 16px 40px rgba(33,180,166,0.15);
+            border-color: rgba(33,180,166,0.5);
+        }
+        .scenario-icon {
+            width: 52px; height: 52px;
+            background: rgba(33,180,166,0.1);
+            border-radius: 14px;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 22px;
+            color: var(--primary-color, #21b4a6);
+        }
+        .scenario-tag {
+            display: inline-block;
+            background: rgba(33,180,166,0.12);
+            color: var(--primary-color, #21b4a6);
+            font-size: 12px;
+            font-weight: 700;
+            padding: 4px 12px;
+            border-radius: 20px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            width: fit-content;
+        }
+        .scenario-title {
+            font-size: 17px;
+            font-weight: 700;
+            color: rgba(255,255,255,0.95);
+            margin: 0;
+            font-style: italic;
+            line-height: 1.5;
+        }
+        .scenario-body {
+            font-size: 14px;
+            color: rgba(255,255,255,0.7);
+            line-height: 1.7;
+            margin: 0;
+            flex: 1;
+        }
+        .scenario-result {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 4px;
+        }
+        .scenario-result span {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--primary-color, #21b4a6);
+            background: rgba(33,180,166,0.08);
+            padding: 5px 12px;
+            border-radius: 20px;
+        }
+        .scenarios-disclaimer {
+            text-align: center;
+            color: rgba(255,255,255,0.35);
+            font-size: 13px;
+            font-style: italic;
+        }
+        .scenarios-disclaimer i { margin-right: 6px; }
+
+        /* Pricing Section */
+        .pricing-section { background: var(--dark-bg, #0a0f1e); padding: 100px 0; }
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        .pricing-card {
+            background: var(--navy-bg, #0d1b2a);
+            border: 1px solid rgba(33,180,166,0.2);
+            border-radius: 20px;
+            padding: 40px 35px;
+            position: relative;
+            transition: transform 0.3s, box-shadow 0.3s;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+        .pricing-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(33,180,166,0.2);
+        }
+        .pricing-card-featured {
+            border: 2px solid var(--primary-color, #21b4a6);
+            box-shadow: 0 8px 30px rgba(33,180,166,0.15);
+        }
+        .pricing-badge {
+            position: absolute;
+            top: -14px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: linear-gradient(135deg, #21b4a6, #36a08d);
+            color: white;
+            font-size: 12px;
+            font-weight: 700;
+            padding: 5px 18px;
+            border-radius: 20px;
+            white-space: nowrap;
+        }
+        .pricing-icon {
+            width: 56px;
+            height: 56px;
+            background: rgba(33,180,166,0.1);
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            color: var(--primary-color, #21b4a6);
+        }
+        .pricing-card h3 { font-size: 22px; margin: 0; }
+        .pricing-range {
+            font-size: 28px;
+            font-weight: 800;
+            color: var(--primary-color, #21b4a6);
+        }
+        .pricing-desc { color: rgba(255,255,255,0.7); font-size: 14px; line-height: 1.6; margin: 0; }
+        .pricing-features { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 10px; flex: 1; }
+        .pricing-features li { display: flex; align-items: center; gap: 10px; color: rgba(255,255,255,0.8); font-size: 14px; }
+        .pricing-features i { color: var(--primary-color, #21b4a6); font-size: 13px; }
+        .pricing-note { text-align: center; color: rgba(255,255,255,0.6); font-size: 15px; }
+
+        /* Cal.com booking button */
+        .cal-book-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 10px;
+            background: linear-gradient(135deg, #21b4a6, #36a08d);
+            color: white;
+            font-weight: 700;
+            font-size: 14px;
+            padding: 10px 18px;
+            border-radius: 8px;
+            text-decoration: none;
+            transition: transform 0.2s, box-shadow 0.2s;
+            box-shadow: 0 4px 15px rgba(33,180,166,0.3);
+        }
+        .cal-book-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(33,180,166,0.45);
+        }
     </style>
 </head>
 <body>
+    <!-- Urgency Banner -->
+    <div class="urgency-banner" id="urgencyBanner">
+        <div class="urgency-banner-inner">
+            <span class="urgency-icon">⚡</span>
+            <span class="urgency-text"><strong>April Special:</strong> Only <strong id="spotsLeft">3 spots</strong> left this month — get <strong>20% off</strong> your first project when you book before April 30.</span>
+            <a href="https://cal.com/mostafa.yaghi" class="urgency-cta" target="_blank" rel="noopener noreferrer">Claim Discount →</a>
+            <button class="urgency-close" onclick="document.getElementById('urgencyBanner').style.display='none'" aria-label="Close banner">✕</button>
+        </div>
+    </div>
+
     <!-- Card Navigation -->
     <div class="card-nav-container" id="cardNavContainer"></div>
 
@@ -281,9 +536,9 @@
             <!-- Centered Title and Buttons -->
             <div style="text-align: center; margin-bottom: 50px;" data-aos="fade-up">
                 <h1 class="hero-title">Transform Your Business with <span class="gradient-text">AI Automation</span></h1>
-                <p class="hero-subtitle" style="max-width: 700px; margin: 20px auto 30px;">Stop losing hours to manual tasks. We build AI-powered workflows and high-converting websites that let you reclaim your time and grow faster.</p>
+                <p class="hero-subtitle" style="max-width: 700px; margin: 20px auto 30px;">You're spending 3+ hours a day on tasks AI can handle in minutes. We build the automation systems that free you — so you focus on growing your business, not running it.</p>
                 <div class="hero-buttons" style="justify-content: center;">
-                    <a href="#contact" class="btn btn-primary">Get Started</a>
+                    <a href="https://cal.com/mostafa.yaghi" class="btn btn-primary" target="_blank" rel="noopener noreferrer">Book Free 30-Min Call</a>
                     <a href="#workflow" class="btn btn-secondary">Learn More</a>
                 </div>
             </div>
@@ -328,29 +583,12 @@
                                 <span class="form-error"></span>
                             </div>
                             <div class="form-group">
-                                <input type="text" id="hero-subject" name="subject" maxlength="200" required>
-                                <label for="hero-subject">Subject</label>
-                                <span class="form-error"></span>
-                            </div>
-                            <div class="form-group">
-                                <select id="hero-service" name="service" required>
-                                    <option value="">Select a Service</option>
-                                    <option value="automation">AI Automation</option>
-                                    <option value="website">Website Building</option>
-                                    <option value="integration">Integration Solutions</option>
-                                    <option value="local-ai">Local AI Solutions</option>
-                                    <option value="consultation">Free Consultation</option>
-                                </select>
-                                <label for="hero-service">Service Interest</label>
-                                <span class="form-error"></span>
-                            </div>
-                            <div class="form-group">
                                 <textarea id="hero-message" name="message" rows="4" maxlength="2000" required></textarea>
                                 <label for="hero-message">Your Message</label>
                                 <span class="form-error"></span>
                             </div>
                             <button type="submit" class="btn btn-primary btn-submit" aria-label="Submit contact form">
-                                <span class="btn-text">Send Message</span>
+                                <span class="btn-text">Book Free 30-Min Call</span>
                                 <span class="btn-loading"><i class="fas fa-spinner fa-spin"></i></span>
                             </button>
                             <div class="form-message"></div>
@@ -512,6 +750,60 @@
                     </div>
                 </div>
             </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="pricing-section" id="pricing">
+        <div class="pixel-bg"></div>
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <h2 class="section-title">Transparent Pricing</h2>
+                <p class="section-subtitle">Projects range from <strong style="color: var(--primary-color);">€500 to €5,000</strong> depending on complexity — and most clients recover their investment within 1–2 months through time savings alone.</p>
+            </div>
+            <div class="pricing-grid" data-aos="fade-up">
+                <div class="pricing-card">
+                    <div class="pricing-icon"><i class="fas fa-bolt"></i></div>
+                    <h3>Starter Automation</h3>
+                    <div class="pricing-range">€500 – €1,500</div>
+                    <p class="pricing-desc">Perfect for a single workflow or process. You stop doing it manually — AI does it 24/7 without errors.</p>
+                    <ul class="pricing-features">
+                        <li><i class="fas fa-check"></i> 1–2 automated workflows</li>
+                        <li><i class="fas fa-check"></i> Live in 1–2 weeks</li>
+                        <li><i class="fas fa-check"></i> Saves 5–15 hrs/week</li>
+                        <li><i class="fas fa-check"></i> ROI in 4–6 weeks</li>
+                    </ul>
+                    <a href="https://cal.com/mostafa.yaghi" class="btn btn-secondary" target="_blank" rel="noopener noreferrer">Book Free Call</a>
+                </div>
+                <div class="pricing-card pricing-card-featured">
+                    <div class="pricing-badge">Most Popular</div>
+                    <div class="pricing-icon"><i class="fas fa-rocket"></i></div>
+                    <h3>Business Automation</h3>
+                    <div class="pricing-range">€1,500 – €3,500</div>
+                    <p class="pricing-desc">Multi-step automation across your tools — CRM, email, data pipelines. Your team stops doing repetitive work entirely.</p>
+                    <ul class="pricing-features">
+                        <li><i class="fas fa-check"></i> Full workflow system</li>
+                        <li><i class="fas fa-check"></i> CRM & API integrations</li>
+                        <li><i class="fas fa-check"></i> Saves 20–40 hrs/week</li>
+                        <li><i class="fas fa-check"></i> ROI in 4–8 weeks</li>
+                    </ul>
+                    <a href="https://cal.com/mostafa.yaghi" class="btn btn-primary" target="_blank" rel="noopener noreferrer">Book Free Call</a>
+                </div>
+                <div class="pricing-card">
+                    <div class="pricing-icon"><i class="fas fa-brain"></i></div>
+                    <h3>AI-Powered Systems</h3>
+                    <div class="pricing-range">€3,500 – €5,000</div>
+                    <p class="pricing-desc">Custom AI agents, intelligent decision-making, and full business process automation. Built to scale with you.</p>
+                    <ul class="pricing-features">
+                        <li><i class="fas fa-check"></i> Custom AI agents</li>
+                        <li><i class="fas fa-check"></i> Full system integration</li>
+                        <li><i class="fas fa-check"></i> Eliminates human error</li>
+                        <li><i class="fas fa-check"></i> ROI in 6–10 weeks</li>
+                    </ul>
+                    <a href="https://cal.com/mostafa.yaghi" class="btn btn-secondary" target="_blank" rel="noopener noreferrer">Book Free Call</a>
+                </div>
+            </div>
+            <p class="pricing-note" data-aos="fade-up">Not sure which fits you? <a href="https://cal.com/mostafa.yaghi" target="_blank" rel="noopener noreferrer" style="color: var(--primary-color); font-weight: 600;">Book a free 30-min call</a> — we'll map out exactly what you need and what it would save you, at zero cost.</p>
         </div>
     </section>
 
@@ -811,73 +1103,51 @@
         </div>
     </section>
 
-    <!-- Partners Section -->
-    <section class="partners" id="partners">
+    <!-- Social Proof / Typical Scenarios Section -->
+    <section class="scenarios-section" id="results">
         <div class="pixel-bg"></div>
         <div class="container">
             <div class="section-header" data-aos="fade-up">
-                <h2 class="section-title">Collaboration <span class="gradient-text">Partners</span></h2>
-                <p class="section-subtitle">Some projects benefit from expertise across multiple disciplines. To ensure the highest level of execution, we collaborate with a carefully selected network of trusted partners—teams we’ve vetted and worked with extensively. When the scope calls for it, we integrate them into the project so you work with one unified team instead of managing multiple vendors.</p>
+                <h2 class="section-title">What Businesses Like Yours <span class="gradient-text">Typically Experience</span></h2>
+                <p class="section-subtitle">We solve two problems every time: <strong>wasted hours on repetitive tasks</strong> and <strong>costly human errors</strong>. Here's what that looks like in practice.</p>
             </div>
-            <div data-aos="fade-up">
-                <div class="partner-cards-grid">
-                    <!-- Elanova.ai Partner Card -->
-                    <div class="partner-card featured-partner" data-aos="zoom-in" data-aos-delay="100">
-                        <div class="partner-card-header">
-                            <div class="partner-logo-area">
-                                <div class="partner-logo-text">ELANOVA<span class="partner-logo-dot">.</span>AI</div>
-                                <div class="partner-badge"><i class="fas fa-handshake"></i>&nbsp; Collaboration Partner</div>
-                            </div>
-                            <a href="https://elanova.ai" target="_blank" rel="noopener noreferrer" class="partner-tagline partner-url">elanova.ai ↗</a>
-                        </div>
-                        <div class="partner-card-body">
-                            <div class="partner-founder">
-                                <div class="partner-founder-icon"><i class="fas fa-user-circle"></i></div>
-                                <div>
-                                    <span class="partner-founder-name">Ayman Santeer</span>
-                                    <span class="partner-founder-role">Founder &amp; AI Systems Engineer</span>
-                                </div>
-                            </div>
-                            <p class="partner-description">Ayman leads Elanova AI — a production-grade AI engineering company focused on building complete AI systems from the ground up. While Qynzoo specializes in automation orchestration (n8n, Make), CRM integrations, and full web platforms, Elanova provides the AI engineering foundation — from data pipelines and model deployment to the infrastructure required for reliable production systems.</p>
-                            <p class="partner-description">Together, we deliver projects where advanced AI and intelligent automation must operate as one.</p>
-                        </div>
-                        <div class="partner-card-footer">
-                            <div class="partner-location"><i class="fas fa-map-marker-alt"></i> Netherlands</div>
-                            <div class="partner-actions">
-                                <a href="https://elanova.ai" target="_blank" rel="noopener noreferrer" class="btn btn-primary partner-btn">Visit Elanova.ai <i class="fas fa-external-link-alt"></i></a>
-                                <a href="https://www.linkedin.com/company/elanova-ai/" target="_blank" rel="noopener noreferrer" class="partner-social-link" aria-label="Elanova AI on LinkedIn"><i class="fab fa-linkedin"></i></a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Aqlomate Partner Card -->
-                    <div class="partner-card featured-partner" data-aos="zoom-in" data-aos-delay="200">
-                        <div class="partner-card-header">
-                            <div class="partner-logo-area">
-                                <div class="partner-logo-text">AQLO<span class="partner-logo-dot">.</span>MATE</div>
-                                <div class="partner-badge"><i class="fas fa-handshake"></i>&nbsp; Collaboration Partner</div>
-                            </div>
-                            <a href="https://aqlomate.com" target="_blank" rel="noopener noreferrer" class="partner-tagline partner-url">aqlomate.com ↗</a>
-                        </div>
-                        <div class="partner-card-body">
-                            <div class="partner-founder">
-                                <div class="partner-founder-icon"><i class="fas fa-user-circle"></i></div>
-                                <div>
-                                    <span class="partner-founder-name">Bader Atem</span>
-                                    <span class="partner-founder-role">Founder &amp; Automation Consultant</span>
-                                </div>
-                            </div>
-                            <p class="partner-description">Bader leads Aqlomate — a Rotterdam-based automation and digitalization consultancy that turns manual, spreadsheet-driven operations into smart, connected systems. Aqlomate specialises in smart bookkeeping automation, data scraping bots, custom dashboards, and converting spreadsheets into web applications.</p>
-                            <p class="partner-description">Together, we bring end-to-end digital transformation — Qynzoo handles AI agents and workflow orchestration while Aqlomate tackles operational digitalization and business process redesign.</p>
-                        </div>
-                        <div class="partner-card-footer">
-                            <div class="partner-location"><i class="fas fa-map-marker-alt"></i> Rotterdam, Netherlands</div>
-                            <div class="partner-actions">
-                                <a href="https://aqlomate.com" target="_blank" rel="noopener noreferrer" class="btn btn-primary partner-btn">Visit Aqlomate.com <i class="fas fa-external-link-alt"></i></a>
-                            </div>
-                        </div>
+            <div class="scenarios-grid" data-aos="fade-up">
+                <div class="scenario-card">
+                    <div class="scenario-icon"><i class="fab fa-linkedin"></i></div>
+                    <div class="scenario-tag">LinkedIn Outreach</div>
+                    <h3 class="scenario-title">"We were spending 3 hours a day on manual LinkedIn outreach"</h3>
+                    <p class="scenario-body">A typical client in B2B sales sends 50–100 personalised connection requests and follow-ups daily — all manually. After automation, the same volume runs overnight without anyone touching it. That's <strong>15+ hours/week reclaimed</strong> and zero missed follow-ups.</p>
+                    <div class="scenario-result">
+                        <span><i class="fas fa-clock"></i> 15 hrs/week saved</span>
+                        <span><i class="fas fa-ban"></i> 0 human errors</span>
+                        <span><i class="fas fa-euro-sign"></i> ROI in ~6 weeks</span>
                     </div>
                 </div>
+                <div class="scenario-card">
+                    <div class="scenario-icon"><i class="fas fa-file-invoice"></i></div>
+                    <div class="scenario-tag">Invoice & Admin</div>
+                    <h3 class="scenario-title">"Our team was copy-pasting data between tools for hours every week"</h3>
+                    <p class="scenario-body">A common pattern: data from forms gets manually entered into CRMs, spreadsheets emailed to accountants, invoices created by hand. One automation connects all of it. <strong>What took 8 hours now takes 0</strong> — and the data is always accurate.</p>
+                    <div class="scenario-result">
+                        <span><i class="fas fa-clock"></i> 8 hrs/week saved</span>
+                        <span><i class="fas fa-check-circle"></i> 100% data accuracy</span>
+                        <span><i class="fas fa-euro-sign"></i> ROI in ~4 weeks</span>
+                    </div>
+                </div>
+                <div class="scenario-card">
+                    <div class="scenario-icon"><i class="fas fa-headset"></i></div>
+                    <div class="scenario-tag">Customer Service</div>
+                    <h3 class="scenario-title">"We were answering the same 20 questions over and over"</h3>
+                    <p class="scenario-body">Small businesses often have one person handling support full-time answering repetitive questions. An AI agent trained on your business handles 80% of queries instantly — 24/7. Your team only touches the cases that actually need a human.</p>
+                    <div class="scenario-result">
+                        <span><i class="fas fa-clock"></i> 20 hrs/week saved</span>
+                        <span><i class="fas fa-bolt"></i> Instant responses 24/7</span>
+                        <span><i class="fas fa-euro-sign"></i> ROI in ~5 weeks</span>
+                    </div>
+                </div>
+            </div>
+            <div class="scenarios-disclaimer" data-aos="fade-up">
+                <i class="fas fa-info-circle"></i> These are representative scenarios based on the types of work we automate — actual results vary by business and project scope.
             </div>
         </div>
     </section>
@@ -920,6 +1190,19 @@
                             <p>Worldwide - Remote Services</p>
                         </div>
                     </div>
+                    <!-- Cal.com Booking -->
+                    <div class="contact-item cal-booking-item">
+                        <div class="contact-icon" style="background: rgba(33,180,166,0.15);">
+                            <i class="fas fa-calendar-check" style="color: var(--primary-color);"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h4>Prefer to pick a time?</h4>
+                            <p>Skip the form — book directly in my calendar.</p>
+                            <a href="https://cal.com/mostafa.yaghi" target="_blank" rel="noopener noreferrer" class="cal-book-btn">
+                                <i class="fas fa-calendar-alt"></i> Book a Free 30-Min Call
+                            </a>
+                        </div>
+                    </div>
                     <div class="contact-social">
                         <h4>Follow Us</h4>
                         <div class="social-icons">
@@ -943,33 +1226,86 @@
                             <span class="form-error"></span>
                         </div>
                         <div class="form-group">
-                            <input type="text" id="subject" name="subject" maxlength="200" required>
-                            <label for="subject">Subject</label>
-                            <span class="form-error"></span>
-                        </div>
-                        <div class="form-group">
-                            <select id="service" name="service" required>
-                                <option value="">Select a Service</option>
-                                <option value="automation">AI Automation</option>
-                                <option value="website">Website Building</option>
-                                <option value="integration">Integration Solutions</option>
-                                <option value="local-ai">Local AI Solutions</option>
-                                <option value="consultation">Free Consultation</option>
-                            </select>
-                            <label for="service">Service Interest</label>
-                            <span class="form-error"></span>
-                        </div>
-                        <div class="form-group">
                             <textarea id="message" name="message" rows="5" maxlength="2000" required></textarea>
                             <label for="message">Your Message</label>
                             <span class="form-error"></span>
                         </div>
                         <button type="submit" class="btn btn-primary btn-submit" aria-label="Submit contact form">
-                            <span class="btn-text">Send Message</span>
+                            <span class="btn-text">Book Free 30-Min Call</span>
                             <span class="btn-loading"><i class="fas fa-spinner fa-spin"></i></span>
                         </button>
                         <div class="form-message"></div>
                     </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Partners Section -->
+    <section class="partners" id="partners">
+        <div class="pixel-bg"></div>
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <h2 class="section-title">Collaboration <span class="gradient-text">Partners</span></h2>
+                <p class="section-subtitle">Some projects benefit from expertise across multiple disciplines. To ensure the highest level of execution, we collaborate with a carefully selected network of trusted partners—teams we've vetted and worked with extensively. When the scope calls for it, we integrate them into the project so you work with one unified team instead of managing multiple vendors.</p>
+            </div>
+            <div data-aos="fade-up">
+                <div class="partner-cards-grid">
+                    <!-- Elanova.ai Partner Card -->
+                    <div class="partner-card featured-partner" data-aos="zoom-in" data-aos-delay="100">
+                        <div class="partner-card-header">
+                            <div class="partner-logo-area">
+                                <div class="partner-logo-text">ELANOVA<span class="partner-logo-dot">.</span>AI</div>
+                                <div class="partner-badge"><i class="fas fa-handshake"></i>&nbsp; Collaboration Partner</div>
+                            </div>
+                            <a href="https://elanova.ai" target="_blank" rel="noopener noreferrer" class="partner-tagline partner-url">elanova.ai ↗</a>
+                        </div>
+                        <div class="partner-card-body">
+                            <div class="partner-founder">
+                                <div class="partner-founder-icon"><i class="fas fa-user-circle"></i></div>
+                                <div>
+                                    <span class="partner-founder-name">Ayman Santeer</span>
+                                    <span class="partner-founder-role">Founder &amp; AI Systems Engineer</span>
+                                </div>
+                            </div>
+                            <p class="partner-description">Ayman leads Elanova AI — a production-grade AI engineering company focused on building complete AI systems from the ground up. While Qynzoo specializes in automation orchestration (n8n, Make), CRM integrations, and full web platforms, Elanova provides the AI engineering foundation — from data pipelines and model deployment to the infrastructure required for reliable production systems.</p>
+                            <p class="partner-description">Together, we deliver projects where advanced AI and intelligent automation must operate as one.</p>
+                        </div>
+                        <div class="partner-card-footer">
+                            <div class="partner-location"><i class="fas fa-map-marker-alt"></i> Netherlands</div>
+                            <div class="partner-actions">
+                                <a href="https://elanova.ai" target="_blank" rel="noopener noreferrer" class="btn btn-primary partner-btn">Visit Elanova.ai <i class="fas fa-external-link-alt"></i></a>
+                                <a href="https://www.linkedin.com/company/elanova-ai/" target="_blank" rel="noopener noreferrer" class="partner-social-link" aria-label="Elanova AI on LinkedIn"><i class="fab fa-linkedin"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Aqlomate Partner Card -->
+                    <div class="partner-card featured-partner" data-aos="zoom-in" data-aos-delay="200">
+                        <div class="partner-card-header">
+                            <div class="partner-logo-area">
+                                <div class="partner-logo-text">AQLO<span class="partner-logo-dot">.</span>MATE</div>
+                                <div class="partner-badge"><i class="fas fa-handshake"></i>&nbsp; Collaboration Partner</div>
+                            </div>
+                            <a href="https://aqlomate.com" target="_blank" rel="noopener noreferrer" class="partner-tagline partner-url">aqlomate.com ↗</a>
+                        </div>
+                        <div class="partner-card-body">
+                            <div class="partner-founder">
+                                <div class="partner-founder-icon"><i class="fas fa-user-circle"></i></div>
+                                <div>
+                                    <span class="partner-founder-name">Bader Atem</span>
+                                    <span class="partner-founder-role">Founder &amp; Automation Consultant</span>
+                                </div>
+                            </div>
+                            <p class="partner-description">Bader leads Aqlomate — a Rotterdam-based automation and digitalization consultancy that turns manual, spreadsheet-driven operations into smart, connected systems. Aqlomate specialises in smart bookkeeping automation, data scraping bots, custom dashboards, and converting spreadsheets into web applications.</p>
+                            <p class="partner-description">Together, we bring end-to-end digital transformation — Qynzoo handles AI agents and workflow orchestration while Aqlomate tackles operational digitalization and business process redesign.</p>
+                        </div>
+                        <div class="partner-card-footer">
+                            <div class="partner-location"><i class="fas fa-map-marker-alt"></i> Rotterdam, Netherlands</div>
+                            <div class="partner-actions">
+                                <a href="https://aqlomate.com" target="_blank" rel="noopener noreferrer" class="btn btn-primary partner-btn">Visit Aqlomate.com <i class="fas fa-external-link-alt"></i></a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -1150,9 +1486,28 @@
     </script>
     <script type="module" src="js/pixel-blast.js?v=3.14" defer></script>
 
-    <script src="js/card-nav.js?v=3.14" defer></script>
-    <script src="js/script.min.js?v=3.14" defer></script>
-    <script src="js/brandfetch-logos.js?v=3.14" defer></script>
-    <script src="js/logo-drag.js?v=3.14" defer></script>
+    <script src="js/card-nav.js?v=3.15" defer></script>
+    <script src="js/script.min.js?v=3.15" defer></script>
+    <script src="js/brandfetch-logos.js?v=3.15" defer></script>
+    <script src="js/logo-drag.js?v=3.15" defer></script>
+
+    <!-- Sticky CTA -->
+    <div class="sticky-cta" id="stickyCta">
+        <a href="https://cal.com/mostafa.yaghi" target="_blank" rel="noopener noreferrer">
+            <i class="fas fa-calendar-check"></i> Book Free Call
+        </a>
+    </div>
+    <script>
+        (function() {
+            var stickyCta = document.getElementById('stickyCta');
+            window.addEventListener('scroll', function() {
+                if (window.scrollY > 400) {
+                    stickyCta.classList.add('visible');
+                } else {
+                    stickyCta.classList.remove('visible');
+                }
+            }, { passive: true });
+        })();
+    </script>
 </body>
 </html>

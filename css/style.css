@@ -609,7 +609,7 @@ section {
 .service-link {
     color: white;
     font-weight: 600;
-    display: inline-flex;
+    display: flex;
     align-items: center;
     justify-content: center;
     gap: 8px;
@@ -619,8 +619,11 @@ section {
     border: 2px solid var(--primary-color);
     box-shadow: 0 4px 15px rgba(68, 187, 164, 0.3);
     transition: all var(--transition-normal);
-    line-height: 1;
-    white-space: nowrap;
+    line-height: 1.4;
+    white-space: normal;
+    text-align: center;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .service-link:hover {

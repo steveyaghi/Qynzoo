@@ -61,9 +61,9 @@ class CardNav {
           <button
             type="button"
             class="card-nav-cta-button"
-            onclick="window.location.href='index.html#contact'"
+            onclick="window.open('https://cal.com/mostafa.yaghi', '_blank')"
           >
-            Get Started
+            Book Free Call
           </button>
         </div>
 
