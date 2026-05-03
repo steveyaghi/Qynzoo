@@ -365,6 +365,7 @@ class PixelBlastWebGL {
         });
         // Reduced pixel ratio for better performance (was 2, now 1)
         this.renderer.setPixelRatio(1);
+        this.renderer.setClearColor(0x000000, 0);
 
         // Setup uniforms
         this.uniforms = {

@@ -1628,6 +1628,10 @@ section {
 }
 
 @media (max-width: 768px) {
+    .pixel-bg {
+        display: none;
+    }
+
     .nav-menu {
         position: fixed;
         top: 70px;
