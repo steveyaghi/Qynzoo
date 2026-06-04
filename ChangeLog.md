@@ -1,5 +1,36 @@
 # Qynzoo.com ChangeLog
 
+## 2026-06-04 — Performance & Sale Update (v3.14.5)
+
+### Changes Made
+- **June Sale** — Updated urgency banner from "April Special / April 30" to "June Special / June 30"
+- **Removed heavy animation libraries** — Removed Three.js, postprocessing (~580KB), GSAP (~80KB), and pixel-blast.js WebGL effect (was spawning 11 simultaneous WebGL renderers)
+- **CSS dot-grid background** — Replaced all 11 `.pixel-bg` WebGL instances with a single pure CSS `radial-gradient` dot pattern + `@keyframes pixelPulse` animation (zero JS, zero network cost)
+- **Rewrote card-nav.js** — Removed GSAP dependency from card navigation; replaced with Web Animations API (`element.animate()`), identical visual behaviour
+
+### Files Modified
+- `index.html` — removed Three.js importmap, GSAP script, pixel-blast module script; bumped card-nav version to v3.16
+- `css/style.css` — replaced `.pixel-bg` static rule with CSS animated dot-grid + `@keyframes pixelPulse`
+- `css/style.min.css` — same change applied
+- `js/card-nav.js` — full rewrite, no external dependencies
+
+---
+
+## 2026-03-15 — Marketing Word Documents (v2.5.6)
+
+### Files Created
+- `marketing/Qynzoo_LinkedIn_Posts.docx` — 10 LinkedIn posts with schedule, hashtags, posting calendar table, and pro tips (12.9 KB)
+- `marketing/Qynzoo_Image_Prompts.docx` — 10 AI image generation prompts matched to each LinkedIn post, with usage guide (11.0 KB)
+- `scripts/generate_marketing_docs.js` — Node.js generator script using the `docx` npm package
+- `scripts/office/validate.py` — Python validator for .docx structure
+
+### Notes
+- Both .docx files validated successfully (22 archive entries each, all required OOX parts present)
+- `docx` package installed locally (node_modules)
+- Teal/navy brand colour scheme applied throughout
+
+---
+
 ## 2026-03-15 — Blog SEO & Footer Cleanup (v2.5.2)
 
 ### Changes Made
