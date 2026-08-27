@@ -5,151 +5,152 @@
 ```
 Qynzoo.com/
 │
-├── 📄 index.html                    # Main landing page
-├── 📄 coming-soon.html              # Coming soon placeholder
-├── 📄 README.md                     # Project documentation
-├── 📄 .gitignore                    # Git ignore rules
+├── 📄 index.html                    # Main landing page (hero, projects, FAQ, contact)
+├── 📄 process.html                  # How-we-work / process page
+├── 📄 faq.html                      # Standalone FAQ page
+├── 📄 sitemap.html                  # Human-readable sitemap
+├── 📄 privacy-policy.html           # Privacy policy
+├── 📄 terms-of-service.html         # Terms of service
+├── 📄 coming-soon.html              # Placeholder for social links
+├── 📄 blogs.html                    # Blog listing page
+├── 📄 blog-*.html                   # 10 blog articles
+├── 📄 CLAUDE.md                     # Project instructions for AI assistant
+├── 📄 ChangeLog.md                  # Version history (primary)
+├── 📄 package.json                  # Node deps (docx generator)
+│
+├── 📁 case-studies/                 # Client case-study pages
+│   ├── fugro.html                   # ML for dike macro-stability variables
+│   ├── haskoning.html               # RAG risk-register agent on n8n
+│   ├── odido.html                   # Nationwide retail reporting automation
+│   └── waterprof.html               # Secure Azure LinkedIn content agent
 │
 ├── 📁 css/                          # Stylesheets
 │   ├── style.css                    # Main styles (source)
-│   ├── style.min.css               # Minified styles (production)
-│   ├── blog.css                    # Blog-specific styles
-│   └── card-nav.css                # Navigation component styles
+│   ├── style.min.css                # Minified styles (production)
+│   ├── neo.css                      # Neo-brutalist redesign layer + case-study styles
+│   ├── blog.css                     # Blog-specific styles
+│   └── card-nav.css                 # Navigation component styles
 │
 ├── 📁 js/                           # JavaScript files
-│   ├── script.js                   # Main JavaScript (source)
-│   ├── script.min.js               # Minified JavaScript (production)
-│   ├── card-nav.js                 # Card navigation component
-│   └── pixel-blast.js              # WebGL background effects
+│   ├── script.js                    # Main JavaScript (source)
+│   ├── script.min.js                # Minified JavaScript (production)
+│   ├── card-nav.js                  # Card navigation (Web Animations API, no GSAP)
+│   ├── analytics.js                 # GA4 wrapper
+│   ├── brandfetch-logos.js          # Partner logo loader
+│   ├── logo-drag.js                 # Draggable logo interaction
+│   └── pixel-blast.js               # Legacy WebGL effect (no longer loaded)
 │
 ├── 📁 images/                       # Website images
-│   ├── logo.png                    # Qynzoo logo
-│   ├── mostafa-yaghi.jpg          # Founder photo
-│   └── README.md                   # Images documentation
+│   ├── logo.png                     # Qynzoo logo
+│   ├── mostafa-business.png         # Founder photo
+│   ├── n8n-haskoning.png            # Haskoning case study — workflow (backend)
+│   ├── n8n-risk-lens-frontend.png   # Haskoning case study — app UI (front end)
+│   └── README.md                    # Images documentation
 │
-├── 📁 logos/                        # Partner/Technology logos
-│   ├── Qynzoo_solo_logo.svg       # Main logo (SVG)
-│   ├── Anthropic_Logo_1.svg       # AI partner logo
-│   ├── OpenAI-Logo-2022.svg       # AI partner logo
-│   ├── Make_idU77DJcxU_1.svg      # Automation tool logo
-│   ├── N8N logo.svg                # Automation tool logo
-│   └── Supabase_id9q7Wa4Ba_1.svg  # Database logo
+├── 📁 logos/                        # Partner/technology logos (SVG)
 │
-├── 📁 Blog Pages/                   # Blog articles
-│   ├── blog.html                   # Blog template
-│   ├── blogs.html                  # Blog listing page
-│   ├── blog-geo-vs-seo.html       # GEO vs SEO article
-│   ├── blog-local-ai.html         # Local AI article
-│   ├── blog-workflow-automation.html
-│   ├── blog-ai-agent-practices.html
-│   ├── blog-ai-tools-2025.html
-│   └── blog-build-chatbot.html
+├── 📁 blogs/                        # Blog source content (Markdown)
 │
-├── 📁 docs/                         # Project documentation
-│   ├── CLAUDE.md                   # Development guidelines
-│   ├── ChangeLog.md                # Version history
-│   ├── Design_principles_Qynzoo.md # Design system
-│   ├── DEPLOYMENT_GUIDE.md         # Deployment instructions
-│   ├── SSH_DEPLOYMENT_GUIDE.md     # SSH deployment guide
-│   ├── PERFORMANCE_IMPROVEMENTS.md # Optimization notes
-│   ├── animated pixel.txt          # PixelBlast notes
-│   ├── Card Nav.txt                # Navigation notes
-│   ├── Scroll Stack.txt            # Scroll effect notes
-│   ├── Color pallete.txt           # Brand colors
-│   └── update-blog-nav.txt         # Blog update notes
+├── 📁 fonts/                        # Self-hosted webfonts
+│
+├── 📁 marketing/                    # Generated marketing collateral (.docx)
 │
 ├── 📁 scripts/                      # Utility scripts
-│   ├── analyze_report.py           # Performance analysis
-│   ├── update_navbars.py           # Navigation updater
-│   └── apply-fixes.sh              # Quick fix script
+│   ├── gen_case_studies.js          # Generates all 4 case-study pages from one template
+│   ├── generate_marketing_docs.js   # Builds the marketing .docx files
+│   └── office/                      # Office-document helpers
 │
-├── 📁 assets/                       # Additional assets
-│   └── images-unused/              # Archived images
-│       ├── pasfoto.jpg
-│       ├── Qynzoo logo.png
-│       └── GitHub_Symbol_1.png
-│
-├── 📁 backups/                      # Backup files (gitignored)
-│   ├── style.css.backup
-│   ├── script.js.backup
-│   └── index.html.backup
-│
-└── 📁 .git/                         # Git repository data
-
+└── 📁 docs/                         # Project documentation
+    ├── Design_principles_Qynzoo.md  # Design system
+    ├── PROJECT_STRUCTURE.md         # This file
+    ├── ChangeLog.md                 # Older/archived change history
+    ├── DEPLOYMENT_GUIDE.md          # Deployment instructions
+    ├── SSH_DEPLOYMENT_GUIDE.md      # SSH deployment guide
+    ├── SEO_IMPLEMENTATION_GUIDE.md  # SEO notes
+    ├── PERFORMANCE_IMPROVEMENTS.md  # Optimization notes
+    └── compliance/                  # GDPR / compliance material
 ```
+
+## Generated Files — Do Not Hand-Edit
+
+Some HTML is produced by a script. Editing the output directly means your change
+is silently overwritten the next time the generator runs.
+
+| Output | Generator | How to change it |
+|---|---|---|
+| `case-studies/*.html` (all 4) | `scripts/gen_case_studies.js` | Edit the `pages` array in the generator, then run `node scripts/gen_case_studies.js` |
+| `marketing/*.docx` | `scripts/generate_marketing_docs.js` | Edit the generator, then re-run it |
+
+The case-study generator exists so the `<head>`, CSP, schema.org block, nav, and
+footer stay byte-identical across all four pages. Adding a fifth case study means
+adding one object to the `pages` array — not copying an HTML file.
 
 ## File Categories
 
-### 🌐 Website Pages (Root)
-- `index.html` - Main landing page
-- `coming-soon.html` - Placeholder for social media links
-- `blog*.html` - Blog articles and listings
+### 🌐 Website Pages (root)
+- `index.html` — landing page
+- `process.html`, `faq.html`, `sitemap.html` — supporting pages
+- `blog*.html` — blog listing and 10 articles
+- `privacy-policy.html`, `terms-of-service.html` — legal
 
-### 🎨 Styles (css/)
-- **Source**: `style.css`, `blog.css`, `card-nav.css`
-- **Production**: `style.min.css` (used by website)
+### 📊 Case Studies (`case-studies/`)
+One page per client project, each following the same section order:
+**Problem → Approach (+ tool chips, optional figures) → Results → CTA.**
+All four are linked from the projects grid in `index.html`.
 
-### ⚡ Scripts (js/)
-- **Source**: `script.js`, `card-nav.js`, `pixel-blast.js`
-- **Production**: `script.min.js` (used by website)
+### 🎨 Styles (`css/`)
+- **Source**: `style.css`, `neo.css`, `blog.css`, `card-nav.css`
+- **Production**: `style.min.css`
+
+`neo.css` carries the neo-brutalist redesign, including all `.case-*` classes.
+Case-study figure classes:
+
+| Class | Purpose |
+|---|---|
+| `.case-figure` | Framed screenshot + caption |
+| `.case-figure-stack` | Vertical stack of figures (full width each) |
+| `.case-figure.is-wide` | Wide diagrams — capped at 1100px |
+| `.case-figure.is-portrait` | Portrait screenshots — capped at 520px |
+
+Figures stack rather than sitting side by side: a detail-dense workflow diagram
+squeezed into a half-width column becomes unreadable.
+
+### ⚡ Scripts (`js/`)
+- **Source**: `script.js`, `card-nav.js`, `analytics.js`
+- **Production**: `script.min.js`
+- `pixel-blast.js` remains on disk but is no longer loaded — the WebGL background
+  was replaced with a pure-CSS dot grid in v3.14.5.
 
 ### 🖼️ Media
-- **images/** - Website imagery
-- **logos/** - Partner and technology logos (SVG)
+- **images/** — website imagery and case-study screenshots
+- **logos/** — partner and technology logos (SVG)
+- **fonts/** — self-hosted webfonts
 
-### 📚 Documentation (docs/)
-- Deployment guides
-- Design principles
-- Development notes
-- Performance improvements
+## Cache Busting
 
-### 🛠️ Utilities (scripts/)
-- Python scripts for automation
-- Shell scripts for fixes
+Stylesheets are referenced with a version query (e.g. `neo.css?v=6.3`). **Bump it
+whenever you change the CSS**, or returning visitors keep the stale file. The
+version lives in two places for case studies: the `VER` constant in
+`scripts/gen_case_studies.js`, and the `<link>` tags of every other HTML file.
 
-### 🗃️ Archives (assets/)
-- Unused or historical assets
-
-## Deployment Structure
-
-When deploying, only these files/folders are needed:
-
-```
-Qynzoo.com/ (Production)
-├── index.html
-├── coming-soon.html
-├── blog*.html
-├── css/
-│   ├── style.min.css
-│   ├── blog.css
-│   └── card-nav.css
-├── js/
-│   ├── script.min.js
-│   ├── card-nav.js
-│   └── pixel-blast.js
-├── images/
-├── logos/
-└── README.md (optional)
-```
+The footer version stamp (`V4.1.0`) should match across all pages.
 
 ## Git Ignored Items
 
-The following are excluded from version control:
-- `.claude/` - AI assistant cache
-- `.playwright-mcp/` - Browser automation
-- `backups/` - Backup files
-- `assets/images-unused/` - Archived images
-- `node_modules/` - Dependencies (if any)
-- `.env` files - Environment variables
+- `.claude/` — AI assistant cache
+- `.playwright-mcp/` — browser automation
+- `backups/` — backup files
+- `node_modules/` — dependencies
+- `.env` files — environment variables
 
 ## Key Points
 
-1. **Source vs Production**: Always edit `.css` and `.js` files, then copy to `.min` versions
-2. **Documentation**: All guides and notes are in `docs/`
-3. **Clean Root**: Only essential HTML files in root directory
-4. **Organized Assets**: Media separated by type (images/ vs logos/)
-5. **Version Control**: Unnecessary files gitignored
+1. **Generated files**: check the table above before editing any HTML
+2. **Source vs production**: edit `.css`/`.js`, then update the `.min` versions
+3. **Bump the cache-buster** on every CSS change
+4. **Documentation**: guides and notes live in `docs/`
+5. **Organized assets**: media separated by type (`images/` vs `logos/`)
 
 ---
 
-Last Updated: October 16, 2024
+Last Updated: August 27, 2026

@@ -248,7 +248,7 @@ ul {
    Hero Section
    =================================== */
 .hero {
-    min-height: 100vh;
+    min-height: auto;
     background: var(--dark-bg);
     position: relative;
     display: flex;
@@ -1538,6 +1538,22 @@ section {
 
 .newsletter-form button:hover {
     transform: scale(1.1);
+}
+
+.newsletter-message {
+    font-size: 13px;
+    line-height: 1.5;
+    color: rgba(255, 255, 255, 0.75);
+    margin-top: 12px;
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: opacity 0.3s ease, max-height 0.3s ease;
+}
+
+.newsletter-message.visible {
+    max-height: 80px;
+    opacity: 1;
 }
 
 .footer-bottom {

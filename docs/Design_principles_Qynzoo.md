@@ -468,6 +468,74 @@ Use consistent spacing multiples of 4px/5px:
 }
 ```
 
+### 10. Case Study Pages
+
+All client case studies (`case-studies/*.html`) follow one fixed section order.
+Keeping the rhythm identical across pages is what makes them read as a set:
+
+**Hero → The Problem → The Approach → Results → CTA → Footer**
+
+**Hero:**
+- `.case-back-link` — "← Back to projects", always first
+- `.case-meta` — three `.case-meta-pill` chips. The first carries `.accent`
+  (teal fill) and names the discipline; the second is `Client: <name>`; the
+  third is the sector.
+- `.case-title` — 44px Poppins, max-width 800px
+- `.case-summary` — 19px, max-width 700px. One sentence with the outcome in it.
+
+**Body sections:**
+```css
+.case-section {
+    padding: 56px 0;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+}
+```
+The final section before the CTA takes `style="border-bottom:none"` so the page
+doesn't end on a stray rule.
+
+Body copy is capped at `max-width: 760px` — measure matters more than filling
+the container.
+
+**Tool chips** (`.case-tools` / `.case-tool-chip`) sit at the end of The
+Approach, never in the hero. They list what was actually used, not everything
+that could have been.
+
+**Figures:**
+
+| Class | Use for | Cap |
+|---|---|---|
+| `.case-figure` | Framed screenshot + caption | 860px |
+| `.case-figure-stack` | Wrapper — stacks figures vertically, 36px gap | — |
+| `.case-figure.is-wide` | Wide diagrams, workflows | 1100px |
+| `.case-figure.is-portrait` | Portrait app screenshots | 520px |
+
+```html
+<div class="case-figure-stack">
+    <figure class="case-figure is-wide">
+        <img src="../images/example.png" alt="..." loading="lazy" decoding="async">
+        <figcaption>n8n workflow (backend of the app)</figcaption>
+    </figure>
+</div>
+```
+
+**Figures stack full-width — they do not sit side by side.** A two-column grid
+forces a detail-dense diagram down to ~300px, at which point node labels are
+unreadable and the image is decoration rather than evidence. Give a wide diagram
+the full 1100px and let the page scroll.
+
+Captions are plain labels, not sentences — `n8n workflow (backend of the app)`,
+not a description of what the reader is already looking at. Every image carries
+descriptive `alt` text and `loading="lazy"`.
+
+**Writing the content:**
+- Lead Results with the number when there is one ("6 hours down to 1")
+- **Never invent a metric.** A project with no hard figure gets a qualitative
+  Results section — that is weaker than a number, but honest, and it stays that
+  way until a real figure arrives.
+- Negative findings belong on the page. The Fugro study says plainly that
+  friction angle couldn't be predicted and why (dataset too small). It reads as
+  competence, not failure.
+
 ---
 
 ## Animation & Interaction
@@ -894,6 +962,7 @@ When creating a new page, ensure:
 | Version | Date | Changes |
 |---------|------|---------|
 | 1.0 | January 11, 2025 | Initial design system documentation |
+| 1.1 | August 27, 2026 | Added §10 Case Study Pages — section order, meta pills, tool chips, figure classes (`.case-figure-stack`, `.is-wide`, `.is-portrait`), caption and Results-writing rules |
 
 ---
 

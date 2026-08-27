@@ -42,7 +42,7 @@ class CardNav {
             <div class="hamburger-line"></div>
           </button>
           <div class="logo-container">
-            <a href="index.html#home">
+            <a href="${window.CARD_NAV_BASE || ''}index.html#home">
               <img src="${this.config.logo}" alt="${this.config.logoAlt}" class="logo">
               <span class="logo-text">Qynzoo</span>
             </a>
@@ -161,18 +161,19 @@ class CardNav {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
+  const base = window.CARD_NAV_BASE || '';
   window.cardNav = new CardNav({
-    logo: 'logos/Qynzoo_solo_logo.svg',
+    logo: base + 'logos/Qynzoo_solo_logo.svg',
     logoAlt: 'Qynzoo Logo',
     items: [
       {
-        label: "Services",
+        label: "Work",
         bgColor: "#44bba4",
         textColor: "#fff",
         links: [
-          { label: "AI Automation",  href: "index.html#services",  ariaLabel: "AI Automation Services" },
-          { label: "Website Building", href: "index.html#services", ariaLabel: "Website Building Services" },
-          { label: "Integration",    href: "index.html#services",  ariaLabel: "Integration Solutions" }
+          { label: "Projects",     href: base + "index.html#projects", ariaLabel: "See project case studies" },
+          { label: "About",        href: base + "index.html#about",    ariaLabel: "About Mostafa Yaghi and Qynzoo" },
+          { label: "How It Works", href: base + "index.html#workflow", ariaLabel: "How our process works" }
         ]
       },
       {
@@ -180,9 +181,8 @@ document.addEventListener('DOMContentLoaded', () => {
         bgColor: "#ffc107",
         textColor: "#000",
         links: [
-          { label: "How It Works", href: "index.html#workflow",  ariaLabel: "How our workflow works" },
-          { label: "Blog",         href: "blogs.html",           ariaLabel: "Read our blog" },
-          { label: "Our Partners", href: "index.html#partners",  ariaLabel: "View our strategic partners" }
+          { label: "FAQ",  href: base + "faq.html",   ariaLabel: "Frequently asked questions" },
+          { label: "Blog", href: base + "blogs.html", ariaLabel: "Read our blog" }
         ]
       },
       {
@@ -190,8 +190,8 @@ document.addEventListener('DOMContentLoaded', () => {
         bgColor: "#fc7753",
         textColor: "#fff",
         links: [
-          { label: "Contact Us", href: "index.html#contact", ariaLabel: "Contact us" },
-          { label: "LinkedIn",   href: "#",                  ariaLabel: "LinkedIn" }
+          { label: "Contact Us", href: base + "index.html#contact", ariaLabel: "Contact us" },
+          { label: "LinkedIn",   href: "https://www.linkedin.com/company/qynzoo", ariaLabel: "LinkedIn" }
         ]
       }
     ],

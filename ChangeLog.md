@@ -1,5 +1,105 @@
 # Qynzoo.com ChangeLog
 
+## 2026-08-27 — Philosophy Statement, Honest Newsletter, Twitter Cleanup (v4.1.1)
+
+### Summary
+Added the "AI won't replace humans" philosophy statement as its own homepage
+section, fixed the newsletter signup so it no longer fakes a successful
+subscription, and removed every Twitter/X reference from the site (icons,
+links, and the `twitter:site` meta claiming a `@qynzoo` handle that never
+existed).
+
+### Changes Made
+- **New Philosophy section** (`index.html`, `#philosophy`) — placed between
+  Projects and How It Works, so it lands after the reader has already seen the
+  Fugro/Haskoning/ODIDO/Waterprof proof, not before it. New `.neo-philosophy-card`
+  styling in `css/neo.css` (centered card, matches the existing neo-brutalist
+  border treatment).
+- **Newsletter form fixed** (`js/script.js`, `js/script.min.js`) — it previously
+  showed a spinner → checkmark and claimed success on every submit with no
+  backend behind it. It now shows an honest inline message: *"Thanks for trying
+  this out! The newsletter is coming soon — we'll let you know when it's live."*
+  New `.newsletter-message` styling in `css/style.css` and `css/style.min.css`
+  (fades in, auto-hides after 6s, reuses the same pattern as `.form-message` on
+  the contact form).
+- **Twitter fully removed**:
+  - `coming-soon.html` — dropped the "Twitter - Coming Soon" social icon
+  - `blogs.html`, `sitemap.html` — dropped the live `twitter.com/qynzoo` footer
+    icon link
+  - `blogs.html`, `privacy-policy.html`, `sitemap.html`, `terms-of-service.html`
+    — removed `<meta name="twitter:site" content="@qynzoo">`, which claimed a
+    handle that was never registered
+  - Left the `twitter:card`/`twitter:title`/`twitter:description`/`twitter:image`
+    meta tags in place — those control how *any* link to the site previews when
+    shared on X, regardless of whether Qynzoo has an account there, so removing
+    them would only make link previews worse for no benefit
+- **Cache-busters bumped**: `style.min.css?v=4.1` → `v=4.2`, `script.min.js?v=4.0`
+  → `v=4.1`. Footer version stamp `V4.1.0` → `V4.1.1` sitewide.
+
+### Not done in this pass
+- **Testimonials** — user is waiting on permission from clients before sending
+  content; placement to be decided once quotes exist.
+- **Hero photo / "looks like a small company" feedback** — advised to keep the
+  photo but reduce its visual dominance in the hero and move the philosophy
+  statement near it once the hero is restructured, rather than removing the
+  photo outright (removing it pushes toward an anonymous-institutional look
+  Qynzoo can't actually back with headcount). This is a layout change, scoped
+  separately — not implemented yet, pending user sign-off on a concrete hero
+  redesign.
+
+---
+
+## 2026-08-27 — Case Studies Build-Out (v4.1.0)
+
+### Summary
+Wrote up all four client projects (Fugro, Haskoning, Odido, Waterprof) with full
+Problem / Approach / Results content. Three of the four case-study pages were
+linked from the homepage but did not exist on disk — those links were 404ing.
+
+### Files Created
+- `case-studies/haskoning.html` — RAG risk-register agent on n8n (was a broken link)
+- `case-studies/odido.html` — nationwide retail reporting automation (was a broken link)
+- `case-studies/waterprof.html` — secure Azure LinkedIn content agent (was a broken link)
+- `scripts/gen_case_studies.js` — Node generator; renders all four pages from one
+  shared template so head/nav/footer/schema stay identical across them. Edit the
+  content objects in this file and re-run `node scripts/gen_case_studies.js`
+  rather than hand-editing the generated HTML.
+- `images/n8n-haskoning.png`, `images/n8n-risk-lens-frontend.png` — URL-safe copies
+  of the two Haskoning screenshots (originals had spaces in their filenames)
+
+### Changes Made
+- **`case-studies/fugro.html` rewritten** — replaced the "results being finalized"
+  placeholder with the real outcome, including the negative finding on friction
+  angle (dataset too small/inconsistent to learn from). New H1 uses the full
+  research title; `Auto-Encoders` added to the tool chips, `Support Vector
+  Machines` removed.
+- **Haskoning screenshots embedded** — n8n workflow and the Risk Lens front end,
+  shown under The Approach.
+- **`index.html`** — all four project card blurbs rewritten; Fugro card title
+  changed to "Predicting Dike Stability Variables with Machine Learning".
+- **`css/neo.css`** — added `.case-figure` / `.case-figure-stack` figure styling
+  (framed image + caption, matching the existing neo-brutalist border treatment).
+- **Footer version normalized** — pages were inconsistently stamped `V3.13`,
+  `V4.0.0`, and `V4.1.0`; all now read `V4.1.0`.
+- **Cache-buster** — `neo.css?v=6.1` → `v=6.3` sitewide.
+
+### Design Decisions
+- **Figures stack full-width instead of sitting side by side.** The two Haskoning
+  screenshots have opposite aspect ratios (workflow 1705×732 landscape, UI
+  758×1024 portrait). In a two-column grid the workflow rendered ~300px wide,
+  which made its node labels unreadable. Stacked, it gets 1013px — over 3× wider.
+  `.is-wide` (1100px cap) is for the workflow; `.is-portrait` (520px cap) keeps
+  the UI shot from towering over the page.
+- **Odido has no hard metric.** Written qualitatively on purpose — no numbers were
+  invented. If reports/week, hours saved, or a before/after error rate surface
+  later, they belong in the Results section of `case-studies/odido.html`.
+
+### Verification
+Checked in-browser at desktop and 375px mobile: all four pages return 200, both
+images load, no console errors, no horizontal overflow on mobile.
+
+---
+
 ## 2026-06-04 — Performance & Sale Update (v3.14.5)
 
 ### Changes Made

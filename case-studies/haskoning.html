@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Case study: a retrieval-augmented generation (RAG) agent built on n8n for Haskoning that drafts full infrastructure risk registers from a project description, cutting a 6-hour manual task to about 1 hour.">
+    <meta name="author" content="Mostafa Yaghi">
+    <title>Haskoning Case Study: AI-Generated Infrastructure Risk Registers | Qynzoo</title>
+    <link rel="canonical" href="https://qynzoo.com/case-studies/haskoning.html">
+
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://unpkg.com https://www.googletagmanager.com https://www.google-analytics.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com https://unpkg.com; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self' data: https:; connect-src 'self' https://www.google-analytics.com https://analytics.google.com https://region1.google-analytics.com; base-uri 'self'; form-action 'self';">
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://qynzoo.com/case-studies/haskoning.html">
+    <meta property="og:title" content="Haskoning Case Study: AI-Generated Infrastructure Risk Registers">
+    <meta property="og:description" content="A RAG agent on n8n that turns a project description into a full infrastructure risk register — 6 hours down to 1.">
+    <meta property="og:image" content="https://qynzoo.com/images/og/og-home.png">
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-YF5C5BCJK4"></script>
+    <script src="../js/analytics.js"></script>
+
+    <!-- Schema.org CreativeWork -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "CreativeWork",
+      "name": "AI-Generated Infrastructure Risk Registers",
+      "about": "Retrieval-augmented generation agent producing infrastructure risk registers",
+      "creator": { "@type": "Person", "name": "Mostafa Yaghi" },
+      "client": { "@type": "Organization", "name": "Haskoning" },
+      "url": "https://qynzoo.com/case-studies/haskoning.html"
+    }
+    </script>
+
+    <link rel="icon" type="image/svg+xml" href="../logos/Qynzoo_solo_logo.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="../css/style.min.css?v=4.0">
+    <link rel="stylesheet" href="../css/card-nav.css?v=4.2" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="../css/neo.css?v=6.8">
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700&display=swap"></noscript>
+</head>
+<body>
+    <div class="card-nav-container" id="cardNavContainer"></div>
+
+    <section class="case-hero neo-page">
+        <div class="container">
+            <a href="../index.html#projects" class="case-back-link"><i class="fas fa-arrow-left"></i> Back to projects</a>
+            <div class="case-meta">
+                <span class="case-meta-pill accent">RAG Application</span>
+                <span class="case-meta-pill">Client: Haskoning</span>
+                <span class="case-meta-pill">AI Automation</span>
+            </div>
+            <h1 class="case-title">AI-Generated Infrastructure Risk Registers</h1>
+            <p class="case-summary">Built a retrieval-augmented generation (RAG) agent on n8n that turns a project description into a full risk register — cutting a 6-hour manual task down to 1 hour, review included.</p>
+        </div>
+    </section>
+
+    <section class="case-section neo-page">
+        <div class="container">
+            <h2>The Problem</h2>
+            <p>Every new infrastructure project starts with a blank risk register. The standard process — manually digging through old registers, copy-pasting relevant risks, then brainstorming new ones — took around 6 hours before a project manager could even start reviewing.</p>
+        </div>
+    </section>
+
+    <section class="case-section neo-page">
+        <div class="container">
+            <h2>The Approach</h2>
+            <p>I built an AI agent on n8n with custom connections to a structured database of known infrastructure risks. Given a description of the new project, the agent retrieves relevant precedent risks and generates a draft risk register — causes, mitigations, and all — directly into an Excel file ready for a risk manager's review.</p>
+            <div class="case-tools">
+                <span class="case-tool-chip">n8n</span>
+                <span class="case-tool-chip">RAG</span>
+                <span class="case-tool-chip">Automation</span>
+                <span class="case-tool-chip">Excel Integration</span>
+            </div>
+            <div class="case-figure-stack">
+                <figure class="case-figure is-wide">
+                    <img src="../images/n8n-haskoning.png" alt="The n8n workflow powering the risk register agent, showing the retrieval and generation steps that produce a draft register." loading="lazy" decoding="async">
+                    <figcaption>n8n workflow (backend of the app)</figcaption>
+                </figure>
+                <figure class="case-figure is-portrait">
+                    <img src="../images/n8n-risk-lens-frontend.png" alt="The Risk Lens app interface, where a risk manager submits a project description and receives the generated risk register." loading="lazy" decoding="async">
+                    <figcaption>Simple user interface (front end) of the app</figcaption>
+                </figure>
+            </div>
+        </div>
+    </section>
+
+    <section class="case-section neo-page" style="border-bottom:none">
+        <div class="container">
+            <h2>Results</h2>
+            <p>What used to take 6 hours of manual drafting now takes about 1 hour, including human review. The agent doesn't replace the risk manager's judgment — it removes the blank-page problem and the repetitive copy-paste work that came before it, freeing reviewers to focus on judgment calls instead of data entry.</p>
+        </div>
+    </section>
+
+    <section class="neo-section neo-page">
+        <div class="container" style="text-align:center">
+            <h2 class="neo-section-title" style="font-size:28px">Have a similar problem to solve?</h2>
+            <div style="margin-top:20px">
+                <a href="https://cal.com/mostafa.yaghi" class="neo-btn" target="_blank" rel="noopener noreferrer">Book Free 30-Min Call</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="pixel-bg"></div>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <img src="../images/logo.png" alt="Qynzoo Logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                        <span class="logo-text">Qynzoo</span>
+                    </div>
+                    <p class="footer-description">AI automation, machine learning, and websites — built by Mostafa Yaghi. Based in the Netherlands — serving clients worldwide.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="../index.html#home">Home</a></li>
+                        <li><a href="../index.html#projects">Projects</a></li>
+                        <li><a href="../faq.html">FAQ</a></li>
+                        <li><a href="../index.html#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Legal</h4>
+                    <ul class="footer-links">
+                        <li><a href="../privacy-policy.html">Privacy Policy</a></li>
+                        <li><a href="../terms-of-service.html">Terms of Service</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Qynzoo. All rights reserved. | V4.1.3</p>
+                <div class="footer-bottom-links">
+                    <a href="../privacy-policy.html">Privacy Policy</a>
+                    <a href="../terms-of-service.html">Terms of Service</a>
+                    <a href="../sitemap.html">Sitemap</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+    // card-nav uses relative asset paths; override to work from /case-studies/
+    window.CARD_NAV_BASE = '../';
+    </script>
+    <script src="../js/card-nav.js?v=4.1" defer></script>
+</body>
+</html>

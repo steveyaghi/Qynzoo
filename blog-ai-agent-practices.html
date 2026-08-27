@@ -42,87 +42,30 @@
     <meta property="og:site_name" content="Qynzoo">
     <meta name="twitter:card" content="summary_large_image">
     <link rel="icon" type="image/svg+xml" href="logos/Qynzoo_solo_logo.svg">
-    <link rel="stylesheet" href="css/style.min.css?v=3.16">
-    <link rel="stylesheet" href="css/blog.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="css/style.min.css?v=4.2">
+    <link rel="stylesheet" href="css/card-nav.css?v=4.2" media="print" onload="this.media='all'">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'">
     <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
+    <link rel="stylesheet" href="css/neo.css?v=6.8">
     <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700&display=swap"></noscript>
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <style>
-        .article-prose { max-width: 820px; margin: 0 auto; padding: 60px 20px 80px; }
-        .article-prose p { font-size: 1.1rem; line-height: 1.85; color: rgba(255,255,255,0.8); margin-bottom: 22px; }
-        .article-prose h2 { font-size: 1.9rem; color: var(--text-light); margin: 50px 0 20px; display: flex; align-items: center; gap: 14px; }
-        .article-prose h2 i { color: var(--primary-color); font-size: 1.4rem; }
-        .article-prose h3 { font-size: 1.35rem; color: var(--secondary-color); margin: 34px 0 14px; }
-        .lead-p { font-size: 1.25rem !important; line-height: 1.8 !important; color: rgba(255,255,255,0.9) !important; font-weight: 300; padding-bottom: 30px; border-bottom: 1px solid rgba(255,255,255,0.1); margin-bottom: 40px !important; }
-        .pull-quote { border-left: 4px solid var(--primary-color); padding: 20px 30px; margin: 40px 0; background: rgba(68,187,164,0.06); border-radius: 0 12px 12px 0; }
-        .pull-quote p { font-size: 1.2rem !important; font-style: italic; color: rgba(255,255,255,0.9) !important; margin: 0 !important; }
-        .principle-card { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.1); border-radius: 16px; padding: 28px; margin: 20px 0; display: flex; gap: 20px; align-items: flex-start; transition: border-color 0.3s; }
-        .principle-card:hover { border-color: var(--primary-color); }
-        .principle-num { width: 48px; height: 48px; border-radius: 12px; background: linear-gradient(135deg, var(--primary-color), var(--secondary-color)); display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 1.1rem; color: white; flex-shrink: 0; }
-        .principle-body h4 { color: var(--text-light); margin: 0 0 10px; font-size: 1.15rem; }
-        .principle-body p { margin: 0 !important; font-size: 1rem !important; }
-        .warning-box { background: rgba(252,119,83,0.07); border: 1px solid rgba(252,119,83,0.25); border-radius: 14px; padding: 24px 28px; margin: 30px 0; }
-        .warning-box h4 { color: var(--accent-color); margin: 0 0 10px; font-size: 1rem; display: flex; align-items: center; gap: 10px; }
-        .warning-box p { margin: 0 !important; font-size: 1rem !important; }
-        .info-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 18px; margin: 30px 0; }
-        .info-card { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.1); border-radius: 14px; padding: 22px; transition: border-color 0.3s; }
-        .info-card:hover { border-color: var(--primary-color); }
-        .info-card i { font-size: 1.5rem; color: var(--primary-color); margin-bottom: 10px; display: block; }
-        .info-card h4 { color: var(--secondary-color); margin: 0 0 8px; font-size: 0.95rem; }
-        .info-card p { font-size: 0.88rem !important; margin: 0 !important; color: rgba(255,255,255,0.65) !important; }
-        .cta-box { background: linear-gradient(135deg, rgba(68,187,164,0.12), rgba(255,193,7,0.06)); border: 2px solid var(--primary-color); border-radius: 20px; padding: 48px; text-align: center; margin: 60px 0; }
-        .cta-box h3 { font-size: 1.8rem; color: var(--secondary-color); margin-bottom: 14px; }
-        .cta-box p { font-size: 1.05rem !important; color: rgba(255,255,255,0.75) !important; margin-bottom: 28px !important; }
-        .author-box { display: flex; gap: 24px; align-items: center; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.1); border-radius: 16px; padding: 30px; margin: 50px 0; }
-        .author-box img { width: 90px; height: 90px; border-radius: 50%; border: 3px solid var(--primary-color); flex-shrink: 0; object-fit: cover; }
-        .author-box h4 { color: var(--text-light); margin: 0 0 4px; font-size: 1.15rem; }
-        .author-box .role { color: var(--primary-color); font-size: 0.9rem; margin-bottom: 10px; display: block; }
-        .author-box p { margin: 0 !important; font-size: 0.95rem !important; }
-        .related-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 22px; margin-top: 14px; }
-        .rel-card { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.1); border-radius: 14px; padding: 22px; transition: all 0.3s; text-decoration: none; display: block; }
-        .rel-card:hover { border-color: var(--primary-color); transform: translateY(-4px); }
-        .rel-card h4 { color: var(--text-light); margin: 0 0 8px; font-size: 1rem; line-height: 1.4; }
-        .rel-card p { color: rgba(255,255,255,0.55); font-size: 0.88rem; margin: 0; }
-        .breadcrumb { display: flex; align-items: center; gap: 12px; margin-bottom: 28px; font-size: 0.88rem; color: rgba(255,255,255,0.5); }
-        .breadcrumb a { color: var(--primary-color); text-decoration: none; }
-        .post-meta-hero { display: flex; gap: 20px; flex-wrap: wrap; margin: 16px 0 0; }
-        .post-meta-hero span { font-size: 0.85rem; color: rgba(255,255,255,0.5); display: flex; align-items: center; gap: 6px; }
-        @media (max-width: 768px) { .author-box { flex-direction: column; text-align: center; } .principle-card { flex-direction: column; } }
-    </style>
 </head>
 <body>
-    <nav class="navbar" id="navbar">
-        <div class="container nav-wrapper">
-            <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu"><span></span><span></span><span></span></button>
-            <a href="index.html#home" class="logo">
-                <img src="images/logo.png" alt="Qynzoo Logo" onerror="this.style.display='none'">
-                <span class="logo-text">Qynzoo</span>
-            </a>
-            <ul class="nav-menu" id="navMenu">
-                <li><a href="index.html#home" class="nav-link">Home</a></li>
-                <li><a href="index.html#services" class="nav-link">Services</a></li>
-                <li><a href="index.html#workflow" class="nav-link">How It Works</a></li>
-                <li><a href="blogs.html" class="nav-link active">Blog</a></li>
-                <li><a href="index.html#contact" class="btn btn-primary">Get Started</a></li>
-            </ul>
-        </div>
-    </nav>
+    <div class="card-nav-container" id="cardNavContainer"></div>
 
-    <section class="hero" style="min-height:50vh;padding:100px 0 50px">
-        <div class="pixel-bg"></div>
+    <section class="case-hero neo-page neo-wide">
         <div class="container">
-            <div class="breadcrumb">
+            <div class="neo-breadcrumb">
                 <a href="index.html"><i class="fas fa-home"></i> Home</a>
                 <span>/</span><a href="blogs.html">Blog</a>
                 <span>/</span><span>AI Agents</span>
             </div>
-            <div class="article-category"><span class="category-tag primary">AI Agents</span></div>
-            <h1 class="article-title">Best AI Agent Practices <span class="gradient-text">for Business</span></h1>
-            <div class="post-meta-hero">
+            <div class="neo-eyebrow">AI Agents</div>
+            <h1 class="case-title">Best AI Agent Practices for Business</h1>
+            <div class="neo-blog-card-meta">
                 <span><i class="fas fa-user"></i> Mostafa Yaghi</span>
                 <span><i class="fas fa-calendar"></i> January 2026</span>
                 <span><i class="fas fa-clock"></i> 12 min read</span>
@@ -130,9 +73,9 @@
         </div>
     </section>
 
-    <div class="article-prose">
+    <section class="neo-article neo-page">
 
-        <p class="lead-p" data-aos="fade-up">AI agents are the most powerful development in business technology since cloud software. A well-built agent doesn't just answer questions — it takes actions, makes decisions, and completes multi-step tasks autonomously. But agents are also easy to get wrong. Unlike a chatbot that only talks, an agent that malfunctions can send emails to customers, modify databases, or trigger payments. This guide covers the principles that separate agents that run safely in production from expensive experiments that fail at the worst possible moment.</p>
+        <p class="neo-lead" data-aos="fade-up">AI agents are the most powerful development in business technology since cloud software. A well-built agent doesn't just answer questions — it takes actions, makes decisions, and completes multi-step tasks autonomously. But agents are also easy to get wrong. Unlike a chatbot that only talks, an agent that malfunctions can send emails to customers, modify databases, or trigger payments. This guide covers the principles that separate agents that run safely in production from expensive experiments that fail at the worst possible moment.</p>
 
         <h2 data-aos="fade-up"><i class="fas fa-robot"></i> What Makes an AI Agent Different From a Chatbot</h2>
 
@@ -142,63 +85,63 @@
 
         <p data-aos="fade-up">This is why agent design requires more care than chatbot design. Every tool the agent can access is a surface where mistakes can have real-world consequences. The best agent builders think carefully about which tools to give, what constraints to apply, and when to require human approval.</p>
 
-        <div class="pull-quote" data-aos="fade-up">
+        <div class="neo-pull-quote" data-aos="fade-up">
             <p>"Give an agent only the tools it needs for its specific job — nothing more. Every unnecessary capability is a surface for mistakes."</p>
         </div>
 
         <h2 data-aos="fade-up"><i class="fas fa-shield-alt"></i> The 7 Principles of Production-Ready AI Agents</h2>
 
-        <div class="principle-card" data-aos="fade-up">
-            <div class="principle-num">1</div>
-            <div class="principle-body">
+        <div class="neo-principle-card" data-aos="fade-up">
+            <div class="neo-principle-num">1</div>
+            <div class="neo-principle-body">
                 <h4>Minimal tool scope (least privilege)</h4>
                 <p>Only give an agent the tools it needs for its specific job. A customer service agent doesn't need database write access. A lead qualification agent doesn't need billing system access. Every unnecessary capability is a surface where mistakes can happen. Design each agent for a narrow, well-defined purpose.</p>
             </div>
         </div>
 
-        <div class="principle-card" data-aos="fade-up">
-            <div class="principle-num">2</div>
-            <div class="principle-body">
+        <div class="neo-principle-card" data-aos="fade-up">
+            <div class="neo-principle-num">2</div>
+            <div class="neo-principle-body">
                 <h4>Human-in-the-loop for irreversible actions</h4>
                 <p>Define a clear list of actions that always require human approval before execution: sending bulk emails, writing to production databases, processing payments, deleting records. Build confirmation steps into your agent workflow for these actions. An agent that can always be reviewed before consequential actions fail gracefully — one that can't is a liability.</p>
             </div>
         </div>
 
-        <div class="principle-card" data-aos="fade-up">
-            <div class="principle-num">3</div>
-            <div class="principle-body">
+        <div class="neo-principle-card" data-aos="fade-up">
+            <div class="neo-principle-num">3</div>
+            <div class="neo-principle-body">
                 <h4>Explicit, detailed system prompts</h4>
                 <p>The system prompt is your agent's instruction manual. Vague prompts produce vague agents. Your system prompt should specify exactly what the agent's role is, what it should and shouldn't do, how it should handle edge cases, what tone to use, and what to do when it's uncertain. Treat it like an SOP for a new employee — the more specific, the better.</p>
             </div>
         </div>
 
-        <div class="principle-card" data-aos="fade-up">
-            <div class="principle-num">4</div>
-            <div class="principle-body">
+        <div class="neo-principle-card" data-aos="fade-up">
+            <div class="neo-principle-num">4</div>
+            <div class="neo-principle-body">
                 <h4>Comprehensive logging</h4>
                 <p>Every action an agent takes should be logged: what it received, what it decided, what it did, and what the result was. Without logs, debugging a failing agent is nearly impossible. Logs also give you an audit trail for compliance purposes and help you identify patterns in agent behaviour over time.</p>
             </div>
         </div>
 
-        <div class="principle-card" data-aos="fade-up">
-            <div class="principle-num">5</div>
-            <div class="principle-body">
+        <div class="neo-principle-card" data-aos="fade-up">
+            <div class="neo-principle-num">5</div>
+            <div class="neo-principle-body">
                 <h4>Graceful failure and alerting</h4>
                 <p>Agents fail for many reasons: API rate limits, unexpected input formats, network errors, edge cases the system prompt didn't anticipate. Design your agents to fail gracefully — log the error, notify a human, and stop rather than proceeding with incorrect assumptions. Silent failures are the most dangerous kind.</p>
             </div>
         </div>
 
-        <div class="principle-card" data-aos="fade-up">
-            <div class="principle-num">6</div>
-            <div class="principle-body">
+        <div class="neo-principle-card" data-aos="fade-up">
+            <div class="neo-principle-num">6</div>
+            <div class="neo-principle-body">
                 <h4>Test with adversarial inputs</h4>
                 <p>Before deploying any customer-facing agent, actively try to break it. Send it inputs designed to confuse it, trick it into doing something outside its scope, or produce harmful outputs. Users will find edge cases you didn't think of — it's better to find them yourself first in a safe testing environment.</p>
             </div>
         </div>
 
-        <div class="principle-card" data-aos="fade-up">
-            <div class="principle-num">7</div>
-            <div class="principle-body">
+        <div class="neo-principle-card" data-aos="fade-up">
+            <div class="neo-principle-num">7</div>
+            <div class="neo-principle-body">
                 <h4>Staged rollout and monitoring</h4>
                 <p>Don't deploy a new agent to all users on day one. Start with internal testing, then a small group of friendly customers, then a broader rollout. Monitor closely at each stage. Set up alerts for unusual patterns (high error rates, unexpected tool calls, customer escalations) so you catch problems before they scale.</p>
             </div>
@@ -208,23 +151,23 @@
 
         <p data-aos="fade-up">Not every business task is a good fit for an autonomous agent. The best use cases share a common profile: high volume, predictable inputs, well-defined success criteria, and relatively low stakes per individual decision. Here are the categories where Qynzoo sees the clearest ROI:</p>
 
-        <div class="info-grid" data-aos="fade-up">
-            <div class="info-card">
+        <div class="neo-info-grid" data-aos="fade-up">
+            <div class="neo-info-card">
                 <i class="fas fa-envelope"></i>
                 <h4>Lead Response & Qualification</h4>
                 <p>Respond to new enquiries instantly, qualify leads based on company size and intent, and route to the right salesperson — 24/7.</p>
             </div>
-            <div class="info-card">
+            <div class="neo-info-card">
                 <i class="fas fa-headset"></i>
                 <h4>Tier 1 Customer Support</h4>
                 <p>Handle FAQs, order tracking, account questions, and common complaints without human involvement for 60–70% of tickets.</p>
             </div>
-            <div class="info-card">
+            <div class="neo-info-card">
                 <i class="fas fa-chart-bar"></i>
                 <h4>Automated Reporting</h4>
                 <p>Pull data from multiple sources, generate insights, and deliver formatted reports to stakeholders on schedule.</p>
             </div>
-            <div class="info-card">
+            <div class="neo-info-card">
                 <i class="fas fa-calendar-check"></i>
                 <h4>Scheduling & Coordination</h4>
                 <p>Manage meeting scheduling, send reminders, handle rescheduling requests, and coordinate calendars across time zones.</p>
@@ -233,28 +176,28 @@
 
         <h2 data-aos="fade-up"><i class="fas fa-exclamation-triangle"></i> What to Avoid</h2>
 
-        <div class="warning-box" data-aos="fade-up">
+        <div class="neo-warning-box" data-aos="fade-up">
             <h4><i class="fas fa-times-circle"></i> Don't build agents for high-stakes, low-volume decisions</h4>
             <p>Agents are poor candidates for decisions that require deep context, ethical judgment, or have major consequences if wrong. Hiring decisions, contract negotiations, medical advice, financial planning — these require human intelligence and accountability that agents can't provide reliably.</p>
         </div>
 
-        <div class="warning-box" data-aos="fade-up">
+        <div class="neo-warning-box" data-aos="fade-up">
             <h4><i class="fas fa-times-circle"></i> Don't deploy without an off switch</h4>
             <p>Every production agent needs a way to be immediately disabled. Whether it's a kill switch in your dashboard or an environment variable, you need to be able to stop an agent in seconds if it starts behaving unexpectedly. This is not optional — it's a safety requirement.</p>
         </div>
 
-        <div class="warning-box" data-aos="fade-up">
+        <div class="neo-warning-box" data-aos="fade-up">
             <h4><i class="fas fa-times-circle"></i> Don't skip the SOP before the AI</h4>
             <p>Before building an agent to handle a task, write the Standard Operating Procedure for how a human would handle it. If you can't write a clear SOP, you don't understand the task well enough to automate it. The SOP becomes the foundation of your system prompt and your success criteria.</p>
         </div>
 
-        <div class="cta-box" data-aos="fade-up">
+        <div class="neo-cta-box" data-aos="fade-up">
             <h3>Ready to Deploy Your First AI Agent?</h3>
             <p>Qynzoo designs and builds custom AI agents tailored to your specific business processes. We handle the architecture, the system prompts, the testing, and the deployment — you get a reliable agent that works in production.</p>
-            <a href="index.html#contact" class="btn btn-primary">Let's Build Your Agent <i class="fas fa-arrow-right"></i></a>
+            <a href="index.html#contact" class="neo-btn" style="background:var(--dark-bg);color:var(--text-light);border-color:var(--dark-bg)">Let's Build Your Agent <i class="fas fa-arrow-right"></i></a>
         </div>
 
-        <div class="author-box" data-aos="fade-up">
+        <div class="neo-author-box" data-aos="fade-up">
             <img src="images/mostafa-yaghi.jpg" alt="Mostafa Yaghi">
             <div>
                 <h4>Mostafa Yaghi</h4>
@@ -264,31 +207,22 @@
         </div>
 
         <h2 data-aos="fade-up"><i class="fas fa-book-open"></i> Related Articles</h2>
-        <div class="related-row" data-aos="fade-up">
-            <a href="blog-workflow-automation.html" class="rel-card">
+        <div class="neo-related-row" data-aos="fade-up">
+            <a href="blog-workflow-automation.html" class="neo-rel-card">
                 <h4>How to Automate Your Business Workflows with AI</h4>
                 <p>The complete guide to identifying and implementing business process automation.</p>
             </a>
-            <a href="blog-ai-customer-service.html" class="rel-card">
+            <a href="blog-ai-customer-service.html" class="neo-rel-card">
                 <h4>How AI is Transforming Customer Service</h4>
                 <p>Real examples of AI agents handling customer support — and the numbers behind the savings.</p>
             </a>
-            <a href="blog-ai-replaces-saas.html" class="rel-card">
+            <a href="blog-ai-replaces-saas.html" class="neo-rel-card">
                 <h4>How AI Agents Are Replacing Expensive SaaS Tools</h4>
                 <p>The SaaS categories being disrupted by AI agents — and where to start.</p>
             </a>
         </div>
 
-        <div class="related-articles" style="margin-top:48px;padding-top:32px;border-top:1px solid rgba(255,255,255,0.1)">
-          <h3 style="font-size:20px;margin-bottom:16px;color:#fff">Related Articles</h3>
-          <ul style="list-style:none;padding:0;display:flex;flex-wrap:wrap;gap:12px">
-            <li><a href="blog-make-vs-n8n.html" style="color:#44bba4;text-decoration:none">→ Make vs n8n: Which Automation Platform is Right for You?</a></li>
-            <li><a href="blog-workflow-automation.html" style="color:#44bba4;text-decoration:none">→ How to Automate Your Business Workflows with AI</a></li>
-            <li><a href="index.html#services" style="color:#44bba4;text-decoration:none">→ Explore our AI-Powered Development Services</a></li>
-          </ul>
-        </div>
-
-    </div>
+    </section>
 
     <footer class="footer">
         <div class="pixel-bg"></div>
@@ -348,6 +282,7 @@
     <script src="js/script.js"></script>
     <script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js","postprocessing":"https://cdn.jsdelivr.net/npm/postprocessing@6.34.2/build/index.js"}}</script>
     <script src="js/pixel-blast.js" type="module"></script>
+    <script src="js/card-nav.js?v=4.1" defer></script>
     <script>AOS.init({duration:600,once:true,offset:50});</script>
 </body>
 </html>

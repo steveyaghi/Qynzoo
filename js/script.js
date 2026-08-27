@@ -245,22 +245,12 @@ document.head.appendChild(style);
 // ===================================
 // Contact Form Validation & Submission
 // ===================================
+// contactForm itself is only present on index.html — guarded below so pages
+// without it (blog articles, case studies) don't throw and halt the rest of
+// this file. validateField/validateForm stay at top level since the Hero
+// Contact Form block further down also calls validateField independently.
 const contactForm = document.getElementById('contactForm');
-const formMessage = contactForm.querySelector('.form-message');
-
-// Real-time validation
-const inputs = contactForm.querySelectorAll('input, textarea, select');
-inputs.forEach(input => {
-    input.addEventListener('blur', () => {
-        validateField(input);
-    });
-
-    input.addEventListener('input', () => {
-        if (input.classList.contains('error')) {
-            validateField(input);
-        }
-    });
-});
+const inputs = contactForm ? contactForm.querySelectorAll('input, textarea, select') : [];
 
 function validateField(field) {
     const formGroup = field.closest('.form-group');
@@ -325,7 +315,9 @@ function validateForm() {
     return isValid;
 }
 
-// Form submission
+// Form submission (only wired up when the contact form is actually present)
+if (contactForm) {
+const formMessage = contactForm.querySelector('.form-message');
 contactForm.addEventListener('submit', async (e) => {
     e.preventDefault();
 
@@ -409,6 +401,7 @@ contactForm.addEventListener('submit', async (e) => {
         submitBtn.disabled = false;
     }
 });
+} // end if (contactForm)
 
 // ===================================
 // Hero Contact Form
@@ -528,39 +521,34 @@ if (heroContactForm) {
 // ===================================
 // Newsletter Form
 // ===================================
+// Only present in the footer on some pages — guard so pages without it
+// don't throw and halt the rest of this file.
 const newsletterForm = document.querySelector('.newsletter-form');
+const newsletterMessage = document.querySelector('.newsletter-message');
 
-newsletterForm.addEventListener('submit', async (e) => {
+if (newsletterForm) {
+newsletterForm.addEventListener('submit', (e) => {
     e.preventDefault();
 
-    const email = newsletterForm.querySelector('input').value;
-    const button = newsletterForm.querySelector('button');
+    const input = newsletterForm.querySelector('input');
+    const email = input.value;
 
-    // Show loading state
-    button.innerHTML = '<i class="fas fa-spinner fa-spin"></i>';
-    button.disabled = true;
+    // The newsletter isn't live yet — be upfront about that rather than
+    // faking a successful subscription.
+    if (newsletterMessage) {
+        newsletterMessage.textContent = `Thanks for trying this out${email ? ', ' + email : ''}! The newsletter is coming soon — we'll let you know when it's live.`;
+        newsletterMessage.classList.add('visible');
+    }
 
-    // Simulate submission
-    try {
-        await new Promise(resolve => setTimeout(resolve, 1500));
+    input.value = '';
 
-        // Success feedback
-        button.innerHTML = '<i class="fas fa-check"></i>';
-        newsletterForm.querySelector('input').value = '';
-
+    if (newsletterMessage) {
         setTimeout(() => {
-            button.innerHTML = '<i class="fas fa-paper-plane"></i>';
-            button.disabled = false;
-        }, 2000);
-
-    } catch (error) {
-        button.innerHTML = '<i class="fas fa-times"></i>';
-        setTimeout(() => {
-            button.innerHTML = '<i class="fas fa-paper-plane"></i>';
-            button.disabled = false;
-        }, 2000);
+            newsletterMessage.classList.remove('visible');
+        }, 6000);
     }
 });
+} // end if (newsletterForm)
 
 // ===================================
 // Parallax Effect for Hero Background - DISABLED PER USER REQUEST
@@ -591,50 +579,72 @@ const imageObserver = new IntersectionObserver((entries, observer) => {
 images.forEach(img => imageObserver.observe(img));
 
 // ===================================
-// Typing Effect for Hero Title
+// Hero Typewriter Effect
 // ===================================
-// SECURITY NOTE: innerHTML used with static content only
-// Never pass user input to innerHTML - XSS risk
-// CSP provides additional XSS protection
-const heroTitle = document.querySelector('.hero-title');
-if (heroTitle) {
-    const text = heroTitle.innerHTML;
-    heroTitle.innerHTML = '';
+// Types the H1 out character by character, then each hero subtitle line in
+// turn. Tags (e.g. any inline markup inside the title) are written in one
+// step rather than character-by-character so a partial "<sp" is never
+// rendered. Skipped entirely under prefers-reduced-motion.
+(function initHeroTypewriter() {
+    const heroTitle = document.querySelector('.neo-hero-centered .hero-title');
+    if (!heroTitle) return;
 
-    let charIndex = 0;
-    let isTag = false;
-    let buffer = '';
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const subtitles = Array.from(document.querySelectorAll('.neo-hero-centered .hero-subtitle'));
+    const elements = [heroTitle, ...subtitles];
 
-    function typeWriter() {
-        if (charIndex < text.length) {
-            const currentChar = text.charAt(charIndex);
+    if (prefersReducedMotion) return; // leave the static server-rendered text as-is
 
-            if (currentChar === '<') {
-                isTag = true;
+    const originalTexts = elements.map(el => el.innerHTML);
+    elements.forEach(el => { el.innerHTML = ''; });
+
+    function typeElement(el, text, onDone) {
+        let i = 0;
+        let buffer = '';
+        let inTag = false;
+
+        function step() {
+            if (i >= text.length) {
+                onDone();
+                return;
+            }
+            const ch = text.charAt(i);
+            if (ch === '<') inTag = true;
+            buffer += ch;
+
+            if (ch === '>') {
+                inTag = false;
+                el.innerHTML += buffer;
+                buffer = '';
+            } else if (!inTag) {
+                el.innerHTML += ch;
+                buffer = '';
             }
 
-            buffer += currentChar;
-
-            if (currentChar === '>') {
-                isTag = false;
-                heroTitle.innerHTML += buffer;
-                buffer = '';
-            } else if (!isTag) {
-                heroTitle.innerHTML += currentChar;
-                buffer = '';
-            }
-
-            charIndex++;
-
-            // Adjust speed based on whether we're in a tag
-            const speed = isTag ? 0 : 50;
-            setTimeout(typeWriter, speed);
+            i++;
+            const isTitle = el === heroTitle;
+            const speed = inTag ? 0 : (isTitle ? 13 : 4);
+            setTimeout(step, speed);
         }
+        step();
     }
 
-    // Start typing effect after page load
-    setTimeout(typeWriter, 500);
-}
+    function typeSequence(index) {
+        if (index >= elements.length) return;
+        const el = elements[index];
+        el.classList.add('neo-typewriter-cursor');
+        typeElement(el, originalTexts[index], () => {
+            el.classList.remove('neo-typewriter-cursor');
+            if (index === elements.length - 1) {
+                // Leave a gentle blinking cursor on the last line once done.
+                el.classList.add('neo-typewriter-cursor', 'done');
+            }
+            typeSequence(index + 1);
+        });
+    }
+
+    setTimeout(() => typeSequence(0), 150);
+})();
 
 // ===================================
 // Scroll Progress Indicator (Optimized)

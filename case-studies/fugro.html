@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Case study: using Random Forest, Neural Networks, and Auto-Encoders at Fugro to predict dike clay dry unit weight and friction angle for macro-stability analysis, without waiting on triaxial and compaction tests.">
+    <meta name="author" content="Mostafa Yaghi">
+    <title>Fugro Case Study: Predicting Dike Stability Variables with Machine Learning | Qynzoo</title>
+    <link rel="canonical" href="https://qynzoo.com/case-studies/fugro.html">
+
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://unpkg.com https://www.googletagmanager.com https://www.google-analytics.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com https://unpkg.com; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self' data: https:; connect-src 'self' https://www.google-analytics.com https://analytics.google.com https://region1.google-analytics.com; base-uri 'self'; form-action 'self';">
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://qynzoo.com/case-studies/fugro.html">
+    <meta property="og:title" content="Fugro Case Study: Predicting Dike Stability Variables with Machine Learning">
+    <meta property="og:description" content="Random Forest, Neural Networks, and Auto-Encoders applied to predict dike clay soil variables for macro-stability analysis.">
+    <meta property="og:image" content="https://qynzoo.com/images/og/og-home.png">
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-YF5C5BCJK4"></script>
+    <script src="../js/analytics.js"></script>
+
+    <!-- Schema.org CreativeWork -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "CreativeWork",
+      "name": "Predicting Dike Stability Variables with Machine Learning",
+      "about": "Applied machine learning to predict soil variables for dike macro-stability analysis",
+      "creator": { "@type": "Person", "name": "Mostafa Yaghi" },
+      "client": { "@type": "Organization", "name": "Fugro" },
+      "url": "https://qynzoo.com/case-studies/fugro.html"
+    }
+    </script>
+
+    <link rel="icon" type="image/svg+xml" href="../logos/Qynzoo_solo_logo.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="../css/style.min.css?v=4.0">
+    <link rel="stylesheet" href="../css/card-nav.css?v=4.2" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="../css/neo.css?v=6.8">
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700&display=swap"></noscript>
+</head>
+<body>
+    <div class="card-nav-container" id="cardNavContainer"></div>
+
+    <section class="case-hero neo-page">
+        <div class="container">
+            <a href="../index.html#projects" class="case-back-link"><i class="fas fa-arrow-left"></i> Back to projects</a>
+            <div class="case-meta">
+                <span class="case-meta-pill accent">Machine Learning</span>
+                <span class="case-meta-pill">Client: Fugro</span>
+                <span class="case-meta-pill">Geotechnical / Infrastructure</span>
+            </div>
+            <h1 class="case-title">Investigating the Potential of Machine Learning Methods to Predict Soil Variables for Dike's Macro Stability Analysis</h1>
+            <p class="case-summary">Applied Random Forest, Neural Networks, and Auto-Encoders to predict dike clay's dry unit weight and friction angle — replacing slow, expensive lab tests with a data-driven design-phase estimate.</p>
+        </div>
+    </section>
+
+    <section class="case-section neo-page">
+        <div class="container">
+            <h2>The Problem</h2>
+            <p>Designing a dike's macro-stability requires knowing the clay's dry unit weight and friction angle. Today, engineers get these from triaxial and compaction tests — both expensive, slow, and unavailable during the design phase. Until the tests are run, designers fall back on manual estimates based on clay/sand ratio and assumed consistency (weak, moderate, strong). This project asked: can machine learning make that design-phase estimate more precise, using only the data an engineer already has on hand?</p>
+        </div>
+    </section>
+
+    <section class="case-section neo-page">
+        <div class="container">
+            <h2>The Approach</h2>
+            <p>Using Dutch geotechnical data from Fugro's database, I trained Random Forest and Neural Network models across four scenarios reflecting different levels of design-phase knowledge: Atterberg limits, clay/sand/silt content, NEN 5014 triangular classification, and plasticity diagram category. Auto-encoders were tested for feature extraction. The goal was to find which combination of inputs and models best predicted dry unit weight and friction angle before any lab test is run.</p>
+            <div class="case-tools">
+                <span class="case-tool-chip">Neural Networks</span>
+                <span class="case-tool-chip">Random Forest</span>
+                <span class="case-tool-chip">Auto-Encoders</span>
+                <span class="case-tool-chip">Python</span>
+            </div>
+        </div>
+    </section>
+
+    <section class="case-section neo-page" style="border-bottom:none">
+        <div class="container">
+            <h2>Results</h2>
+            <p>Random Forest outperformed Neural Networks across scenarios, with the Atterberg-limits scenario producing the strongest predictions — particularly for dry unit weight. Combining this with water content estimates at three consistency indices (0.60 / 0.75 / 0.85) allowed unit weight to be predicted with low uncertainty, directly mirroring how engineers currently reason through the estimate — just with better accuracy.</p>
+            <p>Friction angle could not be reliably predicted — not due to a modeling failure, but a data one: the available triaxial dataset was too small and inconsistent in quality to build any meaningful correlation. The models simply had nothing to learn from. The practical conclusion still stands: unit weight estimation can realistically skip compaction and triaxial testing in the design phase, cutting cost and time without sacrificing accuracy.</p>
+        </div>
+    </section>
+
+    <section class="neo-section neo-page">
+        <div class="container" style="text-align:center">
+            <h2 class="neo-section-title" style="font-size:28px">Have a similar problem to solve?</h2>
+            <div style="margin-top:20px">
+                <a href="https://cal.com/mostafa.yaghi" class="neo-btn" target="_blank" rel="noopener noreferrer">Book Free 30-Min Call</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="pixel-bg"></div>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <img src="../images/logo.png" alt="Qynzoo Logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                        <span class="logo-text">Qynzoo</span>
+                    </div>
+                    <p class="footer-description">AI automation, machine learning, and websites — built by Mostafa Yaghi. Based in the Netherlands — serving clients worldwide.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="../index.html#home">Home</a></li>
+                        <li><a href="../index.html#projects">Projects</a></li>
+                        <li><a href="../faq.html">FAQ</a></li>
+                        <li><a href="../index.html#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Legal</h4>
+                    <ul class="footer-links">
+                        <li><a href="../privacy-policy.html">Privacy Policy</a></li>
+                        <li><a href="../terms-of-service.html">Terms of Service</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Qynzoo. All rights reserved. | V4.1.3</p>
+                <div class="footer-bottom-links">
+                    <a href="../privacy-policy.html">Privacy Policy</a>
+                    <a href="../terms-of-service.html">Terms of Service</a>
+                    <a href="../sitemap.html">Sitemap</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+    // card-nav uses relative asset paths; override to work from /case-studies/
+    window.CARD_NAV_BASE = '../';
+    </script>
+    <script src="../js/card-nav.js?v=4.1" defer></script>
+</body>
+</html>
