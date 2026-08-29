@@ -647,6 +647,51 @@ images.forEach(img => imageObserver.observe(img));
 })();
 
 // ===================================
+// Hero Floating Bubbles — randomized drift
+// ===================================
+// Each bubble picks a random offset/rotation/duration, transitions there
+// (the CSS `transition: transform` on .neo-bubble does the actual
+// animating), then on transitionend rolls a new random target — so no two
+// bubbles ever move in sync and the path never repeats. Replaces a fixed
+// CSS @keyframes loop, which always retraces the same path on a timer and
+// reads as mechanical once you watch it for more than one cycle.
+(function initFloatingBubbles() {
+    const bubbles = Array.from(document.querySelectorAll('.neo-bubble'));
+    if (!bubbles.length) return;
+
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+    function randomBetween(min, max) {
+        return min + Math.random() * (max - min);
+    }
+
+    function driftOnce(bubble) {
+        const x = randomBetween(-16, 16);
+        const y = randomBetween(-28, -6); // always drifts upward-biased, never downward past its start
+        const rotate = randomBetween(-6, 6);
+        const duration = randomBetween(4.5, 8.5);
+
+        bubble.style.setProperty('--neo-bubble-drift-duration', duration.toFixed(2) + 's');
+        bubble.style.transform = `translate(${x.toFixed(1)}px, ${y.toFixed(1)}px) rotate(${rotate.toFixed(1)}deg)`;
+    }
+
+    bubbles.forEach((bubble, i) => {
+        // Stagger the very first move so all 6 don't start in lockstep.
+        setTimeout(() => {
+            driftOnce(bubble);
+            bubble.addEventListener('transitionend', (e) => {
+                // Only react to the transform transition finishing, and only
+                // if the bubble isn't mid-hover (hover's !important transform
+                // fires its own transitionend we don't want to chain from).
+                if (e.propertyName === 'transform' && !bubble.matches(':hover, :focus-visible')) {
+                    driftOnce(bubble);
+                }
+            });
+        }, i * 350);
+    });
+})();
+
+// ===================================
 // Scroll Progress Indicator (Optimized)
 // ===================================
 const createScrollProgress = () => {

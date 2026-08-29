@@ -1,7 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 
-const VER = '6.8';
+const VER = '6.15';
 
 function page(d) {
   const pills = d.pills.map((p, i) =>
@@ -49,7 +49,7 @@ function page(d) {
     <link rel="icon" type="image/svg+xml" href="../logos/Qynzoo_solo_logo.svg">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="../css/style.min.css?v=4.0">
+    <link rel="stylesheet" href="../css/style.min.css?v=4.4">
     <link rel="stylesheet" href="../css/card-nav.css?v=4.2" media="print" onload="this.media='all'">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'">
     <link rel="stylesheet" href="../css/neo.css?v=${VER}">
@@ -133,7 +133,7 @@ ${paras(d.results)}
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2026 Qynzoo. All rights reserved. | V4.1.3</p>
+                <p>&copy; 2026 Qynzoo. All rights reserved. | V4.1.4</p>
                 <div class="footer-bottom-links">
                     <a href="../privacy-policy.html">Privacy Policy</a>
                     <a href="../terms-of-service.html">Terms of Service</a>
@@ -248,6 +248,42 @@ const pages = [
     tools: ['Azure', 'Python'],
     results: [
       "Posts no longer start from a blank page. Drafting time dropped from a multi-iteration manual process to a single AI-generated draft plus human review, with all data staying inside Waterprof's own secured infrastructure throughout."
+    ]
+  },
+  {
+    slug: 'podcast-tuhaf-dashboard',
+    client: 'Podcast Tuhaf',
+    pills: ['AI Automation', 'Client: Podcast Tuhaf (Personal Project)', 'Media / Content Strategy'],
+    pageTitle: 'AI-Powered Social Media Growth Dashboard',
+    cardTitle: 'AI-Powered Social Media Growth Dashboard',
+    summary: "Built a social media performance dashboard for Podcast Tuhaf, paired with an AI strategist that reads timing, reach, and episode content to tell us exactly which clips to publish — helping a niche architecture podcast reach 50,000+ viewers on Facebook Shorts and Reels.",
+    metaDesc: "Case study: an AI-connected social media dashboard for Podcast Tuhaf that analyzes posting timing, reach, and episode content to identify the strongest clips for growth — reaching 50,000+ viewers in a niche category.",
+    ogDesc: "An AI strategist layered on a social media dashboard, helping a niche podcast reach 50,000+ viewers on Facebook Shorts and Reels.",
+    about: "AI-connected social media dashboard and content strategist for podcast growth",
+    problem: [
+      "As one of my side projects, Podcast Tuhaf needed visibility into how our posts were performing across platforms — that part any dashboard can do. What we actually needed was something that understood who we were trying to reach, and could help us grow our audience for YouTube videos, Shorts, and Reels across different platforms, not just report on them."
+    ],
+    approach: [
+      "I built a social media dashboard connected to every platform we post on, paired with an AI strategist layered on top. The AI analyzed posting timing and reach across our content, and also read the substance of each episode — surfacing which clips had strong enough hooks to pull new listeners in, so we knew exactly what to cut for social before we published."
+    ],
+    tools: ['AI Strategy', 'Dashboards', 'Content Analysis', 'Social Automation'],
+    figures: `
+            <div class="case-figure-stack">
+                <figure class="case-figure is-wide">
+                    <img src="../images/podcast-dashboard-overview.png" alt="The Podcast Tuhaf Command Centre overview — follower counts, reach, watch time, and platform performance at a glance." loading="lazy" decoding="async">
+                    <figcaption>Command Centre overview — every platform's key numbers in one view</figcaption>
+                </figure>
+                <figure class="case-figure is-wide">
+                    <img src="../images/podcast-dashboard-growth.png" alt="Follower and subscriber growth chart across the full campaign, tracking Facebook and YouTube side by side." loading="lazy" decoding="async">
+                    <figcaption>Full growth history — Facebook followers vs. YouTube subscribers over time</figcaption>
+                </figure>
+                <figure class="case-figure is-wide">
+                    <img src="../images/podcast-dashboard-insights.png" alt="AI-generated strategist insights, flagging which posts to double down on and recommending specific next actions." loading="lazy" decoding="async">
+                    <figcaption>AI strategist insights — what's working, why, and the exact next action to take</figcaption>
+                </figure>
+            </div>`,
+    results: [
+      "The results exceeded expectations. Podcast Tuhaf covers architecture — a genuinely small niche — and we still reached 50,000+ viewers on Facebook Shorts and Reels, a scale that wouldn't have been realistic without a dedicated social media strategist. The lesson: knowing precisely what to build and narrowing the right questions down got better results than a generic tool ever could. Need something similar for your own project? Let's talk."
     ]
   }
 ];

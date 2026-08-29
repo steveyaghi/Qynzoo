@@ -206,12 +206,12 @@
     <meta name="brandfetch-client-id" content="1idRu0m00AThFgsB5ow">
 
     <!-- Critical CSS (inline) -->
-    <link rel="stylesheet" href="css/style.min.css?v=4.2">
+    <link rel="stylesheet" href="css/style.min.css?v=4.4">
 
     <!-- Defer non-critical CSS -->
     <link rel="stylesheet" href="css/card-nav.css?v=4.2" media="print" onload="this.media='all'">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'">
-    <link rel="stylesheet" href="css/neo.css?v=6.8">
+    <link rel="stylesheet" href="css/neo.css?v=6.15">
 
     <!-- Preload fonts -->
     <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
@@ -468,6 +468,21 @@
     <!-- Hero Section -->
     <section class="hero neo-page neo-hero-centered" id="home">
         <div class="pixel-bg"></div>
+
+        <!-- Floating skill bubbles — fill the open space beside the hero copy
+             with the six things Qynzoo actually builds, each one a link into
+             the matching project below. Decorative on narrow screens (hidden
+             under 1100px, see neo.css) since there's no room for them there
+             without overlapping the text. -->
+        <div class="neo-bubble-field" aria-hidden="false">
+            <a href="#projects" class="neo-bubble neo-bubble-1"><span>Machine Learning Models</span></a>
+            <a href="#projects" class="neo-bubble neo-bubble-2"><span>RAG Applications</span></a>
+            <a href="#projects" class="neo-bubble neo-bubble-3"><span>Business Automation</span></a>
+            <a href="#projects" class="neo-bubble neo-bubble-4"><span>Cloud Automation</span></a>
+            <a href="#projects" class="neo-bubble neo-bubble-5"><span>AI Social Media Strategist</span></a>
+            <a href="#projects" class="neo-bubble neo-bubble-6"><span>Website Building</span></a>
+        </div>
+
         <div class="container">
             <div class="neo-hero-text">
                 <h1 class="hero-title neo-heading">Real automated systems, built for real companies.</h1>
@@ -520,6 +535,14 @@
                     <div class="project-card-company">Waterprof</div>
                     <h3 class="project-card-title">Secure LinkedIn Content Automation on Azure</h3>
                     <p class="project-card-desc">Built a secure AI agent on Azure — inside Waterprof's own Microsoft environment — that drafts on-brand LinkedIn posts from project documents, keeping data in-house and humans in the review loop.</p>
+                    <span class="project-card-cta">Read the case study <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+                </a>
+
+                <a href="case-studies/podcast-tuhaf-dashboard.html" class="project-card">
+                    <span class="project-card-tag">AI Automation</span>
+                    <div class="project-card-company">Podcast Tuhaf</div>
+                    <h3 class="project-card-title">AI-Powered Social Media Growth Dashboard</h3>
+                    <p class="project-card-desc">Built a social media dashboard connected to an AI strategist that reads timing, reach, and episode content — helping a niche architecture podcast reach 50,000+ viewers on Facebook Shorts and Reels.</p>
                     <span class="project-card-cta">Read the case study <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M13 6l6 6-6 6"/></svg></span>
                 </a>
 
@@ -787,7 +810,7 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2026 Qynzoo. All rights reserved. | V4.1.3</p>
+                <p>&copy; 2026 Qynzoo. All rights reserved. | V4.1.4</p>
                 <div class="footer-bottom-links">
                     <a href="privacy-policy.html">Privacy Policy</a>
                     <a href="terms-of-service.html">Terms of Service</a>
@@ -801,7 +824,7 @@
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js" defer></script>
 
     <script src="js/card-nav.js?v=4.1" defer></script>
-    <script src="js/script.min.js?v=4.3" defer></script>
+    <script src="js/script.min.js?v=4.4" defer></script>
     <script src="js/brandfetch-logos.js?v=4.0" defer></script>
     <script src="js/logo-drag.js?v=4.0" defer></script>
 
