@@ -211,7 +211,7 @@
     <!-- Defer non-critical CSS -->
     <link rel="stylesheet" href="css/card-nav.css?v=4.2" media="print" onload="this.media='all'">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'">
-    <link rel="stylesheet" href="css/neo.css?v=6.15">
+    <link rel="stylesheet" href="css/neo.css?v=6.26">
 
     <!-- Preload fonts -->
     <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
@@ -469,20 +469,6 @@
     <section class="hero neo-page neo-hero-centered" id="home">
         <div class="pixel-bg"></div>
 
-        <!-- Floating skill bubbles — fill the open space beside the hero copy
-             with the six things Qynzoo actually builds, each one a link into
-             the matching project below. Decorative on narrow screens (hidden
-             under 1100px, see neo.css) since there's no room for them there
-             without overlapping the text. -->
-        <div class="neo-bubble-field" aria-hidden="false">
-            <a href="#projects" class="neo-bubble neo-bubble-1"><span>Machine Learning Models</span></a>
-            <a href="#projects" class="neo-bubble neo-bubble-2"><span>RAG Applications</span></a>
-            <a href="#projects" class="neo-bubble neo-bubble-3"><span>Business Automation</span></a>
-            <a href="#projects" class="neo-bubble neo-bubble-4"><span>Cloud Automation</span></a>
-            <a href="#projects" class="neo-bubble neo-bubble-5"><span>AI Social Media Strategist</span></a>
-            <a href="#projects" class="neo-bubble neo-bubble-6"><span>Website Building</span></a>
-        </div>
-
         <div class="container">
             <div class="neo-hero-text">
                 <h1 class="hero-title neo-heading">Real automated systems, built for real companies.</h1>
@@ -492,6 +478,27 @@
                     <a href="https://cal.com/mostafa.yaghi" class="neo-btn" target="_blank" rel="noopener noreferrer">Book Free 30-Min Call</a>
                     <a href="#projects" class="neo-btn neo-btn-outline">See the Work</a>
                 </div>
+            </div>
+
+            <!-- Floating skill bubbles — fill the open space beside the hero
+                 copy with the six things Qynzoo actually builds, each one a
+                 link into the matching project below. Comes AFTER the text
+                 in DOM order deliberately: with .container as a flex row,
+                 flex items lay out left-to-right in source order, so this
+                 has to follow the text to render on its right (it briefly
+                 came first, which flexed it onto the LEFT of the text
+                 instead — confirmed via getBoundingClientRect before this
+                 fix). Laid out with flexbox (flex:1 on this element, see
+                 neo.css) rather than absolute-position math, so it can
+                 never overlap the text regardless of exact container width.
+                 Hidden below 1300px, see neo.css. -->
+            <div class="neo-bubble-field" aria-hidden="false">
+                <a href="#projects" class="neo-bubble neo-bubble-1"><span>Machine Learning Models</span></a>
+                <a href="#projects" class="neo-bubble neo-bubble-2"><span>RAG Applications</span></a>
+                <a href="#projects" class="neo-bubble neo-bubble-3"><span>Business Automation</span></a>
+                <a href="#projects" class="neo-bubble neo-bubble-4"><span>Cloud Automation</span></a>
+                <a href="#projects" class="neo-bubble neo-bubble-5"><span>AI Social Media Strategist</span></a>
+                <a href="#projects" class="neo-bubble neo-bubble-6"><span>Website Building</span></a>
             </div>
         </div>
     </section>
@@ -824,7 +831,7 @@
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js" defer></script>
 
     <script src="js/card-nav.js?v=4.1" defer></script>
-    <script src="js/script.min.js?v=4.4" defer></script>
+    <script src="js/script.min.js?v=4.7" defer></script>
     <script src="js/brandfetch-logos.js?v=4.0" defer></script>
     <script src="js/logo-drag.js?v=4.0" defer></script>
 

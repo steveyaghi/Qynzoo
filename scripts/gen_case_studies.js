@@ -1,7 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 
-const VER = '6.15';
+const VER = '6.26';
 
 function page(d) {
   const pills = d.pills.map((p, i) =>

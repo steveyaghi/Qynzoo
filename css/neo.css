@@ -632,35 +632,46 @@ body {
     padding: 48px 0 64px;
     position: relative;
     z-index: 1; /* stay above the bubble field */
+    flex: 0 1 760px; /* claim up to 760px, but shrink first if the flex row is tighter than that — never grows into the bubble field's space */
+    min-width: 0; /* allow that shrink; flex items default to min-width:auto, which would block it */
 }
 
-/* .container caps at 1200px and centers itself, which on very wide screens
-   leaves a large empty margin to its left while the bubble field (anchored
-   to the full-bleed .hero) crowds the right — the text column reads as
-   "centered" even though it isn't. Past 1500px, pull the hero's container
-   left instead of letting it float centered, so the text runs close to the
-   left edge and the bubbles keep the right clearly to themselves. */
-@media (min-width: 1500px) {
-    .neo-hero-centered > .container {
-        margin-left: max(40px, calc((100vw - 1200px) / 2 - 120px));
-    }
+/* Floating skill bubbles — fill the open space beside the hero copy on wide
+   screens. Laid out with flexbox, not hand-computed absolute-position math
+   against an assumed container width: several rounds of `right: X%` /
+   fixed-px / clamp() approaches all either overlapped the text or spilled
+   past the container at some width in the 1100–1500px range, because they
+   assumed a container width that didn't hold in every environment this
+   was tested in. Flexbox has the browser itself compute the split — the
+   text takes its own 760px, the bubble strip gets `flex: 1` of whatever
+   is left, and the two can never occupy the same space by construction.
+   Hidden below 1300px, where .container hasn't yet reached its 1200px cap
+   and there usually isn't a meaningful gap left over once the text takes
+   its 760px. */
+.neo-hero-centered > .container {
+    display: flex;
+    align-items: center;
+    gap: 24px;
 }
 
-/* Floating skill bubbles — fill the open space around the hero copy on wide
-   screens. Each is absolutely positioned against .hero (which already has
-   position:relative + overflow:hidden), so they clip cleanly at the section
-   edge instead of pushing layout around. Hidden below 1100px: the hero text
-   itself is nearly full-width by then and there's no free space left to
-   place them without overlapping. */
 .neo-bubble-field {
     display: none;
 }
 
-@media (min-width: 1100px) {
+@media (min-width: 1300px) {
     .neo-bubble-field {
         display: block;
-        position: absolute;
-        inset: 0;
+        position: relative; /* bubbles inside position against THIS box */
+        flex: 1 1 auto;
+        min-width: 220px;
+        align-self: stretch;
+        /* No overflow:hidden — bubbles are allowed to spill past this box's
+           own edges; only their CENTER point has to stay inside it (each
+           bubble's `left`/`top` below is deliberately kept clear of 0%/100%
+           so its center never reaches the boundary, let alone its edge).
+           overflow:hidden was clipping bubbles outright, which is worse
+           than a bit of harmless spill past a box nothing else visually
+           reacts to. */
         pointer-events: none;
         z-index: 0;
     }
@@ -685,40 +696,81 @@ body {
     /* Movement is driven entirely by JS (see js/script.js
        initFloatingBubbles), not a CSS keyframe: each bubble gets its own
        randomized path, speed, and pause, re-rolled every cycle, so nothing
-       ever visibly repeats. This transition is what makes each JS-set
-       translate() glide smoothly toward its next random target — the
-       duration itself is also randomized per bubble via the CSS variable
-       set inline by JS. Respects prefers-reduced-motion by never starting
-       the drift loop in the first place (checked once in JS on load). */
-    transition: transform var(--neo-bubble-drift-duration, 6s) ease-in-out,
-                box-shadow 0.2s ease;
+       ever visibly repeats.
+
+       transition-duration is split into its own property and driven by a
+       custom property (--neo-bubble-drift-active) rather than being folded
+       into a literal inline `transition` value. The hover rule below
+       overrides that property to a fast value with !important while
+       :hover/:focus-visible matches. On its own this still isn't quite
+       enough for hover-OUT, since the moment :hover stops matching, the
+       cascade falls back to whatever inline value JS last set — which is
+       usually a slow drift duration. JS's `mouseleave`/`blur` listeners
+       (see initFloatingBubbles) close that gap by explicitly writing a
+       fast value to this same property right as hover ends, so the
+       shrink-back is fast, and the NEXT drift call restores normal speed.
+       Earlier versions set transition-duration as a literal inline value
+       instead of through this property — nothing in CSS could override
+       that on the way out, so hover-out silently reused whatever slow
+       duration the drift had last set, for as long as several seconds. */
+    --neo-bubble-drift-active: 0.25s;
+    transition-property: transform, box-shadow;
+    transition-duration: var(--neo-bubble-drift-active), 0.2s;
+    transition-timing-function: ease-in-out, ease;
 }
 
 .neo-bubble:hover,
 .neo-bubble:focus-visible {
     transform: translateY(-6px) scale(1.05) !important;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    --neo-bubble-drift-active: 0.2s !important;
     box-shadow: var(--neo-shadow);
     outline: none;
+}
+
+/* One-time "breathing" pulse on load: every bubble grows and settles back
+   before the randomized drift takes over, so the cluster visibly announces
+   itself instead of just appearing static and immediately drifting.
+   `forwards` + ending at transform:none hands off cleanly to the drift
+   loop's own inline transform once initFloatingBubbles takes over a
+   moment later. Skipped under prefers-reduced-motion, same as the drift. */
+.neo-bubble.neo-bubble-breathe {
+    animation: neo-bubble-breathe-in 1.1s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+
+@keyframes neo-bubble-breathe-in {
+    0%   { transform: scale(0.85); opacity: 0; }
+    55%  { transform: scale(1.08); opacity: 1; }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .neo-bubble.neo-bubble-breathe {
+        animation: none;
+    }
 }
 
 /* The 3 core site accents (teal / yellow / coral), rotated across the 6
    bubbles — same palette used everywhere else on the site (project cards,
    case-study pills, blog tags), not a separate one-off palette for this
-   component. */
-.neo-bubble-1 { top: 12%;  right: 10%; width: 160px; height: 160px; background: var(--neo-accent);   color: var(--dark-bg); }
-.neo-bubble-2 { top: 33%;  right: 5%;  width: 134px; height: 134px; background: var(--neo-accent-2); color: var(--dark-bg); }
-.neo-bubble-3 { top: 53%;  right: 13%; width: 146px; height: 146px; background: var(--neo-accent-3); color: #ffffff; }
-.neo-bubble-4 { top: 71%;  right: 4%;  width: 124px; height: 124px; background: var(--neo-accent-2); color: var(--dark-bg); }
-.neo-bubble-5 { top: 4%;   right: 30%; width: 112px; height: 112px; background: var(--neo-accent-3); color: #ffffff; }
-.neo-bubble-6 { top: 82%;  right: 25%; width: 120px; height: 120px; background: var(--neo-accent);   color: var(--dark-bg); }
+   component.
 
-/* Bubbles 5 needs a bit more room on the far right at very wide screens or
-   it can start colliding with bubble 1; give it a touch more breathing room
-   past 1400px. */
-@media (min-width: 1400px) {
-    .neo-bubble-5 { right: 30%; }
-}
+   Positioned against .neo-bubble-field (a `flex: 1 1 auto` item — width
+   varies with viewport, always the real remaining row space). `left` is
+   expressed as `calc(X% - half-the-bubble's-own-width)` so X% lands the
+   BUBBLE'S CENTER at that point, not its top-left corner — per explicit
+   design constraint: a bubble's edge is allowed to spill past the field's
+   own boundary (the field no longer clips — see .neo-bubble-field above),
+   but its center must never cross the field's right edge. Centers here
+   stay within roughly 15–82% horizontally and 12–85% vertically, with
+   enough gap between every pair that no two bubbles touch even at their
+   largest (150px) size — a 2-column, 3-row-ish scatter rather than the
+   earlier layout, where two bubbles landed at nearly the same spot. */
+.neo-bubble-1 { top: 4%;   left: calc(78% - 75px);  width: 150px; height: 150px; background: var(--neo-accent);   color: var(--dark-bg); }
+.neo-bubble-2 { top: 12%;  left: calc(15% - 61px);  width: 122px; height: 122px; background: var(--neo-accent-2); color: var(--dark-bg); }
+.neo-bubble-3 { top: 46%;  left: calc(82% - 68px);  width: 136px; height: 136px; background: var(--neo-accent-3); color: #ffffff; }
+.neo-bubble-4 { top: 74%;  left: calc(22% - 58px);  width: 116px; height: 116px; background: var(--neo-accent-2); color: var(--dark-bg); }
+.neo-bubble-5 { top: 38%;  left: calc(12% - 52px);  width: 104px; height: 104px; background: var(--neo-accent-3); color: #ffffff; }
+.neo-bubble-6 { top: 88%;  left: calc(62% - 56px);  width: 112px; height: 112px; background: var(--neo-accent);   color: var(--dark-bg); }
 
 /* Hero typewriter effect (see js/script.js .neo-typewriter init). The
    cursor is a CSS pseudo-element so no JS is needed for the blink itself. */
@@ -883,17 +935,17 @@ body {
     white-space: nowrap;
 }
 
+/* The old two-column photo hero (.neo-hero-grid / .neo-hero-photo-wrap) was
+   removed from index.html when the founder photo moved out of the hero and
+   into the About section — this mobile-reorder block was dead weight left
+   behind. Worse than harmless: its `.neo-hero-text { order: 2; }` was a
+   real, live bug once .neo-hero-text became a flex child of the new
+   .container row (for the bubble layout) — it silently reordered the text
+   to render AFTER the bubble field below 900px, confirmed via
+   getBoundingClientRect (text and bubbles swapped sides unexpectedly).
+   .neo-hero-badge-pill below is still used (About section photo), so that
+   part is kept, just detached from the dead .neo-hero-grid selectors. */
 @media (max-width: 900px) {
-    .neo-hero-grid {
-        grid-template-columns: 1fr;
-        text-align: center;
-    }
-    .neo-hero-text { order: 2; }
-    .neo-hero-photo-wrap { order: 1; max-width: 280px; margin-bottom: 20px; }
-    .neo-hero-text .hero-buttons { justify-content: center; }
-    /* Sits over the forehead at the desktop offsets once the photo
-       shrinks, so lift it clear of the head and push it out to the right
-       of the photo instead. */
     .neo-hero-badge-pill { top: -4%; right: -14%; }
 }
 

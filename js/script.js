@@ -647,14 +647,20 @@ images.forEach(img => imageObserver.observe(img));
 })();
 
 // ===================================
-// Hero Floating Bubbles — randomized drift
+// Hero Floating Bubbles — breathe in, then randomized drift
 // ===================================
-// Each bubble picks a random offset/rotation/duration, transitions there
-// (the CSS `transition: transform` on .neo-bubble does the actual
-// animating), then on transitionend rolls a new random target — so no two
-// bubbles ever move in sync and the path never repeats. Replaces a fixed
-// CSS @keyframes loop, which always retraces the same path on a timer and
-// reads as mechanical once you watch it for more than one cycle.
+// On load, each bubble plays a one-time "breathe" pulse (CSS
+// .neo-bubble-breathe / @keyframes neo-bubble-breathe-in in neo.css) —
+// grows in and settles, announcing the cluster instead of it just
+// appearing static. Once that finishes, randomized drift takes over: each
+// bubble picks a random offset/rotation/duration and transitions there
+// (transition set INLINE per-drift, deliberately not through the shared
+// .neo-bubble CSS rule — see the comment on that rule for why: doing it
+// via a shared CSS variable meant the slow multi-second drift duration
+// leaked into the hover-out transition too, so bubbles took the same 4-8s
+// to shrink back after a hover as they did to drift, which read as "never
+// shrinks back"), then on transitionend rolls a new random target — so no
+// two bubbles ever move in sync and the path never repeats.
 (function initFloatingBubbles() {
     const bubbles = Array.from(document.querySelectorAll('.neo-bubble'));
     if (!bubbles.length) return;
@@ -671,13 +677,33 @@ images.forEach(img => imageObserver.observe(img));
         const rotate = randomBetween(-6, 6);
         const duration = randomBetween(4.5, 8.5);
 
-        bubble.style.setProperty('--neo-bubble-drift-duration', duration.toFixed(2) + 's');
+        // Set via the --neo-bubble-drift-active CUSTOM PROPERTY, not a
+        // literal `style.transition` value — the base .neo-bubble rule's
+        // transition-duration reads this property with var(), and the
+        // hover rule overrides the same property with !important while
+        // hovered. Because both sides go through the one property instead
+        // of one writing an inline value the other can never take back,
+        // the fast hover duration correctly reverts to whatever this set
+        // once the mouse leaves — including switching back to a fast
+        // fallback the instant hover starts (the property is genuinely
+        // overridden, not just visually masked by a higher-specificity
+        // transform).
+        bubble.style.setProperty('--neo-bubble-drift-active', duration.toFixed(2) + 's');
         bubble.style.transform = `translate(${x.toFixed(1)}px, ${y.toFixed(1)}px) rotate(${rotate.toFixed(1)}deg)`;
     }
 
     bubbles.forEach((bubble, i) => {
-        // Stagger the very first move so all 6 don't start in lockstep.
+        const breatheDelay = i * 90; // slight stagger so the 6 don't pulse in perfect unison
+        bubble.classList.add('neo-bubble-breathe');
+        bubble.style.animationDelay = breatheDelay + 'ms';
+
+        // Start drifting only once this bubble's breathe-in has actually
+        // finished, so the pulse never gets cut off by a drift transform
+        // starting mid-animation.
+        const breatheDuration = 1100; // matches the 1.1s in the CSS animation
         setTimeout(() => {
+            bubble.classList.remove('neo-bubble-breathe');
+            bubble.style.animationDelay = '';
             driftOnce(bubble);
             bubble.addEventListener('transitionend', (e) => {
                 // Only react to the transform transition finishing, and only
@@ -687,7 +713,23 @@ images.forEach(img => imageObserver.observe(img));
                     driftOnce(bubble);
                 }
             });
-        }, i * 350);
+
+            // The hover rule's !important override on --neo-bubble-drift-active
+            // only lasts as long as :hover matches. The instant it stops
+            // matching, the cascade falls back to whatever THIS element's own
+            // inline value is — which, without this listener, would still be
+            // whatever slow drift duration was last set, making the shrink-back
+            // just as slow as the drift itself. Force it fast on the way out,
+            // explicitly, rather than relying on CSS fallback semantics for
+            // something CSS alone can't express ("fast on the way out, but
+            // only the very next transition, then back to slow").
+            bubble.addEventListener('mouseleave', () => {
+                bubble.style.setProperty('--neo-bubble-drift-active', '0.2s');
+            });
+            bubble.addEventListener('blur', () => {
+                bubble.style.setProperty('--neo-bubble-drift-active', '0.2s');
+            });
+        }, breatheDelay + breatheDuration);
     });
 })();
 
@@ -734,63 +776,10 @@ portfolioItems.forEach(item => {
 });
 
 // ===================================
-// Back to Top Button (Optimized)
+// Back to Top Button — removed per user request (was colliding with the
+// sticky "Book Free Call" CTA on mobile). No replacement; the site relies
+// on the fixed nav bar's logo/home link for a way back to the top.
 // ===================================
-const createBackToTop = () => {
-    const backToTop = document.createElement('button');
-    backToTop.innerHTML = '<i class="fas fa-arrow-up"></i>';
-    backToTop.style.cssText = `
-        position: fixed;
-        bottom: 30px;
-        right: 30px;
-        width: 50px;
-        height: 50px;
-        background: linear-gradient(135deg, #21B4A6, #1a8f84);
-        color: white;
-        border: none;
-        border-radius: 50%;
-        font-size: 20px;
-        cursor: pointer;
-        opacity: 0;
-        visibility: hidden;
-        transition: all 0.3s ease;
-        z-index: 999;
-        box-shadow: 0 4px 15px rgba(33, 180, 166, 0.3);
-    `;
-
-    backToTop.addEventListener('click', () => {
-        window.scrollTo({
-            top: 0,
-            behavior: 'smooth'
-        });
-    });
-
-    const handleBackToTopVisibility = throttle(() => {
-        if (window.pageYOffset > 300) {
-            backToTop.style.opacity = '1';
-            backToTop.style.visibility = 'visible';
-        } else {
-            backToTop.style.opacity = '0';
-            backToTop.style.visibility = 'hidden';
-        }
-    }, 100); // Throttle to once every 100ms
-
-    window.addEventListener('scroll', handleBackToTopVisibility);
-
-    backToTop.addEventListener('mouseenter', () => {
-        backToTop.style.transform = 'translateY(-5px)';
-        backToTop.style.boxShadow = '0 6px 20px rgba(33, 180, 166, 0.4)';
-    });
-
-    backToTop.addEventListener('mouseleave', () => {
-        backToTop.style.transform = 'translateY(0)';
-        backToTop.style.boxShadow = '0 4px 15px rgba(33, 180, 166, 0.3)';
-    });
-
-    document.body.appendChild(backToTop);
-};
-
-createBackToTop();
 
 // ===================================
 // Mouse Cursor Following Effect - REMOVED FOR PERFORMANCE

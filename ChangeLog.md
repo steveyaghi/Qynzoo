@@ -1,5 +1,163 @@
 # Qynzoo.com ChangeLog
 
+## 2026-08-29 — Bubbles No Longer Clipped; Wider Scatter (v6.26)
+
+### Summary
+Bubbles were still being cut off on the left side. Root cause:
+`.neo-bubble-field` had `overflow: hidden` as a safety net from earlier
+overflow debugging, and several bubbles' `left` percentages positioned
+them close enough to the field's edge that their circle extended past it
+and got sliced.
+
+### User's explicit constraint (this shaped the fix)
+"even if the borders of the bubbles flow over the max width, they should
+not be clipped. The center point of the bubbles should not pass over the
+max width on the right side." — i.e. edges are allowed to spill past the
+field's boundary; only each bubble's CENTER must stay inside it.
+
+### Changes Made (`css/neo.css`)
+- Removed `overflow: hidden` from `.neo-bubble-field` entirely — nothing
+  clips a bubble's edge now.
+- Rewrote all 6 bubble positions using `left: calc(X% - halfWidth)` so X%
+  places the bubble's CENTER at that point (not its top-left corner, which
+  is what plain `left: X%` does — the previous scatter was accidentally
+  checking/placing corners, not centers).
+- Increased spacing between bubbles so no two circles touch even at their
+  largest (150px) size. Verified via a distance-between-centers check in
+  Node at three field widths (220px floor, 300px typical, 380px wide) — no
+  overlaps at the two realistic sizes; a 2px near-miss only at the
+  extreme floor width, which the field only reaches right at the very
+  edge of the 1300px breakpoint.
+- Verified live: forced the field visible via injected inline styles,
+  confirmed via `getBoundingClientRect()` that every bubble's center
+  stays within the field's left/right bounds, and confirmed
+  `getComputedStyle().overflow === "visible"`.
+
+---
+
+## 2026-08-29 — Bubble Hover Shrink-Back Fixed; Load-In Breathe Effect Added (v6.25)
+
+### Bug: bubbles grew on hover but never visibly shrank back
+Root cause: the drift loop set a random 4.5–8.5s duration directly via
+`bubble.style.transition`. The hover CSS rule's own `transition: ...0.2s`
+only applied while `:hover` actively matched — the instant the mouse left,
+the cascade fell back to the inline value, which was still whatever slow
+duration the drift had last set. So the shrink-back genuinely happened, just
+over several seconds instead of instantly — easy to read as "doesn't shrink
+back at all."
+
+Fix required two parts, not one:
+1. Route the duration through a CSS custom property
+   (`--neo-bubble-drift-active`) that both the base rule and the `:hover`
+   rule read via `var()`, instead of JS writing a literal `transition`
+   value the hover rule had no way to override on the way back out.
+2. That alone still wasn't enough — `:hover`'s `!important` override on the
+   property only lasts while hovering, so the fallback on mouseout was
+   still whatever slow value JS had last written. Added explicit
+   `mouseleave`/`blur` listeners (`js/script.js`, `js/script.min.js`) that
+   reset the property to a fast `0.2s` right as hover ends; the next
+   scheduled drift call restores normal speed afterward.
+
+Verified with a direct cascade simulation (custom property set to a slow
+drift value → CSS class mimicking `:hover`'s override → explicit
+mouseleave-style reset), confirming the full sequence — slow while
+drifting, fast while hovering, fast again immediately after — behaves as
+intended.
+
+### New: breathing pulse on page load
+Each bubble now plays a one-time grow-and-settle pulse
+(`.neo-bubble-breathe` / `@keyframes neo-bubble-breathe-in`, `css/neo.css`)
+before the randomized drift takes over, staggered ~90ms apart per bubble so
+they don't all pulse in perfect unison. `js/script.js` /
+`js/script.min.js` add the class on load and remove it once the pulse
+finishes (1.1s), only then starting the drift loop — so the pulse never
+gets cut off by a drift transform starting mid-animation. Respects
+`prefers-reduced-motion` the same way the drift does.
+
+---
+
+## 2026-08-29 — Bubble Scatter Restored (v6.23)
+
+### Summary
+The flexbox rewrite (previous entry) fixed the width/overlap problem but
+left the bubbles' actual scatter positions untouched — those were still
+the `right: 0–28%` values from an earlier absolute-positioned attempt,
+which only used the rightmost quarter of the now-wider flex field. Read as
+"clustered in one corner" instead of "scattered", per user feedback.
+
+### Changes Made
+`css/neo.css` — repositioned all 6 bubbles using `left: X%` spread across
+5–62% of the field's width (was `right: 0–28%`, all bunched at one edge),
+keeping the existing 4–80% vertical spread. Verified via
+`getBoundingClientRect()` at both the field's minimum width (220px) and a
+realistic wider width (380px) — no bubble overflows the field at the wider
+size; at the narrow floor two bubbles extend a few px past the field edge,
+caught cleanly by the field's existing `overflow: hidden` (cosmetic
+edge-case only, not a layout bug — no overlap, no viewport spillage).
+
+---
+
+## 2026-08-29 — Hero Bubbles Rebuilt on Flexbox; Back-to-Top Button Removed (v6.22)
+
+### Summary
+Two requests: (1) on very wide screens the hero text was pinning far left
+and the bubbles were drifting far right, both with large empty margins
+outside them — width limits weren't actually shared between the two; (2) a
+"go up" button was overlapping the sticky "Book Free Call" CTA on mobile.
+
+### Bubble/text width fix — several false starts, documented for future reference
+The bubble field and the hero text were positioned against two different
+reference frames (the bubble field anchored to the full-bleed `.hero`
+section, the text inside the width-capped `.container`), which is why they
+drifted apart independently on wide screens. Fixing this took multiple
+attempts, each one exposing the next problem:
+1. Moved `.neo-bubble-field` inside `.container` so both shared one box —
+   fixed the "drifting apart" symptom, but `right: X%` bubble positions
+   (percentages of the whole container) started landing UNDER the text at
+   1100–1500px widths, confirmed directly via `getBoundingClientRect()`.
+2. Tried anchoring bubbles to a bounded strip after the text
+   (`left: 820px` fixed values, then `right: X%` of a computed strip width)
+   — both either got clipped by the viewport at the 1100px breakpoint or
+   collapsed to 0-width and stacked every bubble on the same point, because
+   the arithmetic assumed a container width that didn't hold at every size
+   tested.
+3. **Root fix**: rebuilt `.container` as `display: flex` for the hero, with
+   the text (`flex: 0 1 760px`) and bubble field (`flex: 1 1 auto`) as flex
+   siblings. Flexbox computes the split itself — the two literally cannot
+   occupy the same space, removing the need for any of the fragile pixel
+   math above. Breakpoint raised 1100px → 1300px, since below that
+   .container hasn't reached its 1200px cap and there often isn't a
+   meaningful gap left over once text claims up to 760px.
+4. That surfaced two more bugs the flex conversion exposed: the bubble
+   field was DOM-first (for the old z-index-stacking approach), which in a
+   flex row rendered it on the LEFT of the text — reordered the markup so
+   text comes first. And a leftover dead media-query rule from the old
+   two-column photo hero (`.neo-hero-grid`/`.neo-hero-photo-wrap`, both
+   removed from the HTML when the photo moved to the About section weeks
+   ago) still contained `.neo-hero-text { order: 2; }`, which silently
+   flex-reordered the text again below 900px. Removed that dead block.
+
+All four confirmed via direct `getBoundingClientRect()` overlap checks
+(not screenshots — this sandbox's Browser pane reports `window.innerWidth`
+values that don't match what `.container` actually renders at, which is
+what made the pixel-math approaches so hard to verify reliably in the
+first place; flexbox's guarantee doesn't depend on knowing the exact width).
+
+### Back-to-top button removed
+Found two separate sources, both removed entirely, per user request (no
+replacement):
+- `js/script.js` / `js/script.min.js` — `createBackToTop()` unconditionally
+  injected a fixed `bottom:30px; right:30px` circular button into every
+  page that loaded either script. This is almost certainly what the user
+  saw colliding with the sticky CTA on mobile.
+- Hardcoded `<button class="back-to-top" id="backToTop">` markup in 6 blog
+  pages (`blog-ai-agent-practices.html`, `blog-ai-customer-service.html`,
+  `blog-ai-tools-2026.html`, `blog-make-vs-n8n.html`,
+  `blog-prompt-engineering.html`, `blog-workflow-automation.html`) — dead
+  markup with no matching CSS or click handler found anywhere, removed too.
+
+---
+
 ## 2026-08-29 — Dot Background Removed, Bubble Colors Reverted to Core Palette (v6.15)
 
 ### Summary
