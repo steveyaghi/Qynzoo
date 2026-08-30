@@ -542,7 +542,11 @@ body {
 }
 
 .case-figure {
-    margin: 28px 0 0;
+    /* `auto` left/right (was 0) so figures centre in the container instead
+       of sitting flush left under the body copy. Applies to all three
+       case studies that use figures — each one is a standalone visual, not
+       an inline-with-text element, so centring is right for all of them. */
+    margin: 28px auto 0;
     max-width: 860px;
 }
 
@@ -560,6 +564,71 @@ body {
     color: rgba(255, 255, 255, 0.6);
     line-height: 1.6;
     margin-top: 12px;
+    /* Centred under the now-centred image — a left-aligned caption beneath a
+       centred figure reads as a misalignment. */
+    text-align: center;
+}
+
+/* Result highlights — large standalone icons with one short line under each.
+   Deliberately NOT reusing .neo-info-card: that component is a bordered,
+   shadowed box used across the blog pages, and these are meant to read as
+   bare icons with no container. Kept as its own class so the blog cards
+   stay untouched. */
+.case-highlights {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 36px;
+    /* `auto` left/right (was 0) so the 760px grid centres in the container
+       instead of sitting flush left like the body copy above it. */
+    margin: 40px auto 8px;
+    max-width: 760px;
+}
+
+.case-highlight {
+    text-align: center;
+}
+
+.case-highlight i {
+    display: block;
+    font-size: 52px;
+    line-height: 1;
+    color: var(--neo-accent-2); /* yellow, per design direction */
+    margin-bottom: 16px;
+}
+
+.case-highlight span {
+    display: block;
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: 15px;
+    line-height: 1.4;
+    color: rgba(255, 255, 255, 0.85);
+}
+
+@media (max-width: 640px) {
+    .case-highlights {
+        gap: 28px;
+    }
+    .case-highlight i {
+        font-size: 44px;
+    }
+}
+
+/* Wider spacing for the homepage "What I Do" row specifically. Scoped to
+   #what-i-do rather than changing .case-highlights globally — the same
+   component is used on four case-study pages, where the tighter 36px gap
+   still reads correctly under a body-copy column. The extra max-width is
+   what actually lets the columns breathe; a bigger gap alone would just
+   squeeze each column narrower. */
+#what-i-do .case-highlights {
+    gap: 72px;
+    max-width: 940px;
+}
+
+@media (max-width: 640px) {
+    #what-i-do .case-highlights {
+        gap: 40px;
+    }
 }
 
 /* Case-study figures stack full-width rather than sitting side by side: the
@@ -629,11 +698,97 @@ body {
    founder photo appears once, later, alongside the About story. */
 .neo-hero-centered .neo-hero-text {
     max-width: 760px;
-    padding: 48px 0 64px;
+    /* Bottom padding trimmed (was 64px) as part of closing the gap between
+       the hero and the Projects section — see .neo-hero-centered .hero-buttons
+       below for the full accounting of what was stacking up down there. */
+    padding: 48px 0 8px;
     position: relative;
-    z-index: 1; /* stay above the bubble field */
+    /* Above the bubble field (z-index:2), so a bubble drifting leftward can
+       never cover the headline or CTA buttons. Both sit above the following
+       section, which is pinned to z-index:0. */
+    z-index: 3;
     flex: 0 1 760px; /* claim up to 760px, but shrink first if the flex row is tighter than that — never grows into the bubble field's space */
     min-width: 0; /* allow that shrink; flex items default to min-width:auto, which would block it */
+}
+
+/* Moved out of inline style="" attributes in index.html. They had to move:
+   an inline `margin: 20px 0 12px` sets left/right margin to 0, and inline
+   styles beat stylesheet rules — so the centring rules below could never
+   have taken effect while those attributes were still on the elements. */
+.neo-hero-centered .hero-subtitle {
+    max-width: 680px;
+}
+
+.neo-hero-centered .hero-subtitle-lead {
+    margin: 20px 0 12px;
+}
+
+.neo-hero-centered .hero-subtitle-clients {
+    margin: 0 0 32px;
+}
+
+/* Below 1300px the bubble field is hidden (see .neo-bubble-field), so the
+   hero text is the only thing in the row. Left-aligning it there leaves a
+   large empty gap on the right where the bubbles used to be — so centre the
+   column and its text instead. Breakpoint deliberately matches the bubble
+   field's exactly: the layout should flip at the same width the bubbles
+   disappear, not before or after. */
+@media (max-width: 1299.98px) {
+    .neo-hero-centered .neo-hero-text {
+        margin-left: auto;
+        margin-right: auto;
+        text-align: center;
+    }
+
+    .neo-hero-centered .hero-subtitle-lead {
+        margin: 20px auto 12px;
+    }
+
+    .neo-hero-centered .hero-subtitle-clients {
+        margin: 0 auto 32px;
+    }
+
+    /* .hero-buttons is a flex row — text-align doesn't move it. */
+    .neo-hero-centered .hero-buttons {
+        justify-content: center;
+    }
+}
+
+/* .hero-buttons carries a global `margin-bottom: 50px` from style.css (used
+   by other pages), which was landing squarely in the dead zone under the
+   hero CTAs. Zero it out here only, scoped to this hero.
+
+   The gap between the CTA buttons and "SELECTED WORK" was 264px, stacked
+   from four separate sources: this 50px button margin + 64px .neo-hero-text
+   padding-bottom + 60px .hero padding-bottom + 90px .neo-section padding-top
+   on #projects. Measured directly rather than guessed — an earlier attempt
+   blamed the bubble field's align-self:stretch, but hiding the field left
+   the height completely unchanged, so that was never it. */
+.neo-hero-centered .hero-buttons {
+    margin-bottom: 0;
+}
+
+/* .hero's own bottom padding (120px 0 60px in style.css) and the Projects
+   section's 90px .neo-section top padding were the two largest remaining
+   contributors to the 264px gap. Trimmed here, scoped to this hero and to
+   the section immediately following it, so the rest of the site's section
+   rhythm is untouched. */
+.neo-hero-centered {
+    padding-bottom: 16px;
+    /* style.css sets `overflow: hidden` on .hero (kept for other pages).
+       Here it was slicing the bottom bubble clean off at the hero's edge —
+       the bubble field intentionally extends past the hero's bottom into
+       the Projects section, so this hero must not clip. */
+    overflow: visible;
+}
+
+/* The next section is position:relative with an opaque background and comes
+   later in the DOM, so it painted OVER the overhanging bubble even once the
+   hero stopped clipping. Drop it below the bubble field's stacking level;
+   its own contents stay above their own background as normal. */
+.neo-hero-centered + .neo-section {
+    padding-top: 40px;
+    z-index: 0;
 }
 
 /* Floating skill bubbles — fill the open space beside the hero copy on wide
@@ -652,6 +807,14 @@ body {
     display: flex;
     align-items: center;
     gap: 24px;
+    /* .hero is itself display:flex (style.css), which makes this .container a
+       flex ITEM — and a flex item shrink-wraps to its content instead of
+       filling to its own max-width. That left the hero container 1044px wide
+       against the Projects section's full 1200px, so the hero headline sat
+       78px further right than "Projects & Case Studies" below it. width:100%
+       makes it claim the full 1200px like every other section's container, so
+       both columns share one left edge. */
+    width: 100%;
 }
 
 .neo-bubble-field {
@@ -661,10 +824,23 @@ body {
 @media (min-width: 1300px) {
     .neo-bubble-field {
         display: block;
-        position: relative; /* bubbles inside position against THIS box */
+        /* Stays a FLEX ITEM so flexbox keeps computing the text/field split
+           (an absolute-positioned version let the text expand to its full
+           760px, leaving the field only its 220px min-width and shifting
+           every bubble ~76px left). But `height: 0` means it contributes
+           nothing to the row's height — as a 601px-tall flex sibling it was
+           the tallest item in the row and propped the hero open to 601px
+           even though the text only needs ~495px, re-opening the very gap
+           under the CTA buttons the spacing trim was meant to close
+           (measured: hiding the field dropped the hero 737px → 631px).
+           The bubbles are absolutely positioned against this box and are
+           free to overflow it (no overflow:hidden here), so a zero-height
+           box still positions them correctly. */
+        position: relative;
         flex: 1 1 auto;
         min-width: 220px;
-        align-self: stretch;
+        align-self: flex-start;
+        height: 0;
         /* No overflow:hidden — bubbles are allowed to spill past this box's
            own edges; only their CENTER point has to stay inside it (each
            bubble's `left`/`top` below is deliberately kept clear of 0%/100%
@@ -673,7 +849,11 @@ body {
            than a bit of harmless spill past a box nothing else visually
            reacts to. */
         pointer-events: none;
-        z-index: 0;
+        /* Above the following section (which is pushed to z-index:0), so the
+           part of the field that overhangs the hero's bottom edge paints on
+           top of the Projects section instead of being covered by its
+           opaque background. */
+        z-index: 2;
     }
 }
 
@@ -765,12 +945,19 @@ body {
    enough gap between every pair that no two bubbles touch even at their
    largest (150px) size — a 2-column, 3-row-ish scatter rather than the
    earlier layout, where two bubbles landed at nearly the same spot. */
-.neo-bubble-1 { top: 4%;   left: calc(78% - 75px);  width: 150px; height: 150px; background: var(--neo-accent);   color: var(--dark-bg); }
-.neo-bubble-2 { top: 12%;  left: calc(15% - 61px);  width: 122px; height: 122px; background: var(--neo-accent-2); color: var(--dark-bg); }
-.neo-bubble-3 { top: 46%;  left: calc(82% - 68px);  width: 136px; height: 136px; background: var(--neo-accent-3); color: #ffffff; }
-.neo-bubble-4 { top: 74%;  left: calc(22% - 58px);  width: 116px; height: 116px; background: var(--neo-accent-2); color: var(--dark-bg); }
-.neo-bubble-5 { top: 38%;  left: calc(12% - 52px);  width: 104px; height: 104px; background: var(--neo-accent-3); color: #ffffff; }
-.neo-bubble-6 { top: 88%;  left: calc(62% - 56px);  width: 112px; height: 112px; background: var(--neo-accent);   color: var(--dark-bg); }
+/* `top` is in PIXELS, not percentages. The field is now a zero-height flex
+   item (see .neo-bubble-field above — it must not contribute to the hero's
+   height), and a percentage top against a zero-height parent resolves to 0,
+   which would stack all six bubbles at the very top. These px values are
+   the exact offsets the percentages produced against the old 601px field,
+   so the bubbles render in identical positions. `left` stays in % because
+   the field's WIDTH is still real (flexbox computes it). */
+.neo-bubble-1 { top: 24px;   left: calc(78% - 75px);  width: 150px; height: 150px; background: var(--neo-accent);   color: var(--dark-bg); }
+.neo-bubble-2 { top: 72px;   left: calc(15% - 61px);  width: 122px; height: 122px; background: var(--neo-accent-2); color: var(--dark-bg); }
+.neo-bubble-3 { top: 276px;  left: calc(82% - 68px);  width: 136px; height: 136px; background: var(--neo-accent-3); color: #ffffff; }
+.neo-bubble-4 { top: 445px;  left: calc(22% - 58px);  width: 116px; height: 116px; background: var(--neo-accent-2); color: var(--dark-bg); }
+.neo-bubble-5 { top: 228px;  left: calc(12% - 52px);  width: 104px; height: 104px; background: var(--neo-accent-3); color: #ffffff; }
+.neo-bubble-6 { top: 529px;  left: calc(62% - 56px);  width: 112px; height: 112px; background: var(--neo-accent);   color: var(--dark-bg); }
 
 /* Hero typewriter effect (see js/script.js .neo-typewriter init). The
    cursor is a CSS pseudo-element so no JS is needed for the blink itself. */

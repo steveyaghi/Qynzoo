@@ -1,5 +1,336 @@
 # Qynzoo.com ChangeLog
 
+## 2026-08-29 — LinkedIn Post Generator Screenshot on Waterprof; Figures Centred (v6.41 → v6.42)
+
+### Screenshot added
+Added the user-supplied `Linkedin bot generator.png` to the Waterprof case
+study, in the Approach section under the tool chips. Copied to a URL-safe
+`linkedin-bot-generator.png` (original kept), consistent with how the
+Haskoning and Podcast screenshots were handled.
+
+Used `.is-portrait` (520px cap) rather than `.is-wide` (1100px): the image is
+981×900, so `.is-wide` would have upscaled it well past native size and
+softened it. At 520px it renders sharp.
+
+**Caption written from the actual image, not assumed.** A first draft
+described it generically as "draft in, human review before publishing" — on
+opening the file, it's Waterprof's own branded internal tool showing a
+concrete three-step flow, including *"Kies uit SharePoint"* and step 3
+*"Controleer en plaats"* (check and post). The SharePoint integration is
+direct visual evidence for the case study's "data stays in their Microsoft
+environment" claim, so the caption now names it:
+
+> The internal tool Waterprof's team uses — pull a project straight from
+> SharePoint, generate a draft, then check and edit before it goes out
+
+### Figures centred
+`.case-figure` had `margin: 28px 0 0` — zero left/right, so figures sat flush
+left under the body copy. Changed to `margin: 28px auto 0`, and figcaptions
+to `text-align: center` (a left-aligned caption under a centred image reads
+as a misalignment).
+
+Applied globally rather than scoped: all three pages using figures
+(Waterprof, Haskoning, Podcast Tuhaf) show standalone visuals, not
+inline-with-text elements, so centring suits all of them. Verified after the
+change — Haskoning's two figures and Podcast Tuhaf's three all centre
+correctly with images still loading.
+
+Verified: Waterprof figure centred (340px both sides), caption centred,
+image loads at 520px from 981px native; mobile 375px fills width with
+balanced 20px gutters and no horizontal overflow; no console errors.
+
+## 2026-08-29 — Hero Centres When the Bubbles Hide (v6.40)
+
+Below 1300px the bubble field is hidden, which left the hero text
+left-aligned against a large empty gap on the right where the bubbles used
+to be. The hero column, its text, and the CTA buttons now centre at that
+same breakpoint.
+
+- Breakpoint is `max-width: 1299.98px` — deliberately the exact complement of
+  the bubble field's `min-width: 1300px`, so the layout flips at precisely
+  the width the bubbles disappear, never a range where both states are wrong.
+- `.hero-buttons` needed `justify-content: center` separately — it's a flex
+  row, so `text-align` alone doesn't move it.
+
+### Inline styles moved to CSS (required, not cleanup)
+The two hero subtitles carried `style="max-width: 680px; margin: 20px 0 12px"`
+inline in index.html. Inline styles beat stylesheet rules, and that
+`margin: … 0 …` pins left/right margin to zero — so the centring rules could
+never have taken effect while those attributes remained. Moved to
+`.hero-subtitle-lead` / `.hero-subtitle-clients` classes with the same
+values, plus `auto` side margins inside the breakpoint.
+
+Verified at 1100px: bubbles hidden, `text-align: center`, buttons centred,
+subtitle margins resolve to 40px/40px, column centred (163px both sides).
+At 1352px: bubbles visible, text still left-aligned — unchanged. Mobile
+(375px) centres correctly with buttons still stacking vertically, no
+horizontal overflow, no console errors.
+
+## 2026-08-29 — "What I Do" Tweaks: Spacing, Clock Icon, Copy (v6.39)
+
+- **Icon spacing widened** on the homepage row: gap `36px → 72px`, with
+  max-width `760px → 940px`. The extra width is what actually separates the
+  columns — a bigger gap alone would just squeeze each column narrower.
+  Mobile uses a tighter `40px` since the row stacks vertically there.
+  **Scoped to `#what-i-do`**, not applied to `.case-highlights` globally —
+  the same component is used on four case-study pages, where the tighter
+  36px still reads correctly under a narrower body-copy column. Verified
+  after the change: case-study pages still compute `36px / 760px`.
+- **Icon changed** `fa-robot → fa-clock`.
+- **Copy changed** to the user's wording: "Automate your work (with or
+  without AI)".
+
+Verified: measured visual gaps between adjacent columns are a real 72px;
+clock glyph resolves; no console errors; no horizontal overflow on mobile.
+
+### Note
+`fa-clock` is now used both here and on the Haskoning case study ("Six hours
+down to one"). Different pages, so no visual conflict — flagged only in case
+a distinct icon is preferred later.
+
+---
+
+## 2026-08-29 — New "What I Do" Section Before Projects (v6.38)
+
+Added a three-icon summary section between the hero and Projects & Case
+Studies, on the same `.neo-page-alt` background as the About section
+(verified identical: both `rgb(20, 25, 54)`).
+
+**Heading:** "Less busywork. More of the work that grows your business."
+
+| Icon | Caption |
+|---|---|
+| `fa-robot` | Automate the repetitive work — with AI where it helps, plain scripts where it doesn't |
+| `fa-lock` | Your company data stays yours, handled to enterprise standards |
+| `fa-mug-hot` | Get your hours back for the decisions only you can make |
+
+### Copy
+User supplied three internal-sounding bullets and asked for them to be
+rewritten to attract a client. Reframed each from a description of *what is
+built* into the *outcome for the reader*: "automate your daily work using
+either AI or hardcoded scripts" → "automate the repetitive work — with AI
+where it helps, plain scripts where it doesn't" (keeps the honest
+non-hype framing already used across the hero), "safe handling of enterprise
+data" → "your company data stays yours", "focus on strategies that matter" →
+"get your hours back for the decisions only you can make".
+
+### Implementation
+Reused the existing `.case-highlights` component from the case-study pages —
+already yellow, boxless, centred, and responsive — rather than adding a new
+one.
+
+### Spacing note
+The v6.29 rule `.neo-hero-centered + .neo-section { padding-top: 40px }`
+targets the hero's *immediate* sibling. This new section is now that sibling,
+so it correctly inherits the tightened 40px and the hero gap stays at 64px;
+Projects returns to the standard 90px, which is right — it's no longer
+adjacent to the hero.
+
+Verified: all three icons resolve to real glyphs and compute to yellow
+(`rgb(255,193,7)`); mobile collapses to one column with 44px icons, no
+horizontal overflow; no console errors.
+
+## 2026-08-29 — Hero Gap Returned (Self-Inflicted) + Hero/Projects Left Edges Aligned (v6.37)
+
+### The gap came back — caused by the v6.29 fix itself
+Nothing regressed in the code; all four v6.29 spacing fixes were still
+applying correctly (verified: hero padding 16px, text padding 8px, button
+margin 0, projects padding 40px). The culprit was the **601px pinned bubble
+field** added in that same release to stop the bubbles moving.
+
+As a flex sibling with a fixed 601px height, the field became the tallest
+item in the row and propped the container open to 601px, even though the
+text only needs ~495px. Measured directly: hiding the field dropped the hero
+737px → 631px.
+
+**Fix:** the field stays a flex item (so flexbox still computes the
+text/field width split) but is now `height: 0` + `align-self: flex-start`,
+contributing nothing to the row's height. Because a percentage `top` against
+a zero-height parent resolves to 0 — which would stack all six bubbles at the
+top — the bubbles' `top` values were converted from percentages to the exact
+pixel offsets those percentages produced against the old 601px field
+(24/72/276/445/228/529px). Verified: bubble tops unchanged at
+144/192/396/565/348/649.
+
+Result: **gap 117px → 64px**, hero 737px → 631px.
+
+An intermediate attempt using `position: absolute` on the field was tried and
+abandoned — it let the text expand to its full 760px, leaving the field only
+its 220px `min-width` and shifting every bubble ~76px left.
+
+### Hero and Projects now share one left edge
+Separately, the hero headline sat 78px right of "Projects & Case Studies".
+`.hero` is `display: flex` (style.css), which makes its `.container` a flex
+*item* — and a flex item shrink-wraps to its content rather than filling to
+its own `max-width`. The hero container was 1044px against the Projects
+container's full 1200px. Added `width: 100%` so it claims the full width like
+every other section.
+
+Verified: both titles now at x=108 (desktop) and x=20 (mobile). No console
+errors, no horizontal overflow, bubbles still hidden below 1300px.
+
+## 2026-08-29 — Result Highlights Rolled Out to Three More Case Studies (v6.34)
+
+Extended the `.case-highlights` icon row (built for Waterprof) to three more
+case studies, using the same optional `resultHighlights` generator field:
+
+**Haskoning** — `fa-clock` "Six hours down to one" · `fa-database` "Draws on
+past project risks" · `fa-user-check` "Risk manager still decides"
+
+**Odido** — `fa-calendar-check` "Reports arrive on schedule" ·
+`fa-circle-check` "Manual entry errors eliminated" · `fa-map-location-dot`
+"Runs nationwide, every store"
+
+**Podcast Tuhaf** — `fa-eye` "50,000+ viewers reached" · `fa-bullseye`
+"Niche audience, precisely targeted" · `fa-scissors` "AI picks the best clips"
+
+### Fugro deliberately excluded
+Proposed and then dropped at the user's direction — agreed it's the wrong
+fit. That case study's strength is its honesty: it states plainly that
+friction angle *couldn't* be predicted and why (dataset too small and
+inconsistent). A row of three upbeat icons would flatten a genuinely mixed
+result into a clean win, undercutting the credibility that makes the page
+work. Verified 0 highlights render there.
+
+### Verified
+- Per-page counts: fugro 0, haskoning 3, odido 3, waterprof 3,
+  podcast-tuhaf-dashboard 3.
+- All new icons resolve to real glyphs (checked computed `font-family` and
+  `::before` content on each — six of the nine weren't used anywhere on the
+  site before, and a missing Font Awesome glyph renders as a silent blank
+  box). No console errors.
+
+---
+
+## 2026-08-29 — Three Result Highlights on the Waterprof Case Study (v6.31 → v6.32)
+
+### Summary
+Added a three-icon highlight row under **Results** on the Waterprof
+("Secure LinkedIn Content Automation on Azure") case study — large
+standalone yellow icons, each with a single short caption:
+1. `fab fa-microsoft` — "Enterprise data stays on Azure"
+2. `fas fa-user-check` — "A human always approves"
+3. `fas fa-clock` — "Faster, same quality bar"
+
+### Changes
+- `scripts/gen_case_studies.js` — added an optional `resultHighlights`
+  field, rendered after the Results paragraphs. Optional by design: the
+  other four case studies don't define it and their output is unaffected.
+- `css/neo.css` — new `.case-highlights` / `.case-highlight` component:
+  52px yellow icons (44px on mobile), centred, one bold short line under
+  each, no border/background.
+
+### Centred (v6.33)
+`.case-highlights` had `margin: 40px 0 8px` — zero left/right margin, so the
+760px-wide grid sat flush left under the body copy rather than centred in the
+page. Changed to `margin: 40px auto 8px`. Verified: 163px gap on both sides at
+desktop, 20px both sides on mobile.
+
+### Design revision (v6.31 → v6.32)
+First pass reused the existing `.neo-info-grid` / `.neo-info-card`
+component (bordered boxes, 22px icons, full paragraphs). User asked for
+bigger icons, yellow, no surrounding box, and ~5-word captions instead of
+paragraphs — so `.case-highlight` was written as its own class rather than
+modifying `.neo-info-card`, which the blog pages still use and which needed
+to stay untouched.
+
+### Verified
+- Computed styles confirm the spec: `font-size: 52px`, colour
+  `rgb(255,193,7)` (yellow), `border-style: none`, transparent background,
+  captions at 5/4/4 words.
+- All three icons resolve to real glyphs (checked `::before` content and
+  computed `font-family` — `fa-microsoft` correctly loads "Font Awesome 6
+  **Brands**" via the `fab` prefix). Worth checking because two of the three
+  weren't used anywhere on the site yet, and a missing glyph silently
+  renders as a blank box.
+- Mobile: collapses to a single column, icons scale to 44px, no horizontal
+  overflow. No console errors.
+
+### Note
+The request also opened with "I want to add the following on the problem:"
+but the content after it didn't come through. Confirmed with the user —
+Problem section left untouched, icons only.
+
+---
+
+## 2026-08-29 — Bottom Bubble No Longer Cut by Projects Section (v6.30)
+
+### Summary
+After the hero was shortened (v6.29), the bottom-most bubble ("Website
+Building") overhangs the hero's bottom edge by 24px — intended — but was
+being sliced off. Two independent causes, both fixed:
+
+1. **`.hero { overflow: hidden }`** (global rule in style.css, kept for
+   other pages) was clipping the overhang at the hero's boundary.
+   → `overflow: visible` scoped to `.neo-hero-centered` only.
+2. Even unclipped, `#projects` is `position: relative` with an opaque
+   background and comes later in the DOM, so it painted *over* the
+   overhanging bubble.
+   → Projects section pinned to `z-index: 0`, bubble field raised to
+   `z-index: 2`.
+
+### Stacking order now
+`.neo-hero-text` (3) > `.neo-bubble-field` (2) > `.neo-hero-centered +
+.neo-section` (0). The text was bumped 1 → 3 so it stays above the bubbles
+— a bubble drifting leftward can never cover the headline or CTAs.
+
+### Verified
+- `elementFromPoint` at the bubble's lowest point returns the bubble
+  itself, not the section — proving it paints on top rather than being
+  covered.
+- `.hero` computed `overflow: visible`; overhang measured at 24px.
+- Hit-tested the headline (returns `.hero-title`) and the first project
+  card (returns `.project-card-tag`, `closest('.project-card')` non-null)
+  — so neither the text layering nor card clickability regressed from the
+  `z-index: 0` on the section. No console errors.
+
+---
+
+## 2026-08-29 — Closed the Hero → Projects Gap (v6.29)
+
+### Summary
+Large dead space between the hero CTA buttons and the "Projects & Case
+Studies" section. Measured gap from buttons to the "SELECTED WORK" eyebrow:
+**264px → 117px**, with every bubble staying in exactly its previous
+position (hard requirement from the user).
+
+### Root cause — measured, not guessed
+An earlier attempt at this blamed the bubble field's `align-self: stretch`
+and was reverted after it didn't help. Measuring properly this time:
+hiding `.neo-bubble-field` entirely left the hero's height **completely
+unchanged**, ruling the bubbles out. The 264px was four separate things
+stacking up, none of them the bubbles:
+- `50px` — `.hero-buttons { margin-bottom: 50px }` (global rule in
+  style.css, the 50px I couldn't account for on the previous attempt)
+- `64px` — `.neo-hero-text` padding-bottom
+- `60px` — `.hero` padding-bottom
+- `90px` — `.neo-section` padding-top on `#projects`
+
+### Changes (`css/neo.css`, all scoped to the hero — global rhythm untouched)
+- `.neo-hero-centered .hero-buttons { margin-bottom: 0 }` — overrides the
+  global rule for this hero only, since other pages still want the 50px.
+- `.neo-hero-centered .neo-hero-text` padding-bottom `64px → 8px`
+- `.neo-hero-centered { padding-bottom: 16px }` (was 60px via `.hero`)
+- `.neo-hero-centered + .neo-section { padding-top: 40px }` (was 90px) —
+  adjacent-sibling selector, so only the section directly after the hero
+  tightens up. Verified `#projects` is in fact the hero's immediate next
+  sibling before relying on it.
+
+### Keeping the bubbles still
+Bubbles use percentage `top` values against `.neo-bubble-field`, so
+shrinking the hero would have dragged them all upward and bunched them.
+Pinned the field to `height: 601px` (exactly its pre-change height) with
+`align-self: flex-start` so the flex row can't stretch it back out. The
+bubbles therefore hold position and simply extend past the hero's bottom
+edge into the Projects section — explicitly approved ("the bubbles may
+overlay on the 2nd section").
+
+Verified: all six bubble bounding boxes are byte-identical before and after
+(top 144/192/396/565/348/649, left 1040/916/1056/934/918/1024). No console
+errors; mobile checked separately and benefits from the tighter spacing.
+
+---
+
 ## 2026-08-29 — Bubbles No Longer Clipped; Wider Scatter (v6.26)
 
 ### Summary

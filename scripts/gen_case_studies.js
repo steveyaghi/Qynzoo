@@ -1,7 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 
-const VER = '6.26';
+const VER = '6.42';
 
 function page(d) {
   const pills = d.pills.map((p, i) =>
@@ -90,7 +90,7 @@ ${chips}
     <section class="case-section neo-page" style="border-bottom:none">
         <div class="container">
             <h2>Results</h2>
-${paras(d.results)}
+${paras(d.results)}${d.resultHighlights || ''}
         </div>
     </section>
 
@@ -206,7 +206,22 @@ const pages = [
             </div>`,
     results: [
       "What used to take 6 hours of manual drafting now takes about 1 hour, including human review. The agent doesn't replace the risk manager's judgment — it removes the blank-page problem and the repetitive copy-paste work that came before it, freeing reviewers to focus on judgment calls instead of data entry."
-    ]
+    ],
+    resultHighlights: `
+            <div class="case-highlights">
+                <div class="case-highlight">
+                    <i class="fas fa-clock"></i>
+                    <span>Six hours down to one</span>
+                </div>
+                <div class="case-highlight">
+                    <i class="fas fa-database"></i>
+                    <span>Draws on past project risks</span>
+                </div>
+                <div class="case-highlight">
+                    <i class="fas fa-user-check"></i>
+                    <span>Risk manager still decides</span>
+                </div>
+            </div>`
   },
   {
     slug: 'odido',
@@ -227,7 +242,22 @@ const pages = [
     tools: ['Python', 'SQL', 'PowerBI', 'ThoughtSpot'],
     results: [
       "Reports are now delivered on schedule with consistent output, eliminating the manual-entry errors and delays that previously required firefighting after the fact."
-    ]
+    ],
+    resultHighlights: `
+            <div class="case-highlights">
+                <div class="case-highlight">
+                    <i class="fas fa-calendar-check"></i>
+                    <span>Reports arrive on schedule</span>
+                </div>
+                <div class="case-highlight">
+                    <i class="fas fa-circle-check"></i>
+                    <span>Manual entry errors eliminated</span>
+                </div>
+                <div class="case-highlight">
+                    <i class="fas fa-map-location-dot"></i>
+                    <span>Runs nationwide, every store</span>
+                </div>
+            </div>`
   },
   {
     slug: 'waterprof',
@@ -246,9 +276,31 @@ const pages = [
       "I built an AI agent on Azure infrastructure — matching Waterprof's existing Microsoft environment — that pulls project documents on request and drafts LinkedIn posts matching Waterprof's established voice, with a human always reviewing before publishing."
     ],
     tools: ['Azure', 'Python'],
+    figures: `
+            <div class="case-figure-stack">
+                <figure class="case-figure is-portrait">
+                    <img src="../images/linkedin-bot-generator.png" alt="Waterprof's internal LinkedIn Post Generator: pick a project from SharePoint or upload a file, choose the post language, generate a draft, then review and edit it before posting." loading="lazy" decoding="async">
+                    <figcaption>The internal tool Waterprof's team uses — pull a project straight from SharePoint, generate a draft, then check and edit before it goes out</figcaption>
+                </figure>
+            </div>`,
     results: [
       "Posts no longer start from a blank page. Drafting time dropped from a multi-iteration manual process to a single AI-generated draft plus human review, with all data staying inside Waterprof's own secured infrastructure throughout."
-    ]
+    ],
+    resultHighlights: `
+            <div class="case-highlights">
+                <div class="case-highlight">
+                    <i class="fab fa-microsoft"></i>
+                    <span>Enterprise data stays on Azure</span>
+                </div>
+                <div class="case-highlight">
+                    <i class="fas fa-user-check"></i>
+                    <span>A human always approves</span>
+                </div>
+                <div class="case-highlight">
+                    <i class="fas fa-clock"></i>
+                    <span>Faster, same quality bar</span>
+                </div>
+            </div>`
   },
   {
     slug: 'podcast-tuhaf-dashboard',
@@ -284,7 +336,22 @@ const pages = [
             </div>`,
     results: [
       "The results exceeded expectations. Podcast Tuhaf covers architecture — a genuinely small niche — and we still reached 50,000+ viewers on Facebook Shorts and Reels, a scale that wouldn't have been realistic without a dedicated social media strategist. The lesson: knowing precisely what to build and narrowing the right questions down got better results than a generic tool ever could. Need something similar for your own project? Let's talk."
-    ]
+    ],
+    resultHighlights: `
+            <div class="case-highlights">
+                <div class="case-highlight">
+                    <i class="fas fa-eye"></i>
+                    <span>50,000+ viewers reached</span>
+                </div>
+                <div class="case-highlight">
+                    <i class="fas fa-bullseye"></i>
+                    <span>Niche audience, precisely targeted</span>
+                </div>
+                <div class="case-highlight">
+                    <i class="fas fa-scissors"></i>
+                    <span>AI picks the best clips</span>
+                </div>
+            </div>`
   }
 ];
 
