@@ -1,7 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 
-const VER = '6.42';
+const VER = '6.44';
 
 function page(d) {
   const pills = d.pills.map((p, i) =>
@@ -147,7 +147,7 @@ ${paras(d.results)}${d.resultHighlights || ''}
     // card-nav uses relative asset paths; override to work from /case-studies/
     window.CARD_NAV_BASE = '../';
     </script>
-    <script src="../js/card-nav.js?v=4.1" defer></script>
+    <script src="../js/card-nav.js?v=4.2" defer></script>
 </body>
 </html>
 `;

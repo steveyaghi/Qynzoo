@@ -63,7 +63,18 @@
               "jobTitle": "Founder & AI Automation Expert",
               "description": "AI automation expert helping businesses leverage AI to automate workflows and build powerful web solutions",
               "image": "https://qynzoo.com/images/mostafa-yaghi.jpg",
-              "email": "mostafa.yaghi@qynzoo.com"
+              "email": "mostafa.yaghi@qynzoo.com",
+              "alumniOf": {
+                "@type": "CollegeOrUniversity",
+                "name": "University of Twente",
+                "sameAs": "https://www.utwente.nl/"
+              },
+              "hasCredential": {
+                "@type": "EducationalOccupationalCredential",
+                "credentialCategory": "degree",
+                "educationalLevel": "Master's degree",
+                "name": "MSc Civil Engineering and Management"
+              }
             }
           ]
         },
@@ -88,6 +99,19 @@
           "name": "Qynzoo AI Automation Services",
           "image": "https://qynzoo.com/logos/Qynzoo_solo_logo.svg",
           "priceRange": "$$",
+          "review": [
+            {
+              "@type": "Review",
+              "author": {
+                "@type": "Person",
+                "name": "Werner Halter",
+                "jobTitle": "Principal Consultant",
+                "worksFor": { "@type": "Organization", "name": "Fugro" },
+                "sameAs": "https://www.linkedin.com/in/werner-halter-903873a/"
+              },
+              "reviewBody": "Mostafa is very skilled with machine learning models and AI. He has developed practical tools useful for real-world applications using data analysis. Thanks to his civil engineering background, he also understands the physical processes that led to the data."
+            }
+          ],
           "telephone": "+31-684550084",
           "email": "mostafa.yaghi@qynzoo.com",
           "address": {
@@ -211,7 +235,7 @@
     <!-- Defer non-critical CSS -->
     <link rel="stylesheet" href="css/card-nav.css?v=4.2" media="print" onload="this.media='all'">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'">
-    <link rel="stylesheet" href="css/neo.css?v=6.42">
+    <link rel="stylesheet" href="css/neo.css?v=6.44">
 
     <!-- Preload fonts -->
     <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
@@ -622,12 +646,34 @@
                     <div class="neo-eyebrow">About</div>
                     <h2 class="neo-section-title">Hi, I'm Mostafa.</h2>
                     <p>I'm the founder of Qynzoo, based in the Netherlands. I build AI automation systems, machine learning models, and websites for companies that need real, working solutions — not another pitch deck about "AI transformation."</p>
-                    <p>My background is in applying machine learning to real engineering problems — predicting soil behavior for dike stability at Fugro is one example. That's shaped how I approach every project since: start from the actual data and the actual workflow, not a generic template.</p>
+                    <p>I hold a Master's in Civil Engineering and Management from the University of Twente, and my background is in applying machine learning to real engineering problems — predicting soil behavior for dike stability at Fugro is one example. That engineering grounding is why I start from the actual data and the actual workflow on every project, not a generic template.</p>
                     <p>Every project on this site — Fugro, Haskoning, ODIDO, Waterprof — was built end-to-end by me, for a real team, solving a real bottleneck. If you'd rather talk to the person who'll actually build your solution than a sales team, that's exactly how I work.</p>
                     <div class="hero-buttons" style="margin-top:28px;">
                         <a href="https://cal.com/mostafa.yaghi" class="neo-btn" target="_blank" rel="noopener noreferrer">Book Free 30-Min Call</a>
                     </div>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="neo-section neo-page" id="testimonials">
+        <div class="container">
+            <div class="neo-section-header" style="max-width:640px;">
+                <div class="neo-eyebrow">Testimonials</div>
+                <h2 class="neo-section-title">What clients say</h2>
+            </div>
+            <div class="neo-testimonials">
+                <figure class="neo-testimonial">
+                    <blockquote class="neo-testimonial-quote">“Mostafa is very skilled with machine learning models and AI. He has developed practical tools useful for real-world applications using data analysis. Thanks to his civil engineering background, he also understands the physical processes that led to the data.”</blockquote>
+                    <figcaption class="neo-testimonial-author">
+                        <img class="neo-testimonial-photo" src="images/testimonials/werner-halter-fugro.jpeg" alt="Werner Halter" width="400" height="400" loading="lazy" decoding="async">
+                        <div>
+                            <a class="neo-testimonial-name" href="https://www.linkedin.com/in/werner-halter-903873a/" target="_blank" rel="noopener noreferrer">Werner Halter <i class="fab fa-linkedin"></i></a>
+                            <div class="neo-testimonial-role">Principal Consultant, Fugro</div>
+                        </div>
+                    </figcaption>
+                </figure>
             </div>
         </div>
     </section>
@@ -854,7 +900,7 @@
     <!-- Scripts -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js" defer></script>
 
-    <script src="js/card-nav.js?v=4.1" defer></script>
+    <script src="js/card-nav.js?v=4.2" defer></script>
     <script src="js/script.min.js?v=4.7" defer></script>
     <script src="js/brandfetch-logos.js?v=4.0" defer></script>
     <script src="js/logo-drag.js?v=4.0" defer></script>

@@ -173,6 +173,7 @@ document.addEventListener('DOMContentLoaded', () => {
         links: [
           { label: "Projects",     href: base + "index.html#projects", ariaLabel: "See project case studies" },
           { label: "About",        href: base + "index.html#about",    ariaLabel: "About Mostafa Yaghi and Qynzoo" },
+          { label: "Testimonials", href: base + "index.html#testimonials", ariaLabel: "What clients say" },
           { label: "How It Works", href: base + "index.html#workflow", ariaLabel: "How our process works" }
         ]
       },

@@ -1,4 +1,66 @@
+
 # Qynzoo.com ChangeLog
+
+## 2026-09-03 — MSc Added to About Section (v6.44)
+
+Added the University of Twente Master's to the About section.
+
+Placed at the **start of the existing background paragraph** rather than as
+a new sentence or bullet — that paragraph already covers where the
+engineering grounding comes from, so the degree belongs there. Reworded the
+following clause from "That's shaped how I approach every project since" to
+"That engineering grounding is why…", so the degree and the Fugro work
+connect to the point instead of the credential just sitting there.
+
+Also worth noting the placement is now right above Werner's testimonial,
+which independently makes the same point ("thanks to his civil engineering
+background, he also understands the physical processes") — the claim and
+the third-party confirmation reinforce each other.
+
+### Schema.org
+Added `alumniOf` (University of Twente, linked to utwente.nl) and
+`hasCredential` (MSc Civil Engineering and Management, Master's degree) to
+the existing Person node, so the credential is machine-readable rather than
+prose-only. Re-parsed the full JSON-LD block after editing to confirm
+validity.
+
+No console errors.
+
+## 2026-09-03 — Testimonials Section (v6.43)
+
+Added a testimonials section to the homepage with the first testimonial,
+from Werner Halter (Principal Consultant, Fugro), quoted verbatim as
+supplied.
+
+### Placement
+Between About and How It Works, as `.neo-page` (dark) — About above it is
+`.neo-page-alt`, so this keeps the page's alternating band rhythm. Social
+proof also lands better right after the About story and before the process
+pitch. Added to the card-nav under Work.
+
+### Component
+New `.neo-testimonial*` classes in `neo.css`, matching the existing
+neo-brutalist card language (surface fill, white border, hard shadow).
+`auto-fit` grid so this single testimonial sits centred rather than
+stranded in a narrow left column; further testimonials will flow into a row
+with no markup change.
+
+Werner's photo copied to a URL-safe `werner-halter-fugro.jpeg` (original
+kept), rendered as a 60px circular avatar with a teal ring. His name links
+to his LinkedIn profile with `rel="noopener noreferrer"`.
+
+### Schema.org
+Added the testimonial as a `Review` on the existing `ProfessionalService`
+node. **Deliberately no `reviewRating`** — Werner gave a written
+recommendation, not a star rating, and inventing one would be fabricating
+data he never provided (Google also penalises unsubstantiated review
+markup). Re-parsed the full JSON-LD block after editing to confirm it's
+still valid.
+
+Verified: photo loads and renders 60×60; LinkedIn glyph resolves from
+"Font Awesome 6 Brands"; grid centred; section background alternates
+correctly; mobile fills width with balanced 20px gutters, no horizontal
+overflow; no console errors.
 
 ## 2026-08-29 — LinkedIn Post Generator Screenshot on Waterprof; Figures Centred (v6.41 → v6.42)
 
