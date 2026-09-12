@@ -788,6 +788,108 @@ portfolioItems.forEach(item => {
 // by running requestAnimationFrame continuously at 60fps
 
 // ===================================
+// FAQ Accordion
+// ===================================
+// Was an inline onclick="this.parentElement.classList.toggle('open')" plus
+// a duplicate inline <script> block re-wiring the same buttons — neither
+// ever fired on a real click (confirmed via direct event dispatch testing;
+// calling the handler function directly worked fine, only the browser's
+// own click dispatch to inline script/attributes did not). Moved here, to
+// the external script file, which is unambiguously allowed by the site's
+// CSP (script-src 'self') and does fire correctly.
+document.querySelectorAll('.neo-faq-question').forEach(btn => {
+    btn.addEventListener('click', function () {
+        this.parentElement.classList.toggle('open');
+    });
+});
+
+// ===================================
+// Logo Marquee — drag/swipe to scroll
+// ===================================
+// The belt auto-scrolls via a CSS @keyframes loop (translateX 0 -> -50%,
+// wrapping seamlessly since the track is two identical groups back to
+// back). Dragging pauses that animation and drives an inline transform
+// directly off the pointer instead; on release we convert the drag's
+// final offset into a matching negative animation-delay so the CSS loop
+// picks up from exactly that visual position — no jump, no restart from 0.
+(function initMarqueeDrag() {
+    const track = document.getElementById('marqueeTrack');
+    if (!track) return;
+
+    const group = track.querySelector('.qz-marquee-group');
+    if (!group) return;
+
+    let groupWidth = group.getBoundingClientRect().width;
+    window.addEventListener('resize', () => {
+        groupWidth = group.getBoundingClientRect().width;
+    });
+
+    const DURATION = 50; // must match the CSS animation-duration (qz-marquee 50s)
+
+    let isDragging = false;
+    let startX = 0;
+    let startOffset = 0; // px already scrolled (positive = moved left) at drag start
+    let currentOffset = 0;
+
+    function getAnimationOffset() {
+        // Reads the animation's current visual translateX via computed style,
+        // independent of how long it's been running or any prior drag.
+        const matrix = getComputedStyle(track).transform;
+        if (!matrix || matrix === 'none') return 0;
+        const match = matrix.match(/matrix\(([^)]+)\)/);
+        if (!match) return 0;
+        const parts = match[1].split(',').map(parseFloat);
+        return -parts[4]; // tx is negative as the belt moves left; store as positive offset
+    }
+
+    function onPointerDown(e) {
+        isDragging = true;
+        track.classList.add('is-dragging');
+        startX = e.clientX;
+        startOffset = getAnimationOffset();
+        currentOffset = startOffset;
+        // Freeze at the current visual position before taking over with drag.
+        track.style.animation = 'none';
+        track.style.transform = `translateX(${-startOffset}px)`;
+        track.setPointerCapture(e.pointerId);
+    }
+
+    function onPointerMove(e) {
+        if (!isDragging) return;
+        const dx = e.clientX - startX;
+        currentOffset = startOffset - dx; // dragging right (dx>0) should reveal earlier logos
+        // Wrap within [0, groupWidth) so a long drag never runs out of belt.
+        let wrapped = currentOffset % groupWidth;
+        if (wrapped < 0) wrapped += groupWidth;
+        track.style.transform = `translateX(${-wrapped}px)`;
+    }
+
+    function onPointerUp(e) {
+        if (!isDragging) return;
+        isDragging = false;
+        track.classList.remove('is-dragging');
+        try { track.releasePointerCapture(e.pointerId); } catch (err) { /* already released */ }
+
+        let wrapped = currentOffset % groupWidth;
+        if (wrapped < 0) wrapped += groupWidth;
+
+        // Hand back to the CSS animation at the same visual offset: a negative
+        // delay of (offset / groupWidth) * DURATION seconds into the loop.
+        track.style.transform = '';
+        track.style.animation = 'none';
+        void track.offsetWidth; // force reflow so the next animation value re-triggers
+        const delay = -(wrapped / groupWidth) * DURATION;
+        track.style.animation = `qz-marquee ${DURATION}s linear infinite`;
+        track.style.animationDelay = `${delay}s`;
+    }
+
+    track.addEventListener('pointerdown', onPointerDown);
+    track.addEventListener('pointermove', onPointerMove);
+    track.addEventListener('pointerup', onPointerUp);
+    track.addEventListener('pointercancel', onPointerUp);
+})();
+
+// ===================================
 // Console Message
 // ===================================
 console.log('%c🚀 Welcome to Qynzoo!', 'color: #44bba4; font-size: 24px; font-weight: bold;');

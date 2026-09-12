@@ -1,6 +1,293 @@
 
 # Qynzoo.com ChangeLog
 
+## 2026-09-12 — Flagship Diagram, FAQ Fix, Mobile Sweep, Draggable Marquee (v4.1.7, same version)
+
+### Flagship "how it works" visual — rebuilt twice
+First pass: a circular loop diagram (Azure → AI → Human → back to Azure)
+with curved dashed arrows computed from a true circumcircle through the
+three icon centers. User found the curve rendering messy and asked for a
+structurally different approach rather than another arrow-geometry fix.
+Rebuilt as three horizontal steps (icon + sentence below each, plain
+arrows between) — the "hard to get visually wrong" option. Later request
+changed it again: removed the per-icon sentences, switched the connector
+to right-angle/square-cornered paths (mathematically computed corners and
+arrowheads, not hand-drawn), and recolored both icons and arrows to match
+the dark navy (`#0d1030`) of the section immediately after. Final request
+reverted to the horizontal-steps layout with per-icon sentences restored,
+since the connector-line approach kept needing rework — settled on the
+simplest version: three icons in a row, arrows between, sentence under
+each, no loop geometry to get wrong. Pulled a real Azure logo from a
+public icon CDN (`logos/azure-icon.svg`) since no local one existed.
+
+### FAQ accordion — actually fixed
+Traced the non-responsive FAQ questions (flagged in an earlier session,
+confirmed pre-existing) to inline `onclick`/`<script>` handlers that
+never fired on a real click despite reading correctly — moved the toggle
+logic into the external `script.js`/`script.min.js` (unambiguously
+allowed by the site's CSP). First deploy of the fix still didn't work in
+testing — turned out `index.html` was still requesting the OLD cached
+`script.min.js?v=4.7`, never bumped when the fix was made. Bumped to
+`v4.8` and confirmed via a real simulated mouse click that only the
+clicked question expands, others stay closed.
+
+### Mobile sweep — several real layout bugs found and fixed
+User asked for a full mobile pass. Found via systematic scroll-through
+plus automated contrast/overflow scans:
+- Waterprof's full-width project card overlapped the card below it —
+  content exceeded its fixed-height grid row. Fixed by letting project
+  grid rows grow to fit content (`minmax(…, auto)`) instead of clipping.
+- Testimonial card's quote text was squeezed into a ~179px column next
+  to the photo instead of stacking — added a mobile override to stack
+  and center it.
+- FAQ section and the footer both had zero horizontal padding on mobile
+  — both use older `.neo-section`/`.footer` markup that predates the
+  redesign's CSS, which only added mobile padding to the newer
+  `.qz-section` class. Added matching padding for both.
+- The sticky "Book Free Call" button overlapped and obscured the
+  footer's "Terms of Service" link at the very bottom of the page —
+  added logic to hide the sticky CTA once the user nears the page
+  bottom, where the footer's own CTAs are already visible.
+- Hero badge pill was rendering partly underneath the sticky nav bar
+  instead of clearing it — increased top padding.
+
+### Logo marquee — layout, speed, and drag
+User reported empty dead space after the last logo — the track was
+left-aligned inside its wrapper rather than centered, so at rest (or
+under `prefers-reduced-motion`) it hugged the left edge. Centered the
+wrap so the belt always spans evenly regardless of animation state.
+Slowed the scroll from 22s to 50s per loop (previously felt too fast).
+Investigated a reported "it stops" complaint at length — confirmed via
+direct transform sampling over a forced-motion test that the CSS loop
+itself is seamless (translateX climbs steadily and wraps with no jump);
+concluded the appearance of stopping was the visitor's own OS-level
+"reduce motion" setting, which the site correctly and intentionally
+respects — user confirmed to keep that accessibility guard rather than
+override it.
+
+Added drag/swipe-to-scroll: dragging (mouse) or swiping (touch,
+`touch-action: pan-y` so vertical page scroll still works) pauses the
+CSS animation and drives the belt directly off pointer movement, wrapped
+within one group-width so a long drag never runs past the available
+logos. On release, converts the drag's final offset into a matching
+negative `animation-delay` so the CSS loop resumes from the exact same
+pixel position — verified via simulated PointerEvents that the computed
+transform before and after release are identical (no jump).
+
+### Verified
+Contrast and broken-image scans clean on both breakpoints throughout
+(one recurring false-positive noted and ruled out: `img.complete` /
+`naturalWidth` unreliably report `false`/`0` for lazy-loaded images in
+this automated browser pane even when the image is visibly rendering
+correctly on screen — confirmed by screenshot each time, not fixed in
+code since there's nothing broken). Desktop re-checked after each mobile
+fix to confirm no regressions.
+
+## 2026-09-12 — Client Logos: Marquee + Project Cards (v4.1.7, same version)
+
+User supplied real client logo files for the 5 case-study companies
+(Fugro, Haskoning, ODIDO, Waterprof, Podcast Tuhaf) and asked for them in
+the "Worked with" marquee, plus a small logo on each project pill so
+visitors recognize the brand at a glance.
+
+### Files
+Copied each supplied logo to a URL-safe kebab-case filename in `logos/`
+(existing site convention — spaced/mixed-case originals kept, only the
+safe copy referenced in HTML): `fugro-logo.svg`, `haskoning-logo.png`,
+`odido-logo.png`, `waterprof-logo.png`, `tuhaf-logo.png`.
+
+**tuhaf-logo.png was cropped.** The original was a 1080×1080 canvas with
+the actual mark (Arabic wordmark + geometric star) sitting in a narrow
+horizontal band — fine full-size, but once fit into a small fixed-height
+marquee/chip box next to four normally-proportioned logos it rendered
+almost invisibly small. Trimmed the transparent margins in-browser
+(canvas alpha-channel bounding-box scan + 20px pad) rather than fighting
+it with a one-off CSS transform, so it now sits at the same visual scale
+as the other four everywhere it's used.
+
+### Marquee ("Worked with")
+Replaced the placeholder `<span>FUGRO</span>` text row with the 5 actual
+logo images, desaturated/inverted-white and dimmed (`grayscale(100%)
+brightness(0) invert(1) opacity(0.55)`) to match the ghosted look used on
+reference sites like Xomnia, brightening to full color on hover.
+
+First pass sized each logo only by a fixed height with the width left to
+its own aspect ratio — the user pointed out this made every logo a
+different width, some barely readable. Fixed by giving every marquee logo
+a fixed width AND height box (`110×36px`) with `object-fit: contain`, so
+all five now read at the same visual size regardless of native
+proportions.
+
+### Project cards
+Initial version put each logo in a small white circular chip in the top
+corner of the card, full color. User asked instead for the marquee's
+ghosted-filter treatment, applied directly on the pill's own color
+background — no separate chip. Changed to a transparent `56×32px` slot,
+logo at `grayscale(100%) brightness(0) opacity(0.45)` (black rather than
+white, since these cards sit on bright teal/gold/coral, not dark navy),
+brightening to `opacity(0.85)` on card hover — consistent with the tag
+label directly above it, which already uses the same dark-on-light
+`rgba(13,16,48,…)` treatment. Applied to the 5 real case-study cards only
+(Fugro, Haskoning, ODIDO, Waterprof, Podcast Tuhaf) — the 3 non-client
+website links (Qynzoo, Podcast Tuhaf's own site, An Cultuurhuis) have no
+client logo and were left unchanged.
+
+### Verified
+Full contrast scan and broken-image scan (same in-browser method as the
+consistency pass above) clean after both rounds. Checked marquee hover
+color-reveal and project-card hover both still work. Checked at 375px
+mobile width — marquee and card logos both read correctly, no overflow.
+
+## 2026-09-12 — Homepage Design Consistency Pass (v4.1.7, same version)
+
+Follow-up to the same-day redesign below: the user flagged real
+inconsistencies between the new dark bento system and leftover pieces of
+the old neo-brutalist design still showing through in About, Contact, and
+FAQ. Went through the whole homepage systematically rather than patching
+spot-reports.
+
+### Method
+Wrote a small in-browser script (`javascript_tool`) that walks every leaf
+element under `body.qz-redesign`, computes text-vs-background luminance,
+and flags anything under a contrast threshold — plus a second pass that
+flags any element still carrying the old system's signature hard drop
+shadow (`rgb(0,0,0) Npx Npx 0px 0px`) or 2-3px solid white border. Re-ran
+both after every fix until both came back empty. This caught things that
+would have been easy to miss eyeballing section by section.
+
+### Bugs found and fixed
+- **Gold-on-teal eyebrow labels**: `.neo-eyebrow` (About, FAQ) is a solid
+  teal pill with dark text in the old design; the redesign had only
+  overridden the text color to gold, producing low-contrast gold-on-teal.
+  Added a page-wide `.qz-redesign .neo-eyebrow` reset (no background,
+  border, shadow, or padding) so every eyebrow across the page — new
+  sections and the three still using old markup — renders identically:
+  flat, mono, colored text only.
+- **Dark-on-dark form labels and buttons**: the contact form's floating
+  labels and the "Book a Free 30-Min Call" button were unreadable — both
+  had a `color: var(--dark-bg) !important` (or equivalent dark background)
+  baked into neo.css that only becomes a contrast bug on the new dark
+  background. Fixed with matching-specificity overrides.
+- **Boxed form wrapper**: `.contact-form-wrapper`'s old bordered/shadowed
+  card was still wrapping the new underline-input form, clashing with the
+  coral background. Stripped to transparent/no border/no shadow.
+- **Section numbering gap**: About sits between Projects (03) and
+  Testimonials, but had no number — renumbered the whole sequence in true
+  DOM order (What I Do 02 → Projects 03 → About 04 → Testimonials 05 →
+  How It Works 06 → Contact 07 → FAQ 08).
+- **Remaining brutalist shapes**: nav dropdown cards and the nav's own
+  "Book Free Call" button, the sticky mobile CTA, the footer newsletter
+  button, the About photo's circular icon badges and "Available for
+  projects" pill, and the Contact section's icon circles were all still
+  carrying the old 2-3px white border + hard offset shadow. All flattened
+  to match the new borderless, shadowless, fully-rounded pill language
+  (kept their existing colors — this was a shape fix, not a recolor).
+
+### About section, restructured (not just recolored)
+- Eyebrow + heading ("04. ABOUT" / "Hi, I'm Mostafa.") pulled out of the
+  two-column grid into a full-width header above it, so it left-aligns
+  flush with every other section's heading instead of sitting indented in
+  the text column on the right.
+- Photo and text columns swapped (text now leads on the left, photo on
+  the right) and the column ratio flipped from 0.8fr/1.2fr to 1.15fr/1fr
+  (text-wide) — matching the Hero and Flagship sections' established
+  text-left/visual-right, text-wide/visual-narrow pattern. Scoped the
+  ratio override to `min-width: 901px` only, after first shipping it
+  unscoped and finding it broke the existing mobile stacking behavior
+  (photo rendered mid-paragraph instead of below the text) — caught and
+  fixed before commit.
+- Photo, badges, and all body copy are unchanged — only their shape/
+  position/typography were touched, per explicit instruction to keep the
+  content as-is.
+
+### Investigated, found pre-existing, left alone
+While testing the FAQ accordion after restyling `.neo-faq-item`, found
+that clicking a question does not expand its answer — traced this with
+getBoundingClientRect/getComputedStyle/direct event dispatch to the
+inline `onclick="this.parentElement.classList.toggle('open')"` handler
+itself never firing on a real click (a programmatic `.onclick.call()`
+works; `.click()` and a real mouse click do not). Confirmed by testing
+the untouched pre-redesign backup — same failure there — so this is a
+**pre-existing bug, not something this pass introduced**, most likely
+related to how the CSP is delivered via a `<meta>` tag (browsers handle
+meta-tag CSP enforcement of inline event-handler attributes less
+consistently than a real HTTP header). Left as-is since it's outside this
+task's scope; flagged to the user for a separate fix.
+
+### Verified
+Full contrast scan and full shape scan (described above) both return zero
+findings after fixes. Re-checked About at desktop and 375px mobile widths
+— text stacks cleanly above the photo on mobile with no overlap. Nav
+hamburger dropdown, FAQ card shapes, and footer all re-checked visually.
+
+## 2026-09-12 — Homepage Redesign: Dark Bento System (v4.1.7)
+
+Rebuilt the homepage's visual design around the aesthetic on Mostafa's
+business card — dark navy ground (`#0d1030`), JetBrains Mono display type
+paired with Inter body text, and chunky fully-rounded pill/card blocks
+rotating through the site's existing teal/gold/coral accents. Structural
+patterns (numbered section eyebrows, sticky-label-style section headers,
+a full-bleed "flagship offer" callout band, a scrolling client-logo
+marquee, underline-only contact inputs) are adapted from an analysis of
+xomnia.com done earlier in the same session. The user built a mockup in
+an external design tool and asked for it to be reconciled with the site's
+real content and connectivity.
+
+### Scope
+Homepage (`index.html`) only, by deliberate choice — case studies, blog
+posts, FAQ, process, and legal pages keep today's lighter neo-brutalist
+design for now and are unaffected (confirmed: `qz-redesign` styling is
+scoped to `body.qz-redesign`, which only index.html carries). All existing
+inner-page links continue to resolve; nothing in the shared nav/footer
+component was restructured, only re-themed for the homepage.
+
+### What changed
+- New `css/qz-redesign.css`, loaded only by index.html.
+- Hero: headline replaced with the new motto, "Automate your work — with
+  or without AI" (previously the belief-statement subtitle; the old H1 and
+  the floating skill bubbles are retired in favor of a bento skills grid).
+  The floating-bubble and typewriter JS in script.js were left as-is —
+  their target selectors no longer match anything in the new hero markup,
+  so they no-op harmlessly rather than needing to be ripped out.
+- What I Do: same 3-item copy, restyled as numbered full-width rows.
+- New client-logo marquee (Fugro/Haskoning/ODIDO/Waterprof/Podcast Tuhaf).
+- Projects: same 8 real project cards/links (5 case studies + 3 external
+  sites), restyled into the new pill-card grid — no placeholder copy
+  shipped anywhere.
+- New flagship-offer callout: "Automation that respects enterprise data
+  rules," backed by and linking to the real Waterprof case study (Azure,
+  human-in-the-loop) rather than an invented claim — deliberately chosen
+  over a more speculative "strategic AI agent" pitch, since nothing on the
+  site yet backs that claim.
+- About: markup and copy left completely untouched per explicit
+  instruction, only re-skinned via CSS to sit on the dark background.
+- Testimonials: same real Werner Halter quote/photo/LinkedIn link,
+  restyled into the new card treatment.
+- How It Works: same real 3-step copy (not padded to 4 to match the
+  mockup), restyled.
+- Contact: same functional form (honeypot, field IDs, web3forms handler
+  all untouched) restyled to underline-only inputs. Caught and fixed two
+  contrast bugs from unstyled neo.css leftovers: the form wrapper's old
+  boxed-card chrome was still applying against the new coral background,
+  and both the floating field labels and the "Book a Free 30-Min Call"
+  button were rendering dark-on-dark (a `color: var(--dark-bg) !important`
+  in neo.css was overriding the new light text color) — both fixed with
+  explicit overrides in qz-redesign.css.
+- Footer: fully preserved (Quick Links, More/Blog/FAQ/Process, Newsletter,
+  legal links), re-skinned only.
+- Version bumped V4.1.4 → V4.1.7 in the footer (per project's "always add
+  a decimal on deploy" rule).
+
+### Verified
+Full-site backup taken first (`backups/full-site-20260912-162333`,
+gitignored, local only) before any edits. Checked in-browser at desktop
+and 375px mobile widths; hero, projects grid, and contact form all reflow
+correctly. Confirmed the hamburger nav menu still opens/closes and its
+links are unaffected. Followed internal links from the homepage into a
+case study and back, and to blogs.html — both load with no console
+errors and are visually unaffected by the new homepage-only CSS. Re-parsed
+the JSON-LD block after editing nearby markup — still valid.
+
 ## 2026-09-03 — MSc Added to About Section (v6.44)
 
 Added the University of Twente Master's to the About section.
