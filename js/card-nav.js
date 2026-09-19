@@ -68,7 +68,7 @@ class CardNav {
         <div class="nav-card-label">${item.label}</div>
         <div class="nav-card-links">
           ${item.links.map(link => `
-            <a class="nav-card-link" href="${link.href || '#'}" aria-label="${link.ariaLabel || link.label}">
+            <a class="nav-card-link" href="${link.href || '#'}" aria-label="${link.ariaLabel || link.label}"${link.target ? ` target="${link.target}" rel="noopener noreferrer"` : ''}>
               <svg class="nav-card-link-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 17L17 7M17 7H7M17 7v10"/>
               </svg>
@@ -183,7 +183,8 @@ document.addEventListener('DOMContentLoaded', () => {
         textColor: "#000",
         links: [
           { label: "FAQ",  href: base + "faq.html",   ariaLabel: "Frequently asked questions" },
-          { label: "Blog", href: base + "blogs.html", ariaLabel: "Read our blog" }
+          { label: "Blog", href: base + "blogs.html", ariaLabel: "Read our blog" },
+          { label: "CV / Resume", href: base + "documents/Mostafa-Yaghi-CV.pdf", ariaLabel: "View Mostafa Yaghi's CV (opens in a new tab)", target: "_blank" }
         ]
       },
       {
