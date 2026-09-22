@@ -236,7 +236,7 @@
     <link rel="stylesheet" href="css/card-nav.css?v=4.2" media="print" onload="this.media='all'">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'">
     <link rel="stylesheet" href="css/neo.css?v=6.44">
-    <link rel="stylesheet" href="css/qz-redesign.css?v=1.0">
+    <link rel="stylesheet" href="css/qz-redesign.css?v=2.9">
 
     <!-- Preload fonts -->
     <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700&family=JetBrains+Mono:wght@500;700;800&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
@@ -490,26 +490,160 @@
     <!-- Card Navigation -->
     <div class="card-nav-container" id="cardNavContainer"></div>
 
-    <!-- Hero Section -->
-    <section class="qz-hero" id="home">
-        <div>
-            <div class="qz-hero-badge"><span class="dot">●</span> AVAILABLE FOR PROJECTS</div>
-            <h1>Automate your work —<br>with or without AI</h1>
-            <p class="qz-hero-sub">Qynzoo is a solo AI-automation and website-building consultancy. I design and ship real automated systems for teams who'd rather get their hours back than manage another tool.</p>
-            <div class="qz-hero-buttons">
-                <a href="https://cal.com/mostafa.yaghi" class="qz-pill-btn qz-btn-gold" target="_blank" rel="noopener noreferrer">Book Free 30-Min Call</a>
-                <a href="#projects" class="qz-pill-btn qz-btn-outline">See the work</a>
+    <!-- Hero Section — problem-first, centered, with an entrance
+         animation: two color pills slide in from the left/right edges
+         and converge behind the copy, which fades up after they land. -->
+    <section class="qz-hero qz-hero-v3" id="home">
+        <div class="qz-hero-v3-bg qz-hero-v3-bg-l" aria-hidden="true"></div>
+        <div class="qz-hero-v3-bg qz-hero-v3-bg-r" aria-hidden="true"></div>
+        <div class="qz-hero-v3-content">
+            <div class="qz-hero-v3-copy">
+                <div class="qz-hero-badge"><span class="dot">●</span> AVAILABLE FOR PROJECTS</div>
+                <h1>Do it once. Never again.</h1>
+                <p class="qz-hero-v3-tagline">Automate your work — with or without AI.</p>
+                <div class="qz-hero-buttons">
+                    <a href="https://cal.com/mostafa.yaghi" class="qz-pill-btn qz-btn-gold" target="_blank" rel="noopener noreferrer">Get in touch</a>
+                    <a href="#projects" class="qz-pill-btn qz-btn-outline">See results</a>
+                </div>
             </div>
-        </div>
 
-        <!-- Skills bento grid — six things Qynzoo actually builds -->
-        <div class="qz-skills-grid">
-            <a href="#projects" class="qz-skill c-teal span-3"><span>ML Models</span></a>
-            <a href="#projects" class="qz-skill c-gold span-2"><span>RAG Applications</span></a>
-            <a href="#projects" class="qz-skill c-coral span-2"><span>Cloud Automation</span></a>
-            <a href="#projects" class="qz-skill c-teal span-3"><span>Business Automation</span></a>
-            <a href="#projects" class="qz-skill c-gold span-3"><span>AI Social Media Strategist</span></a>
-            <a href="#projects" class="qz-skill c-coral span-2"><span>Website Building</span></a>
+            <div class="qz-hero-v2-picker">
+                <div class="qz-hero-v2-picker-label qz-mono">WHICH ONE SOUNDS LIKE YOU? ↓</div>
+                <div class="qz-problem-accordion" id="problemAccordion">
+                    <div class="qz-problem-item c-teal is-open" data-problem="0">
+                        <button type="button" class="qz-problem-toggle">
+                            <span class="qz-problem-q">I rebuild the same report every week</span>
+                            <span class="qz-problem-icon">+</span>
+                        </button>
+                        <div class="qz-problem-body">
+                            <div class="qz-problem-cols">
+                                <div>
+                                    <div class="qz-problem-label qz-mono">WHAT I BUILD FOR YOU</div>
+                                    <p>Your data sources get connected so the report fills itself in and lands in your inbox, on schedule.</p>
+                                </div>
+                                <div>
+                                    <div class="qz-problem-label qz-mono">WHAT YOU GET</div>
+                                    <p>Hours back every week, and numbers you can trust because nobody copies them by hand.</p>
+                                </div>
+                            </div>
+                            <div class="qz-problem-footer">
+                                <div class="qz-mono qz-problem-tech">Under the hood: <span>Business Automation</span></div>
+                                <a href="#contact" class="qz-problem-cta qz-mono">This is my problem →</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="qz-problem-item c-gold" data-problem="1">
+                        <button type="button" class="qz-problem-toggle">
+                            <span class="qz-problem-q">We copy data between systems</span>
+                            <span class="qz-problem-icon">+</span>
+                        </button>
+                        <div class="qz-problem-body">
+                            <div class="qz-problem-cols">
+                                <div>
+                                    <div class="qz-problem-label qz-mono">WHAT I BUILD FOR YOU</div>
+                                    <p>Your tools talk to each other. A new order, lead or file moves to the right place on its own.</p>
+                                </div>
+                                <div>
+                                    <div class="qz-problem-label qz-mono">WHAT YOU GET</div>
+                                    <p>No more double entry, fewer mistakes, and a team that stops acting as the glue between apps.</p>
+                                </div>
+                            </div>
+                            <div class="qz-problem-footer">
+                                <div class="qz-mono qz-problem-tech">Under the hood: <span>Cloud Automation</span></div>
+                                <a href="#contact" class="qz-problem-cta qz-mono">This is my problem →</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="qz-problem-item c-coral" data-problem="2">
+                        <button type="button" class="qz-problem-toggle">
+                            <span class="qz-problem-q">Nobody can find anything in our documents</span>
+                            <span class="qz-problem-icon">+</span>
+                        </button>
+                        <div class="qz-problem-body">
+                            <div class="qz-problem-cols">
+                                <div>
+                                    <div class="qz-problem-label qz-mono">WHAT I BUILD FOR YOU</div>
+                                    <p>An assistant that reads your company files and answers questions, with a link to the source.</p>
+                                </div>
+                                <div>
+                                    <div class="qz-problem-label qz-mono">WHAT YOU GET</div>
+                                    <p>Answers in seconds instead of asking a colleague or digging through folders.</p>
+                                </div>
+                            </div>
+                            <div class="qz-problem-footer">
+                                <div class="qz-mono qz-problem-tech">Under the hood: <span>RAG Application</span></div>
+                                <a href="#contact" class="qz-problem-cta qz-mono">This is my problem →</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="qz-problem-item c-teal" data-problem="3">
+                        <button type="button" class="qz-problem-toggle">
+                            <span class="qz-problem-q">I want to know what's coming before it happens</span>
+                            <span class="qz-problem-icon">+</span>
+                        </button>
+                        <div class="qz-problem-body">
+                            <div class="qz-problem-cols">
+                                <div>
+                                    <div class="qz-problem-label qz-mono">WHAT I BUILD FOR YOU</div>
+                                    <p>A model trained on your own history that flags what is likely next: demand, delays, churn or maintenance.</p>
+                                </div>
+                                <div>
+                                    <div class="qz-problem-label qz-mono">WHAT YOU GET</div>
+                                    <p>Decisions based on a forecast, not a gut feeling.</p>
+                                </div>
+                            </div>
+                            <div class="qz-problem-footer">
+                                <div class="qz-mono qz-problem-tech">Under the hood: <span>ML Models</span></div>
+                                <a href="#contact" class="qz-problem-cta qz-mono">This is my problem →</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="qz-problem-item c-gold" data-problem="4">
+                        <button type="button" class="qz-problem-toggle">
+                            <span class="qz-problem-q">Social media eats my week</span>
+                            <span class="qz-problem-icon">+</span>
+                        </button>
+                        <div class="qz-problem-body">
+                            <div class="qz-problem-cols">
+                                <div>
+                                    <div class="qz-problem-label qz-mono">WHAT I BUILD FOR YOU</div>
+                                    <p>A system that drafts, plans and schedules posts in your voice. You approve, it publishes.</p>
+                                </div>
+                                <div>
+                                    <div class="qz-problem-label qz-mono">WHAT YOU GET</div>
+                                    <p>A steady presence online for a fraction of the time.</p>
+                                </div>
+                            </div>
+                            <div class="qz-problem-footer">
+                                <div class="qz-mono qz-problem-tech">Under the hood: <span>AI Social Media Strategist</span></div>
+                                <a href="#contact" class="qz-problem-cta qz-mono">This is my problem →</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="qz-problem-item c-coral" data-problem="5">
+                        <button type="button" class="qz-problem-toggle">
+                            <span class="qz-problem-q">My website doesn't bring in clients</span>
+                            <span class="qz-problem-icon">+</span>
+                        </button>
+                        <div class="qz-problem-body">
+                            <div class="qz-problem-cols">
+                                <div>
+                                    <div class="qz-problem-label qz-mono">WHAT I BUILD FOR YOU</div>
+                                    <p>A clear, fast website that explains what you do and captures enquiries automatically.</p>
+                                </div>
+                                <div>
+                                    <div class="qz-problem-label qz-mono">WHAT YOU GET</div>
+                                    <p>Visitors understand you in seconds and know how to reach you.</p>
+                                </div>
+                            </div>
+                            <div class="qz-problem-footer">
+                                <div class="qz-mono qz-problem-tech">Under the hood: <span>Website Building</span></div>
+                                <a href="#contact" class="qz-problem-cta qz-mono">This is my problem →</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -715,18 +849,27 @@
         <div class="container">
             <div class="qz-eyebrow" style="color:var(--qz-coral);">05. TESTIMONIALS</div>
             <h2 class="qz-h2">What clients say</h2>
-            <div class="qz-testimonials-grid">
+            <div class="qz-testimonials-scroll">
                 <figure class="qz-testimonial-card">
-                    <img src="images/testimonials/werner-halter-fugro.jpeg" alt="Werner Halter" width="400" height="400" loading="lazy" decoding="async">
-                    <div>
-                        <blockquote>"Mostafa is very skilled with machine learning models and AI. He has developed practical tools useful for real-world applications using data analysis. Thanks to his civil engineering background, he also understands the physical processes that led to the data."</blockquote>
-                        <a class="qz-testimonial-name" href="https://www.linkedin.com/in/werner-halter-903873a/" target="_blank" rel="noopener noreferrer">Werner Halter <i class="fab fa-linkedin"></i></a>
-                        <div class="qz-testimonial-role">Principal Consultant, Fugro</div>
+                    <div class="qz-testimonial-card-head">
+                        <img src="images/testimonials/werner-halter-fugro.jpeg" alt="Werner Halter" width="400" height="400" loading="lazy" decoding="async">
+                        <div>
+                            <a class="qz-testimonial-name" href="https://www.linkedin.com/in/werner-halter-903873a/" target="_blank" rel="noopener noreferrer">Werner Halter <i class="fab fa-linkedin"></i></a>
+                            <div class="qz-testimonial-role">Principal Consultant, Fugro</div>
+                        </div>
                     </div>
+                    <blockquote>"Mostafa is very skilled with machine learning models and AI. He has developed practical tools useful for real-world applications using data analysis. Thanks to his civil engineering background, he also understands the physical processes that led to the data."</blockquote>
                 </figure>
-                <div class="qz-testimonial-more">
-                    <span>More testimonials coming soon</span>
-                </div>
+                <figure class="qz-testimonial-card">
+                    <div class="qz-testimonial-card-head">
+                        <img src="images/testimonials/Natalia.jpeg" alt="Natalia Trushina" width="400" height="400" loading="lazy" decoding="async">
+                        <div>
+                            <span class="qz-testimonial-name">Natalia Trushina</span>
+                            <div class="qz-testimonial-role">Risk Manager, Haskoning</div>
+                        </div>
+                    </div>
+                    <blockquote>"I've come to know Mostafa as a knowledgeable and engaged consultant with deep expertise in AI, automation, and machine learning. He has a sharp eye for client questions and needs, and knows how to apply technology in a practical and valuable way."</blockquote>
+                </figure>
             </div>
         </div>
     </section>
@@ -936,7 +1079,7 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2026 Qynzoo. All rights reserved. | V4.1.7</p>
+                <p>&copy; 2026 Qynzoo. All rights reserved. | V4.2.2</p>
                 <div class="footer-bottom-links">
                     <a href="privacy-policy.html">Privacy Policy</a>
                     <a href="terms-of-service.html">Terms of Service</a>
@@ -950,7 +1093,7 @@
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js" defer></script>
 
     <script src="js/card-nav.js?v=4.3" defer></script>
-    <script src="js/script.min.js?v=4.9" defer></script>
+    <script src="js/script.min.js?v=5.0" defer></script>
     <script src="js/brandfetch-logos.js?v=4.0" defer></script>
     <script src="js/logo-drag.js?v=4.0" defer></script>
 

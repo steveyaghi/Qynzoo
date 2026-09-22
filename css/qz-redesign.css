@@ -98,6 +98,10 @@ body.qz-redesign {
     backdrop-filter: blur(6px);
     border-bottom: 1px solid rgba(255, 255, 255, 0.08);
     box-shadow: none !important;
+    /* card-nav.css caps .card-nav at 1200px centered — on wide screens
+       that left the nav bar as a floating strip mid-screen. */
+    max-width: none;
+    margin: 0;
 }
 .qz-redesign .card-nav-top .logo-text { color: var(--qz-text); font-family: var(--qz-mono); font-weight: 800; }
 .qz-redesign .hamburger-line { background: var(--qz-text) !important; }
@@ -180,7 +184,211 @@ body.qz-redesign {
     margin: 0 0 36px;
 }
 
-.qz-hero-buttons { display: flex; gap: 16px; flex-wrap: wrap; }
+.qz-hero-buttons { display: flex; gap: 16px; flex-wrap: wrap; margin-bottom: 40px; }
+
+/* ---------- HERO v2/v3 (problem-first) ---------- */
+/* .qz-hero-v2-copy / .qz-hero-v2-picker / .qz-problem-* below are
+   shared between the v2 (2-column) and v3 (centered + animated)
+   layouts — only the outer wrapper differs. */
+.qz-hero-v2-copy { padding-top: 12px; }
+.qz-hero-v2-copy h1 { margin-bottom: 32px; }
+
+/* ---------- HERO v3 (centered, animated entrance) ---------- */
+/* Matches the Qynzoo Homepage v3 design file: two half-width pills
+   start overlapping in the center, split apart to the edges, then the
+   content fades up. Site color tokens kept (design's palette switcher
+   skipped). */
+.qz-hero-v3 {
+    display: block;
+    position: relative;
+    overflow: hidden;
+    /* clip, not just hidden: the parted pills extend past the edges, and
+       an overflow:hidden box is still programmatically scrollable — a
+       click/focus inside it was scrolling the whole hero sideways. */
+    overflow: clip;
+    padding: 88px 48px 96px;
+    /* Full-bleed: the base .qz-hero caps at 1300px, which on wide
+       screens clipped the pills mid-screen with hard vertical edges.
+       Content width is capped by .qz-hero-v3-content instead. */
+    max-width: none;
+}
+.qz-hero-v3-bg {
+    position: absolute;
+    top: 50%;
+    width: 50%;
+    height: 560px;
+    margin-top: -280px;
+    border-radius: 999px;
+    z-index: 0;
+}
+.qz-hero-v3-bg-l {
+    left: 0;
+    background: var(--qz-teal);
+    animation: qz-split-l 1.4s cubic-bezier(0.65, 0, 0.25, 1) 0.3s both;
+}
+.qz-hero-v3-bg-r {
+    right: 0;
+    background: var(--qz-coral);
+    animation: qz-split-r 1.4s cubic-bezier(0.65, 0, 0.25, 1) 0.3s both;
+}
+@keyframes qz-split-l { from { transform: translateX(50%); } to { transform: translateX(-70%); } }
+@keyframes qz-split-r { from { transform: translateX(-50%); } to { transform: translateX(70%); } }
+@keyframes qz-fade-up { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: none; } }
+
+.qz-hero-v3-content {
+    position: relative;
+    z-index: 1;
+    max-width: min(760px, 68%);
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 56px;
+    animation: qz-fade-up 0.8s ease-out 1.3s both;
+}
+.qz-hero-v3-copy { display: flex; flex-direction: column; align-items: center; padding-top: 0; }
+.qz-hero-v3 h1 { font-size: 42px; margin-bottom: 12px; text-wrap: balance; }
+.qz-hero-v3-tagline {
+    font-family: var(--qz-sans);
+    font-size: 18px;
+    line-height: 1.5;
+    color: var(--qz-text-dim);
+    margin: 0 0 32px;
+}
+.qz-hero-v3 .qz-hero-buttons { justify-content: center; gap: 14px; margin-bottom: 0; }
+.qz-hero-v3 .qz-hero-v2-picker { width: 100%; }
+
+/* Accordion as a wrapped row of pills; the open one takes a full row. */
+.qz-hero-v3 .qz-problem-accordion {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    text-align: left;
+}
+.qz-hero-v3 .qz-problem-item { flex: 1 1 auto; min-width: 200px; }
+/* Closed items must size to their question only — the hidden body's
+   long paragraphs otherwise inflate each pill to a full row. */
+.qz-hero-v3 .qz-problem-item:not(.is-open) .qz-problem-body { display: none; }
+.qz-hero-v3 .qz-problem-item.is-open { flex: 1 1 100%; border-radius: 32px; }
+.qz-hero-v3 .qz-problem-toggle { padding: 12px 20px; }
+.qz-hero-v3 .qz-problem-item.is-open .qz-problem-toggle { padding: 22px 24px 0; min-height: 0; margin-bottom: 18px; }
+.qz-hero-v3 .qz-problem-item.is-open .qz-problem-q { font-size: 20px; }
+.qz-hero-v3 .qz-problem-footer { padding: 16px 24px 26px; }
+.qz-hero-v3 .qz-problem-icon { font-size: 0; transition: none; }
+.qz-hero-v3 .qz-problem-icon::before { content: "+"; font-size: 16px; }
+.qz-hero-v3 .qz-problem-item.is-open .qz-problem-icon { transform: none; }
+.qz-hero-v3 .qz-problem-item.is-open .qz-problem-icon::before { content: "\2212"; }
+
+/* Reduced motion: skip the animation but show its end state (pills
+   parted to the edges), not the start state stacked in the center. */
+@media (prefers-reduced-motion: reduce) {
+    .qz-hero-v3-bg { animation: none; }
+    .qz-hero-v3-bg-l { transform: translateX(-70%); }
+    .qz-hero-v3-bg-r { transform: translateX(70%); }
+    .qz-hero-v3-content { animation: none; opacity: 1; transform: none; }
+}
+
+.qz-hero-v2-picker-label {
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: var(--qz-gold);
+    margin-bottom: 16px;
+}
+
+.qz-problem-accordion { display: flex; flex-direction: column; gap: 12px; }
+
+.qz-problem-item { border-radius: 999px; transition: border-radius 0.2s ease; }
+.qz-problem-item.c-teal { background: var(--qz-teal); }
+.qz-problem-item.c-gold { background: var(--qz-gold); }
+.qz-problem-item.c-coral { background: var(--qz-coral); }
+.qz-problem-item.is-open { border-radius: 28px; }
+
+.qz-problem-toggle {
+    width: 100%;
+    background: none;
+    border: none;
+    padding: 16px 20px;
+    min-height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    text-align: left;
+    cursor: pointer;
+    font: inherit;
+}
+.qz-problem-q {
+    font-family: var(--qz-sans);
+    color: var(--qz-ink);
+    font-weight: 700;
+    font-size: 15px;
+    line-height: 1.3;
+}
+.qz-problem-icon {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: var(--qz-ink);
+    color: var(--qz-text);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 800;
+    font-size: 16px;
+    flex-shrink: 0;
+    transition: transform 0.2s ease;
+}
+.qz-problem-item.is-open .qz-problem-icon { transform: rotate(45deg); }
+
+.qz-problem-body {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.25s ease;
+}
+.qz-problem-item.is-open .qz-problem-body { max-height: 400px; }
+
+.qz-problem-cols {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 22px;
+    padding: 0 24px;
+    margin-bottom: 20px;
+}
+.qz-problem-label {
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 1px;
+    color: var(--qz-ink);
+    margin-bottom: 8px;
+}
+.qz-problem-cols p {
+    font-family: var(--qz-sans);
+    font-size: 16px;
+    line-height: 1.55;
+    color: var(--qz-ink);
+    margin: 0;
+}
+.qz-problem-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 14px;
+    flex-wrap: wrap;
+    padding: 16px 24px 22px;
+    border-top: 2px solid rgba(13, 16, 48, 0.2);
+}
+.qz-problem-tech { font-size: 12px; color: var(--qz-ink); }
+.qz-problem-tech span { font-weight: 800; }
+.qz-problem-cta {
+    background: var(--qz-ink);
+    color: var(--qz-text) !important;
+    padding: 10px 20px;
+    border-radius: 999px;
+    font-weight: 700;
+    font-size: 13px;
+}
 
 .qz-skills-grid {
     display: grid;
@@ -562,39 +770,60 @@ body.qz-redesign {
 
 /* ---------- TESTIMONIALS ---------- */
 
-.qz-testimonials-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 24px;
+/* Horizontally scrollable row instead of a grid — reads better with a
+   handful of cards that will keep growing, and avoids the old 3-col
+   grid's grid-column:span 2 rule, which only worked for exactly one
+   real card + one placeholder and forced every additional card to
+   wrap onto its own row. */
+.qz-testimonials-scroll {
+    display: flex;
+    gap: 20px;
+    overflow-x: auto;
+    scroll-snap-type: x proximity;
+    padding-bottom: 8px;
+    margin: 0 -4px;
+    padding-left: 4px;
+    padding-right: 4px;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(244, 242, 236, 0.25) transparent;
 }
+.qz-testimonials-scroll::-webkit-scrollbar { height: 6px; }
+.qz-testimonials-scroll::-webkit-scrollbar-thumb { background: rgba(244, 242, 236, 0.2); border-radius: 999px; }
+.qz-testimonials-scroll::-webkit-scrollbar-track { background: transparent; }
+
 .qz-testimonial-card {
     background: var(--qz-teal);
-    border-radius: 24px;
-    padding: 32px;
-    grid-column: span 2;
-    display: grid;
-    grid-template-columns: 64px 1fr;
-    gap: 20px;
-    align-items: start;
+    border-radius: 20px;
+    padding: 24px;
+    /* Grow to fill the row when few cards; never shrink below 320px,
+       so extra cards overflow into the horizontal scroll. */
+    flex: 1 0 320px;
+    scroll-snap-align: start;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
 }
+.qz-testimonial-card-head { display: flex; align-items: center; gap: 12px; }
 .qz-testimonial-card img {
-    width: 64px;
-    height: 64px;
+    width: 48px;
+    height: 48px;
     border-radius: 50%;
     object-fit: cover;
     border: 2px solid rgba(13, 16, 48, 0.25);
+    flex-shrink: 0;
 }
 .qz-testimonial-card blockquote {
     font-family: var(--qz-sans);
-    font-size: 19px;
+    font-size: 15px;
     line-height: 1.5;
     font-weight: 600;
     color: var(--qz-ink);
-    margin: 0 0 18px;
+    margin: 0;
 }
 .qz-testimonial-name {
     font-family: var(--qz-mono);
-    font-size: 13px;
+    font-size: 12px;
     font-weight: 800;
     color: var(--qz-ink) !important;
     display: inline-flex;
@@ -603,27 +832,9 @@ body.qz-redesign {
 }
 .qz-testimonial-role {
     font-family: var(--qz-sans);
-    font-size: 13px;
-    color: rgba(13, 16, 48, 0.7);
-    margin-top: 2px;
-}
-.qz-testimonial-more {
-    background: var(--qz-card-alt);
-    border: 2px dashed rgba(244, 242, 236, 0.25);
-    border-radius: 24px;
-    padding: 32px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    gap: 10px;
-}
-.qz-testimonial-more span {
-    font-family: var(--qz-mono);
     font-size: 12px;
-    font-weight: 700;
-    color: var(--qz-text-faint);
+    color: rgba(13, 16, 48, 0.7);
+    margin-top: 1px;
 }
 
 /* ---------- HOW IT WORKS ---------- */
@@ -796,6 +1007,16 @@ body.qz-redesign {
     .qz-hero { grid-template-columns: 1fr; padding: 96px 24px 48px; gap: 40px; }
     .qz-hero h1 { font-size: 38px; }
     .qz-hero-sub { font-size: 17px; max-width: none; }
+    .qz-hero-v3 { padding: 72px 24px 56px; }
+    .qz-hero-v3-content { max-width: 100%; }
+    .qz-hero-v3-tagline { font-size: 16px; }
+    /* Mobile: small pills that frame the headline + buttons from the
+       sides, instead of half-screen pills behind the accordion. */
+    .qz-hero-v3-bg { top: 130px; margin-top: 0; width: 110px; height: 110px; border-radius: 50%; }
+    .qz-hero-v3-bg-l { animation-name: qz-split-l-sm; }
+    .qz-hero-v3-bg-r { animation-name: qz-split-r-sm; }
+    @keyframes qz-split-l-sm { from { transform: translateX(150%); } to { transform: translateX(-62%); } }
+    @keyframes qz-split-r-sm { from { transform: translateX(-150%); } to { transform: translateX(62%); } }
     .qz-skills-grid { grid-template-columns: repeat(2, 1fr); grid-auto-rows: 84px; }
     .qz-skill.span-3, .qz-skill.span-2 { grid-column: span 1; }
     .qz-section, .qz-flagship, .qz-redesign .contact, .qz-redesign section.neo-section, .qz-redesign .footer { padding-left: 24px; padding-right: 24px; }
@@ -814,9 +1035,7 @@ body.qz-redesign {
     .qz-project-card.span-4 .qz-project-card-top { flex-direction: row; align-items: flex-start; order: 0; }
     .qz-flagship-steps { flex-direction: column; align-items: center; }
     .qz-flagship-arrow { height: auto; transform: rotate(90deg); margin: -4px 0; }
-    .qz-testimonials-grid { grid-template-columns: 1fr; }
-    .qz-testimonial-card { grid-column: span 1; grid-template-columns: 1fr; text-align: center; justify-items: center; }
-    .qz-testimonial-card img { margin: 0 auto; }
+    .qz-testimonial-card { flex-basis: 280px; }
     .qz-steps-grid { grid-template-columns: 1fr; }
 }
 
