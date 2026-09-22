@@ -1,6 +1,53 @@
 
 # Qynzoo.com ChangeLog
 
+## 2026-09-23 — Problem-First Animated Hero, Testimonials Row, Wide-Screen Fixes (v4.2.2)
+
+### Hero rebuilt from the Homepage v2/v3 design files
+- Headline changed to "Do it once. Never again." with a smaller
+  "Automate your work — with or without AI." tagline under it. The old
+  subtext paragraph and benefit checklist were removed as repetitive
+  (the same points appear in "What I Do" right below).
+- The static skills grid was replaced by a "Which one sounds like you?"
+  picker: six problem pills in the visitor's own words, one open at a
+  time, each showing what gets built, what the client gets, the tech
+  "under the hood", and a "This is my problem →" link to #contact.
+- Centered layout with the v3 entrance animation: teal and coral pills
+  start overlapping in the center, part to the edges, then the content
+  fades up. Site colors kept (the design file's palette switcher was
+  skipped). On mobile the pills are small circles framing the headline.
+- Bugs fixed along the way: the reduced-motion fallback showed the
+  animation's start state (pills over the accordion) instead of its end
+  state; `overflow: hidden` let clicks scroll the hero sideways (now
+  `overflow: clip`); hidden accordion text made closed pills fill a
+  whole row.
+
+### Testimonials
+- Added Natalia Trushina (Risk Manager, Haskoning), translated from
+  Dutch, with her photo (`images/testimonials/Natalia.jpeg`).
+- Cards moved from a grid (which stacked every card after the first) to
+  a horizontally scrollable row; they stretch to fill the width when
+  there are only a few.
+
+### Wide screens (checked at 1920px and 2560px)
+- Hero and top nav were capped at 1300px / 1200px, leaving the hero
+  pills cut off mid-screen and the nav as a floating strip. Both now
+  span the full width. The nav fix also applies to the blog pages.
+- Footer version bumped to V4.2.2 (it was still showing V4.1.7).
+
+## 2026-09-19 — CV Link in Nav (v4.2.1)
+- Added `documents/Mostafa-Yaghi-CV.pdf` and a "CV / Resume" link in the
+  nav's Resources card, opening in a new tab. `card-nav.js` gained
+  `target` support for nav links.
+
+## 2026-09-16 — Blog Redesign (v4.2.0)
+- Blog index and all 10 posts moved to the dark design from the Claude
+  Design files: filter pills, featured card, color-rotated tags, gold
+  newsletter band; icon-badge headings, pull-quotes, numbered cards,
+  step rows, callouts, gold CTA box, and the author photo on a yellow
+  ring. Components the design didn't cover (tool cards, trend blocks,
+  code blocks, prompt examples, tables) restyled to match.
+
 ## 2026-09-12 — Flagship Diagram, FAQ Fix, Mobile Sweep, Draggable Marquee (v4.1.7, same version)
 
 ### Flagship "how it works" visual — rebuilt twice
