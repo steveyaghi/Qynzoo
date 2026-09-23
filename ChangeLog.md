@@ -1,6 +1,61 @@
 
 # Qynzoo.com ChangeLog
 
+## 2026-09-23 — One CTA, Nav Hover, No Dashes, Seamless Logo Belt (v4.2.3)
+
+- Homepage now has a single call to action: the hero "Get in touch"
+  button, now white instead of yellow. Removed "See results",
+  "See it in production", About's "Book Free 30-Min Call", the contact
+  section's calendar card, the floating sticky button, and the nav
+  "Book Free Call" button (homepage only). The contact form stays; its
+  submit button now says "Send message".
+- Nav card links hover to white instead of gold, so text no longer
+  disappears on the yellow Resources card (all redesigned pages).
+- Rewrote every em/en dash in the homepage's visible text and meta tags
+  with commas, periods, colons or parentheses.
+- Logo belt loops seamlessly on any screen width: the logos repeat until
+  one set is wider than the screen, the track is left-anchored instead of
+  centered, and the speed stays constant (18px/s) however long it gets.
+- Projects section: client names replaced by their logos (Waterprof,
+  Fugro, Haskoning, ODIDO), drawn solid ink and sized per logo so each
+  wordmark reads at a similar size. Podcast Tuhaf keeps its name next to
+  the logo since the logo is in Arabic. The small grey corner logos were
+  removed as redundant. Qynzoo and Nederlands Arabisch Cultuurhuis keep
+  text names (no client logo available).
+- Project card spacing unified: every name/logo sits in a fixed 64px row
+  with the same gap to the tag above and the text below; the "Read the
+  case study" link sits on each card's bottom edge; grid rows grow with
+  content instead of a fixed 210px (Fugro and ODIDO text was overflowing).
+- Project hover pill: on desktop and tablet the card box itself reshapes
+  into a full-width pill. The card is lifted out of the grid (a hidden
+  placeholder keeps its slot so nothing below moves) and its position,
+  size and corner radius animate from card to pill in 0.55s, and back on
+  leave; its own content fades out while the pill content fades in. Mouse
+  opens on hover; touch tablets open on the first tap. The pill has logo,
+  description, a divider and tool chips on the left, and a pill-shaped
+  photo slideshow on the right (crossfades every 2.6s). Other cards dim
+  while it's open; photos only load on first open. Fugro and ODIDO (no
+  photos yet) show their logo on an ink panel. Touch devices show a
+  "Tap for more +" hint; the second tap opens the project. Phones
+  (<760px) open the pill inside the card instead, photo on top.
+- Tablet projects grid rebuilt: Waterprof full width (no longer a 2-row,
+  half-empty box), the next six cards in equal-height pairs, Cultuurhuis
+  full width at the end. Tablet pill content tightened (more room from the
+  curved ends, smaller logos and tool chips) so nothing touches the edge.
+- Pill morph made robust: a backup timer returns the card to the grid if
+  the browser holds back the animation-finished event, and any leftover
+  lifted card is dropped when another opens.
+- New screenshots in images/projects/: podcasttuhaf.com, ancultuurhuis.nl
+  and qynzoo.com (3 each).
+- "BUILT WITH" belt under the client logos: the 12 tools used across the
+  projects (Azure, SharePoint, Python, n8n, Excel, SQL, Power BI,
+  ThoughtSpot, React, Vite, JavaScript, GitHub) as icon + name, running the opposite direction. The belt script
+  now drives every .qz-marquee-track (seamless fill, constant speed, drag
+  to scroll), with reversed belts handled in the drag hand-off.
+- Haskoning pill now shows only the n8n pipeline screenshot (centred).
+- Cache busting: qz-redesign.css v5.0 (home) / v3.7 (blog pages),
+  script.min.js v5.8.
+
 ## 2026-09-23 — Problem-First Animated Hero, Testimonials Row, Wide-Screen Fixes (v4.2.2)
 
 ### Hero rebuilt from the Homepage v2/v3 design files
