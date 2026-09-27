@@ -3,10 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Case study: a secure AI agent built on Azure inside Waterprof's own Microsoft environment that drafts on-brand LinkedIn posts from project documents, with human review before publishing.">
+    <meta name="description" content="Case study: a secure AI assistant inside Waterprof's own Azure environment drafts LinkedIn posts from project documents. 45 minutes saved per post, over 2 hours a week.">
     <meta name="author" content="Mostafa Yaghi">
     <title>Waterprof Case Study: Secure LinkedIn Content Automation on Azure | Qynzoo</title>
     <link rel="canonical" href="https://qynzoo.com/case-studies/waterprof.html">
+    <!-- i18n:start -->
+    <link rel="alternate" hreflang="en" href="https://qynzoo.com/case-studies/waterprof.html">
+    <link rel="alternate" hreflang="nl" href="https://qynzoo.com/nl/case-studies/waterprof.html">
+    <link rel="alternate" hreflang="x-default" href="https://qynzoo.com/case-studies/waterprof.html">
+    <script src="../js/lang.js"></script>
+    <!-- i18n:end -->
 
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://unpkg.com https://www.googletagmanager.com https://www.google-analytics.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com https://unpkg.com; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self' data: https:; connect-src 'self' https://www.google-analytics.com https://analytics.google.com https://region1.google-analytics.com; base-uri 'self'; form-action 'self';">
     <meta http-equiv="X-Content-Type-Options" content="nosniff">
@@ -15,7 +21,7 @@
     <meta property="og:type" content="article">
     <meta property="og:url" content="https://qynzoo.com/case-studies/waterprof.html">
     <meta property="og:title" content="Waterprof Case Study: Secure LinkedIn Content Automation on Azure">
-    <meta property="og:description" content="A secure AI agent on Azure that drafts on-brand LinkedIn posts from project documents, with data staying in-house.">
+    <meta property="og:description" content="Case study: a secure AI assistant inside Waterprof's own Azure environment drafts LinkedIn posts from project documents. 45 minutes saved per post, over 2 hours a week.">
     <meta property="og:image" content="https://qynzoo.com/images/og/og-home.png">
 
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-YF5C5BCJK4"></script>
@@ -38,39 +44,41 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="../css/style.min.css?v=4.4">
-    <link rel="stylesheet" href="../css/card-nav.css?v=4.2" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="../css/card-nav.css?v=4.3" media="print" onload="this.media='all'">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'">
     <link rel="stylesheet" href="../css/neo.css?v=6.44">
-    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700&display=swap"></noscript>
+    <link rel="stylesheet" href="../css/qz-redesign.css?v=5.9">
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700&family=JetBrains+Mono:wght@500;700;800&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700&family=JetBrains+Mono:wght@500;700;800&display=swap"></noscript>
 </head>
-<body>
+<body class="qz-redesign qz-doc">
     <div class="card-nav-container" id="cardNavContainer"></div>
 
     <section class="case-hero neo-page">
         <div class="container">
-            <a href="../index.html#projects" class="case-back-link"><i class="fas fa-arrow-left"></i> Back to projects</a>
+            <a href="../index.html#projects" class="case-back-link"><i class="fas fa-arrow-left"></i> Back to results</a>
             <div class="case-meta">
-                <span class="case-meta-pill accent">Cloud Automation</span>
+                <span class="case-meta-pill accent">Content Automation</span>
                 <span class="case-meta-pill">Client: Waterprof</span>
                 <span class="case-meta-pill">Azure / Content Automation</span>
             </div>
             <h1 class="case-title">Secure LinkedIn Content Automation on Azure</h1>
-            <p class="case-summary">Built a secure AI agent on Azure — inside Waterprof's own Microsoft environment — that drafts on-brand LinkedIn posts from project documents, keeping data in-house and humans in the review loop.</p>
+            <p class="case-summary">We built a secure AI assistant inside Waterprof's own Azure environment that drafts LinkedIn posts from project documents, in Waterprof's tone. The data stays in-house and the team approves every post.</p>
+            <p class="case-summary"><strong>Result: 45 minutes saved per post. With about 3 posts a week, that is over 2 hours a week back for the work that matters.</strong></p>
         </div>
     </section>
 
     <section class="case-section neo-page">
         <div class="container">
             <h2>The Problem</h2>
-            <p>Waterprof's employees were manually writing LinkedIn posts, a slow process requiring many rounds of edits to get right — and one that had to stay inside Waterprof's own secure Microsoft/Azure environment, since data handling was a hard requirement.</p>
+            <p>Employees spent about an hour on every LinkedIn post: finding the right project information, writing the text and checking the tone. Nobody enjoyed it. The solution also had to stay inside Waterprof's own Microsoft and Azure environment, because data handling was a hard requirement.</p>
         </div>
     </section>
 
     <section class="case-section neo-page">
         <div class="container">
             <h2>The Approach</h2>
-            <p>I built an AI agent on Azure infrastructure — matching Waterprof's existing Microsoft environment — that pulls project documents on request and drafts LinkedIn posts matching Waterprof's established voice, with a human always reviewing before publishing.</p>
+            <p>We built an AI assistant on Azure, inside Waterprof's existing Microsoft environment. It pulls a project from SharePoint on request and drafts a LinkedIn post in Waterprof's own voice. A person on the team always reviews the draft before it is published.</p>
             <div class="case-tools">
                 <span class="case-tool-chip">Azure</span>
                 <span class="case-tool-chip">Python</span>
@@ -78,7 +86,7 @@
             <div class="case-figure-stack">
                 <figure class="case-figure is-portrait">
                     <img src="../images/linkedin-bot-generator.png" alt="Waterprof's internal LinkedIn Post Generator: pick a project from SharePoint or upload a file, choose the post language, generate a draft, then review and edit it before posting." loading="lazy" decoding="async">
-                    <figcaption>The internal tool Waterprof's team uses — pull a project straight from SharePoint, generate a draft, then check and edit before it goes out</figcaption>
+                    <figcaption>The internal tool Waterprof's team uses: pull a project from SharePoint, generate a draft, then check and edit it before it goes out</figcaption>
                 </figure>
             </div>
         </div>
@@ -87,7 +95,7 @@
     <section class="case-section neo-page" style="border-bottom:none">
         <div class="container">
             <h2>Results</h2>
-            <p>Posts no longer start from a blank page. Drafting time dropped from a multi-iteration manual process to a single AI-generated draft plus human review, with all data staying inside Waterprof's own secured infrastructure throughout.</p>
+            <p>Posts no longer start from a blank page. Each post takes about 45 minutes less, and with around 3 posts a week the team gets more than 2 hours a week back. All data stays inside Waterprof's own secured environment.</p>
             <div class="case-highlights">
                 <div class="case-highlight">
                     <i class="fab fa-microsoft"></i>
@@ -99,7 +107,7 @@
                 </div>
                 <div class="case-highlight">
                     <i class="fas fa-clock"></i>
-                    <span>Faster, same quality bar</span>
+                    <span>45 minutes saved per post</span>
                 </div>
             </div>
         </div>
@@ -124,7 +132,7 @@
                         <img src="../images/logo.png" alt="Qynzoo Logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
                         <span class="logo-text">Qynzoo</span>
                     </div>
-                    <p class="footer-description">AI automation, machine learning, and websites — built by Mostafa Yaghi. Based in the Netherlands — serving clients worldwide.</p>
+                    <p class="footer-description">Qynzoo automates repetitive work for businesses. Based in the Netherlands.</p>
                 </div>
                 <div class="footer-section">
                     <h4>Quick Links</h4>
@@ -144,7 +152,7 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2026 Qynzoo. All rights reserved. | V4.1.4</p>
+                <p>&copy; 2026 Qynzoo. All rights reserved. | V4.3.0</p>
                 <div class="footer-bottom-links">
                     <a href="../privacy-policy.html">Privacy Policy</a>
                     <a href="../terms-of-service.html">Terms of Service</a>
@@ -158,6 +166,6 @@
     // card-nav uses relative asset paths; override to work from /case-studies/
     window.CARD_NAV_BASE = '../';
     </script>
-    <script src="../js/card-nav.js?v=4.2" defer></script>
+    <script src="../js/card-nav.js?v=4.6" defer></script>
 </body>
 </html>

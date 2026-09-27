@@ -9,6 +9,25 @@ AOS.init({
 });
 
 // ===================================
+// Form messages in the page's language (Dutch pages live under /nl)
+// ===================================
+const QZ_MSG = (document.documentElement.lang || '').toLowerCase().startsWith('nl') ? {
+    required: 'Dit veld is verplicht',
+    email: 'Vul een geldig e-mailadres in',
+    select: 'Kies een optie',
+    sent: 'Bedankt! Je bericht is verstuurd. We nemen snel contact met je op.',
+    failed: 'Er ging iets mis. Probeer het later nog eens.',
+    newsletter: (email) => `Bedankt${email ? ', ' + email : ''}! De nieuwsbrief komt binnenkort; we laten het je weten zodra hij live is.`
+} : {
+    required: 'This field is required',
+    email: 'Please enter a valid email address',
+    select: 'Please select an option',
+    sent: 'Thank you! Your message has been sent successfully. We\'ll get back to you soon.',
+    failed: 'Oops! Something went wrong. Please try again later.',
+    newsletter: (email) => `Thanks for trying this out${email ? ', ' + email : ''}! The newsletter is coming soon — we'll let you know when it's live.`
+};
+
+// ===================================
 // Throttle Utility Function
 // ===================================
 function throttle(func, delay) {
@@ -273,7 +292,7 @@ function validateField(field) {
     // Check if field is empty
     if (field.hasAttribute('required') && !field.value.trim()) {
         isValid = false;
-        errorMessage = 'This field is required';
+        errorMessage = QZ_MSG.required;
     }
 
     // Email validation
@@ -281,14 +300,14 @@ function validateField(field) {
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         if (!emailRegex.test(field.value)) {
             isValid = false;
-            errorMessage = 'Please enter a valid email address';
+            errorMessage = QZ_MSG.email;
         }
     }
 
     // Select validation
     if (field.tagName === 'SELECT' && field.value === '') {
         isValid = false;
-        errorMessage = 'Please select an option';
+        errorMessage = QZ_MSG.select;
     }
 
     // Update UI
@@ -366,7 +385,7 @@ contactForm.addEventListener('submit', async (e) => {
         if (response.ok && result.success) {
             // Show success message
             formMessage.className = 'form-message success';
-            formMessage.textContent = 'Thank you! Your message has been sent successfully. We\'ll get back to you soon.';
+            formMessage.textContent = QZ_MSG.sent;
             formMessage.style.display = 'block';
 
             // Reset form
@@ -385,7 +404,7 @@ contactForm.addEventListener('submit', async (e) => {
     } catch (error) {
         // Show error message
         formMessage.className = 'form-message error';
-        formMessage.textContent = 'Oops! Something went wrong. Please try again later.';
+        formMessage.textContent = QZ_MSG.failed;
         formMessage.style.display = 'block';
         console.error('Form submission error:', error);
 
@@ -480,7 +499,7 @@ if (heroContactForm) {
             if (response.ok && result.success) {
                 // Show success message
                 heroFormMessage.className = 'form-message success';
-                heroFormMessage.textContent = 'Thank you! Your message has been sent successfully. We\'ll get back to you soon.';
+                heroFormMessage.textContent = QZ_MSG.sent;
                 heroFormMessage.style.display = 'block';
 
                 // Reset form
@@ -499,7 +518,7 @@ if (heroContactForm) {
         } catch (error) {
             // Show error message with details
             heroFormMessage.className = 'form-message error';
-            heroFormMessage.textContent = `Error: ${error.message || 'Something went wrong. Please try again later.'}`;
+            heroFormMessage.textContent = QZ_MSG.failed;
             heroFormMessage.style.display = 'block';
             console.error('Hero form submission error:', error);
             console.error('Error details:', error.message);
@@ -536,7 +555,7 @@ newsletterForm.addEventListener('submit', (e) => {
     // The newsletter isn't live yet — be upfront about that rather than
     // faking a successful subscription.
     if (newsletterMessage) {
-        newsletterMessage.textContent = `Thanks for trying this out${email ? ', ' + email : ''}! The newsletter is coming soon — we'll let you know when it's live.`;
+        newsletterMessage.textContent = QZ_MSG.newsletter(email);
         newsletterMessage.classList.add('visible');
     }
 
@@ -807,12 +826,22 @@ document.querySelectorAll('.neo-faq-question').forEach(btn => {
 // Hero "which problem sounds like you?" accordion — one item open at
 // a time; clicking the open item closes it.
 // ===================================
+// Each pill gets its own view-transition-name, so opening one morphs every
+// box from its old shape and position to the new one (same feel as the
+// project cards). Browsers without the View Transitions API just switch.
+document.querySelectorAll('.qz-problem-item').forEach((item, i) => {
+    item.style.viewTransitionName = 'qz-problem-' + i;
+});
 document.querySelectorAll('.qz-problem-toggle').forEach(btn => {
     btn.addEventListener('click', function () {
         const item = this.closest('.qz-problem-item');
         const wasOpen = item.classList.contains('is-open');
-        item.parentElement.querySelectorAll('.qz-problem-item.is-open').forEach(el => el.classList.remove('is-open'));
-        if (!wasOpen) item.classList.add('is-open');
+        const toggle = () => {
+            item.parentElement.querySelectorAll('.qz-problem-item.is-open').forEach(el => el.classList.remove('is-open'));
+            if (!wasOpen) item.classList.add('is-open');
+        };
+        if (document.startViewTransition) document.startViewTransition(toggle);
+        else toggle();
     });
 });
 

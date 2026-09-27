@@ -394,3 +394,56 @@
     padding: 0.5rem 16px;
   }
 }
+
+/* Right side of the bar: language switch + call to action */
+.card-nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  height: 100%;
+}
+
+.card-nav-lang {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  padding: 3px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+.card-nav-lang a,
+.card-nav-lang span {
+  padding: 4px 9px;
+  border-radius: 999px;
+  line-height: 1;
+  text-decoration: none;
+}
+
+.card-nav-lang a {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.card-nav-lang a:hover {
+  color: #fff;
+}
+
+.card-nav-lang .is-active {
+  background: #fff;
+  color: #0d1030;
+}
+
+@media (max-width: 768px) {
+  .card-nav-actions {
+    order: 2;
+    margin-left: auto;
+    margin-right: 10px;
+  }
+
+  .hamburger-menu {
+    order: 3;
+  }
+}

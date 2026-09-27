@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Case: met Random Forest, neurale netwerken en auto-encoders bij Fugro het droog volumegewicht en de wrijvingshoek van dijkklei voorspellen voor macrostabiliteitsanalyse, zonder te wachten op triaxiaal- en verdichtingsproeven.">
+    <meta name="author" content="Mostafa Yaghi">
+    <title>Case Fugro: variabelen voor dijkstabiliteit voorspellen met machine learning | Qynzoo</title>
+    <link rel="canonical" href="https://qynzoo.com/nl/case-studies/fugro.html">
+    <!-- i18n:start -->
+    <link rel="alternate" hreflang="en" href="https://qynzoo.com/case-studies/fugro.html">
+    <link rel="alternate" hreflang="nl" href="https://qynzoo.com/nl/case-studies/fugro.html">
+    <link rel="alternate" hreflang="x-default" href="https://qynzoo.com/case-studies/fugro.html">
+    <script src="../../js/lang.js"></script>
+    <!-- i18n:end -->
+
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://unpkg.com https://www.googletagmanager.com https://www.google-analytics.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com https://unpkg.com; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self' data: https:; connect-src 'self' https://www.google-analytics.com https://analytics.google.com https://region1.google-analytics.com; base-uri 'self'; form-action 'self';">
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://qynzoo.com/nl/case-studies/fugro.html">
+    <meta property="og:title" content="Case Fugro: variabelen voor dijkstabiliteit voorspellen met machine learning">
+    <meta property="og:description" content="Random Forest, neurale netwerken en auto-encoders toegepast om grondeigenschappen van dijkklei te voorspellen voor macrostabiliteitsanalyse.">
+    <meta property="og:image" content="https://qynzoo.com/images/og/og-home.png">
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-YF5C5BCJK4"></script>
+    <script src="../../js/analytics.js"></script>
+
+    <!-- Schema.org CreativeWork -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "CreativeWork",
+      "name": "Variabelen voor dijkstabiliteit voorspellen met machine learning",
+      "about": "Applied machine learning to predict soil variables for dike macro-stability analysis",
+      "creator": {
+        "@type": "Person",
+        "name": "Mostafa Yaghi"
+      },
+      "client": {
+        "@type": "Organization",
+        "name": "Fugro"
+      },
+      "url": "https://qynzoo.com/nl/case-studies/fugro.html"
+    }
+    </script>
+
+    <link rel="icon" type="image/svg+xml" href="../../logos/Qynzoo_solo_logo.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="../../css/style.min.css?v=4.4">
+    <link rel="stylesheet" href="../../css/card-nav.css?v=4.3" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="../../css/neo.css?v=6.44">
+    <link rel="stylesheet" href="../../css/qz-redesign.css?v=5.9">
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700&family=JetBrains+Mono:wght@500;700;800&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700&family=JetBrains+Mono:wght@500;700;800&display=swap"></noscript>
+</head>
+<body class="qz-redesign qz-doc">
+    <div class="card-nav-container" id="cardNavContainer"></div>
+
+    <section class="case-hero neo-page">
+        <div class="container">
+            <a href="../index.html#projects" class="case-back-link"><i class="fas fa-arrow-left"></i> Terug naar resultaten</a>
+            <div class="case-meta">
+                <span class="case-meta-pill accent">Machine learning</span>
+                <span class="case-meta-pill">Klant: Fugro</span>
+                <span class="case-meta-pill">Geotechniek / infrastructuur</span>
+            </div>
+            <h1 class="case-title">Onderzoek naar machine learning om grondeigenschappen te voorspellen voor de macrostabiliteit van dijken</h1>
+            <p class="case-summary">Random Forest, neurale netwerken en auto-encoders werden gebruikt om het droog volumegewicht en de wrijvingshoek van dijkklei te voorspellen. Zo krijgen ontwerpers een schatting op basis van data, nog voordat trage en dure labtests worden gedaan.</p>
+        </div>
+    </section>
+
+    <section class="case-section neo-page">
+        <div class="container">
+            <h2>Het probleem</h2>
+            <p>Voor het ontwerp van de macrostabiliteit van een dijk moet je het droog volumegewicht en de wrijvingshoek van de klei kennen. Ingenieurs halen die nu uit triaxiaal- en verdichtingsproeven, die duur en traag zijn en in de ontwerpfase niet beschikbaar. Tot die proeven zijn gedaan, vallen ontwerpers terug op handmatige schattingen op basis van de klei-zandverhouding en een aangenomen consistentie (slap, matig, vast). De vraag van dit project: kan machine learning die schatting in de ontwerpfase nauwkeuriger maken, met alleen de data die een ingenieur al heeft?</p>
+        </div>
+    </section>
+
+    <section class="case-section neo-page">
+        <div class="container">
+            <h2>De aanpak</h2>
+            <p>Met Nederlandse geotechnische data uit de database van Fugro werden Random Forest- en neuraal-netwerkmodellen getraind in vier scenario's, die elk een ander kennisniveau in de ontwerpfase weerspiegelen: Atterberg-grenzen, klei-, zand- en siltgehalte, de driehoeksclassificatie volgens NEN 5014 en de categorie in het plasticiteitsdiagram. Auto-encoders werden getest voor het extraheren van kenmerken. Het doel: vinden welke combinatie van invoer en model het droog volumegewicht en de wrijvingshoek het best voorspelt, nog voordat er een labtest is gedaan.</p>
+            <div class="case-tools">
+                <span class="case-tool-chip">Neural Networks</span>
+                <span class="case-tool-chip">Random Forest</span>
+                <span class="case-tool-chip">Auto-Encoders</span>
+                <span class="case-tool-chip">Python</span>
+            </div>
+        </div>
+    </section>
+
+    <section class="case-section neo-page" style="border-bottom:none">
+        <div class="container">
+            <h2>Resultaten</h2>
+            <p>Random Forest presteerde in alle scenario's beter dan neurale netwerken, waarbij het scenario met Atterberg-grenzen de sterkste voorspellingen gaf, vooral voor het droog volumegewicht. In combinatie met schattingen van het watergehalte bij drie consistentie-indices (0,60 / 0,75 / 0,85) kon het volumegewicht met weinig onzekerheid worden voorspeld. Dat sluit direct aan bij hoe ingenieurs de schatting nu maken, maar dan nauwkeuriger.</p>
+            <p>De wrijvingshoek kon niet betrouwbaar worden voorspeld. Dat lag niet aan het model maar aan de data: de beschikbare triaxiaaldataset was te klein en te wisselend van kwaliteit voor een zinvolle correlatie. De modellen hadden simpelweg niets om van te leren. De praktische conclusie blijft staan: voor het volumegewicht kunnen verdichtings- en triaxiaalproeven in de ontwerpfase realistisch worden overgeslagen, wat kosten en tijd bespaart zonder in te leveren op nauwkeurigheid.</p>
+        </div>
+    </section>
+
+    <section class="neo-section neo-page">
+        <div class="container" style="text-align:center">
+            <h2 class="neo-section-title" style="font-size:28px">Een vergelijkbaar probleem?</h2>
+            <div style="margin-top:20px">
+                <a href="https://cal.com/mostafa.yaghi" class="neo-btn" target="_blank" rel="noopener noreferrer">Plan een gratis gesprek van 30 minuten</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="pixel-bg"></div>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <img src="../../images/logo.png" alt="Qynzoo Logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                        <span class="logo-text">Qynzoo</span>
+                    </div>
+                    <p class="footer-description">Qynzoo automatiseert repetitief werk voor bedrijven. Gevestigd in Nederland.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Snelle links</h4>
+                    <ul class="footer-links">
+                        <li><a href="../index.html#home">Home</a></li>
+                        <li><a href="../index.html#projects">Projecten</a></li>
+                        <li><a href="../faq.html">FAQ</a></li>
+                        <li><a href="../index.html#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Juridisch</h4>
+                    <ul class="footer-links">
+                        <li><a href="../privacy-policy.html">Privacybeleid</a></li>
+                        <li><a href="../terms-of-service.html">Algemene voorwaarden</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Qynzoo. Alle rechten voorbehouden. | V4.3.0</p>
+                <div class="footer-bottom-links">
+                    <a href="../privacy-policy.html">Privacybeleid</a>
+                    <a href="../terms-of-service.html">Algemene voorwaarden</a>
+                    <a href="../sitemap.html">Sitemap</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+    // card-nav uses relative asset paths; override to work from /case-studies/
+    window.CARD_NAV_BASE = '../../';
+    </script>
+    <script src="../../js/card-nav.js?v=4.6" defer></script>
+</body>
+</html>

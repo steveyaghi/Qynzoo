@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Case: een beveiligde AI-assistent in de eigen Azure-omgeving van Waterprof stelt LinkedIn-posts op uit projectdocumenten. 45 minuten tijdwinst per post, ruim 2 uur per week.">
+    <meta name="author" content="Mostafa Yaghi">
+    <title>Case Waterprof: beveiligde LinkedIn-contentautomatisering op Azure | Qynzoo</title>
+    <link rel="canonical" href="https://qynzoo.com/nl/case-studies/waterprof.html">
+    <!-- i18n:start -->
+    <link rel="alternate" hreflang="en" href="https://qynzoo.com/case-studies/waterprof.html">
+    <link rel="alternate" hreflang="nl" href="https://qynzoo.com/nl/case-studies/waterprof.html">
+    <link rel="alternate" hreflang="x-default" href="https://qynzoo.com/case-studies/waterprof.html">
+    <script src="../../js/lang.js"></script>
+    <!-- i18n:end -->
+
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://unpkg.com https://www.googletagmanager.com https://www.google-analytics.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com https://unpkg.com; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self' data: https:; connect-src 'self' https://www.google-analytics.com https://analytics.google.com https://region1.google-analytics.com; base-uri 'self'; form-action 'self';">
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://qynzoo.com/nl/case-studies/waterprof.html">
+    <meta property="og:title" content="Case Waterprof: beveiligde LinkedIn-contentautomatisering op Azure">
+    <meta property="og:description" content="Case: een beveiligde AI-assistent in de eigen Azure-omgeving van Waterprof stelt LinkedIn-posts op uit projectdocumenten. 45 minuten tijdwinst per post, ruim 2 uur per week.">
+    <meta property="og:image" content="https://qynzoo.com/images/og/og-home.png">
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-YF5C5BCJK4"></script>
+    <script src="../../js/analytics.js"></script>
+
+    <!-- Schema.org CreativeWork -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "CreativeWork",
+      "name": "Beveiligde LinkedIn-contentautomatisering op Azure",
+      "about": "Secure Azure-hosted AI agent drafting on-brand LinkedIn content from project documents",
+      "creator": {
+        "@type": "Person",
+        "name": "Mostafa Yaghi"
+      },
+      "client": {
+        "@type": "Organization",
+        "name": "Waterprof"
+      },
+      "url": "https://qynzoo.com/nl/case-studies/waterprof.html"
+    }
+    </script>
+
+    <link rel="icon" type="image/svg+xml" href="../../logos/Qynzoo_solo_logo.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="../../css/style.min.css?v=4.4">
+    <link rel="stylesheet" href="../../css/card-nav.css?v=4.3" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="../../css/neo.css?v=6.44">
+    <link rel="stylesheet" href="../../css/qz-redesign.css?v=5.9">
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700&family=JetBrains+Mono:wght@500;700;800&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700&family=JetBrains+Mono:wght@500;700;800&display=swap"></noscript>
+</head>
+<body class="qz-redesign qz-doc">
+    <div class="card-nav-container" id="cardNavContainer"></div>
+
+    <section class="case-hero neo-page">
+        <div class="container">
+            <a href="../index.html#projects" class="case-back-link"><i class="fas fa-arrow-left"></i> Terug naar resultaten</a>
+            <div class="case-meta">
+                <span class="case-meta-pill accent">Contentautomatisering</span>
+                <span class="case-meta-pill">Klant: Waterprof</span>
+                <span class="case-meta-pill">Azure / contentautomatisering</span>
+            </div>
+            <h1 class="case-title">Beveiligde LinkedIn-contentautomatisering op Azure</h1>
+            <p class="case-summary">We bouwden een beveiligde AI-assistent in de eigen Azure-omgeving van Waterprof die LinkedIn-posts opstelt uit projectdocumenten, in de toon van Waterprof. De data blijft in huis en het team keurt elke post goed.</p>
+            <p class="case-summary"><strong>Resultaat: 45 minuten tijdwinst per post. Met ongeveer 3 posts per week is dat ruim 2 uur per week terug voor het werk dat ertoe doet.</strong></p>
+        </div>
+    </section>
+
+    <section class="case-section neo-page">
+        <div class="container">
+            <h2>Het probleem</h2>
+            <p>Medewerkers waren ongeveer een uur kwijt aan elke LinkedIn-post: de juiste projectinformatie zoeken, de tekst schrijven en de toon controleren. Niemand vond het leuk. De oplossing moest bovendien binnen de eigen Microsoft- en Azure-omgeving van Waterprof blijven, want de omgang met data was een harde eis.</p>
+        </div>
+    </section>
+
+    <section class="case-section neo-page">
+        <div class="container">
+            <h2>De aanpak</h2>
+            <p>We bouwden een AI-assistent op Azure, binnen de bestaande Microsoft-omgeving van Waterprof. Op verzoek haalt hij een project uit SharePoint en stelt hij een LinkedIn-post op in de eigen toon van Waterprof. Iemand uit het team controleert het concept altijd voordat het wordt gepubliceerd.</p>
+            <div class="case-tools">
+                <span class="case-tool-chip">Azure</span>
+                <span class="case-tool-chip">Python</span>
+            </div>
+            <div class="case-figure-stack">
+                <figure class="case-figure is-portrait">
+                    <img src="../../images/linkedin-bot-generator.png" alt="De interne LinkedIn Post Generator van Waterprof: kies een project uit SharePoint of upload een bestand, kies de taal van de post, genereer een concept en controleer en bewerk het voordat het online gaat." loading="lazy" decoding="async">
+                    <figcaption>De interne tool van het team van Waterprof: haal een project uit SharePoint, genereer een concept en controleer en bewerk het voordat het de deur uitgaat</figcaption>
+                </figure>
+            </div>
+        </div>
+    </section>
+
+    <section class="case-section neo-page" style="border-bottom:none">
+        <div class="container">
+            <h2>Resultaten</h2>
+            <p>Posts beginnen niet meer met een leeg blad. Elke post kost ongeveer 45 minuten minder, en met zo'n 3 posts per week krijgt het team ruim 2 uur per week terug. Alle data blijft binnen de eigen beveiligde omgeving van Waterprof.</p>
+            <div class="case-highlights">
+                <div class="case-highlight">
+                    <i class="fab fa-microsoft"></i>
+                    <span>Bedrijfsdata blijft op Azure</span>
+                </div>
+                <div class="case-highlight">
+                    <i class="fas fa-user-check"></i>
+                    <span>Een mens keurt altijd goed</span>
+                </div>
+                <div class="case-highlight">
+                    <i class="fas fa-clock"></i>
+                    <span>45 minuten tijdwinst per post</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="neo-section neo-page">
+        <div class="container" style="text-align:center">
+            <h2 class="neo-section-title" style="font-size:28px">Een vergelijkbaar probleem?</h2>
+            <div style="margin-top:20px">
+                <a href="https://cal.com/mostafa.yaghi" class="neo-btn" target="_blank" rel="noopener noreferrer">Plan een gratis gesprek van 30 minuten</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="pixel-bg"></div>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <img src="../../images/logo.png" alt="Qynzoo Logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                        <span class="logo-text">Qynzoo</span>
+                    </div>
+                    <p class="footer-description">Qynzoo automatiseert repetitief werk voor bedrijven. Gevestigd in Nederland.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Snelle links</h4>
+                    <ul class="footer-links">
+                        <li><a href="../index.html#home">Home</a></li>
+                        <li><a href="../index.html#projects">Projecten</a></li>
+                        <li><a href="../faq.html">FAQ</a></li>
+                        <li><a href="../index.html#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Juridisch</h4>
+                    <ul class="footer-links">
+                        <li><a href="../privacy-policy.html">Privacybeleid</a></li>
+                        <li><a href="../terms-of-service.html">Algemene voorwaarden</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Qynzoo. Alle rechten voorbehouden. | V4.3.0</p>
+                <div class="footer-bottom-links">
+                    <a href="../privacy-policy.html">Privacybeleid</a>
+                    <a href="../terms-of-service.html">Algemene voorwaarden</a>
+                    <a href="../sitemap.html">Sitemap</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+    // card-nav uses relative asset paths; override to work from /case-studies/
+    window.CARD_NAV_BASE = '../../';
+    </script>
+    <script src="../../js/card-nav.js?v=4.6" defer></script>
+</body>
+</html>

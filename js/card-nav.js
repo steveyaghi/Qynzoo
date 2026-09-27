@@ -42,15 +42,18 @@ class CardNav {
             <div class="hamburger-line"></div>
           </button>
           <div class="logo-container">
-            <a href="${window.CARD_NAV_BASE || ''}index.html#home">
+            <a href="${this.config.homeHref}">
               <img src="${this.config.logo}" alt="${this.config.logoAlt}" class="logo">
               <span class="logo-text">Qynzoo</span>
             </a>
           </div>
-          <button type="button" class="card-nav-cta-button"
-            onclick="window.open('https://cal.com/mostafa.yaghi', '_blank')">
-            Book Free Call
-          </button>
+          <div class="card-nav-actions">
+            ${this.renderLangSwitch()}
+            <button type="button" class="card-nav-cta-button"
+              onclick="window.open('https://cal.com/mostafa.yaghi', '_blank')">
+              ${this.config.ctaLabel}
+            </button>
+          </div>
         </div>
         <div class="card-nav-content">
           ${this.renderCards()}
@@ -59,6 +62,18 @@ class CardNav {
 
     this.navRef = container.querySelector('.card-nav');
     this.cardsRef = Array.from(container.querySelectorAll('.nav-card'));
+  }
+
+  // EN | NL switch. js/lang.js exposes the other language's URL (from the
+  // page's hreflang link); pages without a translation get no switch.
+  renderLangSwitch() {
+    const alt = window.qzAltHref;
+    if (!alt) return '';
+    const current = this.config.lang;
+    const item = l => l === current
+      ? `<span class="is-active" aria-current="true">${l.toUpperCase()}</span>`
+      : `<a href="${alt}" hreflang="${l}" lang="${l}" onclick="window.qzSetLang && window.qzSetLang('${l}')">${l.toUpperCase()}</a>`;
+    return `<div class="card-nav-lang" role="group" aria-label="${current === 'nl' ? 'Taal' : 'Language'}">${item('en')}${item('nl')}</div>`;
   }
 
   renderCards() {
@@ -161,39 +176,55 @@ class CardNav {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
+  // CARD_NAV_BASE points at the site root (assets, blog). Dutch pages live
+  // under nl/, so their page links get that prefix too.
   const base = window.CARD_NAV_BASE || '';
+  const nl = (document.documentElement.lang || '').toLowerCase().startsWith('nl');
+  const page = nl ? base + 'nl/' : base;
+  const t = nl ? {
+    work: 'Werk', results: 'Resultaten', websites: 'Websites', testimonials: 'Klanten aan het woord', how: 'Zo werken we',
+    company: 'Bedrijf', about: 'Over ons', faq: 'Veelgestelde vragen', blog: 'Blog (Engels)',
+    connect: 'Contact', contact: 'Neem contact op', cta: 'Gratis gesprek'
+  } : {
+    work: 'Work', results: 'Results', websites: 'Websites', testimonials: 'Testimonials', how: 'How It Works',
+    company: 'Company', about: 'About', faq: 'FAQ', blog: 'Blog',
+    connect: 'Connect', contact: 'Contact Us', cta: 'Book Free Call'
+  };
   window.cardNav = new CardNav({
     logo: base + 'logos/Qynzoo_solo_logo.svg',
     logoAlt: 'Qynzoo Logo',
+    lang: nl ? 'nl' : 'en',
+    homeHref: page + 'index.html#home',
+    ctaLabel: t.cta,
     items: [
       {
-        label: "Work",
+        label: t.work,
         bgColor: "#44bba4",
         textColor: "#fff",
         links: [
-          { label: "Projects",     href: base + "index.html#projects", ariaLabel: "See project case studies" },
-          { label: "About",        href: base + "index.html#about",    ariaLabel: "About Mostafa Yaghi and Qynzoo" },
-          { label: "Testimonials", href: base + "index.html#testimonials", ariaLabel: "What clients say" },
-          { label: "How It Works", href: base + "index.html#workflow", ariaLabel: "How our process works" }
+          { label: t.results,      href: page + "index.html#projects" },
+          { label: t.websites,     href: page + "websites.html" },
+          { label: t.testimonials, href: page + "index.html#testimonials" },
+          { label: t.how,          href: page + "index.html#workflow" }
         ]
       },
       {
-        label: "Resources",
+        label: t.company,
         bgColor: "#ffc107",
         textColor: "#000",
         links: [
-          { label: "FAQ",  href: base + "faq.html",   ariaLabel: "Frequently asked questions" },
-          { label: "Blog", href: base + "blogs.html", ariaLabel: "Read our blog" },
-          { label: "CV / Resume", href: base + "documents/Mostafa-Yaghi-CV.pdf", ariaLabel: "View Mostafa Yaghi's CV (opens in a new tab)", target: "_blank" }
+          { label: t.about, href: page + "about.html" },
+          { label: t.faq,   href: page + "faq.html" },
+          { label: t.blog,  href: base + "blogs.html" }
         ]
       },
       {
-        label: "Connect",
+        label: t.connect,
         bgColor: "#fc7753",
         textColor: "#fff",
         links: [
-          { label: "Contact Us", href: base + "index.html#contact", ariaLabel: "Contact us" },
-          { label: "LinkedIn",   href: "https://www.linkedin.com/company/qynzoo", ariaLabel: "LinkedIn" }
+          { label: t.contact, href: page + "index.html#contact" },
+          { label: "LinkedIn", href: "https://www.linkedin.com/company/qynzoo", target: "_blank" }
         ]
       }
     ],

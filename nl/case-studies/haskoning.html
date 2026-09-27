@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Case: een AI-assistent stelt voor Haskoning risicoregisters voor infrastructuur op uit een projectbeschrijving. Een nieuw project starten ging van ongeveer 8 uur naar 3.">
+    <meta name="author" content="Mostafa Yaghi">
+    <title>Case Haskoning: risicoregisters voor infrastructuur, opgesteld met AI | Qynzoo</title>
+    <link rel="canonical" href="https://qynzoo.com/nl/case-studies/haskoning.html">
+    <!-- i18n:start -->
+    <link rel="alternate" hreflang="en" href="https://qynzoo.com/case-studies/haskoning.html">
+    <link rel="alternate" hreflang="nl" href="https://qynzoo.com/nl/case-studies/haskoning.html">
+    <link rel="alternate" hreflang="x-default" href="https://qynzoo.com/case-studies/haskoning.html">
+    <script src="../../js/lang.js"></script>
+    <!-- i18n:end -->
+
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://unpkg.com https://www.googletagmanager.com https://www.google-analytics.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com https://unpkg.com; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self' data: https:; connect-src 'self' https://www.google-analytics.com https://analytics.google.com https://region1.google-analytics.com; base-uri 'self'; form-action 'self';">
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://qynzoo.com/nl/case-studies/haskoning.html">
+    <meta property="og:title" content="Case Haskoning: risicoregisters voor infrastructuur, opgesteld met AI">
+    <meta property="og:description" content="Case: een AI-assistent stelt voor Haskoning risicoregisters voor infrastructuur op uit een projectbeschrijving. Een nieuw project starten ging van ongeveer 8 uur naar 3.">
+    <meta property="og:image" content="https://qynzoo.com/images/og/og-home.png">
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-YF5C5BCJK4"></script>
+    <script src="../../js/analytics.js"></script>
+
+    <!-- Schema.org CreativeWork -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "CreativeWork",
+      "name": "Risicoregisters voor infrastructuur, opgesteld met AI",
+      "about": "Retrieval-augmented generation agent producing infrastructure risk registers",
+      "creator": {
+        "@type": "Person",
+        "name": "Mostafa Yaghi"
+      },
+      "client": {
+        "@type": "Organization",
+        "name": "Haskoning"
+      },
+      "url": "https://qynzoo.com/nl/case-studies/haskoning.html"
+    }
+    </script>
+
+    <link rel="icon" type="image/svg+xml" href="../../logos/Qynzoo_solo_logo.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="../../css/style.min.css?v=4.4">
+    <link rel="stylesheet" href="../../css/card-nav.css?v=4.3" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="../../css/neo.css?v=6.44">
+    <link rel="stylesheet" href="../../css/qz-redesign.css?v=5.9">
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700&family=JetBrains+Mono:wght@500;700;800&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700&family=JetBrains+Mono:wght@500;700;800&display=swap"></noscript>
+</head>
+<body class="qz-redesign qz-doc">
+    <div class="card-nav-container" id="cardNavContainer"></div>
+
+    <section class="case-hero neo-page">
+        <div class="container">
+            <a href="../index.html#projects" class="case-back-link"><i class="fas fa-arrow-left"></i> Terug naar resultaten</a>
+            <div class="case-meta">
+                <span class="case-meta-pill accent">AI-concepten</span>
+                <span class="case-meta-pill">Klant: Haskoning</span>
+                <span class="case-meta-pill">AI-automatisering</span>
+            </div>
+            <h1 class="case-title">Risicoregisters voor infrastructuur, opgesteld met AI</h1>
+            <p class="case-summary">We bouwden een AI-assistent die een projectbeschrijving omzet in een concept-risicoregister, zodat risicomanagers elk nieuw project met een stevige basis beginnen in plaats van een leeg blad.</p>
+            <p class="case-summary"><strong>Resultaat: een nieuw project starten ging van ongeveer 8 uur werk naar 3.</strong></p>
+        </div>
+    </section>
+
+    <section class="case-section neo-page">
+        <div class="container">
+            <h2>Het probleem</h2>
+            <p>Elk nieuw infrastructuurproject begint met een leeg risicoregister. Normaal gesproken betekende dat oude registers doorspitten, relevante risico's overnemen en nieuwe bedenken. Een risicomanager was hier zo'n 8 uur mee bezig voordat de echte beoordeling kon beginnen.</p>
+        </div>
+    </section>
+
+    <section class="case-section neo-page">
+        <div class="container">
+            <h2>De aanpak</h2>
+            <p>We bouwden een AI-assistent op n8n, gekoppeld aan een gestructureerde database met bekende infrastructuurrisico's. Op basis van een beschrijving van het nieuwe project zoekt hij relevante risico's uit eerdere projecten en schrijft hij een concept-risicoregister, met oorzaken en maatregelen, direct in een Excel-bestand dat klaarstaat voor de risicomanager.</p>
+            <div class="case-tools">
+                <span class="case-tool-chip">n8n</span>
+                <span class="case-tool-chip">RAG</span>
+                <span class="case-tool-chip">Automatisering</span>
+                <span class="case-tool-chip">Excel-koppeling</span>
+            </div>
+            <div class="case-figure-stack">
+                <figure class="case-figure is-wide">
+                    <img src="../../images/n8n-haskoning.png" alt="De n8n-workflow achter de risicoregister-assistent, met de zoek- en generatiestappen die een conceptregister opleveren." loading="lazy" decoding="async">
+                    <figcaption>n8n-workflow (de achterkant van de app)</figcaption>
+                </figure>
+                <figure class="case-figure is-portrait">
+                    <img src="../../images/n8n-risk-lens-frontend.png" alt="De interface van de Risk Lens-app, waar een risicomanager een projectbeschrijving invoert en het gegenereerde risicoregister ontvangt." loading="lazy" decoding="async">
+                    <figcaption>Eenvoudige gebruikersinterface (de voorkant van de app)</figcaption>
+                </figure>
+            </div>
+        </div>
+    </section>
+
+    <section class="case-section neo-page" style="border-bottom:none">
+        <div class="container">
+            <h2>Resultaten</h2>
+            <p>Een nieuw project starten kost nu ongeveer 3 uur in plaats van 8: zo'n 5 uur tijdwinst per project. De assistent vervangt het oordeel van de risicomanager niet. Hij haalt het lege blad en het kopieerwerk weg, zodat de risicomanager de tijd besteedt aan beslissingen in plaats van data-invoer.</p>
+            <div class="case-highlights">
+                <div class="case-highlight">
+                    <i class="fas fa-clock"></i>
+                    <span>Van 8 naar 3 uur</span>
+                </div>
+                <div class="case-highlight">
+                    <i class="fas fa-database"></i>
+                    <span>Put uit risico's van eerdere projecten</span>
+                </div>
+                <div class="case-highlight">
+                    <i class="fas fa-user-check"></i>
+                    <span>De risicomanager beslist</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="neo-section neo-page">
+        <div class="container" style="text-align:center">
+            <h2 class="neo-section-title" style="font-size:28px">Een vergelijkbaar probleem?</h2>
+            <div style="margin-top:20px">
+                <a href="https://cal.com/mostafa.yaghi" class="neo-btn" target="_blank" rel="noopener noreferrer">Plan een gratis gesprek van 30 minuten</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="pixel-bg"></div>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <img src="../../images/logo.png" alt="Qynzoo Logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                        <span class="logo-text">Qynzoo</span>
+                    </div>
+                    <p class="footer-description">Qynzoo automatiseert repetitief werk voor bedrijven. Gevestigd in Nederland.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Snelle links</h4>
+                    <ul class="footer-links">
+                        <li><a href="../index.html#home">Home</a></li>
+                        <li><a href="../index.html#projects">Projecten</a></li>
+                        <li><a href="../faq.html">FAQ</a></li>
+                        <li><a href="../index.html#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Juridisch</h4>
+                    <ul class="footer-links">
+                        <li><a href="../privacy-policy.html">Privacybeleid</a></li>
+                        <li><a href="../terms-of-service.html">Algemene voorwaarden</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Qynzoo. Alle rechten voorbehouden. | V4.3.0</p>
+                <div class="footer-bottom-links">
+                    <a href="../privacy-policy.html">Privacybeleid</a>
+                    <a href="../terms-of-service.html">Algemene voorwaarden</a>
+                    <a href="../sitemap.html">Sitemap</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+    // card-nav uses relative asset paths; override to work from /case-studies/
+    window.CARD_NAV_BASE = '../../';
+    </script>
+    <script src="../../js/card-nav.js?v=4.6" defer></script>
+</body>
+</html>
