@@ -34,9 +34,24 @@
 
         var nl = (document.documentElement.lang || '').toLowerCase().indexOf('nl') === 0;
         var label = {pause: nl ? 'Animatie pauzeren' : 'Pause animation', play: nl ? 'Animatie afspelen' : 'Play animation'};
+        // Visitors who prefer reduced motion see the last frame and a
+        // "Play animation" button; it only moves when they ask for it.
+        var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)');
         document.querySelectorAll('.qa-pause').forEach(function (btn) {
+            var txt = document.createElement('span');
+            txt.className = 'qa-pause-txt';
+            txt.textContent = label.play;
+            btn.appendChild(txt);
+            if (reduce && reduce.matches) btn.setAttribute('aria-label', label.play);
             btn.addEventListener('click', function () {
                 var scene = btn.closest('.qa-scene');
+                if (reduce && reduce.matches && !scene.classList.contains('is-forced')) {
+                    scene.classList.add('is-forced');
+                    scene.classList.remove('is-paused');
+                    btn.setAttribute('aria-pressed', 'false');
+                    btn.setAttribute('aria-label', label.pause);
+                    return;
+                }
                 var paused = scene.classList.toggle('is-paused');
                 btn.setAttribute('aria-pressed', String(paused));
                 btn.setAttribute('aria-label', paused ? label.play : label.pause);

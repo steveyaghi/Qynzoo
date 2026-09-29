@@ -17,10 +17,16 @@
 
 /* Play only while visible; pause button; reduced motion shows the end */
 .qa-scene:not(.is-live) *, .qa-scene.is-paused * { animation-play-state: paused !important; }
+/* Reduced motion: show the last frame, and a clear "Play animation" button
+   that starts it on request (.is-forced). */
 @media (prefers-reduced-motion: reduce) {
-    .qa-scene * { animation-delay: calc(var(--qa-end, 4.6s) * -1) !important; animation-play-state: paused !important; }
-    .qa-pause { display: none !important; }
+    .qa-scene:not(.is-forced) * { animation-delay: calc(var(--qa-end, 4.6s) * -1) !important; animation-play-state: paused !important; }
+    .qa-scene:not(.is-forced) .qa-pause { width: auto; padding: 0 16px; gap: 8px; border-radius: 999px; background: #44BAA3; color: #0d1030; border-color: #44BAA3; font-family: var(--qz-mono, monospace); font-size: 13px; font-weight: 800; }
+    .qa-scene:not(.is-forced) .qa-pause .qa-ic-play { display: block; }
+    .qa-scene:not(.is-forced) .qa-pause .qa-ic-pause { display: none; }
+    .qa-scene:not(.is-forced) .qa-pause-txt { display: inline; }
 }
+.qa-pause-txt { display: none; }
 .qa-scene { position: relative; }
 .qa-pause {
     position: absolute; right: 12px; bottom: 12px; z-index: 2;

@@ -1,6 +1,18 @@
 
 # Qynzoo.com ChangeLog
 
+## 2026-09-29 — Animations on "reduce motion" machines (v4.3.5)
+
+- Visitors whose system asks for reduced motion (for example Windows with
+  "Animation effects" off) saw only a still frame and no way to play it,
+  so the animations looked broken. They now see the last frame plus a
+  clear "Play animation" / "Animatie afspelen" button; one click plays the
+  loop, and the button then pauses it. Nothing moves without a click.
+- css/qz-anim.css and js/qz-anim.js; cache bust to ?v=1.1 on the homepage
+  and case studies. Footer V4.3.5.
+- Checked with Playwright with reduced motion on and off, English and
+  Dutch, desktop and phone.
+
 ## 2026-09-29 — Explainer animations and a section for shops (v4.3.4)
 
 Goal: make the site easy to follow for non-technical visitors. Designs are
