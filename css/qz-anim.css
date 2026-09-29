@@ -159,3 +159,7 @@
 
 /* Call button under "Three steps" */
 .qa-steps-cta { margin-top: 36px; display: flex; justify-content: center; }
+
+/* Phone scenes on the case studies: pause button sits just below the scene */
+.qa-case-anim .qa-mob { padding-bottom: 56px; }
+.qa-case-anim .qa-mob .qa-pause { right: 0; bottom: 0; }

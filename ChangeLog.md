@@ -1,6 +1,22 @@
 
 # Qynzoo.com ChangeLog
 
+## 2026-09-29 — Real phone animations for the case studies, all loops 5 s (v4.3.8)
+
+- Case studies on phones (820 px and below): the "four lit steps" list is
+  replaced by a real animation per project, drawn top to bottom at 390 px
+  (ODIDO, Haskoning, Waterprof, Podcast Tuhaf, Fugro): same parts, colours
+  and timing as the desktop scene, readable text (12 px and up), scaled up
+  to 125 % on tablets. Pause button sits just below the scene so it never
+  covers content; titles fit on two lines in English and Dutch.
+- All explainer loops now run in 5 seconds or less: Fugro went from 6 s to
+  5 s (site and design canvas); the canvas "data heartbeat" dots from up
+  to 7.5 s to 4 to 5 s.
+- css/qz-anim.css?v=1.3 on the case studies. Footer V4.3.8.
+- Checked with Playwright at 390 and 768 px, English and Dutch: scenes play
+  on scroll, titles on two lines, no overlap, no sideways scroll, no
+  script errors; Fugro timings all 5 s.
+
 ## 2026-09-29 — Page layout fixes and a clickable footer logo (v4.3.7)
 
 - About and Websites pages (added in v4.3.0) used classes that never got
