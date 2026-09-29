@@ -1,7 +1,7 @@
 /* Explainer animations (homepage + case studies).
    Scenes are drawn at a fixed size (data-w x data-h) and scaled to fit by
-   js/qz-anim.js. They only play while on screen (.is-live), can be paused,
-   and show their last frame when the visitor prefers reduced motion. */
+   js/qz-anim.js. They only play while on screen (.is-live) and can be
+   paused with the button on each scene. */
 
 .qa-fit { position: relative; width: 100%; margin: 0 auto; overflow: hidden; }
 .qa-stage { position: absolute; left: 0; top: 0; transform-origin: 0 0; font-family: var(--qz-sans, 'Inter', system-ui, sans-serif); color: #f4f2ec; line-height: 1.45; }
@@ -15,18 +15,10 @@
     .qa-mob { display: block; }
 }
 
-/* Play only while visible; pause button; reduced motion shows the end */
+/* Play only while visible; pause button */
 .qa-scene:not(.is-live) *, .qa-scene.is-paused * { animation-play-state: paused !important; }
-/* Reduced motion: show the last frame, and a clear "Play animation" button
-   that starts it on request (.is-forced). */
-@media (prefers-reduced-motion: reduce) {
-    .qa-scene:not(.is-forced) * { animation-delay: calc(var(--qa-end, 4.6s) * -1) !important; animation-play-state: paused !important; }
-    .qa-scene:not(.is-forced) .qa-pause { width: auto; padding: 0 16px; gap: 8px; border-radius: 999px; background: #44BAA3; color: #0d1030; border-color: #44BAA3; font-family: var(--qz-mono, monospace); font-size: 13px; font-weight: 800; }
-    .qa-scene:not(.is-forced) .qa-pause .qa-ic-play { display: block; }
-    .qa-scene:not(.is-forced) .qa-pause .qa-ic-pause { display: none; }
-    .qa-scene:not(.is-forced) .qa-pause-txt { display: inline; }
-}
-.qa-pause-txt { display: none; }
+/* Scenes play for every visitor once they are on screen (site owner's
+   choice), also with "reduce motion" on; the pause button stops them. */
 .qa-scene { position: relative; }
 .qa-pause {
     position: absolute; right: 12px; bottom: 12px; z-index: 2;

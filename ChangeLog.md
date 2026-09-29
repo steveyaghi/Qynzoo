@@ -1,6 +1,18 @@
 
 # Qynzoo.com ChangeLog
 
+## 2026-09-29 — Animations autoplay for every visitor (v4.3.6)
+
+- On request, the explainer animations now start by themselves when their
+  section scrolls into view for every visitor, also when the system asks
+  for reduced motion. The v4.3.5 "Play animation" button for those
+  visitors is gone; every scene keeps its pause button, so anyone can stop
+  the motion.
+- css/qz-anim.css, js/qz-anim.js; cache bust ?v=1.2. Footer V4.3.6.
+- Checked in the built-in browser with Windows "reduce motion" on (the
+  homepage scene starts on scroll and keeps running) and with Playwright
+  on the case studies, desktop and phone.
+
 ## 2026-09-29 — Animations on "reduce motion" machines (v4.3.5)
 
 - Visitors whose system asks for reduced motion (for example Windows with
