@@ -1,6 +1,48 @@
 
 # Qynzoo.com ChangeLog
 
+## 2026-09-29 — Explainer animations and a section for shops (v4.3.4)
+
+Goal: make the site easy to follow for non-technical visitors. Designs are
+on the "Animaties" page of the Claude Design canvas "Qynzoo Sales Demos".
+
+- Homepage, new "In one look" section after "What you get" and before the
+  logo belt: animated explainer (data from Excel, e-mail, PDF, CRM and a
+  webshop, then an automatic check that cleans up, combines and checks for
+  mistakes, then a weekly report that builds itself). 5-second loop. The
+  full scene scales to the page; phones get a top-to-bottom version.
+- Homepage, new "For restaurants and shops" section after the testimonials:
+  plain-language benefits, a "Try the demo (NL)" button to /demo/ and an
+  animated preview (phone confirmation, agenda row, reminder).
+- Case studies (ODIDO, Haskoning, Waterprof, Podcast Tuhaf, Fugro): one
+  animation per project under the Result line, built only from facts on the
+  page. Phones get four steps that light up in turn instead of the scaled
+  scene.
+- css/qz-anim.css and js/qz-anim.js: scenes play only while on screen, have
+  a pause button, and show their last frame when the visitor prefers
+  reduced motion. CSS and SVG only, no libraries.
+- Dutch: tools/nl/60-animations.json holds all new translations; /nl
+  rebuilt with 0 untranslated strings.
+- Footer version V4.3.0 → V4.3.4 on all site pages (the v4.3.1 and v4.3.2
+  pushes missed it).
+- Homepage clean-up, so the page tells one story (problem, how it works,
+  proof, trust, small businesses, how we work, book a call):
+  - Removed the "A typical Monday / A Monday with Qynzoo" lists from
+    "Why we exist" (the animation now tells that story); the section is
+    shorter and moved to just before "How it works". Eyebrows renumbered:
+    04 Testimonials, 05 Why we exist.
+  - Removed the "BUILT WITH" tools belt (tech names mean little to
+    non-technical visitors; tools stay on the case studies). Client logos
+    stay.
+  - FAQ "What has Qynzoo delivered?" (a repeat of the Results section)
+    replaced by "What happens in the free call?", on the page and in the
+    FAQPage schema.
+  - "Book a free 30-minute call" button under "Three steps from first call
+    to a working system".
+- Checked with Playwright: desktop 1280, iPad 1180 and 820, phone 390, in
+  English and Dutch; no console errors, no horizontal scroll, pause button,
+  reduced motion and the Dutch demo link.
+
 ## 2026-09-29 — Phone menu no longer covers the top bar (v4.3.3)
 
 - js/card-nav.js, expandedHeight(): on phones and tablets (768 px and
