@@ -101,13 +101,17 @@ class CardNav {
   expandedHeight() {
     const isMobile = window.matchMedia('(max-width: 768px)').matches;
     if (isMobile) {
+      // Measure the menu with temporary inline styles, then restore the
+      // original ones. (Stripping them with cssText.replace failed because
+      // the browser normalises cssText, which left position:static behind
+      // and pulled the cards up over the 60px top bar.) offsetHeight, not
+      // scrollHeight: the cards' collapsed translateY(50px) inflates
+      // scrollHeight and left an empty strip under the menu.
       const content = this.navRef.querySelector('.card-nav-content');
-      content.style.cssText += ';position:static;height:auto;visibility:visible';
-      const h = 60 + 16 + content.scrollHeight;
-      content.style.cssText = content.style.cssText
-        .replace(';position:static', '')
-        .replace(';height:auto', '')
-        .replace(';visibility:visible', '');
+      const saved = content.style.cssText;
+      Object.assign(content.style, { position: 'static', height: 'auto', visibility: 'visible' });
+      const h = 60 + content.offsetHeight;
+      content.style.cssText = saved;
       return h;
     }
     return 260;

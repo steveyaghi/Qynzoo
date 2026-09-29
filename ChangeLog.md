@@ -1,6 +1,26 @@
 
 # Qynzoo.com ChangeLog
 
+## 2026-09-29 — Phone menu no longer covers the top bar (v4.3.3)
+
+- js/card-nav.js, expandedHeight(): on phones and tablets (768 px and
+  below) the open menu's first card ("Work" / "Werk") covered the logo and
+  the EN | NL switch. Cause: the function set temporary inline styles to
+  measure the menu, then tried to strip them with cssText.replace(). The
+  browser rewrites cssText with spaces, so the replace never matched and
+  position:static stayed, which pulled the cards up to the top of the nav.
+  The inline styles are now saved and restored as a whole.
+- Same function: measures with offsetHeight instead of scrollHeight plus
+  16 px. The cards' collapsed translateY(50px) inflated scrollHeight,
+  which left a see-through strip under the open menu. The nav now ends
+  exactly at the bottom of the menu.
+- Open/close animation unchanged; desktop menu (260 px) unchanged.
+- Cache bust on all 37 pages: card-nav.js?v=4.9, card-nav.css?v=4.6.
+- Checked with Playwright at 390x844, 768x1024 and 1280x800 on index.html,
+  about.html and nl/about.html: cards start at 68 px, below the 60 px bar;
+  close and reopen give the same layout; no console errors, no
+  horizontal scroll.
+
 ## 2026-09-29 — Demo link in the nav (v4.3.2)
 
 - js/card-nav.js: "Demo (NL)" is the first link in the Connect card of the
