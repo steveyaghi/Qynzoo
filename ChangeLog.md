@@ -1,6 +1,27 @@
 
 # Qynzoo.com ChangeLog
 
+## 2026-09-29 — Page layout fixes and a clickable footer logo (v4.3.7)
+
+- About and Websites pages (added in v4.3.0) used classes that never got
+  styles (qz-page-hero, qz-cta-band, qz-about-points, qz-sites-grid,
+  qz-site-card and friends), so their header, "how we work" points,
+  website cards and closing call to action showed as plain text against
+  the left edge. New css/qz-pages.css styles them in the site's look:
+  padded page header, three "how we work" cards, website cards with a
+  cropped screenshot, centred call-to-action band; 2 and 1 columns on
+  tablets and phones.
+- Blog overview: the page header now has the same side margins as the
+  article cards (it sat against the left edge).
+- Footer logo ("Qynzoo") is now a link to the homepage on all 24 pages
+  (was not clickable); Dutch pages go to /nl/. The nav logo already went
+  to the homepage everywhere.
+- Sitemap: js/script.js stopped at "AOS is not defined" because that page
+  does not load AOS; the call is now skipped when AOS is missing
+  (script.js and script.min.js), sitemap loads script.js?v=6.1.
+- Footer V4.3.7. Checked with Playwright on desktop and phone, English and
+  Dutch: layout, footer-logo clicks, no script errors, no sideways scroll.
+
 ## 2026-09-29 — Animations autoplay for every visitor (v4.3.6)
 
 - On request, the explainer animations now start by themselves when their

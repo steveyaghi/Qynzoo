@@ -1,0 +1,157 @@
+/* Sub-page layout: About, Websites and the Blog overview.
+   These pages were added in v4.3.0 with classes that never got styles, so
+   their header, "how we work" points, website cards and closing call to
+   action fell back to unstyled text against the left edge. */
+
+/* ---------- Page header ---------- */
+.qz-page-hero {
+    padding: 132px 48px 64px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+.qz-page-hero h1 {
+    margin: 0;
+    max-width: 860px;
+    font-family: var(--qz-mono);
+    font-size: 44px;
+    font-weight: 800;
+    line-height: 1.12;
+    letter-spacing: -0.02em;
+    color: var(--qz-text);
+}
+.qz-page-hero p {
+    margin: 18px 0 0;
+    max-width: 720px;
+    font-size: 19px;
+    line-height: 1.6;
+    color: var(--qz-text-dim);
+}
+
+/* ---------- Closing call to action ---------- */
+.qz-cta-band {
+    padding: 88px 48px;
+    text-align: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    background: var(--qz-bg-alt);
+}
+.qz-cta-band h2 {
+    margin: 0 auto;
+    max-width: 720px;
+    font-family: var(--qz-mono);
+    font-size: 34px;
+    font-weight: 800;
+    line-height: 1.2;
+    color: var(--qz-text);
+}
+.qz-cta-band p {
+    margin: 14px auto 28px;
+    max-width: 560px;
+    font-size: 18px;
+    color: var(--qz-text-dim);
+}
+
+/* ---------- About: how we work ---------- */
+.qz-about-points {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 20px;
+}
+.qz-about-points > div {
+    padding: 28px;
+    border-radius: 20px;
+    background: var(--qz-card-alt);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+.qz-about-points h3 {
+    margin: 0 0 10px;
+    font-family: var(--qz-mono);
+    font-size: 19px;
+    font-weight: 800;
+    color: var(--qz-text);
+}
+.qz-about-points p {
+    margin: 0;
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--qz-text-dim);
+}
+.qz-about .qz-projects-more { margin-top: 32px; }
+
+/* ---------- Websites: project cards ---------- */
+.qz-sites-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 24px;
+}
+.qz-redesign a.qz-site-card {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    border-radius: 20px;
+    background: var(--qz-card-alt);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: var(--qz-text);
+    transition: transform 0.2s ease, border-color 0.2s ease;
+}
+.qz-redesign a.qz-site-card:hover { transform: translateY(-4px); color: var(--qz-text); }
+.qz-site-card.c-teal:hover { border-color: var(--qz-teal); }
+.qz-site-card.c-gold:hover { border-color: var(--qz-gold); }
+.qz-site-card.c-coral:hover { border-color: var(--qz-coral); }
+.qz-site-shot {
+    aspect-ratio: 16 / 10;
+    overflow: hidden;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    background: var(--qz-bg-alt);
+}
+.qz-site-shot img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top center;
+}
+.qz-site-body {
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 22px 24px 24px;
+}
+.qz-site-body h3 {
+    margin: 0;
+    font-family: var(--qz-mono);
+    font-size: 20px;
+    font-weight: 800;
+}
+.qz-site-body p {
+    margin: 0;
+    font-size: 15px;
+    line-height: 1.6;
+    color: var(--qz-text-dim);
+}
+.qz-site-body .cta {
+    margin-top: auto;
+    padding-top: 10px;
+    font-family: var(--qz-mono);
+    font-size: 14px;
+    font-weight: 700;
+}
+.qz-site-card.c-teal .cta { color: var(--qz-teal); }
+.qz-site-card.c-gold .cta { color: var(--qz-gold); }
+.qz-site-card.c-coral .cta { color: var(--qz-coral); }
+
+/* ---------- Blog overview header: same side margins as the cards ---------- */
+.qz-blog-page .case-hero { padding-left: 48px; padding-right: 48px; }
+
+/* ---------- Smaller screens ---------- */
+@media (max-width: 1024px) {
+    .qz-sites-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 768px) {
+    .qz-page-hero { padding: 108px 24px 44px; }
+    .qz-page-hero h1 { font-size: 30px; }
+    .qz-page-hero p { font-size: 17px; }
+    .qz-cta-band { padding: 64px 24px; }
+    .qz-cta-band h2 { font-size: 26px; }
+    .qz-about-points, .qz-sites-grid { grid-template-columns: minmax(0, 1fr); }
+    .qz-blog-page .case-hero { padding-left: 24px; padding-right: 24px; }
+}
