@@ -1,0 +1,13 @@
+{
+    "name": "Qynzoo voorbeelden",
+    "short_name": "Qynzoo demo",
+    "lang": "nl",
+    "start_url": "./",
+    "scope": "./",
+    "display": "standalone",
+    "background_color": "#0d1030",
+    "theme_color": "#0d1030",
+    "icons": [
+        {"src": "../logos/Qynzoo_solo_logo.svg", "sizes": "any", "type": "image/svg+xml"}
+    ]
+}

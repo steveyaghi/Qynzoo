@@ -184,11 +184,11 @@ document.addEventListener('DOMContentLoaded', () => {
   const t = nl ? {
     work: 'Werk', results: 'Resultaten', websites: 'Websites', testimonials: 'Klanten aan het woord', how: 'Zo werken we',
     company: 'Bedrijf', about: 'Over ons', faq: 'Veelgestelde vragen', blog: 'Blog (Engels)',
-    connect: 'Contact', contact: 'Neem contact op', cta: 'Gratis gesprek'
+    connect: 'Contact', contact: 'Neem contact op', cta: 'Gratis gesprek', demo: 'Demo'
   } : {
     work: 'Work', results: 'Results', websites: 'Websites', testimonials: 'Testimonials', how: 'How It Works',
     company: 'Company', about: 'About', faq: 'FAQ', blog: 'Blog',
-    connect: 'Connect', contact: 'Contact Us', cta: 'Book Free Call'
+    connect: 'Connect', contact: 'Contact Us', cta: 'Book Free Call', demo: 'Demo (NL)'
   };
   window.cardNav = new CardNav({
     logo: base + 'logos/Qynzoo_solo_logo.svg',
@@ -223,6 +223,8 @@ document.addEventListener('DOMContentLoaded', () => {
         bgColor: "#fc7753",
         textColor: "#fff",
         links: [
+          // Sales demos are Dutch only, so the English label says so.
+          { label: t.demo,    href: base + "demo/" },
           { label: t.contact, href: page + "index.html#contact" },
           { label: "LinkedIn", href: "https://www.linkedin.com/company/qynzoo", target: "_blank" }
         ]

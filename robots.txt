@@ -1,8 +1,9 @@
 # Qynzoo.com Robots.txt - Optimized for SEO & GEO
-# Updated: 2026-03-01
+# Updated: 2026-09-29 (demo pages hidden)
 
 # Default crawl rules for all bots
 User-agent: *
+Disallow: /demo/
 Allow: /
 Allow: /css/
 Allow: /js/
@@ -16,61 +17,73 @@ Crawl-delay: 1
 
 # Google Bot
 User-agent: Googlebot
+Disallow: /demo/
 Allow: /
 Crawl-delay: 0
 
 # Google Image Bot
 User-agent: Googlebot-Image
+Disallow: /demo/
 Allow: /images/
 Allow: /logos/
 
 # Bing Bot
 User-agent: Bingbot
+Disallow: /demo/
 Allow: /
 Crawl-delay: 0
 
 # OpenAI ChatGPT Search Bot (Critical for ChatGPT indexing)
 User-agent: OAI-SearchBot
+Disallow: /demo/
 Allow: /
 Crawl-delay: 0
 
 # OpenAI GPT Bot (for training data)
 User-agent: GPTBot
+Disallow: /demo/
 Allow: /
 Crawl-delay: 0
 
 # ChatGPT User (for direct ChatGPT access)
 User-agent: ChatGPT-User
+Disallow: /demo/
 Allow: /
 Crawl-delay: 0
 
 # Anthropic Claude Bot
 User-agent: anthropic-ai
+Disallow: /demo/
 Allow: /
 Crawl-delay: 0
 
 # Claude Web
 User-agent: Claude-Web
+Disallow: /demo/
 Allow: /
 Crawl-delay: 0
 
 # Google Gemini
 User-agent: Google-Extended
+Disallow: /demo/
 Allow: /
 Crawl-delay: 0
 
 # Perplexity AI
 User-agent: PerplexityBot
+Disallow: /demo/
 Allow: /
 Crawl-delay: 0
 
 # Common Crawl (used by many AI models)
 User-agent: CCBot
+Disallow: /demo/
 Allow: /
 Crawl-delay: 1
 
 # Meta AI
 User-agent: FacebookBot
+Disallow: /demo/
 Allow: /
 Crawl-delay: 1
 

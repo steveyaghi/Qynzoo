@@ -1,6 +1,61 @@
 
 # Qynzoo.com ChangeLog
 
+## 2026-09-29 — Demo link in the nav (v4.3.2)
+
+- js/card-nav.js: "Demo (NL)" is the first link in the Connect card of the
+  menu ("Demo" in the Contact card on the Dutch pages), on every screen
+  size. Links to /demo/ from every page (root, case studies, blog, /nl).
+  A first version put an outlined button in the top bar; moved into the
+  menu on request, and that button and its CSS were removed.
+- Cache bust on all 38 pages: card-nav.js?v=4.8, card-nav.css?v=4.5.
+- Demo pages keep noindex and the robots.txt block, so they stay out of
+  search results; they are now visible to site visitors.
+- Checked with Playwright: desktop 1280, iPad 1180 and 820, phone 390, in
+  English and Dutch; no console errors, no horizontal scroll.
+
+## 2026-09-29 — Sales demos for shop visits (v4.3.1)
+
+Three clickable demos to show MKB owners on an iPad, built from the Claude
+Design canvas "Qynzoo Sales Demos". Dutch only, Qynzoo-branded, clearly
+marked "Voorbeeld, niet live".
+
+- demo/index.html: overview with a live "Bedrijfsnaam" field and a
+  "Soort zaak" switch (kapper, tandarts, fysio, fietsenmaker, bloemist,
+  restaurant). The best-fitting demo per type gets a "Past bij ..." badge.
+- demo/afspraak.html (3 steps), demo/reservering.html (2 steps),
+  demo/whatsapp.html (1 step). Each ends in the automation screen: the
+  customer's phone gets the confirmation, the booking appears in the
+  owner's agenda, and a timeline shows confirmation, reminder 24 hours
+  before, and a review request.
+- Error, empty (closed day), loading and success states; 48 px+ touch
+  targets; gold focus ring; screen-reader labels and live regions.
+- Real dates: the week strip starts tomorrow; each type has its own closed
+  day (restaurant Monday, others Sunday).
+- js/demo.js holds one settings block per business type; css/qz-demo.css
+  holds the demo styles (tokens mirror qz-redesign.css).
+- Nothing is sent anywhere. Only the business name and type are kept in
+  the browser (localStorage) and passed between pages in the link.
+- Offline: Inter and JetBrains Mono self-hosted in /fonts, plus a service
+  worker (demo/sw.js) and manifest, so the demos open without internet
+  after one online visit and can be added to the iPad home screen.
+- Hidden from search: noindex on every page, /demo/ disallowed for every
+  bot in robots.txt, not in sitemap, nav or footer. Not part of the /nl
+  generator.
+- marketing/utrecht/qr-demo.svg and qr-demo.png: QR code to
+  https://qynzoo.com/demo/ for print.
+- tools/serve.js: small Node static server; .claude/launch.json now uses
+  it (the local Python install is broken).
+- Checked with Playwright at iPad (1180x820) and iPhone (390x844): all
+  business types, all three flows end to end, form errors, no console
+  errors, no requests to other domains, and all pages load offline.
+
+## 2026-09-29 — Utrecht outreach: first prospect list (no site change)
+
+- Scraped 250 Utrecht businesses (10 categories, Google Maps) with Apify, about US$1.
+- marketing/utrecht/utrecht-shops-scored.csv: 239 independents ranked by a first-pass score (reachable by e-mail, busy but not big, simple or no website). Some chains slipped through; needs a manual check.
+- marketing/utrecht/utrecht-site-check.csv (+ .json): automatic check of the top 70 sites for online booking, WhatsApp, contact form, https, mobile viewport and copyright year. Pattern-based, so JS-only sites can give false negatives; verify by hand before a visit.
+
 ## 2026-09-28 — B2B "we" rewrite, About and Websites pages, Dutch site (v4.3.0)
 
 Positioning: Qynzoo as a Dutch B2B automation company (MKB) instead of a
