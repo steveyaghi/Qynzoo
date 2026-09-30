@@ -17,7 +17,7 @@ const path = require('path');
 const ROOT = path.resolve(__dirname, '..');
 const SITE = 'https://qynzoo.com/';
 const PAGES = [
-  'index.html', 'about.html', 'websites.html', 'faq.html', 'process.html',
+  'index.html', 'about.html', 'websites.html', 'ai-training.html', 'faq.html', 'process.html',
   'privacy-policy.html', 'terms-of-service.html', 'sitemap.html',
   'case-studies/waterprof.html', 'case-studies/haskoning.html', 'case-studies/odido.html',
   'case-studies/podcast-tuhaf-dashboard.html', 'case-studies/fugro.html'
@@ -51,7 +51,7 @@ function tr(raw, page) {
 }
 
 // Things that are never translated: brand/product names, emails, numbers.
-const KEEP = /^(Qynzoo|Qynzoo Logo|Waterprof|Fugro|Haskoning|ODIDO|Odido|Podcast Tuhaf|LinkedIn|Azure|Python|SharePoint|n8n|Excel|SQL|Power BI|ThoughtSpot|React|Vite|JavaScript|GitHub|HTML|CSS|RAG|YouTube|Facebook|Werner Halter|Natalia Trushina|Mostafa Yaghi|mostafa\.yaghi@qynzoo\.com|0684550084|\+31-684550084|Random Forest|Neural Networks|Auto-Encoders|Blog|FAQ|Nederlands Arabisch Cultuurhuis|WORKED WITH|BUILT WITH)$/;
+const KEEP = /^(Qynzoo|Qynzoo Logo|Waterprof|Fugro|Haskoning|ODIDO|Odido|Podcast Tuhaf|LinkedIn|Azure|Python|SharePoint|n8n|ChatGPT|Claude|Copilot|Microsoft Copilot|Higgsfield|Excel|SQL|Power BI|ThoughtSpot|React|Vite|JavaScript|GitHub|HTML|CSS|RAG|YouTube|Facebook|Werner Halter|Natalia Trushina|Mostafa Yaghi|mostafa\.yaghi@qynzoo\.com|0684550084|\+31-684550084|Random Forest|Neural Networks|Auto-Encoders|Blog|FAQ|Nederlands Arabisch Cultuurhuis|WORKED WITH|BUILT WITH)$/;
 
 function trText(raw, page) {
   const key = norm(raw);

@@ -164,6 +164,14 @@
                   "name": "Websites",
                   "description": "Heldere, snelle websites die uitleggen wat je doet en bezoekers omzetten in aanvragen."
                 }
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "AI-training",
+                  "description": "Praktische AI-training voor medewerkers op je eigen kantoor, op hun eigen dagelijkse taken."
+                }
               }
             ]
           }
@@ -202,6 +210,14 @@
               "acceptedAnswer": {
                 "@type": "Answer",
                 "text": "De meeste automatiseringsprojecten staan binnen 1 tot 3 weken live. Machine-learningprojecten variëren meer, afhankelijk van de beschikbare data. Dat bepalen we samen in het gesprek."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Trainen jullie ook teams in het gebruik van AI?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Ja. We geven praktische AI-trainingen op je eigen kantoor, voor groepen van 5 tot 10 mensen of meer. Je team leert ChatGPT, Claude, Copilot, Higgsfield en n8n te gebruiken voor de eigen dagelijkse taken."
               }
             }
           ]
@@ -247,7 +263,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'">
     <link rel="stylesheet" href="../css/neo.css?v=6.44">
     <link rel="stylesheet" href="../css/qz-redesign.css?v=5.9">
-    <link rel="stylesheet" href="../css/qz-anim.css?v=1.2">
+    <link rel="stylesheet" href="../css/qz-anim.css?v=1.4">
 
     <!-- Preload fonts -->
     <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700&family=JetBrains+Mono:wght@500;700;800&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
@@ -1071,6 +1087,31 @@
         </div>
     </section>
 
+    <!-- AI training for teams: short block, details on ai-training.html -->
+    <section class="qz-section" id="ai-training" style="background:var(--qz-bg-alt);">
+        <div class="container">
+            <div class="qa-shops qa-train">
+                <div>
+                    <div class="qz-eyebrow" style="color:var(--qz-gold);">AI-TRAINING VOOR JE TEAM</div>
+                    <h2 class="qz-h2">Je team heeft AI-tools. Laat ze nu echt werken.</h2>
+                    <p class="qa-section-lead" style="margin-top:0;">We komen naar je kantoor en leren je team AI te gebruiken voor het eigen dagelijkse werk: betere vragen, betere antwoorden en minder herschrijven.</p>
+                    <ul>
+                        <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>Oefenen met je eigen taken, niet met verzonnen voorbeelden.</span></li>
+                        <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>Je team gaat naar huis met een promptbibliotheek die het blijft gebruiken.</span></li>
+                        <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>Helpt je te voldoen aan de AI-geletterdheidsplicht uit de EU AI Act.</span></li>
+                    </ul>
+                    <a class="qa-shops-cta" href="ai-training.html">Bekijk de training <span aria-hidden="true">→</span></a>
+                </div>
+                <div class="qa-train-facts">
+                    <div class="qa-tf-row"><span class="qa-tf-ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 21V9l8-6 8 6v12"/><path d="M9 21v-7h6v7"/></svg></span><div><b>Op je eigen kantoor</b><span>Wij komen naar jou. Iedereen werkt op de eigen laptop.</span></div></div>
+                    <div class="qa-tf-row"><span class="qa-tf-ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="8" r="3.5"/><path d="M3 20c.7-3.2 3-5 6-5s5.3 1.8 6 5"/><path d="M16 4.5a3.5 3.5 0 0 1 0 7"/><path d="M18 15c1.8.6 3 2.3 3.4 5"/></svg></span><div><b>Groepen van 5 tot 10</b><span>Grotere groepen kunnen ook.</span></div></div>
+                    <div class="qa-tf-row"><span class="qa-tf-ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.7 6.3a4 4 0 0 0 5 5L21 13l-8 8-3-3 8-8"/><path d="M3 21l6-6"/></svg></span><div><b>De tools die we behandelen</b><span>De tools die je team al heeft, of het meest gaat gebruiken.</span></div></div>
+                    <div class="qa-train-tools"><span>ChatGPT</span><span>Claude</span><span>Copilot</span><span>Higgsfield</span><span>n8n</span></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Why we exist (short) -->
     <section class="qz-section qz-why" id="about">
         <div class="container">
@@ -1228,6 +1269,13 @@
                     </button>
                     <div class="neo-faq-answer"><div class="neo-faq-answer-inner">De meeste automatiseringsprojecten staan binnen 1 tot 3 weken live. Machine-learningprojecten variëren meer, afhankelijk van de beschikbare data. Dat bepalen we samen in het gesprek.</div></div>
                 </div>
+                <div class="neo-faq-item">
+                    <button class="neo-faq-question">
+                        Trainen jullie ook teams in het gebruik van AI?
+                        <span class="neo-faq-icon">+</span>
+                    </button>
+                    <div class="neo-faq-answer"><div class="neo-faq-answer-inner">Ja. We geven praktische AI-trainingen op je eigen kantoor, voor groepen van 5 tot 10 mensen of meer. Je team leert ChatGPT, Claude, Copilot, Higgsfield en n8n te gebruiken voor de eigen dagelijkse taken. <a href="ai-training.html" style="color:var(--primary-color)">Over de training</a>.</div></div>
+                </div>
             </div>
         </div>
     </section>
@@ -1262,6 +1310,7 @@
                         <li><a href="faq.html">Alle vragen</a></li>
                         <li><a href="process.html">Het volledige proces</a></li>
                         <li><a href="websites.html">Websites</a></li>
+                        <li><a href="ai-training.html">AI-training</a></li>
                         <li><a href="../blogs.html">Blog</a></li>
                     </ul>
                 </div>
@@ -1276,7 +1325,7 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2026 Qynzoo. Alle rechten voorbehouden. | V4.3.8</p>
+                <p>&copy; 2026 Qynzoo. Alle rechten voorbehouden. | V4.3.9</p>
                 <div class="footer-bottom-links">
                     <a href="privacy-policy.html">Privacybeleid</a>
                     <a href="terms-of-service.html">Algemene voorwaarden</a>
@@ -1290,7 +1339,7 @@
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js" defer></script>
     <script>window.CARD_NAV_BASE = '../';</script>
 
-    <script src="../js/card-nav.js?v=4.9" defer></script>
+    <script src="../js/card-nav.js?v=5.0" defer></script>
     <script src="../js/qz-anim.js?v=1.2" defer></script>
     <script src="../js/script.min.js?v=6.0" defer></script>
     <script src="../js/brandfetch-logos.js?v=4.0" defer></script>

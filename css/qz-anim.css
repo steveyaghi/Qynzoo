@@ -163,3 +163,16 @@
 /* Phone scenes on the case studies: pause button sits just below the scene */
 .qa-case-anim .qa-mob { padding-bottom: 56px; }
 .qa-case-anim .qa-mob .qa-pause { right: 0; bottom: 0; }
+
+/* Homepage: AI training block, facts card next to the text */
+.qa-train-facts { display: flex; flex-direction: column; gap: 14px; padding: 28px; border-radius: 20px; background: #161a44; border: 1px solid rgba(244,242,236,0.1); }
+.qa-train-facts .qa-tf-row { display: flex; gap: 14px; align-items: flex-start; }
+.qa-train-facts .qa-tf-ic { width: 40px; height: 40px; flex-shrink: 0; border-radius: 12px; display: flex; align-items: center; justify-content: center; background: rgba(68,186,163,0.16); color: #44BAA3; }
+.qa-train-facts b { display: block; font-family: var(--qz-mono, monospace); font-size: 15px; font-weight: 800; color: #f4f2ec; }
+.qa-train-facts span { font-size: 15px; color: rgba(244,242,236,0.72); }
+.qa-train-tools { display: flex; flex-wrap: wrap; gap: 8px; padding-top: 6px; border-top: 1px solid rgba(244,242,236,0.1); }
+.qa-train-tools span { padding: 5px 12px; border-radius: 999px; background: #090b26; font-family: var(--qz-mono, monospace); font-size: 12px; font-weight: 700; color: #f4f2ec; }
+@media (min-width: 901px) {
+    .qa-shops.qa-train { grid-template-columns: minmax(0, 440px) minmax(0, 1fr); }
+    .qa-train .qa-train-facts { order: -1; }
+}

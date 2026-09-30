@@ -1,6 +1,31 @@
 
 # Qynzoo.com ChangeLog
 
+## 2026-09-30 — AI training for employees (v4.3.9)
+
+- New page ai-training.html (and nl/ai-training.html): on-site AI training
+  for teams, groups of 5 to 10 or more, on ChatGPT, Claude, Copilot,
+  Higgsfield and n8n. Sections: hero with call button, "what changes"
+  animation, what your team learns (6 cards), the tools, how it works
+  (4 steps), the EU AI Act AI-literacy rule (Article 4), FAQ, call band.
+  Service and FAQPage schema. No invented results or prices.
+- Animation (5 s, desktop 960x460 and phone 390x936): before the training
+  a vague question gets a generic answer; the training lights up "your own
+  tasks, prompts that work, check the result"; after, a clear question
+  gets an answer that is ready to send and saved in the prompt library.
+- Homepage: short "AI training for your team" block after Restaurants and
+  shops (three points, facts card, "See the training" button); FAQ entry
+  "Do you also train teams to use AI?" on the homepage and faq.html, with
+  schema; "AI training" offer in the homepage schema.
+- Menu (Work card), footer (index, about, websites), sitemap.html,
+  sitemap.xml (EN + NL) and llms.txt link to the page.
+- Dutch strings in tools/nl/70-training.json; tool names kept as-is.
+- css/qz-pages.css?v=1.1, css/qz-anim.css?v=1.4, js/card-nav.js?v=5.0.
+  Footer V4.3.9.
+- Checked with Playwright at desktop and 375 px, English and Dutch: scene
+  plays on scroll, no overlap with the pause button, no sideways scroll,
+  menu shows the new link, JSON-LD valid, no console errors.
+
 ## 2026-09-29 — Real phone animations for the case studies, all loops 5 s (v4.3.8)
 
 - Case studies on phones (820 px and below): the "four lit steps" list is

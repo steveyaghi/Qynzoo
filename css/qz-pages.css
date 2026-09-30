@@ -142,6 +142,62 @@
 /* ---------- Blog overview header: same side margins as the cards ---------- */
 .qz-blog-page .case-hero { padding-left: 48px; padding-right: 48px; }
 
+/* ---------- AI training page ---------- */
+.qz-train-hero-cta { margin-top: 28px; }
+.qz-train-tools {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 16px;
+}
+.qz-train-tools > div {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 22px;
+    border-radius: 18px;
+    background: var(--qz-card-alt);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+.qz-train-tools b { font-family: var(--qz-mono); font-size: 17px; font-weight: 800; color: var(--qz-text); }
+.qz-train-tools span { font-size: 15px; line-height: 1.55; color: var(--qz-text-dim); }
+.qz-train-steps {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 20px;
+}
+.qz-train-steps li {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding: 26px;
+    border-radius: 20px;
+    background: var(--qz-card-alt);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+.qz-train-steps .num { font-family: var(--qz-mono); font-size: 14px; font-weight: 800; color: var(--qz-gold); }
+.qz-train-steps h3 { margin: 0 0 8px; font-family: var(--qz-mono); font-size: 19px; font-weight: 800; color: var(--qz-text); }
+.qz-train-steps p { margin: 0; font-size: 16px; line-height: 1.6; color: var(--qz-text-dim); }
+.qz-train-act {
+    max-width: 860px;
+    padding: 36px 40px;
+    border-radius: 24px;
+    background: var(--qz-card-alt);
+    border: 1.5px solid rgba(68, 186, 163, 0.45);
+}
+.qz-train-act p { margin: 0; font-size: 18px; line-height: 1.65; color: var(--qz-text-dim); }
+@media (max-width: 1024px) {
+    .qz-train-tools { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .qz-train-steps { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 768px) {
+    .qz-train-tools, .qz-train-steps { grid-template-columns: minmax(0, 1fr); }
+    .qz-train-act { padding: 26px 22px; }
+    .qz-train-act p { font-size: 17px; }
+}
+
 /* ---------- Smaller screens ---------- */
 @media (max-width: 1024px) {
     .qz-sites-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }

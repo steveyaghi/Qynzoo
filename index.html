@@ -158,6 +158,14 @@
                   "name": "Websites",
                   "description": "Clear, fast websites that explain what you do and turn visitors into enquiries."
                 }
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "AI training",
+                  "description": "Practical AI training for employees at your office, on their own daily tasks."
+                }
               }
             ]
           }
@@ -196,6 +204,14 @@
               "acceptedAnswer": {
                 "@type": "Answer",
                 "text": "Most automation projects go live in 1 to 3 weeks. Machine learning projects vary more, depending on the data available. We'll scope this on the call."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Do you also train teams to use AI?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes. We give practical AI training at your office, for groups of 5 to 10 people or more. Your team learns to use ChatGPT, Claude, Copilot, Higgsfield and n8n on its own daily tasks."
               }
             }
           ]
@@ -241,7 +257,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'">
     <link rel="stylesheet" href="css/neo.css?v=6.44">
     <link rel="stylesheet" href="css/qz-redesign.css?v=5.9">
-    <link rel="stylesheet" href="css/qz-anim.css?v=1.2">
+    <link rel="stylesheet" href="css/qz-anim.css?v=1.4">
 
     <!-- Preload fonts -->
     <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700&family=JetBrains+Mono:wght@500;700;800&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
@@ -1065,6 +1081,31 @@
         </div>
     </section>
 
+    <!-- AI training for teams: short block, details on ai-training.html -->
+    <section class="qz-section" id="ai-training" style="background:var(--qz-bg-alt);">
+        <div class="container">
+            <div class="qa-shops qa-train">
+                <div>
+                    <div class="qz-eyebrow" style="color:var(--qz-gold);">AI TRAINING FOR YOUR TEAM</div>
+                    <h2 class="qz-h2">Your team has AI tools. Now make them useful.</h2>
+                    <p class="qa-section-lead" style="margin-top:0;">We come to your office and train your team to use AI on its own daily work: better questions, better answers and less rewriting.</p>
+                    <ul>
+                        <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>Practice on your own tasks, not made-up examples.</span></li>
+                        <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>Your team leaves with a prompt library it can keep using.</span></li>
+                        <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>Helps you meet the AI literacy rule in the EU AI Act.</span></li>
+                    </ul>
+                    <a class="qa-shops-cta" href="ai-training.html">See the training <span aria-hidden="true">→</span></a>
+                </div>
+                <div class="qa-train-facts">
+                    <div class="qa-tf-row"><span class="qa-tf-ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 21V9l8-6 8 6v12"/><path d="M9 21v-7h6v7"/></svg></span><div><b>At your office</b><span>We come to you. Everyone works on their own laptop.</span></div></div>
+                    <div class="qa-tf-row"><span class="qa-tf-ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="8" r="3.5"/><path d="M3 20c.7-3.2 3-5 6-5s5.3 1.8 6 5"/><path d="M16 4.5a3.5 3.5 0 0 1 0 7"/><path d="M18 15c1.8.6 3 2.3 3.4 5"/></svg></span><div><b>Groups of 5 to 10</b><span>Larger groups are possible too.</span></div></div>
+                    <div class="qa-tf-row"><span class="qa-tf-ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.7 6.3a4 4 0 0 0 5 5L21 13l-8 8-3-3 8-8"/><path d="M3 21l6-6"/></svg></span><div><b>The tools we cover</b><span>The ones your team already has, or will use most.</span></div></div>
+                    <div class="qa-train-tools"><span>ChatGPT</span><span>Claude</span><span>Copilot</span><span>Higgsfield</span><span>n8n</span></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Why we exist (short) -->
     <section class="qz-section qz-why" id="about">
         <div class="container">
@@ -1222,6 +1263,13 @@
                     </button>
                     <div class="neo-faq-answer"><div class="neo-faq-answer-inner">Most automation projects go live in 1 to 3 weeks. Machine learning projects vary more, depending on the data available. We'll scope this on the call.</div></div>
                 </div>
+                <div class="neo-faq-item">
+                    <button class="neo-faq-question">
+                        Do you also train teams to use AI?
+                        <span class="neo-faq-icon">+</span>
+                    </button>
+                    <div class="neo-faq-answer"><div class="neo-faq-answer-inner">Yes. We give practical AI training at your office, for groups of 5 to 10 people or more. Your team learns to use ChatGPT, Claude, Copilot, Higgsfield and n8n on its own daily tasks. <a href="ai-training.html" style="color:var(--primary-color)">About the training</a>.</div></div>
+                </div>
             </div>
         </div>
     </section>
@@ -1256,6 +1304,7 @@
                         <li><a href="faq.html">Full FAQ</a></li>
                         <li><a href="process.html">Full Process</a></li>
                         <li><a href="websites.html">Websites</a></li>
+                        <li><a href="ai-training.html">AI training</a></li>
                         <li><a href="blogs.html">Blog</a></li>
                     </ul>
                 </div>
@@ -1270,7 +1319,7 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2026 Qynzoo. All rights reserved. | V4.3.8</p>
+                <p>&copy; 2026 Qynzoo. All rights reserved. | V4.3.9</p>
                 <div class="footer-bottom-links">
                     <a href="privacy-policy.html">Privacy Policy</a>
                     <a href="terms-of-service.html">Terms of Service</a>
@@ -1283,7 +1332,7 @@
     <!-- Scripts -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js" defer></script>
 
-    <script src="js/card-nav.js?v=4.9" defer></script>
+    <script src="js/card-nav.js?v=5.0" defer></script>
     <script src="js/qz-anim.js?v=1.2" defer></script>
     <script src="js/script.min.js?v=6.0" defer></script>
     <script src="js/brandfetch-logos.js?v=4.0" defer></script>

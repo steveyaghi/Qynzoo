@@ -21,6 +21,7 @@ Founder-URL: https://qynzoo.com/#mostafa
 Services:
 - AI Automation: Intelligent workflow automation using Make, n8n, and custom AI agents
 - Website Building: SEO & GEO optimized custom websites for SMBs
+- AI Training: Practical on-site AI training for employees (ChatGPT, Claude, Copilot, Higgsfield, n8n), groups of 5 to 10 or more. https://qynzoo.com/ai-training.html
 - Integration Solutions: API integrations and CRM automation
 - Local AI Solutions: On-premise AI for data-sensitive businesses
 

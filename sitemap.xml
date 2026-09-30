@@ -36,6 +36,15 @@
         <xhtml:link rel="alternate" hreflang="x-default" href="https://qynzoo.com/websites.html"/>
     </url>
     <url>
+        <loc>https://qynzoo.com/ai-training.html</loc>
+        <lastmod>2026-09-30</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+        <xhtml:link rel="alternate" hreflang="en" href="https://qynzoo.com/ai-training.html"/>
+        <xhtml:link rel="alternate" hreflang="nl" href="https://qynzoo.com/nl/ai-training.html"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://qynzoo.com/ai-training.html"/>
+    </url>
+    <url>
         <loc>https://qynzoo.com/faq.html</loc>
         <lastmod>2026-09-28</lastmod>
         <changefreq>monthly</changefreq>
@@ -249,6 +258,15 @@
         <xhtml:link rel="alternate" hreflang="en" href="https://qynzoo.com/websites.html"/>
         <xhtml:link rel="alternate" hreflang="nl" href="https://qynzoo.com/nl/websites.html"/>
         <xhtml:link rel="alternate" hreflang="x-default" href="https://qynzoo.com/websites.html"/>
+    </url>
+    <url>
+        <loc>https://qynzoo.com/nl/ai-training.html</loc>
+        <lastmod>2026-09-30</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+        <xhtml:link rel="alternate" hreflang="en" href="https://qynzoo.com/ai-training.html"/>
+        <xhtml:link rel="alternate" hreflang="nl" href="https://qynzoo.com/nl/ai-training.html"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://qynzoo.com/ai-training.html"/>
     </url>
     <url>
         <loc>https://qynzoo.com/nl/faq.html</loc>
