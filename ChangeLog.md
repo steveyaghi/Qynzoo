@@ -1,6 +1,18 @@
 
 # Qynzoo.com ChangeLog
 
+## 2026-09-30 — Services link fix, faster hero, 404 page (v4.3.10)
+
+- Footer "Services" / "Diensten" links on the blog, legal and sitemap pages
+  pointed to index.html#services, which no longer exists; now
+  index.html#what-you-get.
+- Hero fade-in in css/qz-redesign.css: 0.4 s with no delay (was 0.8 s after
+  a 1.3 s delay).
+- New 404.html: short message and four cards (homepage, how we work, FAQ,
+  blog) plus a call button; noindex. Uses card-nav.js?v=5.0.
+- Footer V4.3.10. marketing/ and qynzoo.com-audit/ stay out of the repo,
+  because everything in it is served publicly on qynzoo.com.
+
 ## 2026-09-30 — AI training for employees (v4.3.9)
 
 - New page ai-training.html (and nl/ai-training.html): on-site AI training

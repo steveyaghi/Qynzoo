@@ -251,7 +251,7 @@ body.qz-redesign {
     align-items: center;
     text-align: center;
     gap: 56px;
-    animation: qz-fade-up 0.8s ease-out 1.3s both;
+    animation: qz-fade-up 0.4s ease-out both;
 }
 .qz-hero-v3-copy { display: flex; flex-direction: column; align-items: center; padding-top: 0; }
 .qz-hero-v3 h1 { font-size: 42px; margin-bottom: 12px; text-wrap: balance; }
