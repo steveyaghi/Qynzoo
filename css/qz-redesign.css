@@ -1377,8 +1377,6 @@ body.qz-redesign {
         height: auto;
     }
     .qz-project-card.span-4 .qz-project-card-top { flex-direction: row; align-items: flex-start; order: 0; }
-    .qz-flagship-steps { flex-direction: column; align-items: center; }
-    .qz-flagship-arrow { height: auto; transform: rotate(90deg); margin: -4px 0; }
     .qz-testimonial-card { flex-basis: 280px; }
     .qz-steps-grid { grid-template-columns: 1fr; }
 }
@@ -1389,6 +1387,15 @@ body.qz-redesign {
     .qz-projects-grid { grid-template-columns: 1fr; grid-auto-rows: minmax(220px, auto); }
     .qz-project-card.span-1, .qz-project-card { grid-column: span 1; }
     .qz-project-card.span-4 { grid-column: span 1; grid-row: span 1; height: auto; justify-content: flex-start; gap: 20px; }
+    /* Flagship steps stay in one row on phones: shrink icons, gaps and text. */
+    .qz-flagship { padding-left: 16px; padding-right: 16px; }
+    .qz-flagship-steps { gap: 6px; }
+    .qz-flagship-step { min-width: 0; gap: 10px; }
+    .qz-flagship-step-icon { width: 44px; height: 44px; }
+    .qz-flagship-step-icon i { font-size: 36px; }
+    .qz-flagship-step p { font-size: clamp(10px, 3vw, 13px); overflow-wrap: anywhere; }
+    .qz-flagship-arrow { height: 44px; }
+    .qz-flagship-arrow i { font-size: 14px; }
 }
 
 /* ============================================================
