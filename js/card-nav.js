@@ -186,11 +186,11 @@ document.addEventListener('DOMContentLoaded', () => {
   const nl = (document.documentElement.lang || '').toLowerCase().startsWith('nl');
   const page = nl ? base + 'nl/' : base;
   const t = nl ? {
-    work: 'Werk', results: 'Resultaten', websites: 'Websites', training: 'AI-training', testimonials: 'Klanten aan het woord', how: 'Zo werken we',
+    work: 'Werk', results: 'Resultaten', automation: 'Automatisering', websites: 'Websites', training: 'AI-training', testimonials: 'Klanten aan het woord', how: 'Zo werken we',
     company: 'Bedrijf', about: 'Over ons', faq: 'Veelgestelde vragen', blog: 'Blog (Engels)',
     connect: 'Contact', contact: 'Neem contact op', cta: 'Gratis gesprek', demo: 'Demo'
   } : {
-    work: 'Work', results: 'Results', websites: 'Websites', training: 'AI training', testimonials: 'Testimonials', how: 'How It Works',
+    work: 'Work', results: 'Results', automation: 'Automation', websites: 'Websites', training: 'AI training', testimonials: 'Testimonials', how: 'How It Works',
     company: 'Company', about: 'About', faq: 'FAQ', blog: 'Blog',
     connect: 'Connect', contact: 'Contact Us', cta: 'Book Free Call', demo: 'Demo (NL)'
   };
@@ -207,6 +207,7 @@ document.addEventListener('DOMContentLoaded', () => {
         textColor: "#fff",
         links: [
           { label: t.results,      href: page + "index.html#projects" },
+          { label: t.automation,   href: page + "business-process-automation.html" },
           { label: t.websites,     href: page + "websites.html" },
           { label: t.training,     href: page + "ai-training.html" },
           { label: t.testimonials, href: page + "index.html#testimonials" },

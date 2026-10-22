@@ -198,6 +198,90 @@
     .qz-train-act p { font-size: 17px; }
 }
 
+/* ---------- Business process automation pages ---------- */
+.qz-auto-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 20px;
+}
+.qz-auto-grid.two { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.qz-auto-card {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding: 28px;
+    border-radius: 20px;
+    background: var(--qz-card-alt);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+.qz-auto-card .tag { font-family: var(--qz-mono); font-size: 12px; font-weight: 800; letter-spacing: 0.08em; color: var(--qz-teal); }
+.qz-auto-card .tag.typical { color: var(--qz-gold); }
+.qz-auto-card h3 { margin: 0; font-family: var(--qz-mono); font-size: 19px; font-weight: 800; line-height: 1.3; color: var(--qz-text); }
+.qz-auto-card p { margin: 0; font-size: 16px; line-height: 1.6; color: var(--qz-text-dim); }
+.qz-auto-result {
+    padding: 12px 14px;
+    border-radius: 12px;
+    background: rgba(68, 186, 163, 0.12);
+    border: 1px solid rgba(68, 186, 163, 0.4);
+    font-size: 15px;
+    line-height: 1.5;
+    color: var(--qz-text);
+}
+.qz-auto-result.plain { background: transparent; border-style: dashed; border-color: rgba(255, 255, 255, 0.2); color: var(--qz-text-dim); }
+.qz-auto-under { font-family: var(--qz-mono); font-size: 12px; font-weight: 700; line-height: 1.5; color: var(--qz-text-dim); }
+.qz-auto-fits { margin-top: auto; padding-top: 6px; }
+.qz-auto-fits-label { display: block; margin-bottom: 8px; font-family: var(--qz-mono); font-size: 11px; font-weight: 800; letter-spacing: 0.08em; color: var(--qz-text-dim); }
+.qz-auto-chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.qz-auto-chips span { padding: 5px 12px; border-radius: 999px; border: 1px solid rgba(255, 255, 255, 0.16); font-size: 13px; line-height: 1.3; color: var(--qz-text); }
+.qz-auto-stats { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; }
+.qz-auto-stats > div {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 24px;
+    border-radius: 18px;
+    background: var(--qz-card-alt);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+.qz-auto-stats b { font-family: var(--qz-mono); font-size: 28px; font-weight: 800; line-height: 1.1; color: var(--qz-gold); overflow-wrap: anywhere; }
+.qz-auto-stats strong { font-family: var(--qz-mono); font-size: 15px; font-weight: 800; line-height: 1.35; color: var(--qz-text); }
+.qz-auto-stats span { font-size: 14px; line-height: 1.5; color: var(--qz-text-dim); }
+.qz-about-points > div.us { border: 1.5px solid rgba(68, 186, 163, 0.55); }
+.qz-auto-note { margin: 24px 0 0; max-width: 720px; font-size: 17px; line-height: 1.6; color: var(--qz-text-dim); }
+.qz-auto-more { display: inline-block; margin-top: 24px; font-family: var(--qz-mono); font-size: 15px; font-weight: 700; color: var(--qz-teal); text-decoration: none; }
+.qz-auto-more:hover { text-decoration: underline; }
+.qz-auto-list { list-style: none; margin: 18px 0 0; padding: 0; display: grid; gap: 12px; }
+.qz-auto-list li { position: relative; padding-left: 32px; font-size: 17px; line-height: 1.55; color: var(--qz-text-dim); }
+.qz-auto-list li::before {
+    content: "\2713";
+    position: absolute;
+    left: 0;
+    top: 3px;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: var(--qz-teal);
+    color: #0d1030;
+    font-size: 12px;
+    font-weight: 800;
+    line-height: 20px;
+    text-align: center;
+}
+.qz-train-act h2 { margin-top: 0; }
+.neo-faq-question { overflow-wrap: anywhere; }
+@media (max-width: 1024px) {
+    .qz-auto-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .qz-auto-grid > :last-child:nth-child(odd) { grid-column: 1 / -1; }
+    .qz-auto-stats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 768px) {
+    .qz-auto-grid, .qz-auto-grid.two { grid-template-columns: minmax(0, 1fr); }
+    .qz-auto-card { padding: 24px 22px; }
+}
+@media (max-width: 600px) {
+    .qz-auto-stats { grid-template-columns: minmax(0, 1fr); }
+}
+
 /* ---------- Smaller screens ---------- */
 @media (max-width: 1024px) {
     .qz-sites-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }

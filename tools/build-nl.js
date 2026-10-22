@@ -17,7 +17,7 @@ const path = require('path');
 const ROOT = path.resolve(__dirname, '..');
 const SITE = 'https://qynzoo.com/';
 const PAGES = [
-  'index.html', 'about.html', 'websites.html', 'ai-training.html', 'faq.html', 'process.html',
+  'index.html', 'about.html', 'websites.html', 'ai-training.html', 'business-process-automation.html', 'automation-examples.html', 'faq.html', 'process.html',
   'privacy-policy.html', 'terms-of-service.html', 'sitemap.html',
   'case-studies/waterprof.html', 'case-studies/haskoning.html', 'case-studies/odido.html',
   'case-studies/podcast-tuhaf-dashboard.html', 'case-studies/fugro.html'
