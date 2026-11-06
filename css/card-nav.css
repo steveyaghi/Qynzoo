@@ -91,9 +91,11 @@
   gap: 8px;
 }
 
+/* Full horizontal Qynzoo logo (symbol + wordmark) from the logo kit. */
 .logo {
-  height: 28px;
+  height: 38px;
   width: auto;
+  display: block;
 }
 
 .logo-text {
@@ -286,7 +288,7 @@
   }
 
   .logo {
-    height: 24px;
+    height: 32px;
   }
 }
 

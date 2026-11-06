@@ -7,7 +7,7 @@ class CardNav {
   constructor(config) {
     this.config = {
       containerId: 'cardNavContainer',
-      logo: config.logo || 'images/logo.png',
+      logo: config.logo || 'logos/qynzoo-horizontal-dark.svg',
       logoAlt: config.logoAlt || 'Logo',
       items: config.items || [],
       baseColor: config.baseColor || '#fff',
@@ -43,8 +43,7 @@ class CardNav {
           </button>
           <div class="logo-container">
             <a href="${this.config.homeHref}">
-              <img src="${this.config.logo}" alt="${this.config.logoAlt}" class="logo">
-              <span class="logo-text">Qynzoo</span>
+              <img src="${this.config.logo}" alt="${this.config.logoAlt}" class="logo" width="140" height="38">
             </a>
           </div>
           <div class="card-nav-actions">
@@ -195,8 +194,8 @@ document.addEventListener('DOMContentLoaded', () => {
     connect: 'Connect', contact: 'Contact Us', cta: 'Book Free Call', demo: 'Demo (NL)'
   };
   window.cardNav = new CardNav({
-    logo: base + 'logos/Qynzoo_solo_logo.svg',
-    logoAlt: 'Qynzoo Logo',
+    logo: base + 'logos/qynzoo-horizontal-dark.svg',
+    logoAlt: 'Qynzoo',
     lang: nl ? 'nl' : 'en',
     homeHref: page + 'index.html#home',
     ctaLabel: t.cta,

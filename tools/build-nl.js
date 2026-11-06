@@ -64,7 +64,8 @@ function trText(raw, page) {
 // /nl); assets and the English-only blog get an extra "../".
 const NL_PAGES = new Set(PAGES.map(p => path.basename(p)));
 function fixUrl(url, depth) {
-  if (!url || /^(https?:|mailto:|tel:|#|data:|javascript:)/.test(url)) return url;
+  // Root-relative URLs (/favicon.svg) already work from inside /nl.
+  if (!url || /^(https?:|mailto:|tel:|#|data:|javascript:|\/)/.test(url)) return url;
   const m = url.match(/^((?:\.\.\/)*)(.*)$/);
   const ups = m[1];
   const rest = m[2];
