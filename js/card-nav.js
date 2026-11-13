@@ -99,7 +99,9 @@ class CardNav {
 
   expandedHeight() {
     const isMobile = window.matchMedia('(max-width: 768px)').matches;
-    if (isMobile) {
+    // Desktop: at least 260px, but tall enough for the card with the most
+    // links (Work has five; a fixed 260px cut off "Testimonials").
+    {
       // Measure the menu with temporary inline styles, then restore the
       // original ones. (Stripping them with cssText.replace failed because
       // the browser normalises cssText, which left position:static behind
@@ -111,9 +113,8 @@ class CardNav {
       Object.assign(content.style, { position: 'static', height: 'auto', visibility: 'visible' });
       const h = 60 + content.offsetHeight;
       content.style.cssText = saved;
-      return h;
+      return isMobile ? h : Math.max(260, h);
     }
-    return 260;
   }
 
   toggleMenu() {

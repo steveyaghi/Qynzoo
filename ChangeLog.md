@@ -1,6 +1,15 @@
 
 # Qynzoo.com ChangeLog
 
+## 2026-11-13 — Menu cards fit all their links (v4.3.16, not pushed)
+
+- On desktop the open menu was fixed at 260px, so the Work card's last
+  links (Testimonials / How It Works) were cut off. js/card-nav.js now
+  measures the cards and uses at least 260px, more when a card needs it.
+- card-nav.js v5.3 on every page, footer V4.3.16, /nl rebuilt.
+- Checked EN and NL at 1280, 800 and 375 px wide: every link sits inside
+  its card. The homepage testimonial cards were also checked: no overflow.
+
 ## 2026-11-13 — Fugro shown as master thesis research (v4.3.15, not pushed)
 
 - Fugro was the founder's master thesis (University of Twente), not a
