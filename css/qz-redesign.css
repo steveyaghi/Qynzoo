@@ -650,6 +650,7 @@ body.qz-redesign {
 .qz-project-card .client-logo img.logo-haskoning { height: 64px; transform: scale(1.12); transform-origin: left center; }
 .qz-project-card .client-logo img.logo-tuhaf { height: 56px; }
 .qz-project-card .client-logo img.logo-odido { height: 36px; }
+.qz-project-card .client-logo img.logo-placeholder { height: 38px; }
 .qz-project-card .client-logo span { font-size: 22px; line-height: 1.1; }
 .qz-project-card.span-4 .client-logo img { height: 56px; max-width: 260px; }
 .qz-project-card p {
@@ -1475,6 +1476,36 @@ body.qz-redesign {
 }
 .qz-doc .case-summary + .case-summary { margin-top: 14px; }
 .qz-doc .case-summary strong { color: var(--qz-gold); font-weight: 700; }
+/* Founder-experience notice: work done as an employee, not a Qynzoo project. */
+.qz-doc .case-experience-note {
+    margin: 0 0 22px;
+    padding: 16px 20px;
+    border-radius: 14px;
+    border: 1.5px solid rgba(254, 193, 7, 0.55);
+    background: rgba(254, 193, 7, 0.08);
+    font-family: var(--qz-sans);
+    font-size: 15px;
+    line-height: 1.6;
+    color: var(--qz-text-dim);
+    max-width: 760px;
+}
+.qz-doc .case-experience-note strong { color: var(--qz-gold); display: block; margin-bottom: 4px; }
+/* Homepage cards built on founder experience (employee work, not client work). */
+.qz-projects-grid .qz-project-card span.qz-exp-tag {
+    display: inline-block;
+    align-self: flex-start;
+    margin: 4px 0 14px;
+    padding: 4px 10px;
+    border: 1.5px solid #0d1030;
+    border-radius: 999px;
+    color: #0d1030;
+    font-family: var(--qz-mono);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    opacity: 1;
+}
+.qz-projects-note { margin-top: 22px; font-size: 14px; line-height: 1.6; color: var(--qz-text-dim); max-width: 820px; }
 
 .qz-doc .case-section {
     padding: 56px 48px;

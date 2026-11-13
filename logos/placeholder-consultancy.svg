@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 72" width="360" height="72" role="img" aria-label="Consultancy company">
+  <!-- Generic placeholder mark: compass. Not a real company logo. -->
+  <circle cx="32" cy="38" r="26" fill="none" stroke="#111" stroke-width="5"/>
+  <path d="M44 24 36 42 20 52 28 34z" fill="#111"/>
+  <circle cx="32" cy="38" r="3.5" fill="#fff"/>
+  <text x="70" y="40" font-family="Arial, Helvetica, sans-serif" font-size="30" font-weight="700" fill="#111" letter-spacing="1">CONSULTANCY</text>
+  <text x="71" y="64" font-family="Arial, Helvetica, sans-serif" font-size="18" fill="#111" letter-spacing="3">COMPANY</text>
+</svg>
