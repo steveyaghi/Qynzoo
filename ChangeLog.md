@@ -1,6 +1,23 @@
 
 # Qynzoo.com ChangeLog
 
+## 2026-11-13 — Fugro shown as master thesis research (v4.3.15, not pushed)
+
+- Fugro was the founder's master thesis (University of Twente), not a
+  Qynzoo client. The page (case-studies/fugro.html) is now titled
+  "Research", the "Client: Fugro" pill and schema client are gone, and a
+  notice at the top explains it, with a link to the thesis in the UT
+  repository (https://essay.utwente.nl/essays/104197). A second link sits
+  under the results. Schema gets sameAs to the thesis.
+- Homepage: Fugro logo out of the "WORKED WITH" belt (Waterprof and
+  Podcast Tuhaf remain), card shows a neutral research mark
+  (logos/placeholder-research.svg) and a "RESEARCH, MASTER THESIS" tag,
+  the note under the grid explains the label, structured data client list
+  is now Waterprof only.
+- About and sitemap reworded. Werner Halter testimonial kept.
+- Dutch: tools/nl/91-research-thesis.json, /nl rebuilt (0 untranslated).
+  qz-redesign.css v6.3, footer V4.3.15.
+
 ## 2026-11-13 — Employer work shown as founder experience (v4.3.14, not pushed)
 
 - Reason: a contact-form message warned that work done as an employee

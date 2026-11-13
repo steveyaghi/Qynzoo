@@ -1490,6 +1490,19 @@ body.qz-redesign {
     max-width: 760px;
 }
 .qz-doc .case-experience-note strong { color: var(--qz-gold); display: block; margin-bottom: 4px; }
+.qz-doc .case-experience-note a,
+.qz-doc .case-thesis-link {
+    display: inline-block;
+    margin-top: 8px;
+    color: #fff;
+    font-family: var(--qz-mono);
+    font-size: 13px;
+    font-weight: 700;
+    text-decoration: underline;
+    text-underline-offset: 4px;
+}
+.qz-doc .case-experience-note a:hover,
+.qz-doc .case-thesis-link:hover { color: var(--qz-teal, #44BAA3); }
 /* Homepage cards built on founder experience (employee work, not client work). */
 .qz-projects-grid .qz-project-card span.qz-exp-tag {
     display: inline-block;
